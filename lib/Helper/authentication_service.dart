@@ -50,7 +50,6 @@ class AnalyticsService {
   //     );
 
   //     await _firestoreService.createUser(_currentUser);
-
   //     return authResult.user != null;
   //   } catch (e) {
   //     return e.message;

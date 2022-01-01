@@ -8,6 +8,9 @@ import 'package:get/get.dart';
 import 'package:poster_maker/Helper/commanlist/list.dart';
 import 'package:poster_maker/Helper/utlity.dart';
 
+
+TextEditingController phoneController = TextEditingController();
+
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>editAppBar<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< //
 editAppBar({BuildContext context, String name}) {
   return

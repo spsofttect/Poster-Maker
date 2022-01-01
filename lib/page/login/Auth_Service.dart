@@ -8,44 +8,7 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get/get.dart';
 import 'package:poster_maker/Helper/apiprovider.dart';
 import 'package:poster_maker/page/bottomnavbar/bottomnavbar.dart';
-
-String yourCountryCode = "";
-int currentpage = 0;
-RxInt start = 60.obs;
-String buttonName = "Resend";
-String verificationIdFinal = "";
-String smsCode = "";
-bool otpVisibility = false;
-String initialCountry = 'IN';
-AuthClass authClass = AuthClass();
-TextEditingController otpbox = TextEditingController();
-AnimationController storyAnimationController;
-TextEditingController phoneController = TextEditingController();
-Timer _timer;
-
-startTimer() {
-  const onsec = Duration(seconds: 1);
-  _timer = Timer.periodic(onsec, (timer) {
-    if (start.value == 0) {
-      _timer.cancel();
-      // wait = false;
-
-    } else {
-      if (start > 0) {
-        start.value--;
-      }
-    }
-  });
-}
-
-setData(verificationId) {
-  verificationIdFinal = verificationId;
-  startTimer();
-}
-
-selectedIndex(index) {
-  currentpage = index;
-}
+import 'package:poster_maker/page/login/login.dart';
 
 class AuthClass {
   final FirebaseAuth _auth = FirebaseAuth.instance;

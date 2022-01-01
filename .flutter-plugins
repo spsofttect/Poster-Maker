@@ -1,6 +1,7 @@
 # This is a generated file; do not edit or check into version control.
 cached_video_player=/usr/local/Caskroom/flutter/3.0.5/flutter/.pub-cache/hosted/pub.dartlang.org/cached_video_player-2.0.3/
 cloud_firestore_web=/usr/local/Caskroom/flutter/3.0.5/flutter/.pub-cache/hosted/pub.dartlang.org/cloud_firestore_web-3.1.1/
+device_info=/usr/local/Caskroom/flutter/3.0.5/flutter/.pub-cache/hosted/pub.dartlang.org/device_info-2.0.3/
 firebase_analytics=/usr/local/Caskroom/flutter/3.0.5/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_analytics-10.0.7/
 firebase_analytics_web=/usr/local/Caskroom/flutter/3.0.5/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_analytics_web-0.5.1+6/
 firebase_auth=/usr/local/Caskroom/flutter/3.0.5/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_auth-4.2.0/
@@ -35,6 +36,11 @@ path_provider_linux=/usr/local/Caskroom/flutter/3.0.5/flutter/.pub-cache/hosted/
 path_provider_macos=/usr/local/Caskroom/flutter/3.0.5/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_macos-2.0.6/
 path_provider_windows=/usr/local/Caskroom/flutter/3.0.5/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_windows-2.0.7/
 photo_manager=/usr/local/Caskroom/flutter/3.0.5/flutter/.pub-cache/hosted/pub.dartlang.org/photo_manager-2.5.1+1/
+platform_device_id=/usr/local/Caskroom/flutter/3.0.5/flutter/.pub-cache/hosted/pub.dartlang.org/platform_device_id-1.0.1/
+platform_device_id_linux=/usr/local/Caskroom/flutter/3.0.5/flutter/.pub-cache/hosted/pub.dartlang.org/platform_device_id_linux-1.0.0/
+platform_device_id_macos=/usr/local/Caskroom/flutter/3.0.5/flutter/.pub-cache/hosted/pub.dartlang.org/platform_device_id_macos-1.0.0/
+platform_device_id_web=/usr/local/Caskroom/flutter/3.0.5/flutter/.pub-cache/hosted/pub.dartlang.org/platform_device_id_web-1.0.0/
+platform_device_id_windows=/usr/local/Caskroom/flutter/3.0.5/flutter/.pub-cache/hosted/pub.dartlang.org/platform_device_id_windows-1.0.0/
 share_plus=/usr/local/Caskroom/flutter/3.0.5/flutter/.pub-cache/hosted/pub.dartlang.org/share_plus-4.4.0/
 share_plus_linux=/usr/local/Caskroom/flutter/3.0.5/flutter/.pub-cache/hosted/pub.dartlang.org/share_plus_linux-3.0.0/
 share_plus_macos=/usr/local/Caskroom/flutter/3.0.5/flutter/.pub-cache/hosted/pub.dartlang.org/share_plus_macos-3.0.1/
