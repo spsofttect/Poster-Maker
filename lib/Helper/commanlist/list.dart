@@ -1,5 +1,7 @@
 import 'package:cached_video_player/cached_video_player.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
+import 'package:get/get_rx/src/rx_types/rx_types.dart';
 import 'package:poster_maker/Helper/utlity.dart';
 
 List item = [
@@ -172,8 +174,7 @@ List banner = [
   '${AssetPath.poster}Poetry-And-The-Creative-Mind-Day.jpg',
   '${AssetPath.poster}Untitled-20.jpg',
 ];
-List favourit = [
-];
+List favourit = [];
 
 List posterImage = [
   '${AssetPath.poster}National-Garlic-Day.jpg',
@@ -196,47 +197,37 @@ class NewVideoAndStoryOrPostMix {
 }
 
 List<NewVideoAndStoryOrPostMix> item3 = [
+  NewVideoAndStoryOrPostMix(isVideo: false, url: '${AssetPath.poster}1 (6).jpg', isLike: false),
   NewVideoAndStoryOrPostMix(
-      isVideo: false, url: '${AssetPath.poster}1 (6).jpg',isLike: false),
-  NewVideoAndStoryOrPostMix(
-      isVideo: true,
-      url:
-          "https://assets.mixkit.co/videos/preview/mixkit-a-girl-blowing-a-bubble-gum-at-an-amusement-park-1226-large.mp4",isLike:false),
-  NewVideoAndStoryOrPostMix(
-      isVideo: false, url: '${AssetPath.poster}1 (6).png',isLike: false),
-  NewVideoAndStoryOrPostMix(
-      isVideo: false, url: '${AssetPath.poster}1 (7).jpg',isLike: false),
-  NewVideoAndStoryOrPostMix(
-      isVideo: false, url: '${AssetPath.poster}1 (7).png',isLike: false),
-  NewVideoAndStoryOrPostMix(
-      isVideo: false, url: '${AssetPath.poster}1 (8).jpg',isLike: false),
+      isVideo: true, url: "https://assets.mixkit.co/videos/preview/mixkit-a-girl-blowing-a-bubble-gum-at-an-amusement-park-1226-large.mp4", isLike: false),
+  NewVideoAndStoryOrPostMix(isVideo: false, url: '${AssetPath.poster}1 (6).png', isLike: false),
+  NewVideoAndStoryOrPostMix(isVideo: false, url: '${AssetPath.poster}1 (7).jpg', isLike: false),
+  NewVideoAndStoryOrPostMix(isVideo: false, url: '${AssetPath.poster}1 (7).png', isLike: false),
+  NewVideoAndStoryOrPostMix(isVideo: false, url: '${AssetPath.poster}1 (8).jpg', isLike: false),
+  NewVideoAndStoryOrPostMix(isVideo: true, url: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4", isLike: false),
+  NewVideoAndStoryOrPostMix(isVideo: false, url: '${AssetPath.poster}1 (4).jpg', isLike: false),
+  NewVideoAndStoryOrPostMix(isVideo: false, url: '${AssetPath.poster}1 (6).jpg', isLike: false),
+  NewVideoAndStoryOrPostMix(isVideo: false, url: '${AssetPath.poster}1 (6).png', isLike: false),
+  NewVideoAndStoryOrPostMix(isVideo: false, url: '${AssetPath.poster}1 (7).jpg', isLike: false),
   NewVideoAndStoryOrPostMix(
       isVideo: true,
       url:
-          "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",isLike: false),
-  NewVideoAndStoryOrPostMix(
-      isVideo: false, url: '${AssetPath.poster}1 (4).jpg',isLike: false),
-  NewVideoAndStoryOrPostMix(
-      isVideo: false, url: '${AssetPath.poster}1 (6).jpg',isLike: false),
-  NewVideoAndStoryOrPostMix(
-      isVideo: false, url: '${AssetPath.poster}1 (6).png',isLike: false),
-  NewVideoAndStoryOrPostMix(
-      isVideo: false, url: '${AssetPath.poster}1 (7).jpg',isLike: false),
-  NewVideoAndStoryOrPostMix(
-      isVideo: true,
-      url:
-          "https://vod-progressive.akamaized.net/exp=1669815597~acl=%2Fvimeo-prod-skyfire-std-us%2F01%2F1919%2F18%2F459597053%2F2031780851.mp4~hmac=8178f15f67b1e78dd0ea145ac856bc6b616de89a73b334ec5e3a80e097eb8852/vimeo-prod-skyfire-std-us/01/1919/18/459597053/2031780851.mp4",isLike: false),
-  NewVideoAndStoryOrPostMix(
-      isVideo: false, url: '${AssetPath.poster}1 (7).png',isLike: false),
-  NewVideoAndStoryOrPostMix(
-      isVideo: false, url: '${AssetPath.poster}1 (8).jpg',isLike: false),
-  NewVideoAndStoryOrPostMix(
-      isVideo: false, url: '${AssetPath.poster}1 (4).jpg',isLike: false),
+          "https://vod-progressive.akamaized.net/exp=1669815597~acl=%2Fvimeo-prod-skyfire-std-us%2F01%2F1919%2F18%2F459597053%2F2031780851.mp4~hmac=8178f15f67b1e78dd0ea145ac856bc6b616de89a73b334ec5e3a80e097eb8852/vimeo-prod-skyfire-std-us/01/1919/18/459597053/2031780851.mp4",
+      isLike: false),
+  NewVideoAndStoryOrPostMix(isVideo: false, url: '${AssetPath.poster}1 (7).png', isLike: false),
+  NewVideoAndStoryOrPostMix(isVideo: false, url: '${AssetPath.poster}1 (8).jpg', isLike: false),
+  NewVideoAndStoryOrPostMix(isVideo: false, url: '${AssetPath.poster}1 (4).jpg', isLike: false),
 ];
 
-final AdvancedDrawerController advancedDrawerController =
-    AdvancedDrawerController();
+final AdvancedDrawerController advancedDrawerController = AdvancedDrawerController();
 
+final ScrollController homePageController = ScrollController();
+RxBool isScroll = false.obs;
 
+final ScrollController categoryPageController = ScrollController();
 
+final ScrollController customPageController = ScrollController();
 
+final ScrollController favouritePageController = ScrollController();
+
+final ScrollController myPostPageController = ScrollController();

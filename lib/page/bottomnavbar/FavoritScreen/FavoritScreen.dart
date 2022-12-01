@@ -19,11 +19,22 @@ class FavoriteScreen extends StatefulWidget {
   State<FavoriteScreen> createState() => _FavoriteScreenState();
 }
 
-GlobalKey<_FavoriteScreenState> textGlobalKey =
-    GlobalKey<_FavoriteScreenState>();
+GlobalKey<_FavoriteScreenState> textGlobalKey = GlobalKey<_FavoriteScreenState>();
 
 class _FavoriteScreenState extends State<FavoriteScreen> {
   // CountryController controller = Get.put(CountryController());
+
+  @override
+  void initState() {
+    super.initState();
+    favouritePageController.addListener(() {
+      if (favouritePageController.position.pixels > Get.height * 0.1) {
+        isScroll.value = true;
+      } else {
+        isScroll.value = false;
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -38,61 +49,65 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
       child: Column(
         children: [
           commanAppbar(
-              ontap: () {
-                Get.offAll(BottomNavBarScreen());
-              },
-              pageName: 'Favorite',textColor: Theme.of(context).textTheme.headline1.color,
+            ontap: () {
+              Get.offAll(BottomNavBarScreen());
+            },
+            pageName: 'Favorite',
+            textColor: Theme.of(context).textTheme.headline1.color,
           ),
           SizedBox(
             height: 10,
           ),
           Expanded(
-            child: (favourit.isEmpty)?Center(child: Text("No Data"),):StaggeredGridView.countBuilder(
-              crossAxisCount: 2,
-              itemCount: favourit.length,
-              physics: NeverScrollableScrollPhysics(),
-              itemBuilder: (context, index) => Padding(
-                padding: const EdgeInsets.all(5.0),
-                child: Bounce(
-                  duration: Duration(milliseconds: 200),
-                  onPressed: () {
-                    Get.to(EditBottomNavBar());
-                  },
-                  child: ClipRRect(
-                      borderRadius: BorderRadius.all(Radius.circular(12)),
-                      child: (favourit[index].isVideo)
-                          ? DynamicVideoPlayer(
-                              url: favourit[index].url,
-                              index: index,
-                            )
-                          : Stack(
-                              alignment: Alignment.topRight,
-                              children: [
-                                Image.asset(favourit[index].url),
-                                InkWell(
-                                  onTap: () {
-                                      favourit.remove(favourit[index]);
-                                    setState(() {});
-                                  },
-                                  child: Container(
-                                    margin: EdgeInsets.all(5),
-                                    height: 30,
-                                    width: 30,
-                                    decoration: BoxDecoration(
-                                        color: Colors.black54,
-                                        borderRadius: BorderRadius.circular(8)),
-                                    child: Icon(
-                                      Icons.favorite,
-                                      color: Colors.red,
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            )),
-                ),
-              ),
-              staggeredTileBuilder: (index) => const StaggeredTile.fit(1),
-            ),
+            child: (favourit.isEmpty)
+                ? Center(
+                    child: Text("No Data"),
+                  )
+                : StaggeredGridView.countBuilder(
+                    controller: favouritePageController,
+                    crossAxisCount: 2,
+                    itemCount: favourit.length,
+                    physics: NeverScrollableScrollPhysics(),
+                    itemBuilder: (context, index) => Padding(
+                      padding: const EdgeInsets.all(5.0),
+                      child: Bounce(
+                        duration: Duration(milliseconds: 200),
+                        onPressed: () {
+                          Get.to(EditBottomNavBar());
+                        },
+                        child: ClipRRect(
+                            borderRadius: BorderRadius.all(Radius.circular(12)),
+                            child: (favourit[index].isVideo)
+                                ? DynamicVideoPlayer(
+                                    url: favourit[index].url,
+                                    index: index,
+                                  )
+                                : Stack(
+                                    alignment: Alignment.topRight,
+                                    children: [
+                                      Image.asset(favourit[index].url),
+                                      InkWell(
+                                        onTap: () {
+                                          favourit.remove(favourit[index]);
+                                          setState(() {});
+                                        },
+                                        child: Container(
+                                          margin: EdgeInsets.all(5),
+                                          height: 30,
+                                          width: 30,
+                                          decoration: BoxDecoration(color: Colors.black54, borderRadius: BorderRadius.circular(8)),
+                                          child: Icon(
+                                            Icons.favorite,
+                                            color: Colors.red,
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  )),
+                      ),
+                    ),
+                    staggeredTileBuilder: (index) => const StaggeredTile.fit(1),
+                  ),
           )
 
           // GridView.custom(

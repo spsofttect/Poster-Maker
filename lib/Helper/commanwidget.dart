@@ -67,15 +67,10 @@ Widget selectedItem({ontap, color, tabName}) {
         Center(
             child: Text(
           tabName,
-          style: TextStyle(
-              color: color ? Color(AppColor.orange) : Color(AppColor.white),
-              fontFamily: AppFont.Medium,
-              fontSize: 15),
+          style: TextStyle(color: color ? Color(AppColor.orange) : Color(AppColor.white), fontFamily: AppFont.Medium, fontSize: 15),
         )),
         SizedBox(height: 5),
-        Divider(
-            thickness: 3,
-            color: color ? Color(AppColor.orange) : Colors.transparent)
+        Divider(thickness: 3, color: color ? Color(AppColor.orange) : Colors.transparent)
       ]),
     ),
   );
@@ -128,14 +123,7 @@ Widget fastDownArrow() {
 }
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>> category ListView <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< //
 
-Widget customListView(
-    {double height,
-    double width,
-    itemCount,
-    listindex,
-    boxfit,
-    onTap,
-    scrollDirection}) {
+Widget customListView({double height, double width, itemCount, listindex, boxfit, onTap, scrollDirection}) {
   return Container(
       margin: EdgeInsets.only(top: 15),
       height: height,
@@ -148,23 +136,19 @@ Widget customListView(
             return GestureDetector(
               onTap: onTap,
               child: Container(
-                margin: EdgeInsets.only(
-                    left: index == 0 ? 15 : 5,
-                    right: index == itemCount - 1 ? 15 : 5),
+                margin: EdgeInsets.only(left: index == 0 ? 15 : 5, right: index == itemCount - 1 ? 15 : 5),
                 padding: EdgeInsets.only(top: 7, left: 7, right: 7),
                 width: width,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15),
-                  border: Border.all(
-                      width: 2, color: Color(AppColor.orange).withOpacity(0.5)),
+                  border: Border.all(width: 2, color: Color(AppColor.orange).withOpacity(0.5)),
                 ),
                 child: Column(
                   children: [
                     Container(
                       height: height - 40,
                       decoration: BoxDecoration(
-                          image: DecorationImage(
-                              image: AssetImage(currentObj), fit: boxfit),
+                          image: DecorationImage(image: AssetImage(currentObj), fit: boxfit),
                           borderRadius: BorderRadius.circular(15),
                           color: Color(AppColor.grey)),
                     ),
@@ -183,7 +167,7 @@ Widget customListView(
 }
 
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>titleRow<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< //
-Widget title({title, onTap,context}) {
+Widget title({title, onTap, context}) {
   return Padding(
     padding: const EdgeInsets.only(left: 15, right: 15, top: 15),
     child: Row(
@@ -191,14 +175,20 @@ Widget title({title, onTap,context}) {
       children: [
         Text(
           title,
-          style: TextStyle(fontFamily: AppFont.SemiBold, fontSize: 18,color: Theme.of(context).textTheme.headline1.color,
+          style: TextStyle(
+            fontFamily: AppFont.SemiBold,
+            fontSize: 18,
+            color: Theme.of(context).textTheme.headline1.color,
           ),
         ),
         GestureDetector(
           onTap: onTap,
           child: Text(
             'View all',
-            style: TextStyle(fontFamily: AppFont.Medium, fontSize: 15,color: Theme.of(context).textTheme.headline1.color,
+            style: TextStyle(
+              fontFamily: AppFont.Medium,
+              fontSize: 15,
+              color: Theme.of(context).textTheme.headline1.color,
             ),
           ),
         ),
@@ -228,7 +218,7 @@ icon({icon, color}) {
 }
 
 class DynamicVideoPlayer extends StatefulWidget {
-  DynamicVideoPlayer({Key key, this.url,this.index}) : super(key: key);
+  DynamicVideoPlayer({Key key, this.url, this.index}) : super(key: key);
   String url;
   int index;
   @override
@@ -259,51 +249,42 @@ class _DynamicVideoPlayerState extends State<DynamicVideoPlayer> {
                 CachedVideoPlayer(controller),
                 GestureDetector(
                     onTap: () {
-                      (controller.value.isPlaying)
-                          ? controller.pause()
-                          : controller.play();
+                      (controller.value.isPlaying) ? controller.pause() : controller.play();
                       setState(() {});
                     },
                     child: Container(
                         height: 40,
                         width: 40,
                         decoration: BoxDecoration(
+                            gradient: LinearGradient(
+                                begin: Alignment.topCenter, end: Alignment.bottomCenter, colors: const [Color(0xFFFA7F08), Color(0xFFF24405)]),
                             color: Color(AppColor.orange),
-                            borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(20),
-                                topRight: Radius.circular(20),
-                                bottomLeft: Radius.circular(20))),
+                            borderRadius: BorderRadius.only(topLeft: Radius.circular(20), topRight: Radius.circular(20), bottomLeft: Radius.circular(20))),
                         child: Icon(
-                          (!controller.value.isPlaying)
-                              ? Icons.play_arrow
-                              : Icons.pause,
+                          (!controller.value.isPlaying) ? Icons.play_arrow : Icons.pause,
                           color: Theme.of(context).scaffoldBackgroundColor,
                         ))),
                 Align(
                   alignment: Alignment.topRight,
                   child: InkWell(
                     onTap: () {
-                    item3[widget.index].isLike = !item3[widget.index].isLike;
-                     
+                      item3[widget.index].isLike = !item3[widget.index].isLike;
+
                       if (item3[widget.index].isLike) {
                         favourit.add(item3[widget.index]);
                       } else {
                         favourit.remove(item3[widget.index]);
                       }
-                       setState(() {});
+                      setState(() {});
                     },
                     child: Container(
                       margin: EdgeInsets.all(5),
                       height: 30,
                       width: 30,
-                      decoration: BoxDecoration(
-                          color: Colors.black54,
-                          borderRadius: BorderRadius.circular(8)),
+                      decoration: BoxDecoration(color: Colors.black54, borderRadius: BorderRadius.circular(8)),
                       child: Icon(
                         Icons.favorite,
-                        color: (!item3[widget.index].isLike)
-                            ? Colors.white
-                            : Colors.red,
+                        color: (!item3[widget.index].isLike) ? Colors.white : Colors.red,
                       ),
                     ),
                   ),

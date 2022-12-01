@@ -47,18 +47,29 @@ class _BottomNavBarScreenState extends State<BottomNavBarScreen> {
     });
   }
 
-  var scrollController = ScrollController();
-  RxBool isScroll = false.obs;
   moveUp() {
-    scrollController.animateTo(0,
-        curve: Curves.linear, duration: Duration(milliseconds: 500));
+    if (currentIndex == 0) {
+      homePageController.animateTo(0, curve: Curves.linear, duration: Duration(milliseconds: 500));
+      isScroll.value = false;
+    } else if (currentIndex == 1) {
+      categoryPageController.animateTo(0, curve: Curves.linear, duration: Duration(milliseconds: 500));
+      isScroll.value = false;
+    } else if (currentIndex == 2) {
+      customPageController.animateTo(0, curve: Curves.linear, duration: Duration(milliseconds: 500));
+      isScroll.value = false;
+    } else if (currentIndex == 3) {
+      favouritePageController.animateTo(0, curve: Curves.linear, duration: Duration(milliseconds: 500));
+      isScroll.value = false;
+    } else {
+      myPostPageController.animateTo(0, curve: Curves.linear, duration: Duration(milliseconds: 500));
+      isScroll.value = false;
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     // DeviceOrientationd
-    SystemChrome.setPreferredOrientations(
-        [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
+    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
 
     // Do not capture Screenshot and video
     FlutterWindowManager.addFlags(FlutterWindowManager.FLAG_SECURE);
@@ -97,7 +108,7 @@ class _BottomNavBarScreenState extends State<BottomNavBarScreen> {
               FavoriteScreen()
             else if (currentIndex == 4)
               PostScreen(),
-            SizedBox(height: 80),          
+            SizedBox(height: 80),
             // ScrollConfiguration(
             //     behavior: ScrollBehavior(),
             //     child: GlowingOverscrollIndicator(
@@ -130,33 +141,6 @@ class _BottomNavBarScreenState extends State<BottomNavBarScreen> {
             //                 SizedBox(height: 80)
             //               ],
             //             )))),
-        
-           Obx(() => Align(
-                  alignment: Alignment.bottomRight,
-                  child: isScroll.value
-                      ? GestureDetector(
-                          onTap: () {
-                            setState(() {
-                              moveUp();
-                            });
-                          },
-                          child: Container(
-                            height: 30,
-                            width: 50,
-                            // color: Colors.white,
-                            padding: EdgeInsets.all(5),
-                            margin: EdgeInsets.only(
-                                bottom: Get.height * 0.2,
-                                right: Get.height * 0.03),
-                            child: RotationTransition(
-                                turns: AlwaysStoppedAnimation(180 / 360),
-                                child: Image.asset(
-                                  "${AssetPath.refer}fastdown.png",
-                                )),
-                          ),
-                        )
-                      : SizedBox(),
-                )),
             flottingButton(),
             Align(alignment: Alignment.bottomCenter, child: bottomnavbar()),
           ],
@@ -166,8 +150,6 @@ class _BottomNavBarScreenState extends State<BottomNavBarScreen> {
     );
   }
 
-
-
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> flottingButton <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< //
   Align flottingButton() {
     return Align(
@@ -176,40 +158,59 @@ class _BottomNavBarScreenState extends State<BottomNavBarScreen> {
           height: 50,
           width: 50,
           padding: EdgeInsets.all(5),
-          margin: EdgeInsets.only(
-              bottom: Get.height * 0.12, right: Get.height * 0.03),
+          margin: EdgeInsets.only(bottom: Get.height * 0.12, right: Get.height * 0.03),
           decoration: BoxDecoration(
             boxShadow: [BoxShadow(color: Color(AppColor.white))],
-            border: Border.all(width: 3.5, color: Color(AppColor.white)),
+            border: Border.all(width: 2.5, color: Color(AppColor.white)),
             borderRadius: BorderRadius.circular(30),
-            color: Color(AppColor.grey).withOpacity(0.3),
+            gradient: LinearGradient(begin: Alignment.topCenter, end: Alignment.bottomCenter, colors: const [Color(0xFFFA7F08), Color(0xFFF24405)]),
+            // color: Color(AppColor.orange),
           ),
           child: GestureDetector(
             onTap: () {
-              Get.to(NotificationPageView());
+              if (isScroll.value) {
+                moveUp();
+              } else {
+                Get.to(NotificationPageView());
+              }
             },
-            child: Stack(
-              children: [
-                Image.asset('${AssetPath.homepage}notification.png'),
-                Align(
-                  alignment: Alignment.topRight,
-                  child: Container(
-                    height: 14,
-                    width: 14,
-                    decoration: BoxDecoration(
-                      color: Colors.red.shade500,
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: Center(
-                      child: Text('12',
-                          style: TextStyle(
-                              fontSize: 10,
-                              fontFamily: AppFont.Medium,
-                              color: Color(AppColor.white))),
-                    ),
-                  ),
-                ),
-              ],
+            child: Obx(
+              () => Stack(
+                alignment: Alignment.center,
+                children: [
+                  (isScroll.value)
+                      ? Image.asset(
+                          "${AssetPath.refer}fastdown.png",
+                          colorBlendMode: BlendMode.srcIn,
+                          color: Colors.white,
+                          scale: 2,
+                        )
+                      : Image.asset(
+                          '${AssetPath.homepage}notification.png',
+                          colorBlendMode: BlendMode.srcIn,
+                          color: Colors.white,
+                          scale: 1.5,
+                        ),
+                  (isScroll.value)
+                      ? Container()
+                      : Align(
+                          alignment: Alignment.topRight,
+                          child: Container(
+                            margin: EdgeInsets.only(right: 5, top: 2),
+                            height: 14,
+                            width: 14,
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              border: Border.all(color: Color(AppColor.orange)),
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: Center(
+                              child: Text('12', style: TextStyle(fontSize: 9, fontFamily: AppFont.Medium, color: Color(AppColor.orange))),
+                            ),
+                          ),
+                        ),
+                ],
+              ),
             ),
           ),
         ));
@@ -221,45 +222,21 @@ class _BottomNavBarScreenState extends State<BottomNavBarScreen> {
       height: 55,
       margin: EdgeInsets.only(bottom: Get.height * 0.02, left: 30, right: 30),
       decoration: BoxDecoration(
-        gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: const [Color(0xFFFA7F08), Color(0xFFF24405)]),
+        gradient: LinearGradient(begin: Alignment.topCenter, end: Alignment.bottomCenter, colors: const [Color(0xFFFA7F08), Color(0xFFF24405)]),
         borderRadius: BorderRadius.circular(15),
       ),
       child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
-        iconButton(
-            currentInd: 0,
-            iconImg: 'home.png',
-            iconName: 'Home',
-            selectedind: 0),
-        iconButton(
-            currentInd: 1,
-            iconImg: 'Category.png',
-            iconName: 'Category',
-            selectedind: 1),
-        iconButton(
-            currentInd: 2,
-            iconImg: 'Custom.png',
-            iconName: 'Custom',
-            selectedind: 2),
-        iconButton(
-            currentInd: 3,
-            iconImg: 'Favorite.png',
-            iconName: 'Favorite',
-            selectedind: 3),
-        iconButton(
-            currentInd: 4,
-            iconImg: 'gallery.png',
-            iconName: 'My Post',
-            selectedind: 4),
+        iconButton(currentInd: 0, iconImg: 'home.png', iconName: 'Home', selectedind: 0),
+        iconButton(currentInd: 1, iconImg: 'Category.png', iconName: 'Category', selectedind: 1),
+        iconButton(currentInd: 2, iconImg: 'Custom.png', iconName: 'Custom', selectedind: 2),
+        iconButton(currentInd: 3, iconImg: 'Favorite.png', iconName: 'Favorite', selectedind: 3),
+        iconButton(currentInd: 4, iconImg: 'gallery.png', iconName: 'My Post', selectedind: 4),
       ]),
     );
   }
 
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> iconButton <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< //
-  Widget iconButton(
-      {currentInd, selectedind, String iconImg, String iconName}) {
+  Widget iconButton({currentInd, selectedind, String iconImg, String iconName}) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -279,6 +256,7 @@ class _BottomNavBarScreenState extends State<BottomNavBarScreen> {
               height: 25,
             ),
             onPressed: () {
+              isScroll.value = false;
               selectedIndex(selectedind);
             },
           ),
@@ -289,9 +267,7 @@ class _BottomNavBarScreenState extends State<BottomNavBarScreen> {
                 style: TextStyle(
                   fontSize: 12,
                   fontFamily: AppFont.Medium,
-                  color: currentIndex == currentInd
-                      ? Color(AppColor.white)
-                      : Colors.transparent,
+                  color: currentIndex == currentInd ? Color(AppColor.white) : Colors.transparent,
                 ),
               )
             : SizedBox(),
@@ -299,7 +275,6 @@ class _BottomNavBarScreenState extends State<BottomNavBarScreen> {
     );
   }
 }
-
 
 // class Controller extends GetxController {
 //   var scaffoldKey = GlobalKey<ScaffoldState>();
