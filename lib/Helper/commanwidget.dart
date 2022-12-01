@@ -262,7 +262,7 @@ class _DynamicVideoPlayerState extends State<DynamicVideoPlayer> {
                             borderRadius: BorderRadius.only(topLeft: Radius.circular(20), topRight: Radius.circular(20), bottomLeft: Radius.circular(20))),
                         child: Icon(
                           (!controller.value.isPlaying) ? Icons.play_arrow : Icons.pause,
-                          color: Theme.of(context).scaffoldBackgroundColor,
+                          color: Colors.white,
                         ))),
                 Align(
                   alignment: Alignment.topRight,

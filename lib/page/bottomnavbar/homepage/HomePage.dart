@@ -195,7 +195,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>BannerView<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< //
   Widget Banner() {
     return StaggeredGridView.countBuilder(
-      crossAxisCount: 1,
+      crossAxisCount: 2,
       itemCount: banner.length,
       physics: BouncingScrollPhysics(),
       itemBuilder: (context, index) => Padding(
