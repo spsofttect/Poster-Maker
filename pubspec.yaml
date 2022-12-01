@@ -132,7 +132,6 @@ flutter:
     - family: Medium
       fonts:
         - asset: assets/font/Fredoka-Medium.ttf
-   
   # fonts:
   #   - family: Schyler
   #     fonts:
