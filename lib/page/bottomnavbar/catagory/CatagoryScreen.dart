@@ -18,6 +18,7 @@ class _CatagoryScreenState extends State<CatagoryScreen> {
   @override
   void initState() {
     super.initState();
+    isScroll.value = false;
     categoryPageController.addListener(() {
       if (categoryPageController.position.pixels > Get.height * 0.1) {
         isScroll.value = true;

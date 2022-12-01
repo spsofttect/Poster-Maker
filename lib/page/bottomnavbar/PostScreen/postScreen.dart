@@ -22,6 +22,7 @@ class _PostScreenState extends State<PostScreen> {
   @override
   void initState() {
     super.initState();
+    isScroll.value = false;
     myPostPageController.addListener(() {
       if (myPostPageController.position.pixels > Get.height * 0.1) {
         isScroll.value = true;

@@ -19,6 +19,7 @@ class _CustomScreenState extends State<CustomScreen> {
   @override
   void initState() {
     super.initState();
+    isScroll.value = false;
     customPageController.addListener(() {
       if (customPageController.position.pixels > Get.height * 0.1) {
         isScroll.value = true;

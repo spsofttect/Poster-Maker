@@ -27,6 +27,7 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
   @override
   void initState() {
     super.initState();
+    isScroll.value = false;
     favouritePageController.addListener(() {
       if (favouritePageController.position.pixels > Get.height * 0.1) {
         isScroll.value = true;

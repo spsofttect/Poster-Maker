@@ -50,19 +50,14 @@ class _BottomNavBarScreenState extends State<BottomNavBarScreen> {
   moveUp() {
     if (currentIndex == 0) {
       homePageController.animateTo(0, curve: Curves.linear, duration: Duration(milliseconds: 500));
-      isScroll.value = false;
     } else if (currentIndex == 1) {
       categoryPageController.animateTo(0, curve: Curves.linear, duration: Duration(milliseconds: 500));
-      isScroll.value = false;
     } else if (currentIndex == 2) {
       customPageController.animateTo(0, curve: Curves.linear, duration: Duration(milliseconds: 500));
-      isScroll.value = false;
     } else if (currentIndex == 3) {
       favouritePageController.animateTo(0, curve: Curves.linear, duration: Duration(milliseconds: 500));
-      isScroll.value = false;
     } else {
       myPostPageController.animateTo(0, curve: Curves.linear, duration: Duration(milliseconds: 500));
-      isScroll.value = false;
     }
   }
 
