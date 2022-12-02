@@ -146,29 +146,29 @@ class _BottomNavBarScreenState extends State<BottomNavBarScreen> {
   }
 
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> flottingButton <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< //
-  Align flottingButton() {
-    return Align(
-        alignment: Alignment.bottomRight,
-        child: Container(
-          height: 50,
-          width: 50,
-          padding: EdgeInsets.all(5),
-          margin: EdgeInsets.only(bottom: Get.height * 0.12, right: Get.height * 0.03),
-          decoration: BoxDecoration(
-            boxShadow: [BoxShadow(color: Color(AppColor.white))],
-            border: Border.all(width: 2.5, color: Color(AppColor.white)),
-            borderRadius: BorderRadius.circular(30),
-            gradient: LinearGradient(begin: Alignment.topCenter, end: Alignment.bottomCenter, colors: const [Color(0xFFFA7F08), Color(0xFFF24405)]),
-            // color: Color(AppColor.orange),
-          ),
-          child: GestureDetector(
-            onTap: () {
-              if (isScroll.value) {
-                moveUp();
-              } else {
-                Get.to(NotificationPageView());
-              }
-            },
+  Widget flottingButton() {
+    return GestureDetector(
+      onTap: () {
+        if (isScroll.value) {
+          moveUp();
+        } else {
+          Get.to(NotificationPageView());
+        }
+      },
+      child: Align(
+          alignment: Alignment.bottomRight,
+          child: Container(
+            height: 50,
+            width: 50,
+            padding: EdgeInsets.all(5),
+            margin: EdgeInsets.only(bottom: Get.height * 0.12, right: Get.height * 0.03),
+            decoration: BoxDecoration(
+              boxShadow: [BoxShadow(color: Color(AppColor.white))],
+              border: Border.all(width: 2.5, color: Color(AppColor.white)),
+              borderRadius: BorderRadius.circular(30),
+              gradient: LinearGradient(begin: Alignment.topCenter, end: Alignment.bottomCenter, colors: const [Color(0xFFFA7F08), Color(0xFFF24405)]),
+              // color: Color(AppColor.orange),
+            ),
             child: Obx(
               () => Stack(
                 alignment: Alignment.center,
@@ -207,8 +207,8 @@ class _BottomNavBarScreenState extends State<BottomNavBarScreen> {
                 ],
               ),
             ),
-          ),
-        ));
+          )),
+    );
   }
 
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> bottomnavbar <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< //
