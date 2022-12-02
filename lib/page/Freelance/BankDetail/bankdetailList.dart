@@ -21,6 +21,7 @@ class BankDetailList extends StatelessWidget {
             }),
         Expanded(
             child: ListView(
+                 physics: BouncingScrollPhysics(),
           children: [
             ListView.builder(
                 physics: BouncingScrollPhysics(),

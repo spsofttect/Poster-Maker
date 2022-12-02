@@ -61,6 +61,7 @@ class _EditBottomNavBarState extends State<EditBottomNavBar> {
                   axisDirection: AxisDirection.down,
                   color: Color(AppColor.orange),
                   child: ListView(
+                       physics: BouncingScrollPhysics(),
                     children: [
                       if (currentIndex == 0)
                         PosterPage()

@@ -22,6 +22,7 @@ class DigitalPost extends StatelessWidget {
               }),
           Expanded(
             child: ListView(
+                 physics: BouncingScrollPhysics(),
               children: [
                 title(title: 'Instagram Post'),
                 customListView(

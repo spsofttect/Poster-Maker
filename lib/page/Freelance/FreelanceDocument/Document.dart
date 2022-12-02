@@ -29,6 +29,7 @@ class _DocumentPageViewState extends State<DocumentPageView> {
               }),
           Expanded(
               child: ListView(
+                   physics: BouncingScrollPhysics(),
             children: [
               title(text: 'Pan Card'),
               Obx(() => PanCard()),

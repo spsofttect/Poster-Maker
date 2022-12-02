@@ -49,6 +49,7 @@ class _ProPageState extends State<ProPage> {
               pageName: "Subscription Plan"),
           Expanded(
               child: ListView(
+                   physics: BouncingScrollPhysics(),
             children: [
               logo(
                   context: context,
@@ -268,6 +269,7 @@ class _ProPageState extends State<ProPage> {
         height: height,
         width: double.infinity,
         child: ListView.builder(
+             physics: BouncingScrollPhysics(),
             scrollDirection: Axis.horizontal,
             itemCount: itemCount,
             itemBuilder: (context, index) {

@@ -183,6 +183,7 @@ class _BackRoundPageState extends State<BackRoundPage>
         height: 40,
         width: double.infinity,
         child: ListView.builder(
+             physics: BouncingScrollPhysics(),
             scrollDirection: Axis.horizontal,
             itemCount: backroundName.length,
             itemBuilder: (context, index) {

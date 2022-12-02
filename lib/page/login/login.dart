@@ -19,6 +19,7 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+
   String initialCountry = 'IN';
   PhoneNumber number = PhoneNumber(isoCode: 'IN');
   void getPhoneNumber(String phoneNumber) async {
@@ -48,6 +49,7 @@ class _LoginScreenState extends State<LoginScreen> {
       // backgroundColor: Get.isDarkMode ? Colors.white : Color(AppColor.bgcolor),
       body: SafeArea(
         child: ListView(
+             physics: BouncingScrollPhysics(),
           children: [
             Container(
                 // margin: EdgeInsets.only(

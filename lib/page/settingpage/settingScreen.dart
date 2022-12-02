@@ -48,6 +48,7 @@ class _SettingPageState extends State<SettingPage> {
               ),
               Expanded(
                   child: ListView(
+                       physics: BouncingScrollPhysics(),
                 children: [
                   userDetail(),
                   optionBtn(text: 'My Business'),

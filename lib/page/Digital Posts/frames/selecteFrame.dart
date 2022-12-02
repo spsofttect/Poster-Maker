@@ -80,6 +80,7 @@ class _SelecteFramesState extends State<SelecteFrames> {
           SizedBox(height: Get.height * 0.02),
           Expanded(
               child: ListView(
+                   physics: BouncingScrollPhysics(),
             children: [
               logoAndColorBTN(context),
               Row(
@@ -101,6 +102,7 @@ class _SelecteFramesState extends State<SelecteFrames> {
       height: Get.height * 0.1,
       width: double.infinity,
       child: ListView.builder(
+           physics: BouncingScrollPhysics(),
         scrollDirection: Axis.horizontal,
         itemCount: Frame.length,
         itemBuilder: ((context, index) {

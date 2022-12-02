@@ -26,6 +26,7 @@ class _CatagoryScreenState extends State<CatagoryScreen> {
           // Instagram
           title(title: 'Instagram Post',context: context),
           customListView(
+            
               listindex: item2,
               itemCount: item2.length,
               boxfit: BoxFit.fitHeight,

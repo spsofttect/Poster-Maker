@@ -5,10 +5,12 @@ import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_windowmanager/flutter_windowmanager.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:otp_text_field/otp_text_field.dart';
 import 'package:otp_text_field/style.dart';
 import 'package:poster_maker/Helper/utlity.dart';
 import 'package:poster_maker/Helper/widget.dart';
+import 'package:poster_maker/page/login/Auth_Service.dart';
 
 class VarificationScreen extends StatefulWidget {
   const VarificationScreen({Key key}) : super(key: key);
@@ -42,6 +44,7 @@ class _VarificationScreenState extends State<VarificationScreen> {
       // backgroundColor: Get.isDarkMode ? Colors.white : Color(AppColor.bgcolor),
       body: SafeArea(
           child: ListView(
+               physics: BouncingScrollPhysics(),
         children: [
           SizedBox(
               // margin: EdgeInsets.only(
@@ -89,25 +92,94 @@ class _VarificationScreenState extends State<VarificationScreen> {
             child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  OTPTextField(
-                    length: 4,
-                    width: MediaQuery.of(context).size.width,
-                    fieldWidth: 20,
-                    keyboardType: TextInputType.number,
-                    style:
-                        TextStyle(fontSize: 17, color: Color(AppColor.white)),
-                    textFieldAlignment: MainAxisAlignment.spaceAround,
-                    fieldStyle: FieldStyle.underline,
-                    otpFieldStyle: OtpFieldStyle(
-                        enabledBorderColor: Color(AppColor.white),
-                        disabledBorderColor: Color(AppColor.white),
-                        errorBorderColor: Colors.red,
-                        focusBorderColor: Color(AppColor.orange)),
-                    onCompleted: (pin) {
-                      // ignore: unnecessary_brace_in_string_interps
-                      print('Completed: ${pin}');
-                    },
-                  ),
+                  // OTPTextField(
+                  //   length: 4,
+                  //   width: MediaQuery.of(context).size.width,
+                  //   fieldWidth: 20,
+                  //   keyboardType: TextInputType.number,
+                  //   style:
+                  //       TextStyle(fontSize: 17, color: Color(AppColor.white)),
+                  //   textFieldAlignment: MainAxisAlignment.spaceAround,
+                  //   fieldStyle: FieldStyle.underline,
+                  //   otpFieldStyle: OtpFieldStyle(
+                  //       enabledBorderColor: Color(AppColor.white),
+                  //       disabledBorderColor: Color(AppColor.white),
+                  //       errorBorderColor: Colors.red,
+                  //       focusBorderColor: Color(AppColor.orange)),
+                  //   onCompleted: (pin) {
+                  //     // ignore: unnecessary_brace_in_string_interps
+                  //     print('Completed: ${pin}');
+                  //   },
+                  // ),
+                  Container(
+                      // padding: const EdgeInsets.all(5),
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                        color: Color(AppColor.black).withOpacity(0.5),
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+                      child: TextField(
+                        textAlign: TextAlign.center,
+                        controller: otpbox,
+                        cursorColor: Color(AppColor.white),
+                        keyboardType: TextInputType.number,
+                        maxLines: 1,
+                        style: GoogleFonts.fredoka(
+                            color: Color(AppColor.white), fontSize: 14),
+                        decoration: InputDecoration(
+                          border: InputBorder.none,
+                          hintText: "Enter OTP",
+                          focusColor: Color(AppColor.orange),
+                          fillColor: Colors.transparent,
+                          filled: true,
+                        ),
+                        onChanged: (pin) {
+                          print("Completed: $pin");
+                          setState(() {
+                            smsCode = pin;
+                          });
+                        },
+                      )),
+                  // Row(
+                  // mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  // children: List.generate(1, (index) {
+                  //   return  Container(
+                  //         // padding: const EdgeInsets.all(5),
+                  //         width: double.infinity,
+                  //         decoration: BoxDecoration(
+                  //           borderRadius: BorderRadius.circular(10),
+                  //           border:
+                  //           //  isDarkMode.value
+                  //           //     ?
+                  //               Border.all(
+                  //                   color: const Color(0xff07336d),
+                  //                   width: 1)
+                  //               // : null,
+                  //         ),
+                  //         child: TextField(
+                  //           textAlign: TextAlign.center,
+                  //           controller: otpbox,
+                  //           cursorColor: Color(AppColor.orange),
+                  //           keyboardType: TextInputType.number,
+                  //           maxLines: 6,
+                  //           style: GoogleFonts.fredoka(
+                  //               color: Color(AppColor.black), fontSize: 14),
+                  //           decoration: InputDecoration(
+                  //             border: InputBorder.none,
+                  //             hintText: "Enter OTP",
+                  //             focusColor: Color(AppColor.grey),
+                  //             fillColor: Colors.transparent,
+                  //             filled: true,
+                  //           ),
+                  //           onChanged: (pin) {
+                  //             print("Completed: $pin");
+                  //             setState(() {
+                  //               smsCode = pin;
+                  //             });
+                  //           },
+                  //         ),
+                  //       );
+                  // })),
                   CommanWidget().nextButton(
                       // margin: EdgeInsets.only(left: 15,right: 15),
                       onTap: () {
