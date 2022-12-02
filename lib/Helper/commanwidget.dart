@@ -123,7 +123,7 @@ Widget fastDownArrow() {
 }
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>> category ListView <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< //
 
-Widget customListView({double height, double width, itemCount, listindex, boxfit, onTap, scrollDirection}) {
+Widget customListView({double height, double width, itemCount, listindex, boxfit, onTap, scrollDirection, indexColor}) {
   return Container(
       margin: EdgeInsets.only(top: 15),
       height: height,
@@ -158,7 +158,11 @@ Widget customListView({double height, double width, itemCount, listindex, boxfit
                     SizedBox(
                         height: 20,
                         // color: Colors.amber,
-                        child: Center(child: Text("Index $index"))),
+                        child: Center(
+                            child: Text(
+                          "Index $index",
+                          style: TextStyle(fontSize: 20, color: indexColor),
+                        ))),
                   ],
                 ),
               ),

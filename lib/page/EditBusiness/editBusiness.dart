@@ -99,7 +99,11 @@ class _EditBusinessState extends State<EditBusiness> {
         ),
         Text(
           'Edit Business',
-          style: TextStyle(fontFamily: AppFont.Medium, fontSize: 20),
+          style: TextStyle(
+            fontFamily: AppFont.Medium,
+            fontSize: 20,
+            color: Theme.of(context).textTheme.headline1.color,
+          ),
         ),
       ],
     );
@@ -140,7 +144,11 @@ class _EditBusinessState extends State<EditBusiness> {
               keyboardType: keyboardType,
               controller: controller,
               onChanged: onChanged,
-              style: TextStyle(fontSize: 15, fontFamily: AppFont.SemiBold),
+              style: TextStyle(
+                fontSize: 15,
+                fontFamily: AppFont.Regular,
+                color: Theme.of(context).textTheme.headline1.color,
+              ),
               maxLength: maxLength,
               decoration: InputDecoration(
                 border: InputBorder.none,
@@ -150,10 +158,11 @@ class _EditBusinessState extends State<EditBusiness> {
               ),
             ),
           ),
-          Text(
-            "$val/$maxLength",
-            style: GoogleFonts.fredoka(color: hintColor),
-          ),
+          Text("$val/$maxLength",
+              style: TextStyle(
+                fontFamily: AppFont.Regular,
+                color: Theme.of(context).textTheme.headline1.color,
+              )),
           const SizedBox(width: 10),
         ],
       ),
