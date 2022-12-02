@@ -61,6 +61,11 @@ dependencies:
   video_player: ^2.4.5
   flutter_colorpicker:
   cached_video_player: ^2.0.3
+  firebase_core: ^1.0.3
+  firebase_auth: ^3.7.0
+  firebase_messaging: ^10.0.0
+  firebase_crashlytics: ^2.9.0
+  firebase_analytics: ^9.3.8
 
 
 dev_dependencies:
