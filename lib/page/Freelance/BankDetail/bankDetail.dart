@@ -27,6 +27,7 @@ class _BankDetailsState extends State<BankDetails> {
               pageName: 'Bank Details'),
           Expanded(
               child: ListView(
+                   physics: BouncingScrollPhysics(),
             children: [
               title(text: 'Add Bank Account'),
               textfield(hintText: 'EMPLOYEE NAME(AS PER BANK DETAILS)'),

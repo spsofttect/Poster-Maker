@@ -46,7 +46,9 @@ class _DevelopmentPageState extends State<DevelopmentPage> {
                 Get.back();
               },
             ),
-           Expanded(child: ListView(children: [
+           Expanded(child: ListView(
+               physics: const BouncingScrollPhysics(),
+            children: [
              title(title: 'We also design:'),
                 listView(args: args),
                 Container(

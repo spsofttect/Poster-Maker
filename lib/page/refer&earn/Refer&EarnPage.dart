@@ -70,6 +70,7 @@ class Refer_EarnPage extends StatelessWidget {
                                       left: 15, right: 15, top: 20),
                                   child: Expanded(
                                     child: ListView.builder(
+                                         physics: BouncingScrollPhysics(),
                                         itemCount: 100,
                                         itemBuilder: (_, i) {
                                           return Padding(
@@ -480,7 +481,7 @@ class Refer_EarnPage extends StatelessWidget {
       width: width,
       color: color,
       child: ListView.separated(
-        physics: const NeverScrollableScrollPhysics(),
+        physics: const BouncingScrollPhysics(),
         itemBuilder: (_, i) {
           return Container(
             height: containtheight,

@@ -47,6 +47,7 @@ Widget listView({itemCount, listindex, item}) {
       margin: const EdgeInsets.only(top: 15),
       width: double.infinity,
       child: ListView.builder(
+        physics: BouncingScrollPhysics(),
           scrollDirection: Axis.horizontal,
           itemCount: itemCount,
           itemBuilder: (context, index) {
@@ -85,7 +86,7 @@ Widget gridView({itemCount, arr, item}) {
   return GridView.custom(
     padding: EdgeInsets.all(15),
     shrinkWrap: true,
-    physics: const NeverScrollableScrollPhysics(),
+    physics: BouncingScrollPhysics(),
     // gridDelegate: SliverQuiltedGridDelegate(
     //   crossAxisCount: 4,
     //   mainAxisSpacing: 10,
@@ -129,6 +130,7 @@ Widget fastDownArrow() {
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>> category ListView <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< //
 
 Widget customListView(
+  
     {double height,
     double width,
     itemCount,
@@ -141,6 +143,7 @@ Widget customListView(
       height: height,
       width: double.infinity,
       child: ListView.builder(
+           physics: BouncingScrollPhysics(),
           scrollDirection: scrollDirection,
           itemCount: itemCount,
           itemBuilder: (context, index) {
@@ -284,7 +287,6 @@ class _DynamicVideoPlayerState extends State<DynamicVideoPlayer> {
                   child: InkWell(
                     onTap: () {
                     item3[widget.index].isLike = !item3[widget.index].isLike;
-                     
                       if (item3[widget.index].isLike) {
                         favourit.add(item3[widget.index]);
                       } else {

@@ -216,7 +216,7 @@ class _CoinPageViewState extends State<CoinPageView> {
 
   Widget gridView({itemCount, arr, item}) {
     return GridView.builder(
-      physics: NeverScrollableScrollPhysics(),
+      physics: BouncingScrollPhysics(),
       shrinkWrap: true,
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 3,
@@ -303,6 +303,7 @@ class _CoinPageViewState extends State<CoinPageView> {
     return Expanded(
       child: (val == 0)
           ? ListView(
+               physics: BouncingScrollPhysics(),
               children: [
                 msg(msg: 'Unlock 2000+ Templates'),
                 msg(msg: 'Unlock 2000+ Stickers'),
@@ -512,6 +513,7 @@ class _CoinPageViewState extends State<CoinPageView> {
               ],
             )
           : ListView(
+               physics: BouncingScrollPhysics(),
               children: [
                 posterBuySendCoin(
                     coin: "20", date: "20-07-2022", isSendcoin: true),
@@ -661,6 +663,7 @@ class _CoinPageViewState extends State<CoinPageView> {
       height: height,
       width: double.infinity,
       child: ListView.builder(
+           physics: BouncingScrollPhysics(),
         scrollDirection: Axis.horizontal,
         itemCount: itemCount,
         itemBuilder: (context, index) {

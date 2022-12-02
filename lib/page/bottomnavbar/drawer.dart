@@ -27,6 +27,7 @@ class _DrawerPageState extends State<DrawerPage> {
   @override
   Widget build(BuildContext context) {
     return ListView(
+         physics: BouncingScrollPhysics(),
       children: [
         appbar(),
         drawerItems(),

@@ -31,6 +31,7 @@ class _NotificationPageViewState extends State<NotificationPageView> {
                 }),
             Expanded(
               child: ListView.separated(
+                   physics: BouncingScrollPhysics(),
                 shrinkWrap: true,
                 itemBuilder: (_, i) {
                   return Column(

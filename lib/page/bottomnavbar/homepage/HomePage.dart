@@ -144,7 +144,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
     return StaggeredGridView.countBuilder(
       crossAxisCount: 2,
       itemCount: item3.length,
-      physics: NeverScrollableScrollPhysics(),
+      physics: BouncingScrollPhysics(),
       itemBuilder: (context, index) => Padding(
         padding: const EdgeInsets.all(5.0),
         child: Bounce(
@@ -194,7 +194,6 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
       ),
       staggeredTileBuilder: (index) => const StaggeredTile.fit(1),
     );
- 
   }
 
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>BannerView<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< //
@@ -202,7 +201,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
     return StaggeredGridView.countBuilder(
       crossAxisCount: 1,
       itemCount: banner.length,
-      physics: NeverScrollableScrollPhysics(),
+      physics: BouncingScrollPhysics(),
       itemBuilder: (context, index) => Padding(
         padding: const EdgeInsets.all(5.0),
         child: Bounce(
@@ -259,7 +258,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
     //     width: Get.width,
     //     // color: Color(AppColor.orange).withOpacity(0.1),
     //     child: GridView.builder(
-    //       physics: NeverScrollableScrollPhysics(),
+    //       physics: BouncingScrollPhysics(),
     //       itemCount: 25,
     //       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
     //           crossAxisCount: 2,
@@ -283,7 +282,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
     return StaggeredGridView.countBuilder(
       crossAxisCount: 2,
       itemCount: item.length,
-      physics: NeverScrollableScrollPhysics(),
+      physics: BouncingScrollPhysics(),
       itemBuilder: (context, index) => Padding(
         padding: const EdgeInsets.all(5.0),
         child: Bounce(
@@ -302,7 +301,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
     // GridView.custom(
     //   padding: EdgeInsets.all(15),
     //   shrinkWrap: true,
-    //   physics: const NeverScrollableScrollPhysics(),
+    //   physics: const BouncingScrollPhysics(),
     //   // gridDelegate: SliverQuiltedGridDelegate(
     //   //   crossAxisCount: 2,
     //   //   mainAxisSpacing: 16,
@@ -343,7 +342,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
     //     width: Get.width,
     //     // color: Color(AppColor.orange).withOpacity(0.1),
     //     child: GridView.builder(
-    //       physics: NeverScrollableScrollPhysics(),
+    //       physics: BouncingScrollPhysics(),
     //       itemCount: 25,
     //       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
     //           crossAxisCount: 2,
@@ -367,7 +366,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
     return StaggeredGridView.countBuilder(
       crossAxisCount: 2,
       itemCount: item2.length,
-      physics: NeverScrollableScrollPhysics(),
+      physics: BouncingScrollPhysics(),
       itemBuilder: (context, index) => Padding(
         padding: const EdgeInsets.all(5.0),
         child: Bounce(
@@ -386,7 +385,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
     // GridView.custom(
     //   padding: EdgeInsets.all(15),
     //   shrinkWrap: true,
-    //   physics: const NeverScrollableScrollPhysics(),
+    //   physics: const BouncingScrollPhysics(),
     //   // gridDelegate: SliverQuiltedGridDelegate(
     //   //   crossAxisCount: 2,
     //   //   mainAxisSpacing: 10,
@@ -429,7 +428,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
     //     width: Get.width,
     //     // color: Color(AppColor.orange).withOpacity(0.1),
     //     child: GridView.builder(
-    //       physics: NeverScrollableScrollPhysics(),
+    //       physics: BouncingScrollPhysics(),
     //       itemCount: 25,
     //       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
     //           crossAxisCount: 2,
