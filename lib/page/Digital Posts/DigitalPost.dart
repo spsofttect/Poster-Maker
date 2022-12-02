@@ -23,7 +23,7 @@ class DigitalPost extends StatelessWidget {
           Expanded(
             child: ListView(
               children: [
-                title(title: 'Instagram Post'),
+                title(title: 'Instagram Post', context: context),
                 customListView(
                   onTap: () {},
                   listindex: item2,
@@ -34,7 +34,7 @@ class DigitalPost extends StatelessWidget {
                   scrollDirection: Axis.horizontal,
                 ),
                 // Youtube Banner
-                title(title: 'Youtube Banner'),
+                title(title: 'Youtube Banner', context: context),
                 customListView(
                     listindex: item.reversed.toList(),
                     itemCount: item.length,
@@ -45,6 +45,7 @@ class DigitalPost extends StatelessWidget {
                 // Festival
                 title(
                     title: 'Festival',
+                    context: context,
                     onTap: () {
                       Get.to(ViewAllCatagory());
                     }),
@@ -57,7 +58,7 @@ class DigitalPost extends StatelessWidget {
                     width: 120,
                     scrollDirection: Axis.horizontal),
                 // FaceBook Post
-                title(title: 'FaceBook Post'),
+                title(title: 'FaceBook Post', context: context),
                 customListView(
                     listindex: item2.reversed.toList(),
                     itemCount: item2.length,

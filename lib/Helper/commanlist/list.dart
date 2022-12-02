@@ -217,11 +217,11 @@ List<NewVideoAndStoryOrPostMix> item3 = [
   NewVideoAndStoryOrPostMix(isVideo: true, url: "https://www.w3schools.com/html/mov_bbb.mp4", isLike: false),
   NewVideoAndStoryOrPostMix(isVideo: false, url: '${AssetPath.poster}1 (4).jpg', isLike: false),
   NewVideoAndStoryOrPostMix(isVideo: false, url: '${AssetPath.poster}1 (6).png', isLike: false),
-  NewVideoAndStoryOrPostMix(isVideo: true, url: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4", isLike: false),
-  NewVideoAndStoryOrPostMix(isVideo: true, url: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4", isLike: false),
-  NewVideoAndStoryOrPostMix(isVideo: true, url: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4", isLike: false),
-  NewVideoAndStoryOrPostMix(isVideo: true, url: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4", isLike: false),
-  NewVideoAndStoryOrPostMix(isVideo: true, url: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4", isLike: false),
+  // NewVideoAndStoryOrPostMix(isVideo: true, url: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4", isLike: false),
+  // NewVideoAndStoryOrPostMix(isVideo: true, url: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4", isLike: false),
+  // NewVideoAndStoryOrPostMix(isVideo: true, url: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4", isLike: false),
+  // NewVideoAndStoryOrPostMix(isVideo: true, url: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4", isLike: false),
+  // NewVideoAndStoryOrPostMix(isVideo: true, url: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4", isLike: false),
 ];
 
 final AdvancedDrawerController advancedDrawerController = AdvancedDrawerController();
