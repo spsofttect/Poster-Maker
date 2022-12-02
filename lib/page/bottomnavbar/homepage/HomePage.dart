@@ -112,6 +112,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                               .toList(),
                         ),
                       ),
+               
                     ],
                   ),
                 ],
@@ -135,7 +136,9 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               Post(),
               Story(),
             ]),
+            
       ),
+
     );
   }
 
@@ -194,7 +197,6 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
       ),
       staggeredTileBuilder: (index) => const StaggeredTile.fit(1),
     );
- 
   }
 
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>BannerView<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< //
