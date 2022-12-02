@@ -61,6 +61,7 @@ dependencies:
   video_player: ^2.4.5
   flutter_colorpicker:
   cached_video_player: ^2.0.3
+  in_app_review: ^2.0.6
   
   
   
