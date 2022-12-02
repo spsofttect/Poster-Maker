@@ -55,7 +55,7 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
                 : StaggeredGridView.countBuilder(
                     crossAxisCount: 2,
                     itemCount: favourit.length,
-                    physics: NeverScrollableScrollPhysics(),
+                    physics: BouncingScrollPhysics(),
                     itemBuilder: (context, index) => Padding(
                       padding: const EdgeInsets.all(5.0),
                       child: Bounce(

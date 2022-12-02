@@ -29,7 +29,7 @@ class PostScreen extends StatelessWidget {
           ),
           padding: EdgeInsets.all(15),
           shrinkWrap: true,
-          physics: const NeverScrollableScrollPhysics(),
+          physics:  BouncingScrollPhysics(),
           // gridDelegate: SliverQuiltedGridDelegate(
           //   crossAxisCount: 4,
           //   mainAxisSpacing: 10,

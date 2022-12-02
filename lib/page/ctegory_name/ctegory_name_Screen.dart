@@ -54,7 +54,7 @@ class _CetegoryNameScreenState extends State<CetegoryNameScreen> {
     return SizedBox(
       height: Get.height * 0.8,
       child: ListView.builder(
-          physics: const NeverScrollableScrollPhysics(),
+          physics:  BouncingScrollPhysics(),
           itemCount: ctegory.length,
           itemBuilder: (cotext, index) {
             var currentObj = ctegory[index];

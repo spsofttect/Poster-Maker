@@ -27,7 +27,7 @@ class ViewAllCatagory extends StatelessWidget {
               // child: AlignedGridView.count(
               //   padding: EdgeInsets.all(15),
               //   shrinkWrap: true,
-              //   physics: const NeverScrollableScrollPhysics(),
+              //   physics: BouncingScrollPhysics(),
               //   crossAxisCount: 3,
               //   mainAxisSpacing: 10,
               //   crossAxisSpacing: 10,

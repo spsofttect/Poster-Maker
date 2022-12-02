@@ -480,7 +480,7 @@ class Refer_EarnPage extends StatelessWidget {
       width: width,
       color: color,
       child: ListView.separated(
-        physics: const NeverScrollableScrollPhysics(),
+        physics: const BouncingScrollPhysics(),
         itemBuilder: (_, i) {
           return Container(
             height: containtheight,

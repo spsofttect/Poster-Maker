@@ -17,6 +17,7 @@ class CustomScreen extends StatelessWidget {
     //     [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
     return SafeArea(
       child: ListView(
+        physics: BouncingScrollPhysics(),
         // mainAxisAlignment: MainAxisAlignment.start,
         children: [
           commanAppbar(

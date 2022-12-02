@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "26397700227",
+    "project_id": "poster-maker-54d00",
+    "storage_bucket": "poster-maker-54d00.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:26397700227:android:877ba58fa2022aac1a2bb6",
+        "android_client_info": {
+          "package_name": "com.spsofttech.postermaker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "26397700227-vme1l7b4b78nu60i283e9cettonl5co4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.spsofttech.postermaker",
+            "certificate_hash": "a12a592986a9b837ad5cba68a8252511c0ea389f"
+          }
+        },
+        {
+          "client_id": "26397700227-ol6vjs17vce3cr22pile2oe8mesh343p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC_Zh0h30CLxMHOp2kkoozRUKdCr5H0soY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "26397700227-ol6vjs17vce3cr22pile2oe8mesh343p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

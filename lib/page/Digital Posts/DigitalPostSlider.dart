@@ -141,7 +141,7 @@ class _DigitalPostSliderPageState extends State<DigitalPostSliderPage>
         // child: AlignedGridView.count(
         //   padding: EdgeInsets.all(15),
         //   shrinkWrap: true,
-        //   physics: const NeverScrollableScrollPhysics(),
+        //   physics: const BouncingScrollPhysics(),
         //   crossAxisCount: 4,
         //   mainAxisSpacing: 10,
         //   crossAxisSpacing: 10,
@@ -177,7 +177,7 @@ class _DigitalPostSliderPageState extends State<DigitalPostSliderPage>
         // child: AlignedGridView.count(
         //   padding: EdgeInsets.all(15),
         //   shrinkWrap: true,
-        //   physics: const NeverScrollableScrollPhysics(),
+        //   physics: const BouncingScrollPhysics(),
         //   crossAxisCount: 4,
         //   mainAxisSpacing: 10,
         //   crossAxisSpacing: 10,

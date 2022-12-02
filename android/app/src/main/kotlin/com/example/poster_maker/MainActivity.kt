@@ -1,4 +1,4 @@
-package com.example.poster_maker
+package com.spsofttech.postermaker
 
 import io.flutter.embedding.android.FlutterActivity
 

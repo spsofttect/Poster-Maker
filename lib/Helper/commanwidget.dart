@@ -85,7 +85,7 @@ Widget gridView({itemCount, arr, item}) {
   return GridView.custom(
     padding: EdgeInsets.all(15),
     shrinkWrap: true,
-    physics: const NeverScrollableScrollPhysics(),
+    physics: BouncingScrollPhysics(),
     // gridDelegate: SliverQuiltedGridDelegate(
     //   crossAxisCount: 4,
     //   mainAxisSpacing: 10,
@@ -284,7 +284,6 @@ class _DynamicVideoPlayerState extends State<DynamicVideoPlayer> {
                   child: InkWell(
                     onTap: () {
                     item3[widget.index].isLike = !item3[widget.index].isLike;
-                     
                       if (item3[widget.index].isLike) {
                         favourit.add(item3[widget.index]);
                       } else {

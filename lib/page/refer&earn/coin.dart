@@ -216,7 +216,7 @@ class _CoinPageViewState extends State<CoinPageView> {
 
   Widget gridView({itemCount, arr, item}) {
     return GridView.builder(
-      physics: NeverScrollableScrollPhysics(),
+      physics: BouncingScrollPhysics(),
       shrinkWrap: true,
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 3,
