@@ -29,47 +29,61 @@ class _EditBusinessState extends State<EditBusiness> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: SingleChildScrollView(
-          physics: const BouncingScrollPhysics(),
-          child: Column(
-            children: [
-              appbar(),
-              const SizedBox(
-                height: 25,
-              ),
-              CommanWidget().profileImagePicker(
-                  sizedBoxWidth: 90, sizedBoxHeight: 90, imageheigth: 90, imagewidth: 90, imageRadius: 75, iconheigth: 40, iconwidth: 40, iconRadius: 20),
-              Container(
-                margin: const EdgeInsets.only(top: 25),
-                height: 60,
-                width: Get.width * 0.9,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(15),
-                  color: Color(AppColor.grey).withOpacity(0.7),
+        child: Column(
+          children: [
+            appbar(),
+            const SizedBox(
+              height: 25,
+            ),
+            Expanded(
+              child: SingleChildScrollView(
+                physics: const BouncingScrollPhysics(),
+                child: Column(
+                  children: [
+                    CommanWidget().profileImagePicker(
+                        sizedBoxWidth: 90,
+                        sizedBoxHeight: 90,
+                        imageheigth: 90,
+                        imagewidth: 90,
+                        imageRadius: 75,
+                        iconheigth: 40,
+                        iconwidth: 40,
+                        iconRadius: 20),
+                    Container(
+                      margin: const EdgeInsets.only(top: 25),
+                      height: 60,
+                      width: Get.width * 0.9,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(15),
+                        color: Color(AppColor.grey).withOpacity(0.7),
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 25,
+                    ),
+                    allTextFieldUi(),
+                    const SizedBox(
+                      height: 25,
+                    ),
+                    Container(
+                      height: 60,
+                      width: Get.width * 0.9,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(15),
+                        gradient:
+                            const LinearGradient(begin: Alignment.topCenter, end: Alignment.bottomCenter, colors: [Color(0xFFFA7F08), Color(0xFFF24405)]),
+                      ),
+                      alignment: Alignment.center,
+                      child: Text(
+                        "Update",
+                        style: TextStyle(fontFamily: AppFont.Medium, fontSize: 20, color: Color(AppColor.white)),
+                      ),
+                    ),
+                  ],
                 ),
               ),
-              const SizedBox(
-                height: 25,
-              ),
-              allTextFieldUi(),
-              const SizedBox(
-                height: 25,
-              ),
-              Container(
-                height: 60,
-                width: Get.width * 0.9,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(15),
-                  gradient: const LinearGradient(begin: Alignment.topCenter, end: Alignment.bottomCenter, colors: [Color(0xFFFA7F08), Color(0xFFF24405)]),
-                ),
-                alignment: Alignment.center,
-                child: Text(
-                  "Update",
-                  style: TextStyle(fontFamily: AppFont.Medium, fontSize: 20, color: Color(AppColor.white)),
-                ),
-              ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

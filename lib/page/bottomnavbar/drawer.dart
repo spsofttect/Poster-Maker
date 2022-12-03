@@ -12,6 +12,7 @@ import 'package:poster_maker/page/help%20&%20feedback/feedback.dart';
 
 import 'package:poster_maker/page/notification/notification.dart';
 import 'package:poster_maker/page/settingpage/settingScreen.dart';
+import 'package:share_plus/share_plus.dart';
 
 import '../myBusiness/myBusiness.dart';
 import '../save_share/share.dart';
@@ -29,6 +30,7 @@ class _DrawerPageState extends State<DrawerPage> {
   @override
   Widget build(BuildContext context) {
     return ListView(
+      physics: const BouncingScrollPhysics(),
       children: [
         appbar(),
         drawerItems(),
@@ -91,7 +93,7 @@ class _DrawerPageState extends State<DrawerPage> {
               final InAppReview inAppReview = InAppReview.instance;
               print("-------------------------${await inAppReview.isAvailable()}-----------------------------------");
               if (await inAppReview.isAvailable()) {
-                inAppReview.openStoreListing(appStoreId: "94");
+                inAppReview.requestReview();
               }
               // Initialize the In App Review Plugin.
 //               InAppReview.init();
@@ -103,7 +105,7 @@ class _DrawerPageState extends State<DrawerPage> {
             image: '${AssetPath.create}share.png',
             name: 'Share App',
             ontap: () {
-              Get.to(SharePage());
+              Share.share('https://play.google.com/store/apps/details?id=com.spsofttech.digitalposter');
             }),
         Container(
           margin: EdgeInsets.fromLTRB(40, 20, 40, 20),

@@ -25,12 +25,14 @@ class _NotificationPageViewState extends State<NotificationPageView> {
         child: Column(
           children: [
             commanAppbar(
+                textColor: Theme.of(context).textTheme.headline1.color,
                 pageName: "Notification",
                 ontap: () {
                   Get.back();
                 }),
             Expanded(
               child: ListView.separated(
+                physics: const BouncingScrollPhysics(),
                 shrinkWrap: true,
                 itemBuilder: (_, i) {
                   return Column(
@@ -38,13 +40,10 @@ class _NotificationPageViewState extends State<NotificationPageView> {
                       Row(
                         children: [
                           Container(
-                            margin: const EdgeInsets.only(
-                                left: 15, top: 15, right: 10),
+                            margin: const EdgeInsets.only(left: 15, top: 15, right: 10),
                             height: 80,
                             width: 80,
-                            decoration: BoxDecoration(
-                                color: Color(AppColor.grey).withOpacity(0.3),
-                                borderRadius: BorderRadius.circular(5)),
+                            decoration: BoxDecoration(color: Color(AppColor.grey).withOpacity(0.3), borderRadius: BorderRadius.circular(5)),
                           ),
                           Container(
                             margin: const EdgeInsets.only(top: 15),
@@ -56,16 +55,14 @@ class _NotificationPageViewState extends State<NotificationPageView> {
                                 Text(
                                   'Lorem Ipsum',
                                   textAlign: TextAlign.start,
-                                  style: TextStyle(
-                                      fontFamily: AppFont.Medium, fontSize: 20),
+                                  style: TextStyle(fontFamily: AppFont.Medium, fontSize: 20, color: Theme.of(context).textTheme.headline1.color),
                                 ),
                                 SizedBox(height: 5),
                                 Text(
                                   'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
                                   textAlign: TextAlign.start,
                                   maxLines: 2,
-                                  style: TextStyle(
-                                      fontFamily: AppFont.Medium, fontSize: 14),
+                                  style: TextStyle(fontFamily: AppFont.Medium, fontSize: 14, color: Theme.of(context).textTheme.headline1.color),
                                 ),
                               ],
                             ),
@@ -77,14 +74,13 @@ class _NotificationPageViewState extends State<NotificationPageView> {
                         alignment: Alignment.centerRight,
                         child: Text(
                           '22/01/2022  2:30PM',
-                          style: TextStyle(
-                              fontFamily: AppFont.Medium, fontSize: 14),
+                          style: TextStyle(fontFamily: AppFont.Medium, fontSize: 14, color: Theme.of(context).textTheme.headline1.color),
                         ),
                       )
                     ],
                   );
                 },
-                itemCount: 15,
+                itemCount: 12000,
                 separatorBuilder: (BuildContext context, int index) {
                   return Divider(
                     color: Color(AppColor.grey),
