@@ -142,6 +142,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>NewpageView<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< //
   Widget New() {
     return StaggeredGridView.countBuilder(
+      padding: EdgeInsets.only(bottom:Get.height*0.09),
       crossAxisCount: 2,
       itemCount: item3.length,
       physics: BouncingScrollPhysics(),
@@ -199,6 +200,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>BannerView<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< //
   Widget Banner() {
     return StaggeredGridView.countBuilder(
+         padding: EdgeInsets.only(bottom: Get.height * 0.09),
       crossAxisCount: 1,
       itemCount: banner.length,
       physics: BouncingScrollPhysics(),
@@ -280,6 +282,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Postview<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< //
   Widget Post() {
     return StaggeredGridView.countBuilder(
+         padding: EdgeInsets.only(bottom: Get.height * 0.09),
       crossAxisCount: 2,
       itemCount: item.length,
       physics: BouncingScrollPhysics(),
@@ -364,6 +367,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>StoryView<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< //
   Widget Story() {
     return StaggeredGridView.countBuilder(
+         padding: EdgeInsets.only(bottom: Get.height * 0.09),
       crossAxisCount: 2,
       itemCount: item2.length,
       physics: BouncingScrollPhysics(),

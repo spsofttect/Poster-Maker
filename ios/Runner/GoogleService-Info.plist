@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>26397700227-a77jvfg5ahfl5f7su2nsdben3hvafb7a.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.26397700227-a77jvfg5ahfl5f7su2nsdben3hvafb7a</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>26397700227-vme1l7b4b78nu60i283e9cettonl5co4.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDj6onfZh9qPWqFXqF7GuIYYRG3AMYV_ME</string>
+	<key>GCM_SENDER_ID</key>
+	<string>26397700227</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.spsofttech.postermaker</string>
+	<key>PROJECT_ID</key>
+	<string>poster-maker-54d00</string>
+	<key>STORAGE_BUCKET</key>
+	<string>poster-maker-54d00.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:26397700227:ios:1026a9012d5b7bd01a2bb6</string>
+</dict>
+</plist>
