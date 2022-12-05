@@ -3,7 +3,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-
 import 'package:poster_maker/Helper/utlity.dart';
 import 'package:poster_maker/Helper/widget.dart';
 
@@ -30,14 +29,13 @@ class AddBusinessPage extends StatelessWidget {
                 iconwidth: 40,
                 iconRadius: 20),
             textfield(hintText: 'Enter Your Business Name'),
-            textfield(hintText: 'Enter Your Business Mobaile Number 1'),
-            textfield(hintText: 'Mobaile Number 1 (optional)'),
+            textfield(hintText: 'Enter Your Business Mobile Number 1'),
+            textfield(hintText: 'Mobile Number 1 (optional)'),
             textfield(hintText: 'Enter Your Business Email'),
             textfield(hintText: 'Enter Your Business Website'),
             textfield(hintText: 'Enter Your Business Address'),
             CommanWidget().nextButton(
-                margin:
-                    EdgeInsets.only(left: 50, right: 50, top: 25, bottom: 25),
+                margin: EdgeInsets.only(left: 50, right: 50, top: 25, bottom: 25),
                 radius: 10,
                 height: 50,
                 width: double.infinity,
@@ -68,8 +66,7 @@ class AddBusinessPage extends StatelessWidget {
               fontSize: 15,
               fontFamily: AppFont.SemiBold),
           decoration: InputDecoration(
-            contentPadding:
-                EdgeInsets.only(top: 10, bottom: 10, left: 20, right: 20),
+            contentPadding: EdgeInsets.only(top: 10, bottom: 10, left: 20, right: 20),
             border: InputBorder.none,
             hintText: hintText,
             hintStyle: TextStyle(
@@ -113,13 +110,8 @@ class BusinessList extends StatelessWidget {
                   width: 25,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(15),
-                      gradient: LinearGradient(
-                          begin: Alignment.topLeft,
-                          end: Alignment.bottomRight,
-                          colors: const [
-                            Color(0xFFFA7F08),
-                            Color(0xFFF24405)
-                          ])),
+                      gradient:
+                          LinearGradient(begin: Alignment.topLeft, end: Alignment.bottomRight, colors: const [Color(0xFFFA7F08), Color(0xFFF24405)])),
                   child: Icon(
                     Icons.add,
                     color: Color(AppColor.black),
@@ -133,9 +125,7 @@ class BusinessList extends StatelessWidget {
                 height: 80,
                 width: double.infinity,
                 decoration: BoxDecoration(
-                    border: Border.all(color: Color(AppColor.orange), width: 2),
-                    borderRadius: BorderRadius.circular(15),
-                    color: Color(AppColor.grey)),
+                    border: Border.all(color: Color(AppColor.orange), width: 2), borderRadius: BorderRadius.circular(15), color: Color(AppColor.grey)),
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -200,8 +190,6 @@ appbar({widget}) {
         'Add Business',
         style: TextStyle(fontFamily: AppFont.Medium, fontSize: 20),
       ),
-      Spacer(),
-      widget
     ],
   );
 }

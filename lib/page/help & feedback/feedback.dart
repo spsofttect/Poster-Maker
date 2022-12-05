@@ -13,9 +13,10 @@ class FeedbackView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: SafeArea(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
             commanAppbar(
                 ontap: () {
@@ -26,33 +27,28 @@ class FeedbackView extends StatelessWidget {
               "${AssetPath.settingpage}feedback.png",
               height: Get.height * 0.35,
             ),
-            textfield(
-                hintText: 'Enter your Email-ID*',
-                height: 45,
-                keyboardtype: TextInputType.emailAddress),
-            textfield(
-                hintText: 'Enter your Mobile*',
-                height: 45,
-                keyboardtype: TextInputType.number),
-            textfield(
-                hintText: 'Enter your Text',
-                height: 120,
-                keyboardtype: TextInputType.text),
+            SizedBox(
+              height: 15,
+            ),
+            Text(
+              "Help & Feedback",
+              style: TextStyle(fontFamily: AppFont.Medium, fontSize: 20),
+            ),
+            textfield(hintText: 'Enter your Email-ID*', height: 45, keyboardtype: TextInputType.emailAddress),
+            textfield(hintText: 'Enter your Mobile*', height: 45, keyboardtype: TextInputType.number),
+            textfield(hintText: 'Enter your Text', height: 120, keyboardtype: TextInputType.text),
+            SizedBox(
+              height: 10,
+            ),
             CommanWidget().nextButton(
-                text: 'Send',
-                radius: 10.0,
-                height: 45,
-                width: Get.width,
-                margin: const EdgeInsets.only(
-                    top: 15, bottom: 15, left: 50, right: 50))
+                text: 'Send', radius: 10.0, height: 45, width: Get.width, margin: const EdgeInsets.only(top: 15, bottom: 15, left: 50, right: 50))
           ],
         ),
       ),
     );
   }
 
-  Widget textfield(
-      {String hintText, double height, TextInputType keyboardtype}) {
+  Widget textfield({String hintText, double height, TextInputType keyboardtype}) {
     return Container(
         margin: const EdgeInsets.only(left: 15, right: 15, top: 20),
         height: height,
@@ -71,8 +67,7 @@ class FeedbackView extends StatelessWidget {
               fontSize: 15,
               fontFamily: AppFont.SemiBold),
           decoration: InputDecoration(
-            contentPadding:
-                const EdgeInsets.only(top: 10, bottom: 10, left: 20, right: 20),
+            contentPadding: const EdgeInsets.only(top: 10, bottom: 10, left: 20, right: 20),
             border: InputBorder.none,
             hintText: hintText,
             hintStyle: TextStyle(fontSize: 15, fontFamily: AppFont.SemiBold),

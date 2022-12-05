@@ -34,14 +34,10 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   void initState() {
-        super.initState();
+    super.initState();
     // DeviceOrientation
-    SystemChrome.setPreferredOrientations(
-        [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
-
+    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
   }
-
-  
 
   @override
   Widget build(BuildContext context) {
@@ -89,24 +85,21 @@ class _LoginScreenState extends State<LoginScreen> {
             SizedBox(height: 30),
             Container(
               padding: EdgeInsets.all(Get.height * 0.03),
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(5),
-                  color: Color(AppColor.grey).withOpacity(0.6)),
+              decoration: BoxDecoration(borderRadius: BorderRadius.circular(5), color: Color(AppColor.grey).withOpacity(0.6)),
               margin: EdgeInsets.all(20),
               height: Get.height * 0.25,
-              child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    mobileNumberBox(),
-                    CommanWidget().nextButton(
-                        onTap: () {
-                          Get.to(VarificationScreen());
-                        },
-                        radius: 10.0,
-                        text: 'Get Code',
-                        height: 45.0,
-                        width: double.infinity)
-                  ]),
+              child: Column(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
+                mobileNumberBox(),
+                CommanWidget().nextButton(
+                    onTap: () {
+                      print("hello---------------------------------");
+                      Get.to(VarificationScreen());
+                    },
+                    radius: 10.0,
+                    text: 'Get Code',
+                    height: 45.0,
+                    width: double.infinity)
+              ]),
             ),
             // RichText(
             //     text: TextSpan(children: [,
@@ -135,9 +128,7 @@ class _LoginScreenState extends State<LoginScreen> {
         Container(
           // margin: EdgeInsets.only(top: 7),
           height: 50,
-          decoration: BoxDecoration(
-              color: Color(AppColor.white),
-              borderRadius: BorderRadius.circular(15)),
+          decoration: BoxDecoration(color: Color(AppColor.white), borderRadius: BorderRadius.circular(15)),
           alignment: Alignment.center,
           child: InternationalPhoneNumberInput(
             onInputChanged: (PhoneNumber number) {
@@ -156,36 +147,26 @@ class _LoginScreenState extends State<LoginScreen> {
 
             inputDecoration: InputDecoration(
               hintText: "Phone Number",
-              hintStyle: TextStyle(
-                  color: Color(AppColor.black).withOpacity(0.3),
-                  fontSize: 15,
-                  fontFamily: AppFont.SemiBold),
+              hintStyle: TextStyle(color: Color(AppColor.black).withOpacity(0.3), fontSize: 15, fontFamily: AppFont.SemiBold),
               enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(6),
                 borderSide: BorderSide(color: Colors.transparent),
               ),
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(12),
-                borderSide:
-                    BorderSide(color: Color(AppColor.orange), width: 1.5),
+                borderSide: BorderSide(color: Color(AppColor.orange), width: 1.5),
               ),
             ),
             cursorColor: Color(AppColor.orange),
             spaceBetweenSelectorAndTextField: 0,
             autoValidateMode: AutovalidateMode.disabled,
-            selectorTextStyle: TextStyle(
-                color: Color(AppColor.black).withOpacity(0.5),
-                fontSize: 15,
-                fontFamily: AppFont.Medium),
+            selectorTextStyle: TextStyle(color: Color(AppColor.black).withOpacity(0.5), fontSize: 15, fontFamily: AppFont.Medium),
             initialValue: number,
 
             // textFieldController: controller,
             formatInput: false,
             textAlignVertical: TextAlignVertical.bottom,
-            textStyle: TextStyle(
-                color: Color(AppColor.bgcolor),
-                fontSize: 16,
-                fontFamily: AppFont.Regular),
+            textStyle: TextStyle(color: Color(AppColor.bgcolor), fontSize: 16, fontFamily: AppFont.Regular),
             // keyboardType:
             //     TextInputType.numberWithOptions(signed: true, decimal: true),
             keyboardType: TextInputType.number,

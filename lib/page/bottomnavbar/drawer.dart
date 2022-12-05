@@ -12,6 +12,7 @@ import 'package:poster_maker/page/help%20&%20feedback/feedback.dart';
 import 'package:poster_maker/page/notification/notification.dart';
 import 'package:poster_maker/page/settingpage/settingScreen.dart';
 
+import '../myBusiness/myBusiness.dart';
 import '../save_share/share.dart';
 
 class DrawerPage extends StatefulWidget {
@@ -53,8 +54,15 @@ class _DrawerPageState extends State<DrawerPage> {
             image: '${AssetPath.create}notification.png',
             name: 'Notification'),
         drawarItem(
-            image: '${AssetPath.create}business.png', name: 'My Businesses'),
-        drawarItem(image: '${AssetPath.create}project.png', name: 'My Project'),
+            image: '${AssetPath.create}business.png',
+            name: 'My Businesses',
+            ontap: () {
+              Get.to(MyBusinessPage());
+            }),
+        drawarItem(
+          image: '${AssetPath.create}project.png',
+          name: 'My Project',
+        ),
         drawarItem(
             ontap: () {
               Get.to(SettingPage());
@@ -62,8 +70,7 @@ class _DrawerPageState extends State<DrawerPage> {
             image: '${AssetPath.create}setting.png',
             name: 'Setting'),
         drawarItem(image: '${AssetPath.create}tutor.png', name: 'Tutor'),
-        drawarItem(
-            image: '${AssetPath.create}suggest.png', name: 'Suggest a Feature'),
+        drawarItem(image: '${AssetPath.create}suggest.png', name: 'Suggest a Feature'),
         drawarItem(image: '${AssetPath.create}about.png', name: 'About us'),
         drawarItem(image: '${AssetPath.create}contact.png', name: 'Contact us'),
         drawarItem(
@@ -72,8 +79,7 @@ class _DrawerPageState extends State<DrawerPage> {
             ontap: () {
               Get.to(FeedbackView());
             }),
-        drawarItem(
-            image: '${AssetPath.create}policy.png', name: 'Privacy Policy'),
+        drawarItem(image: '${AssetPath.create}policy.png', name: 'Privacy Policy'),
         drawarItem(image: '${AssetPath.create}follow.png', name: 'Follow us'),
         drawarItem(image: '${AssetPath.create}rate.png', name: 'Rate us'),
         drawarItem(
@@ -97,9 +103,7 @@ class _DrawerPageState extends State<DrawerPage> {
             margin: EdgeInsets.only(top: 15),
             decoration: BoxDecoration(
                 color: Color(AppColor.grey).withOpacity(0.15),
-                borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(20),
-                    bottomLeft: Radius.circular(20))),
+                borderRadius: BorderRadius.only(topLeft: Radius.circular(20), bottomLeft: Radius.circular(20))),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
@@ -110,8 +114,7 @@ class _DrawerPageState extends State<DrawerPage> {
                 SizedBox(width: 30),
                 Text(
                   name,
-                  style: TextStyle(
-                      fontFamily: AppFont.Medium, fontSize: Get.height * 0.02,color: Color(AppColor.white)),
+                  style: TextStyle(fontFamily: AppFont.Medium, fontSize: Get.height * 0.02, color: Color(AppColor.white)),
                 )
               ],
             ),
@@ -138,10 +141,7 @@ class _DrawerPageState extends State<DrawerPage> {
         SizedBox(width: 20),
         Text(
           "Menu",
-          style: TextStyle(
-              fontFamily: AppFont.Bold,
-              fontSize: Get.height * 0.03,
-              color: Color(AppColor.orange)),
+          style: TextStyle(fontFamily: AppFont.Bold, fontSize: Get.height * 0.03, color: Color(AppColor.orange)),
         )
       ],
     );
