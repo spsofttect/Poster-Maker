@@ -35,8 +35,8 @@ class _CustomScreenState extends State<CustomScreen> {
     // SystemChrome.setPreferredOrientations(
     //     [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
     return SafeArea(
-      child: ListView(
-        physics: BouncingScrollPhysics(),
+      child: Column(
+        // physics: BouncingScrollPhysics(),
         // mainAxisAlignment: MainAxisAlignment.start,
         children: [
           commanAppbar(

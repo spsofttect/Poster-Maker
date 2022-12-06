@@ -27,7 +27,7 @@ class _AddImagePageState extends State<AddImagePage>
     super.initState();
   }
 
-  // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>open_camera<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+  // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> open_camera <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< //
   List<AssetPathEntity> albumlist = [];
   List<AssetEntity> mediaList = [];
   AssetEntity selectedFile;
@@ -47,8 +47,8 @@ class _AddImagePageState extends State<AddImagePage>
         mediaList = entities;
         selectedModel = albumlist.first;
         selectedFile = mediaList.first;
-        // selectedAlbums.clear();
-        // selectedAlbums.add(selectedFile);
+        selectedAlbums.clear();
+        selectedAlbums.add(selectedFile);
       });
     } else {}
     // printFile(selectedFile);
