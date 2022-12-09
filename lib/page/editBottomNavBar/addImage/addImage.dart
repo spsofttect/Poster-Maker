@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, unused_element, avoid_print, sort_child_properties_last, prefer_final_fields, no_leading_underscores_for_local_identifiers, unused_field, file_names
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:photo_manager/photo_manager.dart';
 import 'package:poster_maker/Helper/commanwidget.dart';
@@ -41,7 +42,7 @@ class _AddImagePageState extends State<AddImagePage>
       );
 
       final List<AssetEntity> entities =
-          await paths.first.getAssetListPaged(page: 0, size: 50);
+          await paths[0].getAssetListPaged(page: 0, size: 50);
       setState(() {
         albumlist = paths;
         mediaList = entities;
@@ -86,6 +87,7 @@ class _AddImagePageState extends State<AddImagePage>
         _tab(),
         DropdownButtonHideUnderline(
             child: DropdownButton<String>(
+          menuMaxHeight: 500.0,
           borderRadius: BorderRadius.circular(20),
           elevation: 0,
           isExpanded: true,
@@ -103,7 +105,7 @@ class _AddImagePageState extends State<AddImagePage>
             });
           },
         )),
-_tabBarView()
+// _tabBarView()
       ],
     ));
   }
@@ -111,9 +113,12 @@ _tabBarView()
   List getItems() {
     return albumlist
             .map((e) => DropdownMenuItem(
+                  alignment: Alignment.centerLeft,
                   child: Text(
                     e.name,
-                    style: TextStyle(color: Color(AppColor.grey), fontSize: 20),
+                    maxLines: 1,
+                    style:
+                        TextStyle(color: Color(AppColor.white), fontSize: 20),
                   ),
                   value: e.name,
                 ))
@@ -128,7 +133,7 @@ _tabBarView()
     );
     setState(() {
       mediaList = entities;
-      selectedFile = mediaList.first;
+      selectedFile = mediaList[0];
       selectedAlbums.clear();
       selectedAlbums.add(selectedFile);
       // if (state == AppState.picked) imagecroper();
@@ -214,11 +219,11 @@ _tabBarView()
     return TabBarView(
       controller: _tabController,
       children: [
-        grid(count: mediaList.length),
+        grid(count: mediaList.length, height: 100),
         Center(
           child: Text("second"),
         ),
-        gridView()
+        // gridView(itemCount: mediaList.length, )
       ],
     );
   }
@@ -233,7 +238,7 @@ _tabBarView()
             crossAxisCount: 4,
             mainAxisSpacing: 10,
             crossAxisSpacing: 10,
-            // mainAxisExtent: height,
+            mainAxisExtent: height,
           ),
           itemCount: count,
           itemBuilder: (_, i) {
@@ -245,18 +250,18 @@ _tabBarView()
                     if (snapshot.hasData) {
                       // bool isSelected = false;
                       return GestureDetector(
-                        // onLongPress: () {
-                        //   setState(() {
-                        //     ismultipleEnable = true;
-                        //   });
-                        // },
+                        onLongPress: () {
+                          setState(() {
+                            ismultipleEnable = true;
+                          });
+                        },
                         onTap: () {
                           setState(() {
-                            // if (!ismultipleEnable) {
-                            //   selectedAlbums.clear();
-                            //   print(
-                            //       "  =========>>>>>>>>>>>>>>>>>>    $selectedAlbums");
-                            // }
+                            if (!ismultipleEnable) {
+                              selectedAlbums.clear();
+                              print(
+                                  "  =========>>>>>>>>>>>>>>>>>>    $selectedAlbums");
+                            }
                             selectedFile = mediaList[i];
 
                             print(
