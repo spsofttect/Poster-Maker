@@ -3,12 +3,31 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:poster_maker/Helper/commanlist/list.dart';
 import 'package:poster_maker/Helper/utlity.dart';
 import 'package:poster_maker/page/bottomnavbar/appbar/Appbar.dart';
 import 'package:poster_maker/page/bottomnavbar/bottomnavbar.dart';
 
-class CustomScreen extends StatelessWidget {
+class CustomScreen extends StatefulWidget {
   const CustomScreen({Key key}) : super(key: key);
+
+  @override
+  State<CustomScreen> createState() => _CustomScreenState();
+}
+
+class _CustomScreenState extends State<CustomScreen> {
+  @override
+  void initState() {
+    super.initState();
+    isScroll.value = false;
+    customPageController.addListener(() {
+      if (customPageController.position.pixels > Get.height * 0.1) {
+        isScroll.value = true;
+      } else {
+        isScroll.value = false;
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -26,13 +45,24 @@ class CustomScreen extends StatelessWidget {
               ontap: () {
                 Get.offAll(BottomNavBarScreen());
               }),
-          custom(context: context),
-          insta(context: context),
-          facebook(context: context),
-          twitter(context: context),
-          linkDin(context: context),
-          general(context: context),
-          SizedBox(height: Get.height * 0.09)
+          SizedBox(height: 10),
+          Expanded(
+            child: ListView(
+              controller: customPageController,
+              physics: const BouncingScrollPhysics(),
+              children: [
+                custom(context: context),
+                insta(context: context),
+                facebook(context: context),
+                twitter(context: context),
+                linkDin(context: context),
+                general(context: context),
+                SizedBox(
+                  height: 70,
+                ),
+              ],
+            ),
+          ),
         ],
       ),
     );
@@ -50,14 +80,9 @@ class CustomScreen extends StatelessWidget {
           height: height,
           width: width,
           decoration: BoxDecoration(
-              boxShadow: [
-                BoxShadow(blurRadius: 5, color: Colors.grey.withOpacity(0.3))
-              ],
+              boxShadow: [BoxShadow(blurRadius: 5, color: Colors.grey.withOpacity(0.3))],
               borderRadius: BorderRadius.circular(10),
-              gradient: LinearGradient(
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                  colors: colors)),
+              gradient: LinearGradient(begin: Alignment.topLeft, end: Alignment.bottomRight, colors: colors)),
           child: widget,
         )),
       ),
@@ -292,21 +317,9 @@ class CustomScreen extends StatelessWidget {
     return Wrap(
       children: [
         title(text: 'Twitter', context: context),
-        containt(
-            height: 60,
-            width: 115,
-            colors: [Color(0xFF1DA1F2), Color(0xFF1DA1F2)],
-            widget: twitterIcon(size: 20)),
-        containt(
-            height: 45,
-            width: 90,
-            colors: [Color(0xFF1DA1F2), Color(0xFF1DA1F2)],
-            widget: twitterIcon(size: 15)),
-        containt(
-            height: 80,
-            width: 80,
-            colors: [Color(0xFF1DA1F2), Color(0xFF1DA1F2)],
-            widget: twitterIcon(size: 30)),
+        containt(height: 60, width: 115, colors: [Color(0xFF1DA1F2), Color(0xFF1DA1F2)], widget: twitterIcon(size: 20)),
+        containt(height: 45, width: 90, colors: [Color(0xFF1DA1F2), Color(0xFF1DA1F2)], widget: twitterIcon(size: 15)),
+        containt(height: 80, width: 80, colors: [Color(0xFF1DA1F2), Color(0xFF1DA1F2)], widget: twitterIcon(size: 30)),
         contentName(text: 'Twitter Post', context: context),
         contentName(text: 'Twitter Header', context: context),
         contentName(text: 'Twitter Profile', context: context),
@@ -446,8 +459,7 @@ class CustomScreen extends StatelessWidget {
               Color(AppColor.bgcolor),
               Color(AppColor.bgcolor),
             ],
-            widget: generalIcon(
-                image: '${AssetPath.custom}PhotoCollage.png', size: 30)),
+            widget: generalIcon(image: '${AssetPath.custom}PhotoCollage.png', size: 30)),
         containt(
             height: 70,
             width: 120,
@@ -455,8 +467,7 @@ class CustomScreen extends StatelessWidget {
               Color(AppColor.white),
               Color(AppColor.white),
             ],
-            widget:
-                generalIcon(image: '${AssetPath.custom}youtube.png', size: 22)),
+            widget: generalIcon(image: '${AssetPath.custom}youtube.png', size: 22)),
         contentName(text: 'Blog Graphics', context: context),
         contentName(text: 'Photo Collage', context: context),
         contentName(text: 'Youtube', context: context),
@@ -468,10 +479,7 @@ class CustomScreen extends StatelessWidget {
               Color(0xFFC6D1C6),
               Color(0xFFC6D1C6).withOpacity(0.5),
             ],
-            widget: generalIcon(
-                image: '${AssetPath.custom}card.png',
-                size: 20,
-                color: Colors.black38)),
+            widget: generalIcon(image: '${AssetPath.custom}card.png', size: 20, color: Colors.black38)),
         containt(
             height: 100,
             width: 90,
@@ -480,10 +488,7 @@ class CustomScreen extends StatelessWidget {
               Color(0xFFC6D1C6),
               Color(0xFFC6D1C6).withOpacity(0.5),
             ],
-            widget: generalIcon(
-                image: '${AssetPath.custom}wings.png',
-                size: 20,
-                color: Colors.black38)),
+            widget: generalIcon(image: '${AssetPath.custom}wings.png', size: 20, color: Colors.black38)),
         containt(
             height: 70,
             width: 100,
@@ -492,10 +497,7 @@ class CustomScreen extends StatelessWidget {
               Color(0xFFC6D1C6),
               Color(0xFFC6D1C6).withOpacity(0.5),
             ],
-            widget: generalIcon(
-                image: '${AssetPath.custom}postcard.png',
-                size: 22,
-                color: Colors.black38)),
+            widget: generalIcon(image: '${AssetPath.custom}postcard.png', size: 22, color: Colors.black38)),
         contentName(text: 'Business Card', context: context),
         contentName(text: 'Logo', context: context),
         contentName(text: 'Post Card', context: context),
@@ -507,10 +509,7 @@ class CustomScreen extends StatelessWidget {
               Color(0xFFC6D1C6),
               Color(0xFFC6D1C6).withOpacity(0.5),
             ],
-            widget: generalIcon(
-                image: '${AssetPath.custom}pictures.png',
-                size: 20,
-                color: Colors.black38)),
+            widget: generalIcon(image: '${AssetPath.custom}pictures.png', size: 20, color: Colors.black38)),
         containt(
             height: 70,
             width: 100,
@@ -519,10 +518,7 @@ class CustomScreen extends StatelessWidget {
               Color(0xFFC6D1C6),
               Color(0xFFC6D1C6).withOpacity(0.5),
             ],
-            widget: generalIcon(
-                image: '${AssetPath.custom}certified.png',
-                size: 22,
-                color: Colors.black38)),
+            widget: generalIcon(image: '${AssetPath.custom}certified.png', size: 22, color: Colors.black38)),
         containt(
             height: 60,
             width: 90,
@@ -531,10 +527,7 @@ class CustomScreen extends StatelessWidget {
               Color(0xFFC6D1C6),
               Color(0xFFC6D1C6).withOpacity(0.5),
             ],
-            widget: generalIcon(
-                image: '${AssetPath.custom}gift-voucher.png',
-                size: 22,
-                color: Colors.black38)),
+            widget: generalIcon(image: '${AssetPath.custom}gift-voucher.png', size: 22, color: Colors.black38)),
         contentName(text: 'Desktop', context: context),
         contentName(text: 'Certificate', context: context),
         contentName(text: 'Gift', context: context),
@@ -546,10 +539,7 @@ class CustomScreen extends StatelessWidget {
               Color(0xFFC6D1C6),
               Color(0xFFC6D1C6).withOpacity(0.5),
             ],
-            widget: generalIcon(
-                image: '${AssetPath.custom}label.png',
-                size: 20,
-                color: Colors.black38)),
+            widget: generalIcon(image: '${AssetPath.custom}label.png', size: 20, color: Colors.black38)),
         containt(
             height: 100,
             width: 80,
@@ -558,10 +548,7 @@ class CustomScreen extends StatelessWidget {
               Color(0xFFC6D1C6),
               Color(0xFFC6D1C6).withOpacity(0.5),
             ],
-            widget: generalIcon(
-                image: '${AssetPath.custom}loudspeaker.png',
-                size: 25,
-                color: Colors.black38)),
+            widget: generalIcon(image: '${AssetPath.custom}loudspeaker.png', size: 25, color: Colors.black38)),
         containt(
             height: 90,
             width: 90,
@@ -570,10 +557,7 @@ class CustomScreen extends StatelessWidget {
               Color(0xFFC6D1C6),
               Color(0xFFC6D1C6).withOpacity(0.5),
             ],
-            widget: generalIcon(
-                image: '${AssetPath.custom}handbag.png',
-                size: 27,
-                color: Colors.black38)),
+            widget: generalIcon(image: '${AssetPath.custom}handbag.png', size: 27, color: Colors.black38)),
         contentName(text: 'Label', context: context),
         contentName(text: 'Announcement', context: context),
         contentName(text: 'Icon', context: context),
@@ -585,10 +569,7 @@ class CustomScreen extends StatelessWidget {
               Color(0xFFC6D1C6),
               Color(0xFFC6D1C6).withOpacity(0.5),
             ],
-            widget: generalIcon(
-                image: '${AssetPath.custom}presentation.png',
-                size: 20,
-                color: Colors.black38)),
+            widget: generalIcon(image: '${AssetPath.custom}presentation.png', size: 20, color: Colors.black38)),
         containt(
             height: 120,
             width: 70,
@@ -597,10 +578,7 @@ class CustomScreen extends StatelessWidget {
               Color(0xFFC6D1C6),
               Color(0xFFC6D1C6).withOpacity(0.5),
             ],
-            widget: generalIcon(
-                image: '${AssetPath.custom}wedding-planning.png',
-                size: 22,
-                color: Colors.black38)),
+            widget: generalIcon(image: '${AssetPath.custom}wedding-planning.png', size: 22, color: Colors.black38)),
         containt(
             height: 60,
             width: 100,
@@ -609,10 +587,7 @@ class CustomScreen extends StatelessWidget {
               Color(0xFFC6D1C6),
               Color(0xFFC6D1C6).withOpacity(0.5),
             ],
-            widget: generalIcon(
-                image: '${AssetPath.custom}presentation.png',
-                size: 20,
-                color: Colors.black38)),
+            widget: generalIcon(image: '${AssetPath.custom}presentation.png', size: 20, color: Colors.black38)),
         contentName(text: 'presentation', context: context),
         contentName(text: 'Logo', context: context),
         contentName(text: 'presentation', context: context),
@@ -624,10 +599,7 @@ class CustomScreen extends StatelessWidget {
               Color(0xFFC6D1C6),
               Color(0xFFC6D1C6).withOpacity(0.5),
             ],
-            widget: generalIcon(
-                image: '${AssetPath.custom}resume-cv.png',
-                size: 25,
-                color: Colors.black38)),
+            widget: generalIcon(image: '${AssetPath.custom}resume-cv.png', size: 25, color: Colors.black38)),
         SizedBox(width: Get.width * 0.33),
         SizedBox(width: Get.width * 0.33),
         contentName(text: 'Resume', context: context),

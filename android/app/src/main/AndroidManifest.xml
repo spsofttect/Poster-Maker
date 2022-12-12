@@ -3,6 +3,7 @@
     <application
         android:label="Poster Maker"
         android:name="${applicationName}"
+       android:usesCleartextTraffic="true"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:label="Poster Maker"

@@ -19,11 +19,23 @@ class FavoriteScreen extends StatefulWidget {
   State<FavoriteScreen> createState() => _FavoriteScreenState();
 }
 
-GlobalKey<_FavoriteScreenState> textGlobalKey =
-    GlobalKey<_FavoriteScreenState>();
+GlobalKey<_FavoriteScreenState> textGlobalKey = GlobalKey<_FavoriteScreenState>();
 
 class _FavoriteScreenState extends State<FavoriteScreen> {
   // CountryController controller = Get.put(CountryController());
+
+  @override
+  void initState() {
+    super.initState();
+    isScroll.value = false;
+    favouritePageController.addListener(() {
+      if (favouritePageController.position.pixels > Get.height * 0.1) {
+        isScroll.value = true;
+      } else {
+        isScroll.value = false;
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -83,10 +95,7 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
                                           margin: EdgeInsets.all(5),
                                           height: 30,
                                           width: 30,
-                                          decoration: BoxDecoration(
-                                              color: Colors.black54,
-                                              borderRadius:
-                                                  BorderRadius.circular(8)),
+                                          decoration: BoxDecoration(color: Colors.black54, borderRadius: BorderRadius.circular(8)),
                                           child: Icon(
                                             Icons.favorite,
                                             color: Colors.red,
@@ -99,7 +108,7 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
                     ),
                     staggeredTileBuilder: (index) => const StaggeredTile.fit(1),
                   ),
-          ),
+          )
 
           // GridView.custom(
           //   padding: EdgeInsets.all(15),
