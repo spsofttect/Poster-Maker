@@ -92,7 +92,7 @@ class _AddImagePageState extends State<AddImagePage>
           isExpanded: true,
           icon: Icon(Icons.keyboard_arrow_down_sharp, size: 30),
           items: getItems(),
-          value: selectedModel.name,
+          value: selectedModel.name.toString(),
           onChanged: (String d) {
             setState(() {
               albumlist.forEach(((element) {

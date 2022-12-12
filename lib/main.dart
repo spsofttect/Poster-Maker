@@ -4,15 +4,23 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_windowmanager/flutter_windowmanager.dart';
+import 'package:get_it/get_it.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:get/get.dart';
 import 'Helper/app_theme.dart';
 import 'Helper/route.dart';
+
+GetIt locator = GetIt.instance;
+Future<void> backgroundHandler(RemoteMessage message) async {
+  print(message.data.toString());
+  print(message.notification.title);
+}
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -22,12 +30,12 @@ void main() async {
     FlutterError.presentError(details);
     if (kReleaseMode) exit(1);
   };
+
+  runApp(MyApp());
   // DeviceOrientation
   // SystemChrome.setPreferredOrientations(
   //     [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
   //  Do not capture Screenshot and video
-  FlutterWindowManager.addFlags(FlutterWindowManager.FLAG_SECURE);
-  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {

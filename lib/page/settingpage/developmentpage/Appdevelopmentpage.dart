@@ -31,7 +31,6 @@ class _DevelopmentPageState extends State<DevelopmentPage> {
     // DeviceOrientation
     // SystemChrome.setPreferredOrientations(
     //     [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
-
     // Do not capture Screenshot and video
     FlutterWindowManager.addFlags(FlutterWindowManager.FLAG_SECURE);
     // Do not capture Screenshot and video

@@ -25,7 +25,7 @@ class _IntroScreenState extends State<IntroScreen> {
         [DeviceOrientation.portraitDown, DeviceOrientation.portraitUp]);
     // Do not capture Screenshot and video
     // Do not capture Screenshot and video
-    FlutterWindowManager.addFlags(FlutterWindowManager.FLAG_SECURE);
+   
     // Do not capture Screenshot and video
     return Scaffold(
       body: Container(

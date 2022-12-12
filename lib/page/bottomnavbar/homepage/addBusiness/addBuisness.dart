@@ -2,13 +2,11 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import 'package:poster_maker/Helper/utlity.dart';
 import 'package:poster_maker/Helper/widget.dart';
 
 class AddBusinessPage extends StatelessWidget {
   AddBusinessPage({Key key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

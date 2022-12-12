@@ -39,7 +39,7 @@ class _VarificationScreenState extends State<VarificationScreen> {
     // SystemChrome.setPreferredOrientations(
     //     [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
     // Do not capture Screenshot and video
-    FlutterWindowManager.addFlags(FlutterWindowManager.FLAG_SECURE);
+
     // Do not capture Screenshot and video
     return Scaffold(
       // backgroundColor: Get.isDarkMode ? Colors.white : Color(AppColor.bgcolor),

@@ -128,7 +128,8 @@ class _LoginScreenState extends State<LoginScreen> {
         Container(
           // margin: EdgeInsets.only(top: 7),
           height: 50,
-          decoration: BoxDecoration(color: Color(AppColor.white), borderRadius: BorderRadius.circular(15)),
+          decoration: BoxDecoration(
+              color: Color(AppColor.black).withOpacity(0.5), borderRadius: BorderRadius.circular(15)),
           alignment: Alignment.center,
           child: InternationalPhoneNumberInput(
             onInputChanged: (PhoneNumber number) {
@@ -147,7 +148,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
             inputDecoration: InputDecoration(
               hintText: "Phone Number",
-              hintStyle: TextStyle(color: Color(AppColor.black).withOpacity(0.3), fontSize: 15, fontFamily: AppFont.SemiBold),
+              hintStyle: TextStyle(color: Color(AppColor.white).withOpacity(0.3), fontSize: 15, fontFamily: AppFont.SemiBold),
               enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(6),
                 borderSide: BorderSide(color: Colors.transparent),
@@ -160,13 +161,13 @@ class _LoginScreenState extends State<LoginScreen> {
             cursorColor: Color(AppColor.orange),
             spaceBetweenSelectorAndTextField: 0,
             autoValidateMode: AutovalidateMode.disabled,
-            selectorTextStyle: TextStyle(color: Color(AppColor.black).withOpacity(0.5), fontSize: 15, fontFamily: AppFont.Medium),
+            selectorTextStyle: TextStyle(color: Color(AppColor.white), fontSize: 15, fontFamily: AppFont.SemiBold),
             initialValue: number,
 
             // textFieldController: controller,
             formatInput: false,
             textAlignVertical: TextAlignVertical.bottom,
-            textStyle: TextStyle(color: Color(AppColor.bgcolor), fontSize: 16, fontFamily: AppFont.Regular),
+            textStyle: TextStyle(color: Color(AppColor.white), fontSize: 16, fontFamily: AppFont.Regular),
             // keyboardType:
             //     TextInputType.numberWithOptions(signed: true, decimal: true),
             keyboardType: TextInputType.number,

@@ -63,11 +63,12 @@ class _BottomNavBarScreenState extends State<BottomNavBarScreen> {
 
   @override
   Widget build(BuildContext context) {
+    FlutterWindowManager.addFlags(FlutterWindowManager.FLAG_SECURE);
     // DeviceOrientationd
     SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
 
     // Do not capture Screenshot and video
-    FlutterWindowManager.addFlags(FlutterWindowManager.FLAG_SECURE);
+
     // Do not capture Screenshot and video
     return AdvancedDrawer(
       controller: advancedDrawerController,
