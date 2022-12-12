@@ -29,7 +29,18 @@ void main() async {
   await Firebase.initializeApp();
 
   FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterError;
-
+  // bool weWantFatalErrorRecording = true;
+  // FlutterError.onError = (errorDetails) {
+  //   if (weWantFatalErrorRecording) {
+  //     FirebaseCrashlytics.instance.recordFlutterFatalError(errorDetails);
+  //   } else {
+  //     FirebaseCrashlytics.instance.recordFlutterError(errorDetails);
+  //   }
+  // };
+  // PlatformDispatcher.instance.onError = (error, stack) {
+  //   FirebaseCrashlytics.instance.recordError(error, stack, fatal: true);
+  //   return true;
+  // };
   // foundation Error
   FlutterError.onError = (FlutterErrorDetails details) {
     FlutterError.presentError(details);
@@ -38,7 +49,6 @@ void main() async {
   runApp(MyApp());
   _deleteCacheDir();
   _deleteAppDir();
-  throw Exception();
   // DeviceOrientation
   // SystemChrome.setPreferredOrientations(
   //     [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
