@@ -1,4 +1,4 @@
-// ignore_for_file: avoid_unnecessary_containers, prefer_const_constructors, invalid_use_of_protected_member, library_private_types_in_public_api, file_names
+// ignore_for_file: avoid_unnecessary_containers, prefer_const_constructors, invalid_use_of_protected_member, library_private_types_in_public_api, file_names, unused_import
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bounce/flutter_bounce.dart';

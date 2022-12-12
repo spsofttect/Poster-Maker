@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_function_declarations_over_variables
+// ignore_for_file: prefer_function_declarations_over_variables, file_names, avoid_print
 
 import 'dart:async';
 
@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get/get.dart';
 import 'package:poster_maker/Helper/apiprovider.dart';
+import 'package:poster_maker/page/bottomnavbar/bottomnavbar.dart';
 
 String yourCountryCode = "";
 int currentpage = 0;
@@ -83,7 +84,7 @@ class AuthClass {
     PhoneVerificationFailed verificationFailed =
         (FirebaseAuthException exception) {
       Get.back();
-      showTostMessage(message: "FirebaseAuthException" + exception.toString());
+      showTostMessage(message: "FirebaseAuthException$exception");
     };
     PhoneCodeSent codeSent = (String verificationID, [forceResnedingtoken]) {
       showTostMessage(message: "Verification Code sent on the phone number");
@@ -120,7 +121,7 @@ class AuthClass {
           await _auth.signInWithCredential(credential);
       storeTokenAndData(userCredential);
       // loginApiCall();
-      Get.offAll(BottomNavigationBarItem());
+      Get.offAll(const BottomNavBarScreen());
       showTostMessage(message: "logged In");
     } catch (e) {
       Get.back();

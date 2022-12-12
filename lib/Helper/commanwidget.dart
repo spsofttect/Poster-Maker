@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, unused_local_variable
+// ignore_for_file: prefer_const_constructors, unused_local_variable, unused_import, missing_required_param, must_be_immutable
 
 import 'package:cached_video_player/cached_video_player.dart';
 import 'package:flutter/material.dart';

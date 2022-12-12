@@ -1,4 +1,3 @@
-import 'package:cached_video_player/cached_video_player.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
 import 'package:get/get_rx/src/rx_types/rx_types.dart';
