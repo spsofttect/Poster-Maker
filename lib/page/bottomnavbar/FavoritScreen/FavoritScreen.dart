@@ -109,7 +109,7 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
                     ),
                     staggeredTileBuilder: (index) => const StaggeredTile.fit(1),
                   ),
-          )
+          ),
 
           // GridView.custom(
           //   padding: EdgeInsets.all(15),
