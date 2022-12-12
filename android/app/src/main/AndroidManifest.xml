@@ -3,7 +3,7 @@
     <application
         android:label="Poster Maker"
         android:name="${applicationName}"
-       android:usesCleartextTraffic="true"
+        android:usesCleartextTraffic="true"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:label="Poster Maker"
@@ -40,4 +40,8 @@
             android:value="2" />
     </application>
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" /> <!-- If you want to read images-->
+    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" /> <!-- If you want to read videos-->
+    <uses-permission android:name="android.permission.READ_MEDIA_AUDIO" /> <!-- If you want to read audio-->
+
 </manifest>

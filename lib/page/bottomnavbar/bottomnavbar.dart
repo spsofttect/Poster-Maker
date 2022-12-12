@@ -166,7 +166,7 @@ class _BottomNavBarScreenState extends State<BottomNavBarScreen> {
               boxShadow: [BoxShadow(color: Color(AppColor.white))],
               border: Border.all(width: 2.5, color: Color(AppColor.white)),
               borderRadius: BorderRadius.circular(30),
-              gradient: LinearGradient(begin: Alignment.topCenter, end: Alignment.bottomCenter, colors: const [Color(0xFFFA7F08), Color(0xFFF24405)]),
+              gradient: LinearGradient(begin: Alignment.topCenter, end: Alignment.bottomCenter, colors:  [Color(AppColor.orange), Color(AppColor.red)]),
               // color: Color(AppColor.orange),
             ),
             child: Obx(
@@ -217,7 +217,7 @@ class _BottomNavBarScreenState extends State<BottomNavBarScreen> {
       height: 55,
       margin: EdgeInsets.only(bottom: Get.height * 0.02, left: 30, right: 30),
       decoration: BoxDecoration(
-        gradient: LinearGradient(begin: Alignment.topCenter, end: Alignment.bottomCenter, colors: const [Color(0xFFFA7F08), Color(0xFFF24405)]),
+        gradient: LinearGradient(begin: Alignment.topCenter, end: Alignment.bottomCenter, colors:  [Color(AppColor.orange), Color(AppColor.red)]),
         borderRadius: BorderRadius.circular(15),
       ),
       child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [

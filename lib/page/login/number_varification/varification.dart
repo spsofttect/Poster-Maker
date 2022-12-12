@@ -10,6 +10,7 @@ import 'package:otp_text_field/otp_text_field.dart';
 import 'package:otp_text_field/style.dart';
 import 'package:poster_maker/Helper/utlity.dart';
 import 'package:poster_maker/Helper/widget.dart';
+import 'package:poster_maker/page/bottomnavbar/bottomnavbar.dart';
 import 'package:poster_maker/page/login/Auth_Service.dart';
 
 class VarificationScreen extends StatefulWidget {
@@ -183,7 +184,7 @@ class _VarificationScreenState extends State<VarificationScreen> {
                   CommanWidget().nextButton(
                       // margin: EdgeInsets.only(left: 15,right: 15),
                       onTap: () {
-                        Get.toNamed('/languageScreen');
+                        Get.to(BottomNavBarScreen());
                       },
                       radius: 10.0,
                       text: 'Verify',

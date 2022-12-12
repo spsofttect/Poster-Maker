@@ -143,6 +143,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>NewpageView<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< //
   Widget New() {
     return StaggeredGridView.countBuilder(
+      padding: EdgeInsets.only(bottom:Get.height*0.09),
       crossAxisCount: 2,
       itemCount: item3.length,
       physics: BouncingScrollPhysics(),
@@ -275,6 +276,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Postview<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< //
   Widget Post() {
     return StaggeredGridView.countBuilder(
+         padding: EdgeInsets.only(bottom: Get.height * 0.09),
       crossAxisCount: 2,
       itemCount: item.length,
       physics: BouncingScrollPhysics(),
@@ -357,6 +359,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>StoryView<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< //
   Widget Story() {
     return StaggeredGridView.countBuilder(
+         padding: EdgeInsets.only(bottom: Get.height * 0.09),
       crossAxisCount: 2,
       itemCount: item2.length,
       physics: BouncingScrollPhysics(),
@@ -524,7 +527,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
         indicatorPadding: EdgeInsets.only(top: 5, bottom: 5, right: 10, left: 10),
         indicator: BoxDecoration(
           borderRadius: BorderRadius.circular(8), //
-          gradient: LinearGradient(begin: Alignment.topCenter, end: Alignment.bottomCenter, colors: const [Color(0xFFFA7F08), Color(0xFFF24405)]),
+          gradient: LinearGradient(begin: Alignment.topCenter, end: Alignment.bottomCenter, colors:  [Color(AppColor.orange), Color(AppColor.red)]),
         ),
         // indicatorColor: Colors.white,
         controller: _tabController,

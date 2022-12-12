@@ -65,9 +65,10 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
                     child: Text("No Data"),
                   )
                 : StaggeredGridView.countBuilder(
+                    controller: favouritePageController,
                     crossAxisCount: 2,
                     itemCount: favourit.length,
-                    physics: BouncingScrollPhysics(),
+                    physics: NeverScrollableScrollPhysics(),
                     itemBuilder: (context, index) => Padding(
                       padding: const EdgeInsets.all(5.0),
                       child: Bounce(

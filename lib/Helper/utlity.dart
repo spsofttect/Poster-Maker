@@ -15,6 +15,7 @@ mixin AppColor {
   static int grey = 0xFF707070;
   static int black = 0xFF000000;
   static int shadow = 0xFFC3A1B5;
+  static int red = 0xFFF24405;
 }
 mixin AssetPath {
   static String intro = "assets/image/intro/";

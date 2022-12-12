@@ -100,9 +100,9 @@ class CommanWidget {
                       gradient: LinearGradient(
                           begin: Alignment.topCenter,
                           end: Alignment.bottomCenter,
-                          colors: const [
-                            Color(0xFFFA7F08),
-                            Color(0xFFF24405)
+                          colors:  [
+                            Color(AppColor.orange),
+                            Color(AppColor.red)
                           ])),
                   child: Image.asset('${AssetPath.addbusiness}pencil.png',
                       color: Color(AppColor.white)),

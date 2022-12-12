@@ -27,7 +27,7 @@ class _AddImagePageState extends State<AddImagePage>
     super.initState();
   }
 
-  // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>open_camera<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+  // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> open_camera <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< //
   List<AssetPathEntity> albumlist = [];
   List<AssetEntity> mediaList = [];
   AssetEntity selectedFile;
@@ -41,14 +41,14 @@ class _AddImagePageState extends State<AddImagePage>
       );
 
       final List<AssetEntity> entities =
-          await paths.first.getAssetListPaged(page: 0, size: 50);
+          await paths[0].getAssetListPaged(page: 0, size: 50);
       setState(() {
         albumlist = paths;
         mediaList = entities;
         selectedModel = albumlist.first;
         selectedFile = mediaList.first;
-        // selectedAlbums.clear();
-        // selectedAlbums.add(selectedFile);
+        selectedAlbums.clear();
+        selectedAlbums.add(selectedFile);
       });
     } else {}
     // printFile(selectedFile);
@@ -86,6 +86,7 @@ class _AddImagePageState extends State<AddImagePage>
         _tab(),
         DropdownButtonHideUnderline(
             child: DropdownButton<String>(
+          menuMaxHeight: 500.0,
           borderRadius: BorderRadius.circular(20),
           elevation: 0,
           isExpanded: true,
@@ -103,7 +104,7 @@ class _AddImagePageState extends State<AddImagePage>
             });
           },
         )),
-_tabBarView()
+        // _tabBarView()
       ],
     ));
   }
@@ -111,9 +112,12 @@ _tabBarView()
   List getItems() {
     return albumlist
             .map((e) => DropdownMenuItem(
+                  alignment: Alignment.centerLeft,
                   child: Text(
                     e.name,
-                    style: TextStyle(color: Color(AppColor.grey), fontSize: 20),
+                    maxLines: 1,
+                    style:
+                        TextStyle(color: Color(AppColor.white), fontSize: 20),
                   ),
                   value: e.name,
                 ))
@@ -128,7 +132,7 @@ _tabBarView()
     );
     setState(() {
       mediaList = entities;
-      selectedFile = mediaList.first;
+      selectedFile = mediaList[0];
       selectedAlbums.clear();
       selectedAlbums.add(selectedFile);
       // if (state == AppState.picked) imagecroper();
@@ -161,7 +165,7 @@ _tabBarView()
             gradient: LinearGradient(
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
-                colors: const [Color(0xFFFA7F08), Color(0xFFF24405)])),
+                colors:  [Color(AppColor.orange), Color(AppColor.red)])),
         child: Center(
             child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -214,11 +218,11 @@ _tabBarView()
     return TabBarView(
       controller: _tabController,
       children: [
-        grid(count: mediaList.length),
+        grid(count: mediaList.length, height: 100),
         Center(
           child: Text("second"),
         ),
-        gridView()
+        // gridView(itemCount: mediaList.length, )
       ],
     );
   }
@@ -233,7 +237,7 @@ _tabBarView()
             crossAxisCount: 4,
             mainAxisSpacing: 10,
             crossAxisSpacing: 10,
-            // mainAxisExtent: height,
+            mainAxisExtent: height,
           ),
           itemCount: count,
           itemBuilder: (_, i) {
@@ -245,18 +249,18 @@ _tabBarView()
                     if (snapshot.hasData) {
                       // bool isSelected = false;
                       return GestureDetector(
-                        // onLongPress: () {
-                        //   setState(() {
-                        //     ismultipleEnable = true;
-                        //   });
-                        // },
+                        onLongPress: () {
+                          setState(() {
+                            ismultipleEnable = true;
+                          });
+                        },
                         onTap: () {
                           setState(() {
-                            // if (!ismultipleEnable) {
-                            //   selectedAlbums.clear();
-                            //   print(
-                            //       "  =========>>>>>>>>>>>>>>>>>>    $selectedAlbums");
-                            // }
+                            if (!ismultipleEnable) {
+                              selectedAlbums.clear();
+                              print(
+                                  "  =========>>>>>>>>>>>>>>>>>>    $selectedAlbums");
+                            }
                             selectedFile = mediaList[i];
 
                             print(

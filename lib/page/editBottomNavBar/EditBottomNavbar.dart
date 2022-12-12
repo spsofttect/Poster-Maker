@@ -86,9 +86,9 @@ class _EditBottomNavBarState extends State<EditBottomNavBar> {
         gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
-            colors: const [
-              Color(0xFFFA7F08),
-              Color(0xFFF24405),
+            colors:  [
+              Color(AppColor.orange),
+              Color(AppColor.red),
             ]),
         borderRadius: BorderRadius.only(
             topLeft: Radius.circular(15), topRight: Radius.circular(15)),
