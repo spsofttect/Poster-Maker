@@ -1,7 +1,6 @@
 // ignore_for_file: prefer_const_constructors, unused_element, avoid_print, sort_child_properties_last, prefer_final_fields, no_leading_underscores_for_local_identifiers, unused_field, file_names
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:photo_manager/photo_manager.dart';
 import 'package:poster_maker/Helper/commanwidget.dart';
@@ -105,7 +104,7 @@ class _AddImagePageState extends State<AddImagePage>
             });
           },
         )),
-// _tabBarView()
+        // _tabBarView()
       ],
     ));
   }
