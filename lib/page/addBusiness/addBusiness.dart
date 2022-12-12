@@ -62,7 +62,7 @@ class _AddBusinessState extends State<AddBusiness> {
                 width: Get.width * 0.9,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15),
-                  gradient: const LinearGradient(begin: Alignment.topCenter, end: Alignment.bottomCenter, colors: [Color(0xFFFA7F08), Color(0xFFF24405)]),
+                  gradient:  LinearGradient(begin: Alignment.topCenter, end: Alignment.bottomCenter, colors: [Color(AppColor.orange), Color(AppColor.red)]),
                 ),
                 alignment: Alignment.center,
                 child: Text(

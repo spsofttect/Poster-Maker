@@ -527,7 +527,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
         indicatorPadding: EdgeInsets.only(top: 5, bottom: 5, right: 10, left: 10),
         indicator: BoxDecoration(
           borderRadius: BorderRadius.circular(8), //
-          gradient: LinearGradient(begin: Alignment.topCenter, end: Alignment.bottomCenter, colors: const [Color(0xFFFA7F08), Color(0xFFF24405)]),
+          gradient: LinearGradient(begin: Alignment.topCenter, end: Alignment.bottomCenter, colors:  [Color(AppColor.orange), Color(AppColor.red)]),
         ),
         // indicatorColor: Colors.white,
         controller: _tabController,

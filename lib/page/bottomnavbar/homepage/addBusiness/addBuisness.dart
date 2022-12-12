@@ -111,7 +111,10 @@ class BusinessList extends StatelessWidget {
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(15),
                       gradient:
-                          LinearGradient(begin: Alignment.topLeft, end: Alignment.bottomRight, colors: const [Color(0xFFFA7F08), Color(0xFFF24405)])),
+                          LinearGradient(begin: Alignment.topLeft, end: Alignment.bottomRight, colors:  [
+                            Color(AppColor.orange),
+                            Color(AppColor.red)
+                          ])),
                   child: Icon(
                     Icons.add,
                     color: Color(AppColor.black),

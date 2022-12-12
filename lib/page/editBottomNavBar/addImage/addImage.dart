@@ -165,7 +165,7 @@ class _AddImagePageState extends State<AddImagePage>
             gradient: LinearGradient(
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
-                colors: const [Color(0xFFFA7F08), Color(0xFFF24405)])),
+                colors:  [Color(AppColor.orange), Color(AppColor.red)])),
         child: Center(
             child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
