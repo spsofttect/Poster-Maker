@@ -28,7 +28,7 @@ class _DrawerPageState extends State<DrawerPage> {
   @override
   Widget build(BuildContext context) {
     return ListView(
-         physics: BouncingScrollPhysics(),
+      physics: BouncingScrollPhysics(),
       children: [
         appbar(),
         drawerItems(),
@@ -70,7 +70,8 @@ class _DrawerPageState extends State<DrawerPage> {
             image: '${AssetPath.create}setting.png',
             name: 'Setting'),
         drawarItem(image: '${AssetPath.create}tutor.png', name: 'Tutor'),
-        drawarItem(image: '${AssetPath.create}suggest.png', name: 'Suggest a Feature'),
+        drawarItem(
+            image: '${AssetPath.create}suggest.png', name: 'Suggest a Feature'),
         drawarItem(image: '${AssetPath.create}about.png', name: 'About us'),
         drawarItem(image: '${AssetPath.create}contact.png', name: 'Contact us'),
         drawarItem(
@@ -79,7 +80,8 @@ class _DrawerPageState extends State<DrawerPage> {
             ontap: () {
               Get.to(FeedbackView());
             }),
-        drawarItem(image: '${AssetPath.create}policy.png', name: 'Privacy Policy'),
+        drawarItem(
+            image: '${AssetPath.create}policy.png', name: 'Privacy Policy'),
         drawarItem(image: '${AssetPath.create}follow.png', name: 'Follow us'),
         drawarItem(image: '${AssetPath.create}rate.png', name: 'Rate us'),
         drawarItem(
@@ -103,7 +105,9 @@ class _DrawerPageState extends State<DrawerPage> {
             margin: EdgeInsets.only(top: 15),
             decoration: BoxDecoration(
                 color: Color(AppColor.grey).withOpacity(0.15),
-                borderRadius: BorderRadius.only(topLeft: Radius.circular(20), bottomLeft: Radius.circular(20))),
+                borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(20),
+                    bottomLeft: Radius.circular(20))),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
@@ -114,7 +118,10 @@ class _DrawerPageState extends State<DrawerPage> {
                 SizedBox(width: 30),
                 Text(
                   name,
-                  style: TextStyle(fontFamily: AppFont.Medium, fontSize: Get.height * 0.02, color: Color(AppColor.white)),
+                  style: TextStyle(
+                      fontFamily: AppFont.Medium,
+                      fontSize: Get.height * 0.02,
+                      color: Color(AppColor.white)),
                 )
               ],
             ),
@@ -141,7 +148,10 @@ class _DrawerPageState extends State<DrawerPage> {
         SizedBox(width: 20),
         Text(
           "Menu",
-          style: TextStyle(fontFamily: AppFont.Bold, fontSize: Get.height * 0.03, color: Color(AppColor.orange)),
+          style: TextStyle(
+              fontFamily: AppFont.Bold,
+              fontSize: Get.height * 0.03,
+              color: Color(AppColor.orange)),
         )
       ],
     );
