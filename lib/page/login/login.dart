@@ -35,7 +35,6 @@ class _LoginScreenState extends State<LoginScreen>
     with SingleTickerProviderStateMixin {
   String buttonName = "Resend";
   String verificationIdFinal = "";
-
   bool otpVisibility = false;
   String initialCountry = 'IN';
   PhoneNumber number = PhoneNumber(isoCode: 'IN');
@@ -198,11 +197,10 @@ class _LoginScreenState extends State<LoginScreen>
                             "$yourCountryCode}", context, setData);
                         // _introController.device();
                         await selectedIndex(1);
-
                       } else if (phoneController.text.isEmpty) {
                         await selectedIndex(0);
                         showTostMessage(message: 'Enter Your PhoneNumber');
-                        print('>>>>>>>>>>>>>VerificationScreen<<<<<<<<<<<<');
+                        print('>>>>>>>>>>>>>Emply<<<<<<<<<<<<');
                       }
                     },
                     radius: 10.0,
@@ -288,7 +286,7 @@ class _LoginScreenState extends State<LoginScreen>
                     child: TextField(
                       textAlign: TextAlign.center,
                       controller: otpbox,
-                      cursorColor: Color(AppColor.white),
+                      cursorColor: Color(AppColor.orange),
                       keyboardType: TextInputType.number,
                       maxLines: 1,
                       style: GoogleFonts.fredoka(
@@ -307,7 +305,7 @@ class _LoginScreenState extends State<LoginScreen>
                         });
                       },
                     )),
-                    SizedBox(height: 20),
+                SizedBox(height: 20),
                 Center(
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
@@ -323,7 +321,7 @@ class _LoginScreenState extends State<LoginScreen>
                           TextSpan(
                             text: "00:$start",
                             style: GoogleFonts.fredoka(
-                                fontSize: 14, color: Color(AppColor.white)),
+                                fontSize: 14, color: Colors.grey),
                           ),
                           TextSpan(
                             text: " sec ",
@@ -332,7 +330,7 @@ class _LoginScreenState extends State<LoginScreen>
                           ),
                         ],
                       )),
-                      SizedBox(height:5),
+                      SizedBox(height: 5),
                       GestureDetector(
                         onTap:
                             // wait
@@ -351,20 +349,20 @@ class _LoginScreenState extends State<LoginScreen>
                               setData);
                         },
                         child: Center(
-                            child: Text("$text !",
+                            child: Text("$buttonName !",
                                 style: GoogleFonts.fredoka(
-                                    color: Color(AppColor.white),
+                                    color: Colors.white,
                                     decoration: TextDecoration.underline,
                                     fontWeight: FontWeight.w500))),
                       ),
                     ],
                   ),
                 ),
-                SizedBox(height: 30),
+                SizedBox(height: 15),
                 CommanWidget().nextButton(
                     // margin: EdgeInsets.only(left: 15,right: 15),
                     onTap: () {
-                          // loding();
+                      // loding();
                       authClass.signInwithPhoneNumber(
                           verificationIdFinal, smsCode, context);
                     },
@@ -390,10 +388,13 @@ class _LoginScreenState extends State<LoginScreen>
           alignment: Alignment.center,
           child: InternationalPhoneNumberInput(
             onInputChanged: (PhoneNumber number) {
-              print(number.phoneNumber);
+              yourCountryCode = number.phoneNumber;
             },
             onInputValidated: (bool value) {
               print(value);
+            },
+            onSaved: (PhoneNumber number) {
+              print('On Saved: $number');
             },
             selectorConfig: SelectorConfig(
               showFlags: true,
@@ -427,8 +428,7 @@ class _LoginScreenState extends State<LoginScreen>
                 fontSize: 15,
                 fontFamily: AppFont.SemiBold),
             initialValue: number,
-
-            // textFieldController: controller,
+            textFieldController: phoneController,
             formatInput: false,
             textAlignVertical: TextAlignVertical.bottom,
             textStyle: TextStyle(
@@ -439,9 +439,8 @@ class _LoginScreenState extends State<LoginScreen>
             //     TextInputType.numberWithOptions(signed: true, decimal: true),
             keyboardType: TextInputType.number,
             inputBorder: InputBorder.none,
-
-            onSaved: (PhoneNumber number) {
-              print('On Saved: $number');
+            onFieldSubmitted: (val) {
+              print("-----------------Your Number--------------$val");
             },
           ),
         ),

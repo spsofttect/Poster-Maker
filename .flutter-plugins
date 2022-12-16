@@ -11,6 +11,7 @@ firebase_core_web=/usr/local/Caskroom/flutter/3.0.5/flutter/.pub-cache/hosted/pu
 firebase_crashlytics=/usr/local/Caskroom/flutter/3.0.5/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_crashlytics-3.0.7/
 firebase_messaging=/usr/local/Caskroom/flutter/3.0.5/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_messaging-14.1.4/
 firebase_messaging_web=/usr/local/Caskroom/flutter/3.0.5/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_messaging_web-3.2.9/
+flutter_local_notifications=/usr/local/Caskroom/flutter/3.0.5/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_local_notifications-9.9.1/
 flutter_plugin_android_lifecycle=/usr/local/Caskroom/flutter/3.0.5/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_plugin_android_lifecycle-2.0.6/
 flutter_secure_storage=/usr/local/Caskroom/flutter/3.0.5/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_secure_storage-6.1.0/
 flutter_secure_storage_linux=/usr/local/Caskroom/flutter/3.0.5/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_secure_storage_linux-1.1.2/

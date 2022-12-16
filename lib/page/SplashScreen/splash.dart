@@ -33,7 +33,7 @@ class _SplashScreenState extends State<SplashScreen> {
       var isIntroduction = await Preferences.preferences.getBool(
           key: PrefernceKey.isIntroductionScreenLoaded, defValue: false);
 
-      if (isIntroduction == true) {
+      if (!isIntroduction) {
         // introduction screen appears ,go to home if true else login
 
         Get.offNamed('/loginScreen');
@@ -87,7 +87,6 @@ class _SplashScreenState extends State<SplashScreen> {
     } else {
       await FlutterWindowManager.clearFlags(FlutterWindowManager.FLAG_SECURE);
     }
-
     setState(() {
       _isSecureScreen = !_isSecureScreen;
     });

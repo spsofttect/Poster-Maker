@@ -70,6 +70,8 @@ dependencies:
   flutter_secure_storage: ^6.1.0
   flutterfire_cli: ^0.2.7
   get_it: ^7.2.0
+  flutter_local_notifications: ^9.7.0
+  rxdart: ^0.27.5
 
 
 dev_dependencies:
