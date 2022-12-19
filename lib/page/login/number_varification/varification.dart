@@ -54,11 +54,11 @@ class _VarificationScreenState extends State<VarificationScreen> {
         SizedBox(height: 30),
         Text(
           'Varification',
-          style: TextStyle(
+          style: GoogleFonts.fredoka(
               // color: Get.isDarkMode
               //     ? Color(AppColor.grey)
               //     : Color(AppColor.white),
-              fontFamily: AppFont.Medium,
+              fontWeight: FontWeight.w400,
               fontSize: 40),
           textAlign: TextAlign.center,
         ),
@@ -67,8 +67,8 @@ class _VarificationScreenState extends State<VarificationScreen> {
           child: Center(
             child: Text(
               'Enter A 4 Digit Number That \n Was Sent To + (91) *****3210',
-              style: TextStyle(
-                  fontFamily: AppFont.Regular,
+              style: GoogleFonts.fredoka(
+                 fontWeight: FontWeight.w400,
                   // color: Get.isDarkMode
                   //     ? Color(AppColor.grey)
                   //     : Color(AppColor.white),

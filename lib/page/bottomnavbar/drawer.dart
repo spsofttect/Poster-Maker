@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:poster_maker/Helper/utlity.dart';
 import 'package:poster_maker/page/Digital%20Posts/DigitalPost.dart';
 
@@ -118,8 +119,8 @@ class _DrawerPageState extends State<DrawerPage> {
                 SizedBox(width: 30),
                 Text(
                   name,
-                  style: TextStyle(
-                      fontFamily: AppFont.Medium,
+                  style: GoogleFonts.fredoka(
+                    fontWeight: FontWeight.w500,
                       fontSize: Get.height * 0.02,
                       color: Color(AppColor.white)),
                 )
@@ -148,8 +149,8 @@ class _DrawerPageState extends State<DrawerPage> {
         SizedBox(width: 20),
         Text(
           "Menu",
-          style: TextStyle(
-              fontFamily: AppFont.Bold,
+          style: GoogleFonts.fredoka(
+              fontWeight: FontWeight.w600,
               fontSize: Get.height * 0.03,
               color: Color(AppColor.orange)),
         )

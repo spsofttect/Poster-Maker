@@ -2,21 +2,23 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:poster_maker/Helper/utlity.dart';
 
-RxBool isdarkMode = true.obs;
+bool isdarkMode = true;
 
 class AppTheme {
   static ThemeMode getCurrentTheme() {
-    var brightness = isdarkMode.value;
+    var brightness = isdarkMode;
     bool isDarkMode = brightness == Brightness.dark;
     bool isLightMode = brightness == Brightness.light;
-
-    return isdarkMode.value ? ThemeMode.dark : ThemeMode.light;
+    return isdarkMode ? ThemeMode.dark : ThemeMode.light;
   }
 
   static final light = ThemeData.light().copyWith(
-    drawerTheme: DrawerThemeData(backgroundColor: isdarkMode. value?Color(AppColor.bgcolor):Color(AppColor.white)),
+    drawerTheme: DrawerThemeData(
+        backgroundColor:
+            isdarkMode ? Color(AppColor.bgcolor) : Color(AppColor.white)),
     brightness: Brightness.light,
     scaffoldBackgroundColor: Color.fromARGB(255, 235, 235, 235),
     // textSelectionColor: Color(AppColor.bgcolor),
@@ -26,8 +28,8 @@ class AppTheme {
     backgroundColor: Color(AppColor.bgcolor),
     appBarTheme: AppBarTheme(backgroundColor: Color(AppColor.bgcolor)),
     textTheme: TextTheme(
-      headline1: TextStyle(color: Color(AppColor.bgcolor)),
-      headline2: TextStyle(color: Color(AppColor.bgcolor)),
+      headline1: GoogleFonts.fredoka(color: Color(AppColor.bgcolor)),
+      headline2: GoogleFonts.fredoka(color: Color(AppColor.bgcolor)),
     ),
 //animation text label color
     cardColor: Color(AppColor.bgcolor),
@@ -39,10 +41,9 @@ class AppTheme {
         selectedItemColor: Color(AppColor.yellow)),
   );
   static final dark = ThemeData.dark().copyWith(
-     drawerTheme: DrawerThemeData(
-          backgroundColor: isdarkMode.value
-              ? Color(AppColor.bgcolor)
-              : Color(AppColor.white)),
+      drawerTheme: DrawerThemeData(
+          backgroundColor:
+              isdarkMode ? Color(AppColor.bgcolor) : Color(AppColor.white)),
       bottomSheetTheme:
           BottomSheetThemeData(backgroundColor: Color(AppColor.bgcolor)),
       scaffoldBackgroundColor: Color(AppColor.bgcolor),
@@ -54,14 +55,13 @@ class AppTheme {
       primaryColorLight: Color(0xff191A22),
       dialogTheme: DialogTheme(backgroundColor: Color(AppColor.bgcolor)),
       textTheme: TextTheme(
-        headline1: TextStyle(color: Color(AppColor.white)),
-        headline2: TextStyle(color: Color(AppColor.white)),
+        headline1: GoogleFonts.fredoka(color: Color(AppColor.white)),
+        headline2: GoogleFonts.fredoka(color: Color(AppColor.white)),
       ),
-      
       //animation text label color
       cardColor: Colors.white60,
 
-    // accentColor: Colors.white60,
+      // accentColor: Colors.white60,
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
           backgroundColor: Color(AppColor.bgcolor),
           selectedItemColor: Color(AppColor.yellow)));

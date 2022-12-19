@@ -2,15 +2,14 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:poster_maker/Helper/app_theme.dart';
 import 'package:poster_maker/Helper/utlity.dart';
 
 import 'comman_function/commanFunction.dart';
 
-
 class CommanWidget {
-  
   Widget nextButton(
       {double height,
       double width,
@@ -29,11 +28,11 @@ class CommanWidget {
             gradient: LinearGradient(
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
-                colors:  [Color(AppColor.yellow), Color(AppColor.orange)])),
+                colors: [Color(AppColor.yellow), Color(AppColor.orange)])),
         child: Center(
             child: Text(text,
-                style: TextStyle(
-                  fontFamily: AppFont.Medium,
+                style: GoogleFonts.fredoka(
+                  fontWeight: FontWeight.w500,
                   fontSize: 18,
                   color: Color(AppColor.white),
                 ))),
@@ -100,7 +99,7 @@ class CommanWidget {
                       gradient: LinearGradient(
                           begin: Alignment.topCenter,
                           end: Alignment.bottomCenter,
-                          colors:  [
+                          colors: [
                             Color(AppColor.orange),
                             Color(AppColor.red)
                           ])),

@@ -9,6 +9,7 @@ import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
 import 'package:flutter_bounce/flutter_bounce.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:poster_maker/Helper/commanlist/list.dart';
 import 'package:poster_maker/Helper/utlity.dart';
 import 'package:poster_maker/page/editBottomNavBar/EditBottomNavbar.dart';
@@ -461,12 +462,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
 
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>TabButton<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< //
 
-  Widget tabButton({
-    Widget page,
-    currentInd,
-    selectedind,
-    String textName,
-  }) {
+  Widget tabButton({Widget page, currentInd, selectedind, String textName}) {
     return Obx(
       () => Container(
         width: Get.width * 0.25,
@@ -476,12 +472,13 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
         child: Center(
           child: Text(
             textName,
-            style: TextStyle(
-                fontSize: Get.width * 0.022,
-                color: currentIndex.value == currentInd
-                    ? Color(AppColor.white)
-                    : Color(0xFFC3A1B5),
-                fontFamily: AppFont.SemiBold),
+            style: GoogleFonts.fredoka(
+              fontSize: Get.width * 0.022,
+              color: currentIndex.value == currentInd
+                  ? Color(AppColor.white)
+                  : Color(0xFFC3A1B5),
+              fontWeight: FontWeight.w600,
+            ),
           ),
         ),
       ),
@@ -549,8 +546,10 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
         indicatorWeight: 1,
         labelColor: Color(AppColor.white),
         unselectedLabelColor: Theme.of(context).cardColor,
-        labelStyle:
-            TextStyle(fontSize: Get.width * 0.03, fontFamily: AppFont.SemiBold),
+        labelStyle: GoogleFonts.fredoka(
+          fontSize: Get.width * 0.03,
+          fontWeight: FontWeight.w600,
+        ),
         indicatorPadding:
             EdgeInsets.only(top: 5, bottom: 5, right: 10, left: 10),
         indicator: BoxDecoration(
@@ -578,23 +577,6 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
           Tab(
             text: "STORY",
           ),
-          // Tab(
-          //   child: tab(
-          //     item:
-          //         tabButton(currentInd: 1, textName: 'BANNER', selectedind: 1),
-          //   ),
-          // ),
-          // // text: 'Banner',
-          // Tab(
-          //   child: tab(
-          //     item: tabButton(currentInd: 2, textName: 'POST', selectedind: 2),
-          //   ),
-          // ),
-          // Tab(
-          //   child: tab(
-          //     item: tabButton(currentInd: 3, textName: 'STORY', selectedind: 3),
-          //   ),
-          // ),
         ]);
   }
 

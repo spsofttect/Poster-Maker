@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/get_navigation.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:poster_maker/page/EditBusiness/editBusiness.dart';
 
 import '../../Helper/utlity.dart';
@@ -79,9 +80,9 @@ class _MyBusinessPageState extends State<MyBusinessPage> {
         ),
         Text(
           'My Business',
-          style: TextStyle(
+          style: GoogleFonts.fredoka(
             color: Theme.of(context).textTheme.headline1.color,
-            fontFamily: AppFont.Medium,
+            fontWeight: FontWeight.w400,
             fontSize: 20,
           ),
         ),
@@ -95,7 +96,10 @@ class _MyBusinessPageState extends State<MyBusinessPage> {
               width: 25,
               decoration: const BoxDecoration(
                 shape: BoxShape.circle,
-                gradient: LinearGradient(begin: Alignment.topCenter, end: Alignment.bottomCenter, colors: [Color(0xFFFA7F08), Color(0xFFF24405)]),
+                gradient: LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    colors: [Color(0xFFFA7F08), Color(0xFFF24405)]),
               ),
               child: Icon(
                 Icons.add,
@@ -134,9 +138,9 @@ class _MyBusinessPageState extends State<MyBusinessPage> {
               ),
               Text(
                 "Your Business Name",
-                style: TextStyle(
+                style: GoogleFonts.fredoka(
                   color: Theme.of(context).textTheme.headline1.color,
-                  fontFamily: AppFont.Medium,
+                  fontWeight: FontWeight.w400,
                   fontSize: 16,
                 ),
               ),
@@ -162,7 +166,8 @@ class _MyBusinessPageState extends State<MyBusinessPage> {
                           final navigator = Navigator.of(context);
                           await Future.delayed(Duration.zero);
                           navigator.push(
-                            MaterialPageRoute(builder: (_) => const EditBusiness()),
+                            MaterialPageRoute(
+                                builder: (_) => const EditBusiness()),
                           );
                         },
                         // row with 2 children
@@ -172,9 +177,9 @@ class _MyBusinessPageState extends State<MyBusinessPage> {
                           children: [
                             Text(
                               "Edit",
-                              style: TextStyle(
+                              style: GoogleFonts.fredoka(
                                 color: Color(AppColor.orange),
-                                fontFamily: AppFont.Regular,
+                               fontWeight: FontWeight.w400,
                                 fontSize: 14,
                               ),
                             ),
@@ -201,9 +206,9 @@ class _MyBusinessPageState extends State<MyBusinessPage> {
                           children: [
                             Text(
                               "Delete",
-                              style: TextStyle(
+                              style: GoogleFonts.fredoka(
                                 color: Color(AppColor.orange),
-                                fontFamily: AppFont.Regular,
+                      fontWeight: FontWeight.w400,
                                 fontSize: 14,
                               ),
                             ),
@@ -225,9 +230,9 @@ class _MyBusinessPageState extends State<MyBusinessPage> {
                         // row with 2 children
                         child: Text(
                           "Remove From Default",
-                          style: TextStyle(
+                          style: GoogleFonts.fredoka(
                             color: Color(AppColor.orange),
-                            fontFamily: AppFont.Regular,
+                          fontWeight: FontWeight.w400,
                             fontSize: 14,
                           ),
                         )),
@@ -253,9 +258,9 @@ class _MyBusinessPageState extends State<MyBusinessPage> {
           alignment: Alignment.center,
           child: Text(
             "Default",
-            style: TextStyle(
+            style: GoogleFonts.fredoka(
               color: Color(AppColor.orange),
-              fontFamily: AppFont.Medium,
+              fontWeight: FontWeight.w400,
               fontSize: 14,
             ),
           ),
@@ -283,9 +288,9 @@ class _MyBusinessPageState extends State<MyBusinessPage> {
           ),
           Text(
             "Your Business Name",
-            style: TextStyle(
+            style: GoogleFonts.fredoka(
               color: Theme.of(context).textTheme.headline1.color,
-              fontFamily: AppFont.Medium,
+              fontWeight: FontWeight.w400,
               fontSize: 16,
             ),
           ),
@@ -321,9 +326,9 @@ class _MyBusinessPageState extends State<MyBusinessPage> {
                       children: [
                         Text(
                           "Edit",
-                          style: TextStyle(
+                          style: GoogleFonts.fredoka(
                             color: Color(AppColor.orange),
-                            fontFamily: AppFont.Regular,
+                          fontWeight: FontWeight.w400,
                             fontSize: 14,
                           ),
                         ),
@@ -350,9 +355,9 @@ class _MyBusinessPageState extends State<MyBusinessPage> {
                       children: [
                         Text(
                           "Delete",
-                          style: TextStyle(
+                          style: GoogleFonts.fredoka(
                             color: Color(AppColor.orange),
-                            fontFamily: AppFont.Regular,
+                       fontWeight: FontWeight.w400,
                             fontSize: 14,
                           ),
                         ),
@@ -374,9 +379,9 @@ class _MyBusinessPageState extends State<MyBusinessPage> {
                     // row with 2 children
                     child: Text(
                       "Add From Default",
-                      style: TextStyle(
+                      style: GoogleFonts.fredoka(
                         color: Color(AppColor.orange),
-                        fontFamily: AppFont.Regular,
+                    fontWeight: FontWeight.w400,
                         fontSize: 14,
                       ),
                     )),

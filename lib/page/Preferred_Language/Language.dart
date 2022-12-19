@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_windowmanager/flutter_windowmanager.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:poster_maker/Helper/utlity.dart';
 import 'package:poster_maker/Helper/widget.dart';
 import 'package:poster_maker/page/bottomnavbar/homepage/addBusiness/addBuisness.dart';
@@ -48,7 +49,8 @@ class _LanguageScreenState extends State<LanguageScreen> {
               ),
               Text(
                 'Select Your preferred Language',
-                style: TextStyle(fontSize: 16, fontFamily: AppFont.Regular
+                style: GoogleFonts.fredoka(
+                    fontSize: 16,  fontWeight: FontWeight.w400,
                     // color: Get.isDarkMode
                     //     ? Color(AppColor.grey)
                     //     : Color(AppColor.white),
@@ -128,7 +130,8 @@ class _LanguageScreenState extends State<LanguageScreen> {
             child: Center(
                 child: Text(
               text,
-              style: TextStyle(color: color, fontFamily: AppFont.Medium),
+              style:
+                  GoogleFonts.fredoka(color: color,  fontWeight: FontWeight.w500,),
             )),
           ),
         ));
@@ -155,7 +158,7 @@ class _LanguageScreenState extends State<LanguageScreen> {
         ),
         Text(
           'Preferred Language',
-          style: TextStyle(fontFamily: AppFont.Medium, fontSize: 20),
+          style: GoogleFonts.fredoka( fontWeight: FontWeight.w500, fontSize: 20),
         ),
       ],
     );

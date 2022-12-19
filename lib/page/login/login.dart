@@ -149,11 +149,11 @@ class _LoginScreenState extends State<LoginScreen>
         SizedBox(height: 30),
         Text(
           'Login',
-          style: TextStyle(
+          style: GoogleFonts.fredoka(
               // color: Get.isDarkMode
               //     ? Color(AppColor.grey)
               //     : Color(AppColor.white),
-              fontFamily: AppFont.Medium,
+              fontWeight: FontWeight.w400,
               fontSize: 40),
           textAlign: TextAlign.center,
         ),
@@ -162,8 +162,8 @@ class _LoginScreenState extends State<LoginScreen>
           child: Center(
             child: Text(
               'Enter Your Mobile Number To \nReceive A Verification Code',
-              style: TextStyle(
-                  fontFamily: AppFont.Regular,
+              style: GoogleFonts.fredoka(
+                  fontWeight: FontWeight.w400,
                   // color: Get.isDarkMode
                   //     ? Color(AppColor.grey)
                   //     : Color(AppColor.white),
@@ -213,13 +213,13 @@ class _LoginScreenState extends State<LoginScreen>
         //     text: TextSpan(children: [,
         //   TextSpan(
         //       text: 'Don\'t Have Account ? ',
-        //       style: TextStyle(
+        //       style: GoogleFonts.fredoka(
         //           fontSize: Get.height * 0.02,
         //           color: Color(AppColor.yellow),
         //           fontFamily: AppFont.robotoBold)),
         //   TextSpan(
         //       text: 'Sign In',
-        //       style: TextStyle(
+        //       style: GoogleFonts.fredoka(
         //           fontSize: Get.height * 0.02,
         //           color: Color(AppColor.orange),
         //           fontFamily: AppFont.robotoBold))p
@@ -243,11 +243,11 @@ class _LoginScreenState extends State<LoginScreen>
         SizedBox(height: 30),
         Text(
           'Varification',
-          style: TextStyle(
+          style: GoogleFonts.fredoka(
               // color: Get.isDarkMode
               //     ? Color(AppColor.grey)
               //     : Color(AppColor.white),
-              fontFamily: AppFont.Medium,
+              fontWeight: FontWeight.w400,
               fontSize: 40),
           textAlign: TextAlign.center,
         ),
@@ -256,8 +256,8 @@ class _LoginScreenState extends State<LoginScreen>
           child: Center(
             child: Text(
               'Enter A 4 Digit Number That \n Was Sent To ${yourCountryCode.split(phoneController.text)[0]} ${phoneController.text}',
-              style: TextStyle(
-                  fontFamily: AppFont.Regular,
+              style: GoogleFonts.fredoka(
+                  fontWeight: FontWeight.w400,
                   // color: Get.isDarkMode
                   //     ? Color(AppColor.grey)
                   //     : Color(AppColor.white),
@@ -406,10 +406,11 @@ class _LoginScreenState extends State<LoginScreen>
 
             inputDecoration: InputDecoration(
               hintText: "Phone Number",
-              hintStyle: TextStyle(
-                  color: Color(AppColor.white).withOpacity(0.3),
-                  fontSize: 15,
-                  fontFamily: AppFont.SemiBold),
+              hintStyle: GoogleFonts.fredoka(
+                color: Color(AppColor.white).withOpacity(0.3),
+                fontSize: 15,
+                fontWeight: FontWeight.w500,
+              ),
               enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(6),
                 borderSide: BorderSide(color: Colors.transparent),
@@ -423,18 +424,20 @@ class _LoginScreenState extends State<LoginScreen>
             cursorColor: Color(AppColor.orange),
             spaceBetweenSelectorAndTextField: 0,
             autoValidateMode: AutovalidateMode.disabled,
-            selectorTextStyle: TextStyle(
-                color: Color(AppColor.white),
-                fontSize: 15,
-                fontFamily: AppFont.SemiBold),
+            textStyle: GoogleFonts.fredoka(
+              color: Color(AppColor.white),
+              fontSize: 15,
+              fontWeight: FontWeight.w500,
+            ),
             initialValue: number,
             textFieldController: phoneController,
             formatInput: false,
             textAlignVertical: TextAlignVertical.bottom,
-            textStyle: TextStyle(
-                color: Color(AppColor.white),
-                fontSize: 16,
-                fontFamily: AppFont.Regular),
+            selectorTextStyle: GoogleFonts.fredoka(
+              color: Color(AppColor.white),
+              fontSize: 16,
+              fontWeight: FontWeight.w400,
+            ),
             // keyboardType:
             //     TextInputType.numberWithOptions(signed: true, decimal: true),
             keyboardType: TextInputType.number,

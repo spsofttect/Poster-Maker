@@ -6,6 +6,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
 import 'package:flutter_windowmanager/flutter_windowmanager.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:poster_maker/Helper/app_theme.dart';
 import 'package:poster_maker/Helper/commanlist/list.dart';
 import 'package:poster_maker/Helper/commanwidget.dart';
@@ -49,15 +50,20 @@ class _BottomNavBarScreenState extends State<BottomNavBarScreen> {
 
   moveUp() {
     if (currentIndex == 0) {
-      homePageController.animateTo(0, curve: Curves.linear, duration: Duration(milliseconds: 500));
+      homePageController.animateTo(0,
+          curve: Curves.linear, duration: Duration(milliseconds: 500));
     } else if (currentIndex == 1) {
-      categoryPageController.animateTo(0, curve: Curves.linear, duration: Duration(milliseconds: 500));
+      categoryPageController.animateTo(0,
+          curve: Curves.linear, duration: Duration(milliseconds: 500));
     } else if (currentIndex == 2) {
-      customPageController.animateTo(0, curve: Curves.linear, duration: Duration(milliseconds: 500));
+      customPageController.animateTo(0,
+          curve: Curves.linear, duration: Duration(milliseconds: 500));
     } else if (currentIndex == 3) {
-      favouritePageController.animateTo(0, curve: Curves.linear, duration: Duration(milliseconds: 500));
+      favouritePageController.animateTo(0,
+          curve: Curves.linear, duration: Duration(milliseconds: 500));
     } else {
-      myPostPageController.animateTo(0, curve: Curves.linear, duration: Duration(milliseconds: 500));
+      myPostPageController.animateTo(0,
+          curve: Curves.linear, duration: Duration(milliseconds: 500));
     }
   }
 
@@ -65,7 +71,8 @@ class _BottomNavBarScreenState extends State<BottomNavBarScreen> {
   Widget build(BuildContext context) {
     FlutterWindowManager.addFlags(FlutterWindowManager.FLAG_SECURE);
     // DeviceOrientationd
-    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
+    SystemChrome.setPreferredOrientations(
+        [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
 
     // Do not capture Screenshot and video
 
@@ -162,12 +169,16 @@ class _BottomNavBarScreenState extends State<BottomNavBarScreen> {
             height: 50,
             width: 50,
             padding: EdgeInsets.all(5),
-            margin: EdgeInsets.only(bottom: Get.height * 0.12, right: Get.height * 0.03),
+            margin: EdgeInsets.only(
+                bottom: Get.height * 0.12, right: Get.height * 0.03),
             decoration: BoxDecoration(
               boxShadow: [BoxShadow(color: Color(AppColor.white))],
               border: Border.all(width: 2.5, color: Color(AppColor.white)),
               borderRadius: BorderRadius.circular(30),
-              gradient: LinearGradient(begin: Alignment.topCenter, end: Alignment.bottomCenter, colors:  [Color(AppColor.orange), Color(AppColor.red)]),
+              gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: [Color(AppColor.orange), Color(AppColor.red)]),
               // color: Color(AppColor.orange),
             ),
             child: Obx(
@@ -201,7 +212,11 @@ class _BottomNavBarScreenState extends State<BottomNavBarScreen> {
                               borderRadius: BorderRadius.circular(10),
                             ),
                             child: Center(
-                              child: Text('12', style: TextStyle(fontSize: 9, fontFamily: AppFont.Medium, color: Color(AppColor.orange))),
+                              child: Text('12',
+                                  style: GoogleFonts.fredoka(
+                                      fontSize: 9,
+                                      fontWeight: FontWeight.w400,
+                                      color: Color(AppColor.orange))),
                             ),
                           ),
                         ),
@@ -218,21 +233,45 @@ class _BottomNavBarScreenState extends State<BottomNavBarScreen> {
       height: 55,
       margin: EdgeInsets.only(bottom: Get.height * 0.02, left: 30, right: 30),
       decoration: BoxDecoration(
-        gradient: LinearGradient(begin: Alignment.topCenter, end: Alignment.bottomCenter, colors:  [Color(AppColor.orange), Color(AppColor.red)]),
+        gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [Color(AppColor.orange), Color(AppColor.red)]),
         borderRadius: BorderRadius.circular(15),
       ),
       child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
-        iconButton(currentInd: 0, iconImg: 'home.png', iconName: 'Home', selectedind: 0),
-        iconButton(currentInd: 1, iconImg: 'Category.png', iconName: 'Category', selectedind: 1),
-        iconButton(currentInd: 2, iconImg: 'Custom.png', iconName: 'Custom', selectedind: 2),
-        iconButton(currentInd: 3, iconImg: 'Favorite.png', iconName: 'Favorite', selectedind: 3),
-        iconButton(currentInd: 4, iconImg: 'gallery.png', iconName: 'My Post', selectedind: 4),
+        iconButton(
+            currentInd: 0,
+            iconImg: 'home.png',
+            iconName: 'Home',
+            selectedind: 0),
+        iconButton(
+            currentInd: 1,
+            iconImg: 'Category.png',
+            iconName: 'Category',
+            selectedind: 1),
+        iconButton(
+            currentInd: 2,
+            iconImg: 'Custom.png',
+            iconName: 'Custom',
+            selectedind: 2),
+        iconButton(
+            currentInd: 3,
+            iconImg: 'Favorite.png',
+            iconName: 'Favorite',
+            selectedind: 3),
+        iconButton(
+            currentInd: 4,
+            iconImg: 'gallery.png',
+            iconName: 'My Post',
+            selectedind: 4),
       ]),
     );
   }
 
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> iconButton <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< //
-  Widget iconButton({currentInd, selectedind, String iconImg, String iconName}) {
+  Widget iconButton(
+      {currentInd, selectedind, String iconImg, String iconName}) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -260,10 +299,12 @@ class _BottomNavBarScreenState extends State<BottomNavBarScreen> {
         currentIndex == currentInd
             ? Text(
                 "$iconName",
-                style: TextStyle(
+                style: GoogleFonts.fredoka(
                   fontSize: 12,
-                  fontFamily: AppFont.Medium,
-                  color: currentIndex == currentInd ? Color(AppColor.white) : Colors.transparent,
+                  fontWeight: FontWeight.w400,
+                  color: currentIndex == currentInd
+                      ? Color(AppColor.white)
+                      : Colors.transparent,
                 ),
               )
             : SizedBox(),

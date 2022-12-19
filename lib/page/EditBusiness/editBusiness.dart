@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-
+import 'package:google_fonts/google_fonts.dart';
 
 import '../../Helper/utlity.dart';
 import '../../Helper/widget.dart';
@@ -41,7 +41,14 @@ class _EditBusinessState extends State<EditBusiness> {
                 height: 25,
               ),
               CommanWidget().profileImagePicker(
-                  sizedBoxWidth: 90, sizedBoxHeight: 90, imageheigth: 90, imagewidth: 90, imageRadius: 75, iconheigth: 40, iconwidth: 40, iconRadius: 20),
+                  sizedBoxWidth: 90,
+                  sizedBoxHeight: 90,
+                  imageheigth: 90,
+                  imagewidth: 90,
+                  imageRadius: 75,
+                  iconheigth: 40,
+                  iconwidth: 40,
+                  iconRadius: 20),
               Container(
                 margin: const EdgeInsets.only(top: 25),
                 height: 60,
@@ -63,12 +70,18 @@ class _EditBusinessState extends State<EditBusiness> {
                 width: Get.width * 0.9,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15),
-                  gradient: const LinearGradient(begin: Alignment.topCenter, end: Alignment.bottomCenter, colors: [Color(0xFFFA7F08), Color(0xFFF24405)]),
+                  gradient: const LinearGradient(
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      colors: [Color(0xFFFA7F08), Color(0xFFF24405)]),
                 ),
                 alignment: Alignment.center,
                 child: Text(
                   "Update",
-                  style: TextStyle(fontFamily: AppFont.Medium, fontSize: 20, color: Color(AppColor.white)),
+                  style: GoogleFonts.fredoka(
+                      fontWeight: FontWeight.w400,
+                      fontSize: 20,
+                      color: Color(AppColor.white)),
                 ),
               ),
             ],
@@ -100,8 +113,8 @@ class _EditBusinessState extends State<EditBusiness> {
         ),
         Text(
           'Edit Business',
-          style: TextStyle(
-            fontFamily: AppFont.Medium,
+          style: GoogleFonts.fredoka(
+            fontWeight: FontWeight.w400,
             fontSize: 20,
             color: Theme.of(context).textTheme.headline1.color,
           ),
@@ -126,7 +139,9 @@ class _EditBusinessState extends State<EditBusiness> {
     return Container(
       height: 60,
       width: Get.width * 0.9,
-      decoration: BoxDecoration(borderRadius: BorderRadius.circular(15), border: Border.all(color: Color(AppColor.orange))),
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(15),
+          border: Border.all(color: Color(AppColor.orange))),
       child: Row(
         children: [
           const SizedBox(
@@ -145,9 +160,9 @@ class _EditBusinessState extends State<EditBusiness> {
               keyboardType: keyboardType,
               controller: controller,
               onChanged: onChanged,
-              style: TextStyle(
+              style: GoogleFonts.fredoka(
                 fontSize: 15,
-                fontFamily: AppFont.Regular,
+           fontWeight: FontWeight.w400,
                 color: Theme.of(context).textTheme.headline1.color,
               ),
               maxLength: maxLength,
@@ -155,13 +170,14 @@ class _EditBusinessState extends State<EditBusiness> {
                 border: InputBorder.none,
                 counterText: '',
                 hintText: hintText,
-                hintStyle: TextStyle(fontSize: 15, fontFamily: AppFont.SemiBold),
+                hintStyle: GoogleFonts.fredoka(
+                    fontSize: 15,  fontWeight: FontWeight.w400,),
               ),
             ),
           ),
           Text("$val/$maxLength",
-              style: TextStyle(
-                fontFamily: AppFont.Regular,
+              style: GoogleFonts.fredoka(
+                fontWeight: FontWeight.w400,
                 color: Theme.of(context).textTheme.headline1.color,
               )),
           const SizedBox(width: 10),

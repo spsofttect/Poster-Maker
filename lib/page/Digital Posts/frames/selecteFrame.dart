@@ -7,13 +7,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bounce/flutter_bounce.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:poster_maker/Helper/app_theme.dart';
 import 'package:poster_maker/Helper/utlity.dart';
 import 'package:poster_maker/page/bottomnavbar/appbar/Appbar.dart';
 
 import 'frame_01TOframe_05.dart';
-
-
 
 class SelecteFrames extends StatefulWidget {
   const SelecteFrames({
@@ -80,7 +79,7 @@ class _SelecteFramesState extends State<SelecteFrames> {
           SizedBox(height: Get.height * 0.02),
           Expanded(
               child: ListView(
-                   physics: BouncingScrollPhysics(),
+            physics: BouncingScrollPhysics(),
             children: [
               logoAndColorBTN(context),
               Row(
@@ -102,7 +101,7 @@ class _SelecteFramesState extends State<SelecteFrames> {
       height: Get.height * 0.1,
       width: double.infinity,
       child: ListView.builder(
-           physics: BouncingScrollPhysics(),
+        physics: BouncingScrollPhysics(),
         scrollDirection: Axis.horizontal,
         itemCount: Frame.length,
         itemBuilder: ((context, index) {
@@ -160,7 +159,7 @@ class _SelecteFramesState extends State<SelecteFrames> {
         child: Center(
           child: Text(
             'Email',
-            style: TextStyle(fontFamily: AppFont.SemiBold),
+            style: GoogleFonts.fredoka( fontWeight: FontWeight.w500,),
           ),
         ));
   }
@@ -181,8 +180,8 @@ class _SelecteFramesState extends State<SelecteFrames> {
               SizedBox(height: Get.height * 0.005),
               Text(
                 "Logo",
-                style: TextStyle(
-                    fontFamily: AppFont.Regular, fontSize: Get.height * 0.02),
+                style: GoogleFonts.fredoka(
+                     fontWeight: FontWeight.w400, fontSize: Get.height * 0.02),
               )
             ],
           ),
@@ -235,8 +234,8 @@ class _SelecteFramesState extends State<SelecteFrames> {
               SizedBox(height: Get.height * 0.01),
               Text(
                 "Text Color",
-                style: TextStyle(
-                    fontFamily: AppFont.Regular, fontSize: Get.height * 0.02),
+                style: GoogleFonts.fredoka(
+                     fontWeight: FontWeight.w400, fontSize: Get.height * 0.02),
               )
             ],
           ),
@@ -244,11 +243,6 @@ class _SelecteFramesState extends State<SelecteFrames> {
       ],
     );
   }
-
-
-
-
-
 
 //Frame_06
   Widget Frame_06(double hW) {
@@ -574,7 +568,7 @@ class _SelecteFramesState extends State<SelecteFrames> {
   }) {
     return Text(
       text,
-      style: TextStyle(fontSize: fontSize, color: pickerColor),
+      style: GoogleFonts.fredoka(fontSize: fontSize, color: pickerColor),
       textAlign: textAlign,
       overflow: TextOverflow.ellipsis,
     );

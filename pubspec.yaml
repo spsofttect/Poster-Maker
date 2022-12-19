@@ -131,18 +131,6 @@ flutter:
     - family: Freeh521
       fonts:
         - asset: assets/font/Freeh521.TTF
-    - family: Bold
-      fonts:
-        - asset: assets/font/Fredoka-Bold.ttf
-    - family: Regular
-      fonts:
-        - asset: assets/font/Fredoka-Regular.ttf
-    - family: SemiBold
-      fonts:
-        - asset: assets/font/Fredoka-SemiBold.ttf
-    - family: Medium
-      fonts:
-        - asset: assets/font/Fredoka-Medium.ttf
   # fonts:
   #   - family: Schyler
   #     fonts:

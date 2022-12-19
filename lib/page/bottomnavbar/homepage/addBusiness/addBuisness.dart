@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:poster_maker/Helper/utlity.dart';
 import 'package:poster_maker/Helper/widget.dart';
 
@@ -33,7 +34,8 @@ class AddBusinessPage extends StatelessWidget {
             textfield(hintText: 'Enter Your Business Website'),
             textfield(hintText: 'Enter Your Business Address'),
             CommanWidget().nextButton(
-                margin: EdgeInsets.only(left: 50, right: 50, top: 25, bottom: 25),
+                margin:
+                    EdgeInsets.only(left: 50, right: 50, top: 25, bottom: 25),
                 radius: 10,
                 height: 50,
                 width: double.infinity,
@@ -58,21 +60,24 @@ class AddBusinessPage extends StatelessWidget {
         ),
         child: TextField(
           cursorColor: Color(AppColor.orange),
-          style: TextStyle(
-              // color:
-              // Get.isDarkMode ? Color(AppColor.grey) : Color(AppColor.white),
-              fontSize: 15,
-              fontFamily: AppFont.SemiBold),
+          style: GoogleFonts.fredoka(
+            // color:
+            // Get.isDarkMode ? Color(AppColor.grey) : Color(AppColor.white),
+            fontSize: 15,
+            fontWeight: FontWeight.w500,
+          ),
           decoration: InputDecoration(
-            contentPadding: EdgeInsets.only(top: 10, bottom: 10, left: 20, right: 20),
+            contentPadding:
+                EdgeInsets.only(top: 10, bottom: 10, left: 20, right: 20),
             border: InputBorder.none,
             hintText: hintText,
-            hintStyle: TextStyle(
-                // color: Get.isDarkMode
-                // ? Color(AppColor.grey)
-                // : Color(AppColor.white),
-                fontSize: 15,
-                fontFamily: AppFont.SemiBold),
+            hintStyle: GoogleFonts.fredoka(
+              // color: Get.isDarkMode
+              // ? Color(AppColor.grey)
+              // : Color(AppColor.white),
+              fontSize: 15,
+              fontWeight: FontWeight.w500,
+            ),
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(6),
               borderSide: BorderSide(color: Colors.transparent),
@@ -108,8 +113,10 @@ class BusinessList extends StatelessWidget {
                   width: 25,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(15),
-                      gradient:
-                          LinearGradient(begin: Alignment.topLeft, end: Alignment.bottomRight, colors:  [
+                      gradient: LinearGradient(
+                          begin: Alignment.topLeft,
+                          end: Alignment.bottomRight,
+                          colors: [
                             Color(AppColor.orange),
                             Color(AppColor.red)
                           ])),
@@ -126,7 +133,9 @@ class BusinessList extends StatelessWidget {
                 height: 80,
                 width: double.infinity,
                 decoration: BoxDecoration(
-                    border: Border.all(color: Color(AppColor.orange), width: 2), borderRadius: BorderRadius.circular(15), color: Color(AppColor.grey)),
+                    border: Border.all(color: Color(AppColor.orange), width: 2),
+                    borderRadius: BorderRadius.circular(15),
+                    color: Color(AppColor.grey)),
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -142,11 +151,11 @@ class BusinessList extends StatelessWidget {
                         iconwidth: 25),
                     Text(
                       'Enter Your Business Name',
-                      style: TextStyle(
+                      style: GoogleFonts.fredoka(
                           // color: Get.isDarkMode
                           //     ? Color(AppColor.grey)
                           //     : Color(AppColor.white),
-                          fontFamily: AppFont.Medium,
+                        fontWeight: FontWeight.w500,
                           fontSize: 15),
                     ),
                     Icon(
@@ -189,7 +198,7 @@ appbar({widget}) {
       ),
       Text(
         'Add Business',
-        style: TextStyle(fontFamily: AppFont.Medium, fontSize: 20),
+        style: GoogleFonts.fredoka(fontWeight: FontWeight.w400, fontSize: 20),
       ),
     ],
   );

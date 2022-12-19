@@ -5,6 +5,7 @@ import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:flutter_windowmanager/flutter_windowmanager.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:poster_maker/Helper/commanlist/list.dart';
 import 'package:poster_maker/Helper/utlity.dart';
 import 'package:poster_maker/Helper/widget.dart';
@@ -48,7 +49,7 @@ class _ProPageState extends State<ProPage> {
               pageName: "Subscription Plan"),
           Expanded(
               child: ListView(
-                   physics: BouncingScrollPhysics(),
+            physics: BouncingScrollPhysics(),
             children: [
               logo(
                   context: context,
@@ -77,7 +78,8 @@ class _ProPageState extends State<ProPage> {
               Text(
                 'Choose Your plan',
                 textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 25, fontFamily: AppFont.Medium),
+                style: GoogleFonts.fredoka(
+                    fontSize: 25, fontWeight: FontWeight.w400,),
               ),
               SizedBox(height: 20),
               Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
@@ -109,23 +111,23 @@ class _ProPageState extends State<ProPage> {
                               text(
                                   text: '3 Day Free',
                                   currentind: 0,
-                                  fontFamily: AppFont.Bold,
+                                  fontWeight: FontWeight.w600,
                                   fontSize: 15.0),
                               text(
                                   text: 'Trial',
                                   currentind: 0,
-                                  fontFamily: AppFont.Bold,
+                                  fontWeight: FontWeight.w600,
                                   fontSize: 15.0),
                               SizedBox(height: 10),
                               text(
                                   text: 'then ₹250.00/per',
-                                  fontFamily: AppFont.Regular,
+                                  fontWeight: FontWeight.w400,
                                   fontSize: 11.0,
                                   currentind: 0),
                               text(
                                 text: 'Mounth',
                                 currentind: 0,
-                                fontFamily: AppFont.Regular,
+                               fontWeight: FontWeight.w400,
                                 fontSize: 11.0,
                               ),
                               SizedBox(height: 10)
@@ -161,22 +163,22 @@ class _ProPageState extends State<ProPage> {
                                   text: 'Start Today',
                                   currentind: 1,
                                   fontSize: 16,
-                                  fontFamily: AppFont.SemiBold),
+                                      fontWeight: FontWeight.w500),
                               text(
                                   text: '3 Month',
                                   currentind: 1,
                                   fontSize: 16,
-                                  fontFamily: AppFont.SemiBold),
+                                      fontWeight: FontWeight.w500),
                               text(
                                   text: '₹ 750.00',
                                   currentind: 1,
                                   fontSize: 14,
-                                  fontFamily: AppFont.SemiBold),
+                                      fontWeight: FontWeight.w500),
                               text(
                                   text: 'Per Month',
                                   currentind: 1,
                                   fontSize: 12,
-                                  fontFamily: AppFont.Regular),
+                                  fontWeight: FontWeight.w500),
                               SizedBox(height: 10)
                             ]),
                       ),
@@ -214,22 +216,22 @@ class _ProPageState extends State<ProPage> {
                                     text: 'Start Today',
                                     currentind: 2,
                                     fontSize: 15,
-                                    fontFamily: AppFont.SemiBold),
+                                        fontWeight: FontWeight.w500),
                                 text(
                                     text: 'Forever',
                                     currentind: 2,
                                     fontSize: 16,
-                                    fontFamily: AppFont.SemiBold),
+                                        fontWeight: FontWeight.w500),
                                 text(
                                     text: '₹ 820.00',
                                     currentind: 2,
                                     fontSize: 12,
-                                    fontFamily: AppFont.SemiBold),
+                                        fontWeight: FontWeight.w500),
                                 text(
                                     text: '₹ 3000.00',
                                     currentind: 2,
                                     fontSize: 12,
-                                    fontFamily: AppFont.SemiBold,
+                                        fontWeight: FontWeight.w500,
                                     decoration: TextDecoration.lineThrough),
                                 SizedBox(height: 10)
                               ]),
@@ -268,7 +270,7 @@ class _ProPageState extends State<ProPage> {
         height: height,
         width: double.infinity,
         child: ListView.builder(
-             physics: BouncingScrollPhysics(),
+            physics: BouncingScrollPhysics(),
             scrollDirection: Axis.horizontal,
             itemCount: itemCount,
             itemBuilder: (context, index) {
@@ -304,9 +306,9 @@ class _ProPageState extends State<ProPage> {
                         child: Center(
                             child: Text(
                           '2000 + Templates',
-                          style: TextStyle(
+                          style: GoogleFonts.fredoka(
                               color: Color(AppColor.bgcolor),
-                              fontFamily: AppFont.Medium,
+                              fontWeight: FontWeight.w400,
                               fontSize: 13),
                         )),
                       ),
@@ -333,9 +335,9 @@ class _ProPageState extends State<ProPage> {
           const SizedBox(width: 20),
           Text(
             msg,
-            style: TextStyle(
+            style: GoogleFonts.fredoka(
                 fontSize: 14,
-                fontFamily: AppFont.Medium,
+                fontWeight: FontWeight.w400,
                 color: Color(AppColor.grey)),
           )
         ],
@@ -344,11 +346,11 @@ class _ProPageState extends State<ProPage> {
   }
 
   Widget text(
-      {text, double fontSize, decoration, color, currentind, fontFamily}) {
+      {text, double fontSize, decoration, color, currentind, fontWeight}) {
     return Text(
       text,
-      style: TextStyle(
-          fontFamily: fontFamily,
+      style: GoogleFonts.fredoka(
+          fontWeight: fontWeight,
           fontSize: fontSize,
           decoration: decoration,
           color: currentIndex == currentind
@@ -358,6 +360,7 @@ class _ProPageState extends State<ProPage> {
     );
   }
 }
+
 logo({context, fontSize, size, height, width}) {
   return Column(
     mainAxisAlignment: MainAxisAlignment.center,
@@ -371,7 +374,8 @@ logo({context, fontSize, size, height, width}) {
         children: [
           Text(
             "PixeL",
-            style: TextStyle(fontFamily: AppFont.Bold, fontSize: fontSize),
+            style: GoogleFonts.fredoka(
+                fontWeight: FontWeight.w600, fontSize: fontSize),
           ),
           Container(
             margin: const EdgeInsets.only(top: 8, right: 1),
@@ -382,7 +386,8 @@ logo({context, fontSize, size, height, width}) {
           ),
           Text(
             "ry",
-            style: TextStyle(fontFamily: AppFont.Bold, fontSize: fontSize),
+            style: GoogleFonts.fredoka(
+                fontWeight: FontWeight.w600, fontSize: fontSize),
           ),
         ],
       )

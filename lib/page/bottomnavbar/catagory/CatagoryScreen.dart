@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:poster_maker/Helper/commanlist/list.dart';
 import 'package:poster_maker/Helper/commanwidget.dart';
 import 'package:poster_maker/Helper/utlity.dart';
@@ -42,7 +43,12 @@ class _CatagoryScreenState extends State<CatagoryScreen> {
               //instagram post
               title(title: 'Instagram Post', context: context),
               customListView(
-                  listindex: item2, itemCount: item2.length, boxfit: BoxFit.fitHeight, height: 160, width: 120, scrollDirection: Axis.horizontal),
+                  listindex: item2,
+                  itemCount: item2.length,
+                  boxfit: BoxFit.fitHeight,
+                  height: 160,
+                  width: 120,
+                  scrollDirection: Axis.horizontal),
               // Youtube Banner
               title(title: 'Youtube Banner', context: context),
               customListView(
@@ -54,7 +60,13 @@ class _CatagoryScreenState extends State<CatagoryScreen> {
                   scrollDirection: Axis.horizontal),
               // Festival
               title(title: 'Festival', context: context),
-              customListView(listindex: item, itemCount: item.length, boxfit: BoxFit.cover, height: 120, width: 120, scrollDirection: Axis.horizontal),
+              customListView(
+                  listindex: item,
+                  itemCount: item.length,
+                  boxfit: BoxFit.cover,
+                  height: 120,
+                  width: 120,
+                  scrollDirection: Axis.horizontal),
               // FaceBook Post
               title(title: 'FaceBook Post', context: context),
               customListView(
@@ -92,13 +104,15 @@ class _CatagoryScreenState extends State<CatagoryScreen> {
           Container(
             height: 35,
             width: Get.width * 0.7,
-            decoration: BoxDecoration(borderRadius: BorderRadius.circular(8), color: Color(AppColor.white)),
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(8),
+                color: Color(AppColor.white)),
           ),
           Text(
             'Cancel',
-            style: TextStyle(
+            style: GoogleFonts.fredoka(
               color: Color(AppColor.orange),
-              fontFamily: AppFont.Regular,
+              fontWeight: FontWeight.w400,
             ),
           )
         ],

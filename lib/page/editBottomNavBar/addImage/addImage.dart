@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:photo_manager/photo_manager.dart';
 import 'package:poster_maker/Helper/commanwidget.dart';
 import 'package:poster_maker/Helper/utlity.dart';
@@ -116,8 +117,8 @@ class _AddImagePageState extends State<AddImagePage>
                   child: Text(
                     e.name,
                     maxLines: 1,
-                    style:
-                        TextStyle(color: Color(AppColor.white), fontSize: 20),
+                    style: GoogleFonts.fredoka(
+                        color: Color(AppColor.white), fontSize: 20),
                   ),
                   value: e.name,
                 ))
@@ -165,7 +166,7 @@ class _AddImagePageState extends State<AddImagePage>
             gradient: LinearGradient(
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
-                colors:  [Color(AppColor.orange), Color(AppColor.red)])),
+                colors: [Color(AppColor.orange), Color(AppColor.red)])),
         child: Center(
             child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -176,8 +177,8 @@ class _AddImagePageState extends State<AddImagePage>
             ),
             SizedBox(width: 20),
             Text(text,
-                style: TextStyle(
-                  fontFamily: AppFont.Medium,
+                style: GoogleFonts.fredoka(
+                  fontWeight: FontWeight.w400,
                   fontSize: 18,
                   color: Color(AppColor.white),
                 )),
@@ -201,15 +202,18 @@ class _AddImagePageState extends State<AddImagePage>
         tabs: [
           Text(
             'Image',
-            style: TextStyle(fontFamily: AppFont.SemiBold, fontSize: 18),
+            style:
+                GoogleFonts.fredoka( fontWeight: FontWeight.w400, fontSize: 18),
           ),
           Text(
             'PixaBay',
-            style: TextStyle(fontFamily: AppFont.SemiBold, fontSize: 18),
+            style:
+                GoogleFonts.fredoka( fontWeight: FontWeight.w400, fontSize: 18),
           ),
           Text(
             'Unsplash',
-            style: TextStyle(fontFamily: AppFont.SemiBold, fontSize: 18),
+            style:
+                GoogleFonts.fredoka(fontWeight: FontWeight.w400, fontSize: 18),
           ),
         ]);
   }

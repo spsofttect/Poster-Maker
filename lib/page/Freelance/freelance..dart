@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:poster_maker/Helper/utlity.dart';
 
 import '../bottomnavbar/appbar/Appbar.dart';
@@ -100,7 +101,8 @@ class _FreeLanceViewState extends State<FreeLanceView>
             children: [
               Text(
                 "Total Earn Coins",
-                style: TextStyle(fontFamily: AppFont.Medium, fontSize: 15),
+                style: GoogleFonts.fredoka(
+                    fontWeight: FontWeight.w400, fontSize: 15),
               ),
               const SizedBox(
                 height: 20,
@@ -113,7 +115,8 @@ class _FreeLanceViewState extends State<FreeLanceView>
                   ),
                   Text(
                     "100 Coin",
-                    style: TextStyle(fontFamily: AppFont.Medium, fontSize: 15),
+                    style: GoogleFonts.fredoka(
+                        fontWeight: FontWeight.w400, fontSize: 15),
                   )
                 ],
               ),
@@ -157,7 +160,7 @@ class _FreeLanceViewState extends State<FreeLanceView>
         alignment: Alignment.center,
         child: Text(
           name,
-          style: TextStyle(fontFamily: AppFont.Regular, fontSize: 12),
+          style: GoogleFonts.fredoka( fontWeight: FontWeight.w400, fontSize: 12),
         ),
       ),
     );

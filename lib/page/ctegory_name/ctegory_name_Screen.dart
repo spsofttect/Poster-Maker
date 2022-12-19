@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:poster_maker/Helper/utlity.dart';
 import 'package:poster_maker/page/bottomnavbar/appbar/Appbar.dart';
 import 'package:poster_maker/page/bottomnavbar/bottomnavbar.dart';
@@ -54,7 +55,7 @@ class _CetegoryNameScreenState extends State<CetegoryNameScreen> {
     return SizedBox(
       height: Get.height * 0.8,
       child: ListView.builder(
-          physics:  BouncingScrollPhysics(),
+          physics: BouncingScrollPhysics(),
           itemCount: ctegory.length,
           itemBuilder: (cotext, index) {
             var currentObj = ctegory[index];
@@ -75,8 +76,8 @@ class _CetegoryNameScreenState extends State<CetegoryNameScreen> {
                 const SizedBox(width: 15),
                 Text(
                   currentObj.name,
-                  style: TextStyle(
-                      fontFamily: AppFont.Medium,
+                  style: GoogleFonts.fredoka(
+                      fontWeight: FontWeight.w400,
                       fontSize: 16,
                       color: Color(AppColor.bgcolor)),
                 ),

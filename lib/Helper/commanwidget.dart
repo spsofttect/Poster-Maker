@@ -5,9 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:poster_maker/Helper/commanlist/list.dart';
 import 'package:poster_maker/Helper/utlity.dart';
-
 
 TextEditingController phoneController = TextEditingController();
 
@@ -37,7 +37,7 @@ editAppBar({BuildContext context, String name}) {
         ),
         Text(
           name,
-          style: TextStyle(fontFamily: AppFont.Medium, fontSize: 20),
+          style: GoogleFonts.fredoka(fontWeight: FontWeight.w500, fontSize: 20),
         ),
       ],
     ),
@@ -71,9 +71,9 @@ Widget selectedItem({ontap, color, tabName}) {
         Center(
             child: Text(
           tabName,
-          style: TextStyle(
+          style: GoogleFonts.fredoka(
               color: color ? Color(AppColor.orange) : Color(AppColor.white),
-              fontFamily: AppFont.Medium,
+              fontWeight: FontWeight.w400,
               fontSize: 15),
         )),
         SizedBox(height: 5),
@@ -184,7 +184,8 @@ Widget customListView(
                         child: Center(
                             child: Text(
                           "Index $index",
-                          style: TextStyle(fontSize: 20, color: indexColor),
+                          style: GoogleFonts.fredoka(
+                              fontSize: 20, color: indexColor),
                         ))),
                   ],
                 ),
@@ -202,8 +203,8 @@ Widget title({title, onTap, context}) {
       children: [
         Text(
           title,
-          style: TextStyle(
-            fontFamily: AppFont.SemiBold,
+          style: GoogleFonts.fredoka(
+            fontWeight: FontWeight.w400,
             fontSize: 18,
             color: Theme.of(context).textTheme.headline1.color,
           ),
@@ -212,8 +213,8 @@ Widget title({title, onTap, context}) {
           onTap: onTap,
           child: Text(
             'View all',
-            style: TextStyle(
-              fontFamily: AppFont.Medium,
+            style: GoogleFonts.fredoka(
+              fontWeight: FontWeight.w500,
               fontSize: 15,
               color: Theme.of(context).textTheme.headline1.color,
             ),
@@ -228,7 +229,7 @@ Widget title({title, onTap, context}) {
 text({String text, double fontSize, color, maxLine, textAlign}) {
   return Text(
     text,
-    style: TextStyle(fontSize: fontSize, color: color),
+    style: GoogleFonts.fredoka(fontSize: fontSize, color: color),
     textAlign: textAlign,
     overflow: TextOverflow.ellipsis,
     maxLines: maxLine,
@@ -288,7 +289,7 @@ class _DynamicVideoPlayerState extends State<DynamicVideoPlayer> {
                             gradient: LinearGradient(
                                 begin: Alignment.topCenter,
                                 end: Alignment.bottomCenter,
-                                colors:  [
+                                colors: [
                                   Color(AppColor.orange),
                                   Color(AppColor.red)
                                 ]),

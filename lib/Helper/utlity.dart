@@ -2,10 +2,6 @@
 
 mixin AppFont {
   static String freeh = "Freeh521";
-  static String Bold = "Bold";
-  static String Regular = "Regular";
-  static String Medium = "Medium";
-  static String SemiBold = "SemiBold";
 }
 mixin AppColor {
   static int bgcolor = 0xFF07030D;

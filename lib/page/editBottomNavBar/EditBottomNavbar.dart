@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_windowmanager/flutter_windowmanager.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:poster_maker/Helper/commanwidget.dart';
 import 'package:poster_maker/Helper/utlity.dart';
@@ -61,7 +62,7 @@ class _EditBottomNavBarState extends State<EditBottomNavBar> {
                   axisDirection: AxisDirection.down,
                   color: Color(AppColor.orange),
                   child: ListView(
-                       physics: BouncingScrollPhysics(),
+                    physics: BouncingScrollPhysics(),
                     children: [
                       if (currentIndex == 0)
                         PosterPage()
@@ -86,7 +87,7 @@ class _EditBottomNavBarState extends State<EditBottomNavBar> {
         gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
-            colors:  [
+            colors: [
               Color(AppColor.orange),
               Color(AppColor.red),
             ]),
@@ -167,9 +168,9 @@ class _EditBottomNavBarState extends State<EditBottomNavBar> {
             currentIndex == currentInd
                 ? Text(
                     iconName,
-                    style: TextStyle(
+                    style: GoogleFonts.fredoka(
                       fontSize: 10,
-                      fontFamily: AppFont.Medium,
+                      fontWeight: FontWeight.w400,
                       color: currentIndex == currentInd
                           ? Color(AppColor.white)
                           : Colors.transparent,

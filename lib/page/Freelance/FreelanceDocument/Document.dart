@@ -3,6 +3,7 @@
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:poster_maker/Helper/comman_function/commanFunction.dart';
 import 'package:poster_maker/Helper/utlity.dart';
 import 'package:poster_maker/Helper/widget.dart';
@@ -29,7 +30,7 @@ class _DocumentPageViewState extends State<DocumentPageView> {
               }),
           Expanded(
               child: ListView(
-                   physics: BouncingScrollPhysics(),
+            physics: BouncingScrollPhysics(),
             children: [
               title(text: 'Pan Card'),
               Obx(() => PanCard()),
@@ -142,7 +143,8 @@ class _DocumentPageViewState extends State<DocumentPageView> {
           Text(
             text,
             textAlign: TextAlign.start,
-            style: TextStyle(fontFamily: AppFont.SemiBold, fontSize: 20),
+            style:
+                GoogleFonts.fredoka( fontWeight: FontWeight.w500, fontSize: 20),
           ),
         ],
       ),

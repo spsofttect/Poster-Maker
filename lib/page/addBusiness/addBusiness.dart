@@ -41,7 +41,14 @@ class _AddBusinessState extends State<AddBusiness> {
                 height: 25,
               ),
               CommanWidget().profileImagePicker(
-                  sizedBoxWidth: 90, sizedBoxHeight: 90, imageheigth: 90, imagewidth: 90, imageRadius: 75, iconheigth: 40, iconwidth: 40, iconRadius: 20),
+                  sizedBoxWidth: 90,
+                  sizedBoxHeight: 90,
+                  imageheigth: 90,
+                  imagewidth: 90,
+                  imageRadius: 75,
+                  iconheigth: 40,
+                  iconwidth: 40,
+                  iconRadius: 20),
               Container(
                 margin: const EdgeInsets.only(top: 25),
                 height: 60,
@@ -63,12 +70,18 @@ class _AddBusinessState extends State<AddBusiness> {
                 width: Get.width * 0.9,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15),
-                  gradient:  LinearGradient(begin: Alignment.topCenter, end: Alignment.bottomCenter, colors: [Color(AppColor.orange), Color(AppColor.red)]),
+                  gradient: LinearGradient(
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      colors: [Color(AppColor.orange), Color(AppColor.red)]),
                 ),
                 alignment: Alignment.center,
                 child: Text(
                   "Add",
-                  style: TextStyle(fontFamily: AppFont.Medium, fontSize: 20, color: Color(AppColor.white)),
+                  style: GoogleFonts.fredoka(
+                    fontWeight: FontWeight.w500,
+                      fontSize: 20,
+                      color: Color(AppColor.white)),
                 ),
               ),
             ],
@@ -100,8 +113,8 @@ class _AddBusinessState extends State<AddBusiness> {
         ),
         Text(
           'Add Business',
-          style: TextStyle(
-            fontFamily: AppFont.Medium,
+          style: GoogleFonts.fredoka(
+          fontWeight: FontWeight.w500,
             fontSize: 20,
             color: Theme.of(context).textTheme.headline1.color,
           ),
@@ -126,7 +139,9 @@ class _AddBusinessState extends State<AddBusiness> {
     return Container(
       height: 60,
       width: Get.width * 0.9,
-      decoration: BoxDecoration(borderRadius: BorderRadius.circular(15), border: Border.all(color: Color(AppColor.orange))),
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(15),
+          border: Border.all(color: Color(AppColor.orange))),
       child: Row(
         children: [
           const SizedBox(
@@ -145,9 +160,9 @@ class _AddBusinessState extends State<AddBusiness> {
               keyboardType: keyboardType,
               controller: controller,
               onChanged: onChanged,
-              style: TextStyle(
+              style: GoogleFonts.fredoka(
                 fontSize: 15,
-                fontFamily: AppFont.Regular,
+              fontWeight: FontWeight.w500,
                 color: Theme.of(context).textTheme.headline1.color,
               ),
               maxLength: maxLength,
@@ -155,13 +170,16 @@ class _AddBusinessState extends State<AddBusiness> {
                 border: InputBorder.none,
                 counterText: '',
                 hintText: hintText,
-                hintStyle: TextStyle(fontSize: 15, fontFamily: AppFont.SemiBold),
+                hintStyle: GoogleFonts.fredoka(
+                  fontSize: 15,
+                fontWeight: FontWeight.w500,
+                ),
               ),
             ),
           ),
           Text("$val/$maxLength",
-              style: TextStyle(
-                fontFamily: AppFont.Regular,
+              style: GoogleFonts.fredoka(
+              fontWeight: FontWeight.w500,
                 color: Theme.of(context).textTheme.headline1.color,
               )),
           const SizedBox(width: 10),

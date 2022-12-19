@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:poster_maker/Helper/commanwidget.dart';
 import 'package:poster_maker/Helper/utlity.dart';
 
@@ -35,15 +36,11 @@ class _BackRoundPageState extends State<BackRoundPage>
 
   @override
   Widget build(BuildContext context) {
-
-
-
-      _tabController.addListener(() {
+    _tabController.addListener(() {
       // if (_tabController.indexIsChanging) {
-        setState(() {
-          tabIndex = _tabController.index;
-        });
-
+      setState(() {
+        tabIndex = _tabController.index;
+      });
     });
 
     return SafeArea(
@@ -163,12 +160,13 @@ class _BackRoundPageState extends State<BackRoundPage>
             child: Center(
               child: Text(
                 textName,
-                style: TextStyle(
+                style: GoogleFonts.fredoka(
                     fontSize: 12,
                     color: currentIndex == currentInd
                         ? Color(AppColor.white)
                         : Color(AppColor.shadow),
-                    fontFamily: AppFont.Medium),
+                     fontWeight: FontWeight.w400,
+                ),
               ),
             ),
           ),
@@ -183,7 +181,7 @@ class _BackRoundPageState extends State<BackRoundPage>
         height: 40,
         width: double.infinity,
         child: ListView.builder(
-             physics: BouncingScrollPhysics(),
+            physics: BouncingScrollPhysics(),
             scrollDirection: Axis.horizontal,
             itemCount: backroundName.length,
             itemBuilder: (context, index) {
@@ -221,8 +219,10 @@ class _BackRoundPageState extends State<BackRoundPage>
   Widget tabContainer({index}) {
     return Text(
       backroundName[index],
-      style: TextStyle(
-          fontSize: Get.height * 0.015, fontFamily: AppFont.Medium,),
+      style: GoogleFonts.fredoka(
+        fontSize: Get.height * 0.015,
+         fontWeight: FontWeight.w400,
+      ),
     );
   }
 

@@ -16,7 +16,7 @@ import 'package:poster_maker/page/refer&earn/coin.dart';
 import 'package:poster_maker/page/settingpage/proView/proView.dart';
 
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>AppBar<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< //
-Widget homeAppbar({draweronTap,context}) => SizedBox(
+Widget homeAppbar({draweronTap, context}) => SizedBox(
       height: Get.height * 0.1,
       width: double.infinity,
       child: Row(
@@ -49,16 +49,17 @@ Widget homeAppbar({draweronTap,context}) => SizedBox(
                   children: [
                     Text(
                       'User Name',
-                      style: TextStyle(
+                      style: GoogleFonts.fredoka(
                         color: Theme.of(context).textTheme.headline1.color,
-                        fontFamily: AppFont.Medium,
+                      fontWeight: FontWeight.w500,
                         fontSize: 14,
                       ),
                     ),
                     Text(
                       'Add Your Business',
-                      style:
-                          TextStyle(fontFamily: AppFont.Regular, fontSize: 12,
+                      style: GoogleFonts.fredoka(
+                      fontWeight: FontWeight.w500,
+                        fontSize: 12,
                         color: Theme.of(context).textTheme.headline1.color,
                       ),
                     ),
@@ -102,8 +103,8 @@ Widget homeAppbar({draweronTap,context}) => SizedBox(
                   ),
                   Text(
                     '200',
-                    style: TextStyle(
-                        fontFamily: AppFont.Regular,
+                    style: GoogleFonts.fredoka(
+                      fontWeight: FontWeight.w500,
                         fontSize: 10,
                         color: Color(0xFFF9B500)),
                   ),
@@ -132,7 +133,7 @@ Widget homeAppbar({draweronTap,context}) => SizedBox(
             ),
             Bounce(
               duration: Duration(milliseconds: 200),
-              onPressed: () {  },
+              onPressed: () {},
               child: GestureDetector(
                 onTap: draweronTap,
                 child: Container(
@@ -154,8 +155,7 @@ Future<dynamic> bottomsheet() {
     padding: EdgeInsets.all(15),
     height: 180,
     decoration: BoxDecoration(
-        color:
-            isdarkMode.value ? Color(AppColor.white) : Color(AppColor.bgcolor),
+        color: isdarkMode ? Color(AppColor.white) : Color(AppColor.bgcolor),
         borderRadius: BorderRadius.only(
             topRight: Radius.circular(25), topLeft: Radius.circular(25))),
     child: Column(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
@@ -165,10 +165,10 @@ Future<dynamic> bottomsheet() {
           SizedBox(),
           Text(
             'Change Your Business',
-            style: TextStyle(
+            style: GoogleFonts.fredoka(
                 color: Color(AppColor.bgcolor),
                 fontSize: 16,
-                fontFamily: AppFont.Regular),
+              fontWeight: FontWeight.w500,),
             textAlign: TextAlign.center,
           ),
           SizedBox(
@@ -212,11 +212,11 @@ Future<dynamic> bottomsheet() {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text('Your Business Name',
-                    style:
-                        TextStyle(fontSize: 10, color: Color(AppColor.orange))),
+                    style: GoogleFonts.fredoka(
+                        fontSize: 10, color: Color(AppColor.orange))),
                 Text('Edit',
-                    style:
-                        TextStyle(fontSize: 10, color: Color(AppColor.grey))),
+                    style: GoogleFonts.fredoka(
+                        fontSize: 10, color: Color(AppColor.grey))),
               ],
             ),
             Spacer(),
@@ -272,9 +272,9 @@ Widget settingPageAppbar({context, ontap}) {
       ),
       Text(
         'Setting',
-        style: TextStyle(
+        style: GoogleFonts.fredoka(
           color: Theme.of(context).textTheme.headline1.color,
-          fontFamily: AppFont.Medium,
+        fontWeight: FontWeight.w500,
           fontSize: 20,
         ),
       ),
@@ -298,7 +298,7 @@ Widget settingPageAppbar({context, ontap}) {
 
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>CommanAppBar<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< //
 
-Widget commanAppbar({String pageName, color, ontap,textColor}) => Row(
+Widget commanAppbar({String pageName, color, ontap, textColor}) => Row(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         GestureDetector(
@@ -317,8 +317,8 @@ Widget commanAppbar({String pageName, color, ontap,textColor}) => Row(
         ),
         Text(
           pageName,
-          style:
-              TextStyle(fontFamily: AppFont.Medium, fontSize: 20, color: textColor),
+          style: GoogleFonts.fredoka(
+            fontWeight: FontWeight.w500, fontSize: 20, color: textColor),
         ),
       ],
     );
