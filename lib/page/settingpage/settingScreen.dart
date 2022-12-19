@@ -10,6 +10,7 @@ import 'package:poster_maker/Helper/utlity.dart';
 import 'package:poster_maker/Helper/widget.dart';
 import 'package:poster_maker/page/bottomnavbar/appbar/Appbar.dart';
 import 'package:poster_maker/page/bottomnavbar/bottomnavbar.dart';
+import 'package:poster_maker/page/login/login.dart';
 
 import 'package:poster_maker/page/settingpage/proView/proView.dart';
 
@@ -226,6 +227,13 @@ class _SettingPageState extends State<SettingPage> {
                     ],
                   )),
                   CommanWidget().nextButton(
+                      onTap: () async {
+                        await authClass.signOut();
+                        Get.back();
+                        Get.back();
+                        currentpage = 0;
+                        await Get.offAllNamed("/loginScreen");
+                      },
                       height: 45,
                       radius: 10,
                       text: 'Sign Out',

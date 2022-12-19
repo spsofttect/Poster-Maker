@@ -1,6 +1,7 @@
 // ignore_for_file: implementation_imports, unnecessary_import, prefer_const_constructors, sized_box_for_whitespace, avoid_print
 
 import 'dart:async';
+import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -23,6 +24,7 @@ int currentpage = 0;
 int start = 60;
 String smsCode = "";
 TextEditingController otpbox = TextEditingController();
+AuthClass authClass = AuthClass();
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key key}) : super(key: key);
@@ -192,7 +194,7 @@ class _LoginScreenState extends State<LoginScreen>
                           // wait = true;
                           buttonName = "Resend";
                         });
-                        // loding();
+                        loding();
                         authClass.verifyPhoneNumber(
                             "$yourCountryCode}", context, setData);
                         // _introController.device();
@@ -362,7 +364,7 @@ class _LoginScreenState extends State<LoginScreen>
                 CommanWidget().nextButton(
                     // margin: EdgeInsets.only(left: 15,right: 15),
                     onTap: () {
-                      // loding();
+                      loding();
                       authClass.signInwithPhoneNumber(
                           verificationIdFinal, smsCode, context);
                     },
@@ -449,5 +451,55 @@ class _LoginScreenState extends State<LoginScreen>
         ),
       ],
     );
+  }
+
+  Future<dynamic> loding() {
+    return showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return WillPopScope(
+            onWillPop: () async {
+              return false;
+            },
+            child: AlertDialog(
+              shape: const RoundedRectangleBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(100))),
+              backgroundColor: Colors.transparent,
+              elevation: 0,
+              content: AnimatedBuilder(
+                animation: storyAnimationController,
+                builder: (BuildContext context, Widget child) {
+                  return Stack(
+                    alignment: Alignment.center,
+                    children: [
+                      Transform.rotate(
+                        angle: storyAnimationController.value * 2 * pi,
+                        child: Container(
+                          height: Get.width * 0.25,
+                          width: Get.width * 0.25,
+                          decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              image: DecorationImage(
+                                  image: AssetImage(
+                                      "${AssetPath.splash}loader.gif"),
+                                  fit: BoxFit.cover)),
+                        ),
+                      ),
+                      Container(
+                        height: Get.width * 0.11,
+                        width: Get.width * 0.11,
+                        decoration: BoxDecoration(
+                            image: DecorationImage(
+                                image: AssetImage(
+                                    "${AssetPath.splash}logobgLoader.png"),
+                                fit: BoxFit.cover)),
+                      ),
+                    ],
+                  );
+                },
+              ),
+            ),
+          );
+        });
   }
 }
