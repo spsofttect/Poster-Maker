@@ -445,7 +445,7 @@ class Refer_EarnPage extends StatelessWidget {
               color: Color(AppColor.orange)),
           child: Center(
             child: Text(ind,
-                style: TextStyle(
+                style: GoogleFonts.fredoka(
                     fontWeight: FontWeight.w600,
                     fontSize: Get.height * 0.03,
                     color: Color(AppColor.white))),

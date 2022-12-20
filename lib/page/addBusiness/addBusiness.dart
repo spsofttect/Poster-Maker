@@ -79,7 +79,7 @@ class _AddBusinessState extends State<AddBusiness> {
                       alignment: Alignment.center,
                       child: Text(
                         "Add",
-                        style: TextStyle(fontWeight: FontWeight.w500, fontSize: 20, color: Color(AppColor.white)),
+                        style: GoogleFonts.fredoka(fontWeight: FontWeight.w500, fontSize: 20, color: Color(AppColor.white)),
                       ),
                     ),
                   ],

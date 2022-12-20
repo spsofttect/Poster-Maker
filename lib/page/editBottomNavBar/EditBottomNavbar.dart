@@ -61,8 +61,8 @@ class _EditBottomNavBarState extends State<EditBottomNavBar> {
               child: GlowingOverscrollIndicator(
                   axisDirection: AxisDirection.down,
                   color: Color(AppColor.orange),
-                  child: ListView(
-                    physics: BouncingScrollPhysics(),
+                  child: Stack(
+                    // physics: BouncingScrollPhysics(),
                     children: [
                       if (currentIndex == 0)
                         PosterPage()
@@ -77,6 +77,7 @@ class _EditBottomNavBarState extends State<EditBottomNavBar> {
   }
 
   bool selected = false;
+
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> addTextButton <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< //
 
   Widget bottomnavbar() {

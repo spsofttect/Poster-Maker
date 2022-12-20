@@ -20,7 +20,7 @@ class _PosterPageState extends State<PosterPage> {
               ontap: () {
                 Get.back();
               }),
-              
+
         ],
       ),
     );

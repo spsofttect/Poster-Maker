@@ -469,33 +469,44 @@ class _LoginScreenState extends State<LoginScreen>
               content: AnimatedBuilder(
                 animation: storyAnimationController,
                 builder: (BuildContext context, Widget child) {
-                  return Stack(
-                    alignment: Alignment.center,
-                    children: [
-                      Transform.rotate(
-                        angle: storyAnimationController.value * 2 * pi,
-                        child: Container(
-                          height: Get.width * 0.25,
-                          width: Get.width * 0.25,
-                          decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              image: DecorationImage(
-                                  image: AssetImage(
-                                      "${AssetPath.splash}loader.gif"),
-                                  fit: BoxFit.cover)),
-                        ),
-                      ),
-                      Container(
-                        height: Get.width * 0.11,
-                        width: Get.width * 0.11,
-                        decoration: BoxDecoration(
-                            image: DecorationImage(
-                                image: AssetImage(
-                                    "${AssetPath.splash}logobgLoader.png"),
-                                fit: BoxFit.cover)),
-                      ),
-                    ],
+                  return Container(
+                    padding: EdgeInsets.all(5),
+                    height: Get.width * 0.25,
+                    width: Get.width * 0.25,
+                    decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        image: DecorationImage(
+                            image: AssetImage("${AssetPath.splash}loader.gif"),
+                            fit: BoxFit.contain)),
                   );
+                  // Stack(
+                  //   alignment: Alignment.center,
+                  //   children: [
+                  //     Transform.rotate(
+                  //       angle: storyAnimationController.value * 2 * pi,
+                  //       child:
+                  //       Container(
+                  //         height: Get.width * 0.25,
+                  //         width: Get.width * 0.25,
+                  //         decoration: BoxDecoration(
+                  //             shape: BoxShape.circle,
+                  //             image: DecorationImage(
+                  //                 image: AssetImage(
+                  //                     "${AssetPath.splash}loader.gif"),
+                  //                 fit: BoxFit.cover)),
+                  //       ),
+                  //     ),
+                  //     Container(
+                  //       height: Get.width * 0.11,
+                  //       width: Get.width * 0.11,
+                  //       decoration: BoxDecoration(
+                  //           image: DecorationImage(
+                  //               image: AssetImage(
+                  //                   "${AssetPath.splash}logobgLoader.png"),
+                  //               fit: BoxFit.cover)),
+                  //     ),
+                  //   ],
+                  // );
                 },
               ),
             ),

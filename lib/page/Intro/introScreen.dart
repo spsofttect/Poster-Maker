@@ -71,7 +71,7 @@ class _IntroScreenState extends State<IntroScreen> {
                     child: Text(
                       'Skip',
                       style: GoogleFonts.fredoka(
-           fontWeight: FontWeight.w400,
+                        fontWeight: FontWeight.w400,
                         // color: Get.isDarkMode
                         //     ? Color(AppColor.grey)
                         //     : Color(AppColor.white),

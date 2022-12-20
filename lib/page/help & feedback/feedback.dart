@@ -34,7 +34,10 @@ class FeedbackView extends StatelessWidget {
             ),
             Text(
               "Help & Feedback",
-              style: TextStyle(fontFamily: AppFont.Medium, fontSize: 20, color: Theme.of(context).textTheme.headline1.color),
+              style: GoogleFonts.fredoka(
+                  fontWeight: FontWeight.w500,
+                  fontSize: 20,
+                  color: Theme.of(context).textTheme.headline1.color),
             ),
             textfield(
                 hintText: 'Enter your Email-ID*',

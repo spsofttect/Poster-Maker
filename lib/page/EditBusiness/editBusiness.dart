@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../../Helper/utlity.dart';
 import '../../Helper/widget.dart';
 
@@ -72,13 +73,18 @@ class _EditBusinessState extends State<EditBusiness> {
                       width: Get.width * 0.9,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(15),
-                        gradient:
-                            const LinearGradient(begin: Alignment.topCenter, end: Alignment.bottomCenter, colors: [Color(0xFFFA7F08), Color(0xFFF24405)]),
+                        gradient: const LinearGradient(
+                            begin: Alignment.topCenter,
+                            end: Alignment.bottomCenter,
+                            colors: [Color(0xFFFA7F08), Color(0xFFF24405)]),
                       ),
                       alignment: Alignment.center,
                       child: Text(
                         "Update",
-                        style: TextStyle(fontFamily: AppFont.Medium, fontSize: 20, color: Color(AppColor.white)),
+                        style: GoogleFonts.fredoka(
+                            fontWeight: FontWeight.w500,
+                            fontSize: 20,
+                            color: Color(AppColor.white)),
                       ),
                     ),
                   ],
@@ -162,7 +168,7 @@ class _EditBusinessState extends State<EditBusiness> {
               onChanged: onChanged,
               style: GoogleFonts.fredoka(
                 fontSize: 15,
-           fontWeight: FontWeight.w400,
+                fontWeight: FontWeight.w400,
                 color: Theme.of(context).textTheme.headline1.color,
               ),
               maxLength: maxLength,
@@ -171,7 +177,9 @@ class _EditBusinessState extends State<EditBusiness> {
                 counterText: '',
                 hintText: hintText,
                 hintStyle: GoogleFonts.fredoka(
-                    fontSize: 15,  fontWeight: FontWeight.w400,),
+                  fontSize: 15,
+                  fontWeight: FontWeight.w400,
+                ),
               ),
             ),
           ),
