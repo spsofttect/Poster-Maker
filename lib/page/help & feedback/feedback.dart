@@ -23,6 +23,7 @@ class FeedbackView extends StatelessWidget {
                 ontap: () {
                   Get.offAll(BottomNavBarScreen());
                 },
+                textColor: Theme.of(context).textTheme.headline1.color,
                 pageName: "Help & Feedback"),
             Image.asset(
               "${AssetPath.settingpage}feedback.png",
@@ -33,8 +34,7 @@ class FeedbackView extends StatelessWidget {
             ),
             Text(
               "Help & Feedback",
-              style: GoogleFonts.fredoka(
-                  fontWeight: FontWeight.w400, fontSize: 20),
+              style: TextStyle(fontFamily: AppFont.Medium, fontSize: 20, color: Theme.of(context).textTheme.headline1.color),
             ),
             textfield(
                 hintText: 'Enter your Email-ID*',

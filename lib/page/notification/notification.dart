@@ -25,6 +25,7 @@ class _NotificationPageViewState extends State<NotificationPageView> {
         child: Column(
           children: [
             commanAppbar(
+                textColor: Theme.of(context).textTheme.headline1.color,
                 pageName: "Notification",
                 ontap: () {
                   Get.back();
@@ -39,13 +40,10 @@ class _NotificationPageViewState extends State<NotificationPageView> {
                       Row(
                         children: [
                           Container(
-                            margin: const EdgeInsets.only(
-                                left: 15, top: 15, right: 10),
+                            margin: const EdgeInsets.only(left: 15, top: 15, right: 10),
                             height: 80,
                             width: 80,
-                            decoration: BoxDecoration(
-                                color: Color(AppColor.grey).withOpacity(0.3),
-                                borderRadius: BorderRadius.circular(5)),
+                            decoration: BoxDecoration(color: Color(AppColor.grey).withOpacity(0.3), borderRadius: BorderRadius.circular(5)),
                           ),
                           Container(
                             margin: const EdgeInsets.only(top: 15),
@@ -95,7 +93,7 @@ class _NotificationPageViewState extends State<NotificationPageView> {
                     ],
                   );
                 },
-                itemCount: 15,
+                itemCount: 12000,
                 separatorBuilder: (BuildContext context, int index) {
                   return Divider(
                     color: Color(AppColor.grey),

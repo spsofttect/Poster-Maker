@@ -154,6 +154,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
     return StaggeredGridView.countBuilder(
       padding: EdgeInsets.only(bottom: Get.height * 0.09),
       crossAxisCount: 2,
+      padding: EdgeInsets.only(bottom: Get.height * 0.1),
       itemCount: item3.length,
       physics: BouncingScrollPhysics(),
       itemBuilder: (context, index) => Padding(
@@ -211,6 +212,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   Widget Banner() {
     return StaggeredGridView.countBuilder(
       crossAxisCount: 2,
+      padding: EdgeInsets.only(bottom: Get.height * 0.1),
       itemCount: banner.length,
       physics: BouncingScrollPhysics(),
       itemBuilder: (context, index) => Padding(
@@ -293,6 +295,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
     return StaggeredGridView.countBuilder(
       padding: EdgeInsets.only(bottom: Get.height * 0.09),
       crossAxisCount: 2,
+      padding: EdgeInsets.only(bottom: Get.height * 0.1),
       itemCount: item.length,
       physics: BouncingScrollPhysics(),
       itemBuilder: (context, index) => Padding(
@@ -379,6 +382,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
       padding: EdgeInsets.only(bottom: Get.height * 0.09),
       crossAxisCount: 2,
       itemCount: item2.length,
+      padding: EdgeInsets.only(bottom: Get.height * 0.1),
       physics: BouncingScrollPhysics(),
       itemBuilder: (context, index) => Padding(
         padding: const EdgeInsets.all(5.0),

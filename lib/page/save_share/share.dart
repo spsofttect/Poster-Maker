@@ -28,22 +28,28 @@ class _SharePageState extends State<SharePage> {
     return Scaffold(
       body: SafeArea(
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             commanAppbar(
                 pageName: "Save & Share",
                 ontap: () {
                   Get.back();
                 }),
-            sharePost(
-              height: Get.height * 0.45,
-              width: Get.width * 0.6,
-              borderColor: Color(AppColor.grey),
-            ),
-            text(
-                text: "E:/Application/poster_banner_Logo/xd",
-                fontsize: Get.height * 0.02),
-            bottomContainer(),
+            Expanded(
+                child: SingleChildScrollView(
+              physics: BouncingScrollPhysics(),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  sharePost(
+                    height: Get.height * 0.45,
+                    width: Get.width * 0.6,
+                    borderColor: Color(AppColor.grey),
+                  ),
+                  text(text: "E:/Application/poster_banner_Logo/xd", fontsize: Get.height * 0.02),
+                  bottomContainer(),
+                ],
+              ),
+            )),
           ],
         ),
       ),
@@ -57,9 +63,7 @@ class _SharePageState extends State<SharePage> {
         margin: const EdgeInsets.only(top: 10, bottom: 15),
         height: height,
         width: width,
-        decoration: BoxDecoration(
-            border: Border.all(color: borderColor),
-            borderRadius: BorderRadius.circular(15)),
+        decoration: BoxDecoration(border: Border.all(color: borderColor), borderRadius: BorderRadius.circular(15)),
       ),
     );
   }
@@ -89,11 +93,9 @@ class _SharePageState extends State<SharePage> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              borderContainer(
-                  height: Get.height * 0.005, width: Get.width * 0.35),
+              borderContainer(height: Get.height * 0.005, width: Get.width * 0.35),
               text(text: "Share", fontsize: Get.height * 0.02),
-              borderContainer(
-                  height: Get.height * 0.005, width: Get.width * 0.35),
+              borderContainer(height: Get.height * 0.005, width: Get.width * 0.35),
             ],
           ),
           Row(
@@ -137,8 +139,7 @@ class _SharePageState extends State<SharePage> {
   Widget sociallmages({imageName, ontap}) => Bounce(
         duration: const Duration(milliseconds: 200),
         onPressed: ontap,
-        child: Image.asset(AssetPath.custom + imageName,
-            color: Color(AppColor.grey), height: Get.height * 0.04),
+        child: Image.asset(AssetPath.custom + imageName, color: Color(AppColor.grey), height: Get.height * 0.04),
       );
 
   Widget borderContainer({height, width}) {

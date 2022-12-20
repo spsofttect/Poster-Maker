@@ -27,6 +27,7 @@ image_picker_ios=/usr/local/Caskroom/flutter/3.0.5/flutter/.pub-cache/hosted/pub
 in_app_purchase=/usr/local/Caskroom/flutter/3.0.5/flutter/.pub-cache/hosted/pub.dartlang.org/in_app_purchase-3.0.6/
 in_app_purchase_android=/usr/local/Caskroom/flutter/3.0.5/flutter/.pub-cache/hosted/pub.dartlang.org/in_app_purchase_android-0.2.3+1/
 in_app_purchase_storekit=/usr/local/Caskroom/flutter/3.0.5/flutter/.pub-cache/hosted/pub.dartlang.org/in_app_purchase_storekit-0.3.1/
+in_app_review=/usr/local/Caskroom/flutter/3.0.5/flutter/.pub-cache/hosted/pub.dartlang.org/in_app_review-2.0.6/
 libphonenumber=/usr/local/Caskroom/flutter/3.0.5/flutter/.pub-cache/hosted/pub.dartlang.org/libphonenumber-2.0.2/
 libphonenumber_plugin=/usr/local/Caskroom/flutter/3.0.5/flutter/.pub-cache/hosted/pub.dartlang.org/libphonenumber_plugin-0.2.3/
 libphonenumber_web=/usr/local/Caskroom/flutter/3.0.5/flutter/.pub-cache/hosted/pub.dartlang.org/libphonenumber_web-0.2.0+1/

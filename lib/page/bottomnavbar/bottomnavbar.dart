@@ -186,11 +186,14 @@ class _BottomNavBarScreenState extends State<BottomNavBarScreen> {
                 alignment: Alignment.center,
                 children: [
                   (isScroll.value)
-                      ? Image.asset(
-                          "${AssetPath.refer}fastdown.png",
-                          colorBlendMode: BlendMode.srcIn,
-                          color: Colors.white,
-                          scale: 2,
+                      ? Transform.rotate(
+                          angle: 3.15,
+                          child: Image.asset(
+                            "${AssetPath.refer}fastdown.png",
+                            colorBlendMode: BlendMode.srcIn,
+                            color: Colors.white,
+                            scale: 2,
+                          ),
                         )
                       : Image.asset(
                           '${AssetPath.homepage}notification.png',
