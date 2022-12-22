@@ -83,7 +83,7 @@ class _BottomNavBarScreenState extends State<BottomNavBarScreen> {
       animationDuration: const Duration(milliseconds: 300),
       animateChildDecoration: true,
       rtlOpening: false,
-      backdropColor: Color(AppColor.bgcolor),
+      backdropColor: isdarkMode?Color(AppColor.bgcolor):Color(AppColor.white),
       // openScale: 1.0,
       disabledGestures: false,
       childDecoration: const BoxDecoration(
@@ -178,7 +178,7 @@ class _BottomNavBarScreenState extends State<BottomNavBarScreen> {
               gradient: LinearGradient(
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
-                  colors: [Color(AppColor.orange), Color(AppColor.red)]),
+                  colors: [Color(AppColor.orange), Color(AppColor.yellow)]),
               // color: Color(AppColor.orange),
             ),
             child: Obx(
@@ -239,7 +239,8 @@ class _BottomNavBarScreenState extends State<BottomNavBarScreen> {
         gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
-            colors: [Color(AppColor.orange), Color(AppColor.red)]),
+            colors: [Color(AppColor.orange), Color(AppColor.yellow)
+            ]),
         borderRadius: BorderRadius.circular(15),
       ),
       child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [

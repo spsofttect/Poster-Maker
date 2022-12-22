@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_windowmanager/flutter_windowmanager.dart';
 import 'package:get/get.dart';
 import 'package:poster_maker/Helper/preferences.dart';
+import 'package:poster_maker/page/bottomnavbar/bottomnavbar.dart';
 import 'package:video_player/video_player.dart';
 import 'package:poster_maker/Helper/utlity.dart';
 
@@ -32,7 +33,7 @@ class _SplashScreenState extends State<SplashScreen> {
     Timer(const Duration(seconds: 5), () async {
       var isIntroduction = await Preferences.preferences.getBool(
           key: PrefernceKey.isIntroductionScreenLoaded, defValue: false);
-
+      // Get.to(BottomNavBarScreen());
       if (!isIntroduction) {
         // introduction screen appears ,go to home if true else login
 
@@ -67,7 +68,6 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
         backgroundColor: Color(AppColor.bgcolor),
         body: Center(

@@ -227,19 +227,18 @@ class _BackRoundPageState extends State<BackRoundPage>
   }
 
   Widget grid() {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 5),
-      child: GridView.builder(
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 4, mainAxisSpacing: 8, crossAxisSpacing: 8),
-          itemCount: 99,
-          itemBuilder: (_, i) {
-            return Container(
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  color: Color(AppColor.grey).withOpacity(0.2)),
-            );
-          }),
-    );
+    return GridView.builder(
+      padding:EdgeInsets.all(8) ,
+      physics: BouncingScrollPhysics(),
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 4, mainAxisSpacing: 8, crossAxisSpacing: 8),
+        itemCount: 99,
+        itemBuilder: (_, i) {
+          return Container(
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                color: Color(AppColor.grey).withOpacity(0.2)),
+          );
+        });
   }
 }

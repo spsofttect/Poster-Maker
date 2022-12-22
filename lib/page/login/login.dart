@@ -476,7 +476,7 @@ class _LoginScreenState extends State<LoginScreen>
                     decoration: BoxDecoration(
                         shape: BoxShape.circle,
                         image: DecorationImage(
-                            image: AssetImage("${AssetPath.splash}loader.gif"),
+                            image: AssetImage("${AssetPath.splash}loader2.gif"),
                             fit: BoxFit.contain)),
                   );
                   // Stack(

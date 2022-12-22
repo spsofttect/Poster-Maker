@@ -330,7 +330,7 @@ class _SettingPageState extends State<SettingPage> {
                 gradient: LinearGradient(
                     begin: Alignment.topCenter,
                     end: Alignment.bottomCenter,
-                    colors: [Color(AppColor.orange), Color(AppColor.red)])),
+                    colors: [Color(AppColor.orange), Color(AppColor.yellow)])),
             child: Center(
                 child: Text(
               'SUBSCRIBE PLAN',

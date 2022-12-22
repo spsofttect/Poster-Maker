@@ -73,10 +73,10 @@ class _EditBusinessState extends State<EditBusiness> {
                       width: Get.width * 0.9,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(15),
-                        gradient: const LinearGradient(
+                        gradient:  LinearGradient(
                             begin: Alignment.topCenter,
                             end: Alignment.bottomCenter,
-                            colors: [Color(0xFFFA7F08), Color(0xFFF24405)]),
+                            colors: [Color(AppColor.orange), Color(AppColor.yellow)]),
                       ),
                       alignment: Alignment.center,
                       child: Text(

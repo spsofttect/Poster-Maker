@@ -28,12 +28,12 @@ class CommanWidget {
             gradient: LinearGradient(
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
-                colors: [Color(AppColor.yellow), Color(AppColor.orange)])),
+                colors: [Color(AppColor.orange), Color(AppColor.yellow)])),
         child: Center(
             child: Text(text,
                 style: GoogleFonts.fredoka(
                   fontWeight: FontWeight.w500,
-                  fontSize: 18,
+                  fontSize: 17,
                   color: Color(AppColor.white),
                 ))),
       ),
@@ -101,7 +101,7 @@ class CommanWidget {
                           end: Alignment.bottomCenter,
                           colors: [
                             Color(AppColor.orange),
-                            Color(AppColor.red)
+                            Color(AppColor.yellow)
                           ])),
                   child: Image.asset('${AssetPath.addbusiness}pencil.png',
                       color: Color(AppColor.white)),

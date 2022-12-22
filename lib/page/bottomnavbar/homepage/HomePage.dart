@@ -12,7 +12,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:poster_maker/Helper/commanlist/list.dart';
 import 'package:poster_maker/Helper/utlity.dart';
-import 'package:poster_maker/page/editBottomNavBar/EditBottomNavbar.dart';
+import 'package:poster_maker/page/EditBusiness/posterSize.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../../../Helper/commanwidget.dart';
@@ -154,7 +154,6 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
     return StaggeredGridView.countBuilder(
       padding: EdgeInsets.only(bottom: Get.height * 0.09),
       crossAxisCount: 2,
-    
       itemCount: item3.length,
       physics: BouncingScrollPhysics(),
       itemBuilder: (context, index) => Padding(
@@ -162,7 +161,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
         child: Bounce(
           duration: Duration(milliseconds: 200),
           onPressed: () {
-            Get.to(EditBottomNavBar());
+            Get.to(PosterSize());
           },
           child: ClipRRect(
               borderRadius: BorderRadius.all(Radius.circular(12)),
@@ -196,7 +195,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                               Icons.favorite,
                               color: (!item3[index].isLike)
                                   ? Color(AppColor.white)
-                                  : Color(AppColor.red),
+                                  : Color(AppColor.yellow),
                             ),
                           ),
                         ),
@@ -220,7 +219,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
         child: Bounce(
           duration: Duration(milliseconds: 200),
           onPressed: () {
-            Get.to(EditBottomNavBar());
+            Get.to(PosterSize());
           },
           child: ClipRRect(
               borderRadius: BorderRadius.all(Radius.circular(12)),
@@ -303,7 +302,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
         child: Bounce(
           duration: Duration(milliseconds: 200),
           onPressed: () {
-            Get.to(EditBottomNavBar());
+            Get.to(PosterSize());
           },
           child: ClipRRect(
               borderRadius: BorderRadius.all(Radius.circular(12)),
@@ -389,7 +388,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
         child: Bounce(
           duration: Duration(milliseconds: 200),
           onPressed: () {
-            Get.to(EditBottomNavBar());
+            Get.to(PosterSize());
           },
           child: ClipRRect(
               borderRadius: BorderRadius.all(Radius.circular(12)),
@@ -561,7 +560,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
           gradient: LinearGradient(
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
-              colors: [Color(AppColor.orange), Color(AppColor.red)]),
+              colors: [Color(AppColor.orange), Color(AppColor.yellow)]),
         ),
         // indicatorColor: Colors.white,
         controller: _tabController,

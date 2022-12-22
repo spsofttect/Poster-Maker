@@ -3,6 +3,7 @@
 import 'package:cached_video_player/cached_video_player.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
+import 'package:flutter_bounce/flutter_bounce.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -291,7 +292,7 @@ class _DynamicVideoPlayerState extends State<DynamicVideoPlayer> {
                                 end: Alignment.bottomCenter,
                                 colors: [
                                   Color(AppColor.orange),
-                                  Color(AppColor.red)
+                                  Color(AppColor.yellow)
                                 ]),
                             color: Color(AppColor.orange),
                             borderRadius: BorderRadius.only(

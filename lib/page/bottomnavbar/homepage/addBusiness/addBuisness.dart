@@ -118,7 +118,7 @@ class BusinessList extends StatelessWidget {
                           end: Alignment.bottomRight,
                           colors: [
                             Color(AppColor.orange),
-                            Color(AppColor.red)
+                            Color(AppColor.yellow)
                           ])),
                   child: Icon(
                     Icons.add,
