@@ -1,4 +1,4 @@
-// ignore_for_file: file_names, avoid_init_to_null
+// ignore_for_file: file_names, avoid_init_to_null, avoid_print
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bounce/flutter_bounce.dart';
