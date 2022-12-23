@@ -1,9 +1,11 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:poster_maker/Helper/utlity.dart';
 import 'package:poster_maker/Helper/widget.dart';
-import 'package:poster_maker/page/editBottomNavBar/EditBottomNavbar.dart';
+import 'package:poster_maker/page/editBottomNavBar/PosterEditingMenu.dart';
 
 class PosterSize extends StatelessWidget {
   const PosterSize({Key key}) : super(key: key);
@@ -48,7 +50,7 @@ class PosterSize extends StatelessWidget {
               height: 30,
               width: 80,
               onTap: () {
-                Get.to(const EditBottomNavBar());
+                Get.to(const PosterEditingMenu());
               },
               margin: const EdgeInsets.only(right: 20),
               text: 'Next',

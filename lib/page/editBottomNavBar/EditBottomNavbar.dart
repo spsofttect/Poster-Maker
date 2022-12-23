@@ -194,7 +194,7 @@ class _EditBottomNavBarState extends State<EditBottomNavBar> {
   }
 
   addTextBottomnavbar() {
-    Get.bottomSheet(
+
       Container(
         height: textCurrentIndex == 0
             ? Get.height * 0.08
@@ -286,7 +286,7 @@ class _EditBottomNavBarState extends State<EditBottomNavBar> {
             ],
           ),
         ),
-      ),
+      
     );
   }
 }
