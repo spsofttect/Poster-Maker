@@ -8,9 +8,10 @@ import 'package:poster_maker/Helper/commanlist/list.dart';
 import 'package:poster_maker/Helper/utlity.dart';
 import 'package:poster_maker/page/bottomnavbar/appbar/Appbar.dart';
 import 'package:poster_maker/page/bottomnavbar/bottomnavbar.dart';
+import 'package:poster_maker/page/editBottomNavBar/PosterEditingMenu.dart';
 
 import '../../../Helper/commanwidget.dart';
-import '../../editBottomNavBar/EditBottomNavbar.dart';
+
 
 class FavoriteScreen extends StatefulWidget {
   const FavoriteScreen({Key key}) : super(key: key);
@@ -74,7 +75,7 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
                       child: Bounce(
                         duration: Duration(milliseconds: 200),
                         onPressed: () {
-                          Get.to(EditBottomNavBar());
+                          Get.to(PosterEditingMenu());
                         },
                         child: ClipRRect(
                             borderRadius: BorderRadius.all(Radius.circular(12)),

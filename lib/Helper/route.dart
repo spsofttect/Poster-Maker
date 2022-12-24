@@ -6,7 +6,6 @@ import 'package:poster_maker/page/Preferred_Language/Language.dart';
 import 'package:poster_maker/page/SplashScreen/splash.dart';
 import 'package:poster_maker/page/bottomnavbar/bottomnavbar.dart';
 import 'package:poster_maker/page/bottomnavbar/homepage/addBusiness/addBuisness.dart';
-import 'package:poster_maker/page/editBottomNavBar/EditBottomNavbar.dart';
 import 'package:poster_maker/page/login/login.dart';
 import 'package:poster_maker/page/login/number_varification/varification.dart';
 import 'package:poster_maker/page/settingpage/settingScreen.dart';
