@@ -5,11 +5,12 @@ import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:get/get.dart';
 import 'package:poster_maker/Helper/commanlist/list.dart';
 import 'package:flutter_bounce/flutter_bounce.dart';
+import 'package:poster_maker/page/editBottomNavBar/PosterEditingMenu.dart';
 import '../../../Helper/commanwidget.dart';
 import 'package:poster_maker/page/bottomnavbar/appbar/Appbar.dart';
 import 'package:poster_maker/page/bottomnavbar/bottomnavbar.dart';
 
-import '../../editBottomNavBar/EditBottomNavbar.dart';
+
 
 class PostScreen extends StatefulWidget {
   const PostScreen({Key key}) : super(key: key);
@@ -53,7 +54,7 @@ class _PostScreenState extends State<PostScreen> {
                 child: Bounce(
                   duration: Duration(milliseconds: 200),
                   onPressed: () {
-                    Get.to(EditBottomNavBar());
+                    Get.to(PosterEditingMenu());
                   },
                   child: ClipRRect(
                       borderRadius: BorderRadius.all(Radius.circular(12)),

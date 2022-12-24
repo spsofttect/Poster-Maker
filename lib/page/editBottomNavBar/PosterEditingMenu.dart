@@ -160,7 +160,9 @@ class _PosterEditingMenuState extends State<PosterEditingMenu> {
                             color: Color(AppColor.white).withOpacity(0.8),
                           )
                         : const SizedBox(),
-                    if (textCurrentIndex == 1)
+                    if (textCurrentIndex == 0)
+                      addTextPage()
+                    else if (textCurrentIndex == 1)
                       controlPage()
                     else if (textCurrentIndex == 2)
                       rotationPage()
@@ -184,15 +186,18 @@ class _PosterEditingMenuState extends State<PosterEditingMenu> {
                 ),
               ),
             )
-          else if (bottomIndex == 2)
-            const AddImagePage()
+          // else if (bottomIndex == 2)
+          //   const AddImagePage()
         ],
       ),
     );
   }
 
   double _value = 360;
-  addTextPage() {}
+  addTextPage() {
+    return Container();
+  }
+
   controlPage() {
     return Padding(
       padding: const EdgeInsets.only(top: 8.0),
@@ -422,15 +427,99 @@ class _PosterEditingMenuState extends State<PosterEditingMenu> {
   }
 
   textHegihtPage() {
-    return Container();
+    return Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
+      Container(
+          height: Get.width * 0.09,
+          width: Get.width * 0.09,
+          decoration: BoxDecoration(
+              color: Color(AppColor.white).withOpacity(0.8),
+              borderRadius: BorderRadius.circular(Get.width * 0.05)),
+          child: Icon(
+            Icons.border_vertical_rounded,
+            color: Color(AppColor.orange),
+          )),
+      SizedBox(
+        height: Get.height * 0.09,
+        width: Get.width * 0.7,
+        child: Slider(
+          min: 0.0,
+          max: 360.0,
+          activeColor: Color(AppColor.white).withOpacity(0.8),
+          inactiveColor: Color(AppColor.white).withOpacity(0.5),
+          thumbColor: Color(AppColor.white),
+          value: _value,
+          onChanged: (value) {
+            setState(() {
+              _value = value;
+            });
+          },
+        ),
+      ),
+    ]);
   }
 
   splitHorizontalPage() {
-    return Container();
+    return Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
+      Container(
+          height: Get.width * 0.09,
+          width: Get.width * 0.09,
+          decoration: BoxDecoration(
+              color: Color(AppColor.white).withOpacity(0.8),
+              borderRadius: BorderRadius.circular(Get.width * 0.05)),
+          child: Icon(
+            Icons.border_horizontal_rounded,
+            color: Color(AppColor.orange),
+          )),
+      SizedBox(
+        height: Get.height * 0.09,
+        width: Get.width * 0.7,
+        child: Slider(
+          min: 0.0,
+          max: 360.0,
+          activeColor: Color(AppColor.white).withOpacity(0.8),
+          inactiveColor: Color(AppColor.white).withOpacity(0.5),
+          thumbColor: Color(AppColor.white),
+          value: _value,
+          onChanged: (value) {
+            setState(() {
+              _value = value;
+            });
+          },
+        ),
+      ),
+    ]);
   }
 
   splitverticolPage() {
-    return Container();
+    return Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
+      Container(
+          height: Get.width * 0.09,
+          width: Get.width * 0.09,
+          decoration: BoxDecoration(
+              color: Color(AppColor.white).withOpacity(0.8),
+              borderRadius: BorderRadius.circular(Get.width * 0.05)),
+          child: Icon(
+            Icons.border_vertical_rounded,
+            color: Color(AppColor.orange),
+          )),
+      SizedBox(
+        height: Get.height * 0.09,
+        width: Get.width * 0.7,
+        child: Slider(
+          min: 0.0,
+          max: 360.0,
+          activeColor: Color(AppColor.white).withOpacity(0.8),
+          inactiveColor: Color(AppColor.white).withOpacity(0.5),
+          thumbColor: Color(AppColor.white),
+          value: _value,
+          onChanged: (value) {
+            setState(() {
+              _value = value;
+            });
+          },
+        ),
+      ),
+    ]);
   }
 
   Widget iconButton(
