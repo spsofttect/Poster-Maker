@@ -5,7 +5,6 @@ import 'package:flutter_bounce/flutter_bounce.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:poster_maker/Helper/utlity.dart';
-import 'package:poster_maker/page/editBottomNavBar/addImage/addImage.dart';
 import 'package:poster_maker/page/editBottomNavBar/addTextBottonNavBar.dart';
 
 class PosterEditingMenu extends StatefulWidget {

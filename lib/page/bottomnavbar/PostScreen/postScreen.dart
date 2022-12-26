@@ -5,6 +5,7 @@ import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:get/get.dart';
 import 'package:poster_maker/Helper/commanlist/list.dart';
 import 'package:flutter_bounce/flutter_bounce.dart';
+import 'package:poster_maker/Helper/utlity.dart';
 import 'package:poster_maker/page/editBottomNavBar/PosterEditingMenu.dart';
 import '../../../Helper/commanwidget.dart';
 import 'package:poster_maker/page/bottomnavbar/appbar/Appbar.dart';
@@ -79,7 +80,7 @@ class _PostScreenState extends State<PostScreen> {
                                     decoration: BoxDecoration(color: Colors.black54, borderRadius: BorderRadius.circular(8)),
                                     child: Icon(
                                       Icons.favorite,
-                                      color: Colors.red,
+                                      color: Color(AppColor.orange),
                                     ),
                                   ),
                                 ),

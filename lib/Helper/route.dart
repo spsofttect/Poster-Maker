@@ -48,6 +48,5 @@ class RouterForApp {
     //   name: '/addBusinessPage',
     //   page: () => AddBusinessPage(),
     // ),
-
   ];
 }
