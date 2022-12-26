@@ -36,12 +36,80 @@ class _PosterEditingMenuState extends State<PosterEditingMenu> {
     return Scaffold(
       body: Stack(
         children: [
+          SafeArea(
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                  child: Container(
+                    margin: const EdgeInsets.only(left: 10, right: 10),
+                    child: Image.asset(
+                      '${AssetPath.language}back.png',
+                      height: 25,
+                    ),
+                  ),
+                ),
+                SizedBox(width: Get.width * 0.01),
+                Text(
+                  "Poster Name",
+                  style: GoogleFonts.fredoka(
+                      fontWeight: FontWeight.w500, fontSize: 15),
+                ),
+                const Spacer(),
+                Bounce(
+                    duration: const Duration(milliseconds: 300),
+                    onPressed: () {},
+                    child: Image.asset("${AssetPath.appbar}layer.png",
+                        height: Get.width * 0.07)),
+                SizedBox(width: Get.width * 0.01),
+                Bounce(
+                    duration: const Duration(milliseconds: 300),
+                    onPressed: () {},
+                    child: Image.asset("${AssetPath.appbar}lock.png",
+                        height: Get.width * 0.07)),
+                SizedBox(width: Get.width * 0.01),
+                Bounce(
+                    duration: const Duration(milliseconds: 300),
+                    onPressed: () {},
+                    child: Image.asset("${AssetPath.appbar}undo.png",
+                        height: Get.width * 0.07)),
+                SizedBox(width: Get.width * 0.01),
+                Bounce(
+                    duration: const Duration(milliseconds: 300),
+                    onPressed: () {},
+                    child: Image.asset("${AssetPath.appbar}redo.png",
+                        height: Get.width * 0.07)),
+                SizedBox(width: Get.width * 0.01),
+                Bounce(
+                    duration: const Duration(milliseconds: 300),
+                    onPressed: () {},
+                    child: Image.asset("${AssetPath.appbar}copy.png",
+                        height: Get.width * 0.07)),
+                SizedBox(width: Get.width * 0.01),
+                Bounce(
+                    duration: const Duration(milliseconds: 300),
+                    onPressed: () {},
+                    child: Image.asset("${AssetPath.appbar}refres.png",
+                        height: Get.width * 0.07)),
+                SizedBox(width: Get.width * 0.01),
+                Bounce(
+                    duration: const Duration(milliseconds: 300),
+                    onPressed: () {},
+                    child: Image.asset("${AssetPath.appbar}save.png",
+                        height: Get.width * 0.07)),
+                SizedBox(width: Get.width * 0.01),
+              ],
+            ),
+          ),
           Align(
             alignment: Alignment.center,
             child: Container(
-              height: 500,
-              width: 350,
-              color: Colors.amber,
+              height: Get.height * 0.68,
+              width: Get.width * 0.9,
+              color: const Color.fromARGB(255, 245, 219, 140),
             ),
           ),
           Align(alignment: Alignment.bottomCenter, child: bottomnavbar()),
@@ -50,8 +118,8 @@ class _PosterEditingMenuState extends State<PosterEditingMenu> {
               alignment: Alignment.bottomCenter,
               child: Container(
                 height: textCurrentIndex != 0 && textCurrentIndex != null
-                    ? Get.height * 0.15
-                    : Get.height * 0.085,
+                    ? Get.height * 0.12
+                    : Get.height * 0.08,
                 decoration: BoxDecoration(
                   color: Color(AppColor.white),
                   borderRadius: BorderRadius.only(
@@ -70,8 +138,6 @@ class _PosterEditingMenuState extends State<PosterEditingMenu> {
                         Color(AppColor.yellow),
                       ]),
                 ),
-                // duration: const Duration(milliseconds: 300),
-                // curve: Curves.bounceInOut,
                 child: Column(
                   mainAxisAlignment:
                       textCurrentIndex == 0 || textCurrentIndex == null
@@ -81,7 +147,7 @@ class _PosterEditingMenuState extends State<PosterEditingMenu> {
                   children: [
                     Container(
                       padding: const EdgeInsets.symmetric(vertical: 5),
-                      height: 35,
+                      height: Get.height * 0.05,
                       width: double.infinity,
                       child: Row(
                         children: [
@@ -154,7 +220,7 @@ class _PosterEditingMenuState extends State<PosterEditingMenu> {
                     ),
                     textCurrentIndex != 0 && textCurrentIndex != null
                         ? Container(
-                            height: 3,
+                            height: Get.height * 0.005,
                             width: double.infinity,
                             color: Color(AppColor.white).withOpacity(0.8),
                           )
@@ -199,7 +265,7 @@ class _PosterEditingMenuState extends State<PosterEditingMenu> {
 
   controlPage() {
     return Padding(
-      padding: const EdgeInsets.only(top: 8.0),
+      padding: EdgeInsets.only(top: Get.height * 0.008),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
@@ -277,101 +343,108 @@ class _PosterEditingMenuState extends State<PosterEditingMenu> {
   }
 
   rotationPage() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: [
-        Container(
-          height: Get.width * 0.09,
-          width: Get.width * 0.09,
-          decoration: BoxDecoration(
-              color: Color(AppColor.white).withOpacity(0.8),
-              borderRadius: BorderRadius.circular(Get.width * 0.05)),
-          child: Icon(Icons.rotate_left_rounded, color: Color(AppColor.orange)),
-        ),
-        SizedBox(
-          height: Get.height * 0.09,
-          width: Get.width * 0.7,
-          child: Slider(
-            min: 0.0,
-            max: 360.0,
-            activeColor: Color(AppColor.white).withOpacity(0.8),
-            inactiveColor: Color(AppColor.white).withOpacity(0.5),
-            thumbColor: Color(AppColor.white),
-            value: _value,
-            onChanged: (value) {
-              setState(() {
-                _value = value;
-              });
-            },
+    return Padding(
+      padding: EdgeInsets.only(top: Get.height * 0.008),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Container(
+            height: Get.height * 0.045,
+            width: Get.height * 0.045,
+            decoration: BoxDecoration(
+                color: Color(AppColor.white).withOpacity(0.8),
+                borderRadius: BorderRadius.circular(Get.width * 0.05)),
+            child:
+                Icon(Icons.rotate_left_rounded, color: Color(AppColor.orange)),
           ),
-        ),
-        Container(
-          height: Get.width * 0.09,
-          width: Get.width * 0.09,
-          decoration: BoxDecoration(
-              color: Color(AppColor.white).withOpacity(0.8),
-              borderRadius: BorderRadius.circular(Get.width * 0.05)),
-          child:
-              Icon(Icons.rotate_right_rounded, color: Color(AppColor.orange)),
-        ),
-      ],
+          SizedBox(
+            height: Get.height * 0.045,
+            width: Get.width * 0.7,
+            child: Slider(
+              min: 0.0,
+              max: 360.0,
+              activeColor: Color(AppColor.white).withOpacity(0.8),
+              inactiveColor: Color(AppColor.white).withOpacity(0.5),
+              thumbColor: Color(AppColor.white),
+              value: _value,
+              onChanged: (value) {
+                setState(() {
+                  _value = value;
+                });
+              },
+            ),
+          ),
+          Container(
+            height: Get.height * 0.045,
+            width: Get.height * 0.045,
+            decoration: BoxDecoration(
+                color: Color(AppColor.white).withOpacity(0.8),
+                borderRadius: BorderRadius.circular(Get.width * 0.05)),
+            child:
+                Icon(Icons.rotate_right_rounded, color: Color(AppColor.orange)),
+          ),
+        ],
+      ),
     );
   }
 
   sizeViewPage() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: [
-        Container(
-          height: Get.width * 0.09,
-          width: Get.width * 0.09,
-          decoration: BoxDecoration(
-              color: Color(AppColor.white).withOpacity(0.8),
-              borderRadius: BorderRadius.circular(Get.width * 0.05)),
-          child: Center(
-            child: Text(
-              '+1',
-              style: GoogleFonts.fredoka(
-                  color: Color(AppColor.orange),
-                  fontWeight: FontWeight.w500,
-                  fontSize: Get.height * 0.025),
+    return Padding(
+      padding: EdgeInsets.only(top: Get.height * 0.008),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Container(
+            height: Get.height * 0.045,
+            width: Get.height * 0.045,
+            decoration: BoxDecoration(
+                color: Color(AppColor.white).withOpacity(0.8),
+                borderRadius: BorderRadius.circular(Get.width * 0.05)),
+            child: Center(
+              child: Text(
+                '+1',
+                style: GoogleFonts.fredoka(
+                    color: Color(AppColor.orange),
+                    fontWeight: FontWeight.w500,
+                    fontSize: Get.height * 0.025),
+              ),
             ),
           ),
-        ),
-        SizedBox(
-          height: Get.height * 0.09,
-          width: Get.width * 0.7,
-          child: Slider(
-            min: 0.0,
-            max: 360.0,
-            activeColor: Color(AppColor.white).withOpacity(0.8),
-            inactiveColor: Color(AppColor.white).withOpacity(0.5),
-            thumbColor: Color(AppColor.white),
-            value: _value,
-            onChanged: (value) {
-              setState(() {
-                _value = value;
-              });
-            },
-          ),
-        ),
-        Container(
-          height: Get.width * 0.09,
-          width: Get.width * 0.09,
-          decoration: BoxDecoration(
-              color: Color(AppColor.white).withOpacity(0.8),
-              borderRadius: BorderRadius.circular(Get.width * 0.05)),
-          child: Center(
-            child: Text(
-              '-1',
-              style: GoogleFonts.fredoka(
-                  color: Color(AppColor.orange),
-                  fontWeight: FontWeight.w500,
-                  fontSize: Get.height * 0.025),
+          SizedBox(
+            height: Get.height * 0.045,
+            width: Get.width * 0.7,
+            child: Slider(
+              min: 0.0,
+              max: 360.0,
+              activeColor: Color(AppColor.white).withOpacity(0.8),
+              inactiveColor: Color(AppColor.white).withOpacity(0.5),
+              thumbColor: Color(AppColor.white),
+              value: _value,
+              onChanged: (value) {
+                setState(() {
+                  _value = value;
+                });
+              },
             ),
           ),
-        ),
-      ],
+          Container(
+            height: Get.height * 0.045,
+            width: Get.height * 0.045,
+            decoration: BoxDecoration(
+                color: Color(AppColor.white).withOpacity(0.8),
+                borderRadius: BorderRadius.circular(Get.width * 0.05)),
+            child: Center(
+              child: Text(
+                '-1',
+                style: GoogleFonts.fredoka(
+                    color: Color(AppColor.orange),
+                    fontWeight: FontWeight.w500,
+                    fontSize: Get.height * 0.025),
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 
@@ -384,141 +457,177 @@ class _PosterEditingMenuState extends State<PosterEditingMenu> {
   }
 
   shadowPage() {
-    return Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
-      Container(
-        height: Get.width * 0.09,
-        width: Get.width * 0.09,
-        decoration: BoxDecoration(
-            color: Color(AppColor.white).withOpacity(0.8),
-            borderRadius: BorderRadius.circular(Get.width * 0.05)),
-        child: Center(
-          child: Text(
-            'S',
-            style: TextStyle(
-                color: Color(AppColor.orange),
-                fontFamily: AppFont.freeh,
-                fontSize: Get.height * 0.025),
+    return Padding(
+      padding: EdgeInsets.only(top: Get.height * 0.008),
+      child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+        Container(
+          height: Get.height * 0.045,
+          width: Get.height * 0.045,
+          padding: EdgeInsets.all(Get.width * 0.01),
+          decoration: BoxDecoration(
+              color: Color(AppColor.white).withOpacity(0.8),
+              borderRadius: BorderRadius.circular(Get.width * 0.05)),
+          child: Center(
+              child: Image.asset("${AssetPath.appbar}shadow.png",
+                  color: Color(AppColor.orange))),
+        ),
+        SizedBox(
+          height: Get.height * 0.045,
+          width: Get.width * 0.7,
+          child: Slider(
+            min: 0.0,
+            max: 360.0,
+            activeColor: Color(AppColor.white).withOpacity(0.8),
+            inactiveColor: Color(AppColor.white).withOpacity(0.5),
+            thumbColor: Color(AppColor.white),
+            value: _value,
+            onChanged: (value) {
+              setState(() {
+                _value = value;
+              });
+            },
           ),
         ),
-      ),
-      SizedBox(
-        height: Get.height * 0.09,
-        width: Get.width * 0.7,
-        child: Slider(
-          min: 0.0,
-          max: 360.0,
-          activeColor: Color(AppColor.white).withOpacity(0.8),
-          inactiveColor: Color(AppColor.white).withOpacity(0.5),
-          thumbColor: Color(AppColor.white),
-          value: _value,
-          onChanged: (value) {
-            setState(() {
-              _value = value;
-            });
-          },
-        ),
-      ),
-    ]);
+      ]),
+    );
   }
 
   textWidthPage() {
-    return Container();
+    return Padding(
+       padding: EdgeInsets.only(top: Get.height * 0.008),
+      child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+        Container(
+            height: Get.height * 0.045,
+            width: Get.height * 0.045,
+            padding: EdgeInsets.all(Get.width * 0.01),
+            decoration: BoxDecoration(
+                color: Color(AppColor.white).withOpacity(0.8),
+                borderRadius: BorderRadius.circular(Get.width * 0.05)),
+            child: Image.asset("${AssetPath.appbar}textwidth.png",
+                color: Color(AppColor.orange))),
+        SizedBox(
+          height: Get.height * 0.045,
+          width: Get.width * 0.7,
+          child: Slider(
+            min: 0.0,
+            max: 360.0,
+            activeColor: Color(AppColor.white).withOpacity(0.8),
+            inactiveColor: Color(AppColor.white).withOpacity(0.5),
+            thumbColor: Color(AppColor.white),
+            value: _value,
+            onChanged: (value) {
+              setState(() {
+                _value = value;
+              });
+            },
+          ),
+        ),
+      ]),
+    );
   }
 
   textHegihtPage() {
-    return Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
-      Container(
-          height: Get.width * 0.09,
-          width: Get.width * 0.09,
-          decoration: BoxDecoration(
-              color: Color(AppColor.white).withOpacity(0.8),
-              borderRadius: BorderRadius.circular(Get.width * 0.05)),
-          child: Icon(
-            Icons.border_vertical_rounded,
-            color: Color(AppColor.orange),
-          )),
-      SizedBox(
-        height: Get.height * 0.09,
-        width: Get.width * 0.7,
-        child: Slider(
-          min: 0.0,
-          max: 360.0,
-          activeColor: Color(AppColor.white).withOpacity(0.8),
-          inactiveColor: Color(AppColor.white).withOpacity(0.5),
-          thumbColor: Color(AppColor.white),
-          value: _value,
-          onChanged: (value) {
-            setState(() {
-              _value = value;
-            });
-          },
+    return Padding(
+    padding: EdgeInsets.only(top: Get.height * 0.008),
+      child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+        Container(
+            height: Get.height * 0.045,
+            width: Get.height * 0.045,
+            padding: EdgeInsets.all(Get.width * 0.01),
+            decoration: BoxDecoration(
+                color: Color(AppColor.white).withOpacity(0.8),
+                borderRadius: BorderRadius.circular(Get.width * 0.05)),
+            child: Image.asset("${AssetPath.appbar}textHeight.png",
+                color: Color(AppColor.orange))),
+        SizedBox(
+          height: Get.height * 0.045,
+          width: Get.width * 0.7,
+          child: Slider(
+            min: 0.0,
+            max: 360.0,
+            activeColor: Color(AppColor.white).withOpacity(0.8),
+            inactiveColor: Color(AppColor.white).withOpacity(0.5),
+            thumbColor: Color(AppColor.white),
+            value: _value,
+            onChanged: (value) {
+              setState(() {
+                _value = value;
+              });
+            },
+          ),
         ),
-      ),
-    ]);
+      ]),
+    );
   }
 
   splitHorizontalPage() {
-    return Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
-      Container(
-          height: Get.width * 0.09,
-          width: Get.width * 0.09,
-          decoration: BoxDecoration(
-              color: Color(AppColor.white).withOpacity(0.8),
-              borderRadius: BorderRadius.circular(Get.width * 0.05)),
-          child: Icon(
-            Icons.border_horizontal_rounded,
-            color: Color(AppColor.orange),
-          )),
-      SizedBox(
-        height: Get.height * 0.09,
-        width: Get.width * 0.7,
-        child: Slider(
-          min: 0.0,
-          max: 360.0,
-          activeColor: Color(AppColor.white).withOpacity(0.8),
-          inactiveColor: Color(AppColor.white).withOpacity(0.5),
-          thumbColor: Color(AppColor.white),
-          value: _value,
-          onChanged: (value) {
-            setState(() {
-              _value = value;
-            });
-          },
+    return Padding(
+   padding: EdgeInsets.only(top: Get.height * 0.008),
+      child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+        Container(
+            height: Get.height * 0.045,
+            width: Get.height * 0.045,
+            decoration: BoxDecoration(
+                color: Color(AppColor.white).withOpacity(0.8),
+                borderRadius: BorderRadius.circular(Get.width * 0.05)),
+            child: Icon(
+              Icons.border_horizontal_rounded,
+              color: Color(AppColor.orange),
+            )),
+        SizedBox(
+          height: Get.height * 0.045,
+          width: Get.width * 0.7,
+          child: Slider(
+            min: 0.0,
+            max: 360.0,
+            activeColor: Color(AppColor.white).withOpacity(0.8),
+            inactiveColor: Color(AppColor.white).withOpacity(0.5),
+            thumbColor: Color(AppColor.white),
+            value: _value,
+            onChanged: (value) {
+              setState(() {
+                _value = value;
+              });
+            },
+          ),
         ),
-      ),
-    ]);
+      ]),
+    );
   }
 
   splitverticolPage() {
-    return Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
-      Container(
-          height: Get.width * 0.09,
-          width: Get.width * 0.09,
-          decoration: BoxDecoration(
-              color: Color(AppColor.white).withOpacity(0.8),
-              borderRadius: BorderRadius.circular(Get.width * 0.05)),
-          child: Icon(
-            Icons.border_vertical_rounded,
-            color: Color(AppColor.orange),
-          )),
-      SizedBox(
-        height: Get.height * 0.09,
-        width: Get.width * 0.7,
-        child: Slider(
-          min: 0.0,
-          max: 360.0,
-          activeColor: Color(AppColor.white).withOpacity(0.8),
-          inactiveColor: Color(AppColor.white).withOpacity(0.5),
-          thumbColor: Color(AppColor.white),
-          value: _value,
-          onChanged: (value) {
-            setState(() {
-              _value = value;
-            });
-          },
+    return Padding(
+      padding: EdgeInsets.only(top: Get.height * 0.008),
+      child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+        Container(
+            height: Get.height * 0.045,
+            width: Get.height * 0.045,
+            decoration: BoxDecoration(
+                color: Color(AppColor.white).withOpacity(0.8),
+                borderRadius: BorderRadius.circular(Get.width * 0.05)),
+            child: Icon(
+              Icons.border_vertical_rounded,
+              color: Color(AppColor.orange),
+            )),
+        SizedBox(
+          height: Get.height * 0.045,
+          width: Get.width * 0.7,
+          child: Slider(
+            min: 0.0,
+            max: 360.0,
+            activeColor: Color(AppColor.white).withOpacity(0.8),
+            inactiveColor: Color(AppColor.white).withOpacity(0.5),
+            thumbColor: Color(AppColor.white),
+            value: _value,
+            onChanged: (value) {
+              setState(() {
+                _value = value;
+              });
+            },
+          ),
         ),
-      ),
-    ]);
+      ]),
+    );
   }
 
   Widget iconButton(
@@ -559,7 +668,7 @@ class _PosterEditingMenuState extends State<PosterEditingMenu> {
         ));
   }
 
-  // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> addTextButton <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< //
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> addTextButton <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< //
   Widget bottomnavbar() {
     return Container(
       height: bottomIndex == 0 ? 0 : Get.height * 0.085,

@@ -27,6 +27,7 @@ mixin AssetPath {
   static String create = 'assets/image/create/';
   static String poster = 'assets/poster/';
   static String custom = 'assets/image/custom/';
+  static String appbar = 'assets/image/appbar/';
   static String ctegory = 'assets/ctegory/';
   static String frame = 'assets/frame/';
 }

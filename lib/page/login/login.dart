@@ -117,7 +117,6 @@ class _LoginScreenState extends State<LoginScreen>
             currentpage = 0;
             Get.to(LoginScreen());
           }
-
           return false;
         },
         child: Scaffold(
@@ -196,7 +195,7 @@ class _LoginScreenState extends State<LoginScreen>
                         });
                         loding();
                         authClass.verifyPhoneNumber(
-                            "$yourCountryCode}", context, setData);
+                            yourCountryCode, context, setData);
                         // _introController.device();
                         await selectedIndex(1);
                       } else if (phoneController.text.isEmpty) {
@@ -253,7 +252,7 @@ class _LoginScreenState extends State<LoginScreen>
               fontSize: 40),
           textAlign: TextAlign.center,
         ),
-        SizedBox(height: 30),
+        SizedBox(height: Get.height * 0.03),
         SizedBox(
           child: Center(
             child: Text(
@@ -268,9 +267,13 @@ class _LoginScreenState extends State<LoginScreen>
             ),
           ),
         ),
-        SizedBox(height: 30),
+        SizedBox(height: Get.height * 0.03),
         Container(
-          padding: EdgeInsets.all(Get.height * 0.03),
+          padding: EdgeInsets.only(
+              left: Get.height * 0.03,
+              right: Get.height * 0.03,
+              top: Get.height * 0.015,
+              bottom: Get.height * 0.015),
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(5),
               color: Color(AppColor.grey).withOpacity(0.6)),
@@ -307,7 +310,7 @@ class _LoginScreenState extends State<LoginScreen>
                         });
                       },
                     )),
-                SizedBox(height: 20),
+                SizedBox(height: 10),
                 Center(
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
@@ -360,7 +363,7 @@ class _LoginScreenState extends State<LoginScreen>
                     ],
                   ),
                 ),
-                SizedBox(height: 15),
+                SizedBox(height: 10),
                 CommanWidget().nextButton(
                     // margin: EdgeInsets.only(left: 15,right: 15),
                     onTap: () {

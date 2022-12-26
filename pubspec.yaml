@@ -115,7 +115,9 @@ flutter:
     - assets/image/refer_earn/
     - assets/image/custom/
     - assets/image/create/
+    - assets/image/appbar/
     - assets/frame/
+
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
