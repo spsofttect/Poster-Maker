@@ -1,7 +1,6 @@
 // ignore_for_file: prefer_const_constructors, sort_child_properties_last, unused_import, avoid_init_to_null, file_names
 
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_windowmanager/flutter_windowmanager.dart';
@@ -9,13 +8,12 @@ import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:poster_maker/Helper/commanwidget.dart';
 import 'package:poster_maker/Helper/utlity.dart';
-
 import 'package:poster_maker/page/editBottomNavBar/BackRound/backround.dart';
 import 'package:poster_maker/page/editBottomNavBar/addImage/addImage.dart';
-
 import 'dart:math' as math;
-
 import 'package:poster_maker/page/editBottomNavBar/posterpage.dart';
+
+var currentEditBottomIndex = null;
 
 class EditBottomNavBar extends StatefulWidget {
   const EditBottomNavBar({Key key}) : super(key: key);
@@ -25,11 +23,9 @@ class EditBottomNavBar extends StatefulWidget {
 }
 
 class _EditBottomNavBarState extends State<EditBottomNavBar> {
-  var currentIndex = null;
-
   selectedIndex(index) {
     setState(() {
-      currentIndex = index;
+      currentEditBottomIndex = index;
     });
   }
 
@@ -62,11 +58,11 @@ class _EditBottomNavBarState extends State<EditBottomNavBar> {
                   color: Color(AppColor.orange),
                   child: ListView(
                     children: [
-                      if (currentIndex == 0)
+                      if (currentEditBottomIndex == 0)
                         PosterPage()
-                      else if (currentIndex == 1)
+                      else if (currentEditBottomIndex == 1)
                         AddImagePage()
-                      else if (currentIndex == 2)
+                      else if (currentEditBottomIndex == 2)
                         BackRoundPage(),
                       SizedBox(height: 70),
                     ],
@@ -82,15 +78,11 @@ class _EditBottomNavBarState extends State<EditBottomNavBar> {
       height: Get.height * 0.08,
       decoration: BoxDecoration(
         color: Color(AppColor.bgcolor),
-        gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: const [
-              Color(0xFFFA7F08),
-              Color(0xFFF24405),
-            ]),
-        borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(15), topRight: Radius.circular(15)),
+        gradient: LinearGradient(begin: Alignment.topCenter, end: Alignment.bottomCenter, colors: const [
+          Color(0xFFFA7F08),
+          Color(0xFFF24405),
+        ]),
+        borderRadius: BorderRadius.only(topLeft: Radius.circular(15), topRight: Radius.circular(15)),
       ),
       child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
         iconButton(
@@ -139,43 +131,43 @@ class _EditBottomNavBarState extends State<EditBottomNavBar> {
     );
   }
 
-  Widget iconButton(
-      {currentInd, selectedind, String iconImg, String iconName}) {
+  Widget iconButton({currentInd, selectedind, String iconImg, String iconName}) {
     return GestureDetector(
         onTap: () {
           selectedIndex(selectedind);
           setState(() {
-            if (currentIndex == 0) {
+            if (currentEditBottomIndex == 0) {
               selected != selected;
             }
           });
         },
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Container(
-              padding: EdgeInsets.all(currentIndex == currentInd ? 3 : 5),
-              height: 30,
-              width: 30,
-              // color: Color(AppColor.grey),
-              child: Image.asset(
-                "${AssetPath.editBottomNavBar}$iconImg",
-                color: Color(AppColor.white),
+        child: Container(
+          width: Get.width * 0.142,
+          color: Colors.transparent,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                padding: EdgeInsets.all(currentEditBottomIndex == currentInd ? 0 : 5),
+                height: 25,
+                width: 25,
+                // color: Color(AppColor.grey),
+                child: Image.asset(
+                  "${AssetPath.editBottomNavBar}$iconImg",
+                  color: Color(AppColor.white),
+                ),
               ),
-            ),
-            currentIndex == currentInd
-                ? Text(
-                    iconName,
-                    style: TextStyle(
-                      fontSize: 10,
-                      fontFamily: AppFont.Medium,
-                      color: currentIndex == currentInd
-                          ? Color(AppColor.white)
-                          : Colors.transparent,
+              currentEditBottomIndex == currentInd
+                  ? Text(
+                      iconName,
+                      style: TextStyle(fontSize: 10, fontFamily: AppFont.Bold, color: Color(AppColor.white)),
+                    )
+                  : Text(
+                      iconName,
+                      style: TextStyle(fontSize: 8, fontFamily: AppFont.Medium, color: Color(AppColor.white)),
                     ),
-                  )
-                : const SizedBox(),
-          ],
+            ],
+          ),
         ));
   }
 }

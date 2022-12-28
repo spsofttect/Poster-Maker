@@ -16,8 +16,7 @@ class AddImagePage extends StatefulWidget {
   State<AddImagePage> createState() => _AddImagePageState();
 }
 
-class _AddImagePageState extends State<AddImagePage>
-    with TickerProviderStateMixin {
+class _AddImagePageState extends State<AddImagePage> with TickerProviderStateMixin {
   AddImageController _addImageController = Get.put(AddImageController());
 
   @override
@@ -40,8 +39,7 @@ class _AddImagePageState extends State<AddImagePage>
         type: RequestType.image,
       );
 
-      final List<AssetEntity> entities =
-          await paths.first.getAssetListPaged(page: 0, size: 50);
+      final List<AssetEntity> entities = await paths.first.getAssetListPaged(page: 0, size: 50);
       setState(() {
         albumlist = paths;
         mediaList = entities;
@@ -103,7 +101,7 @@ class _AddImagePageState extends State<AddImagePage>
             });
           },
         )),
-_tabBarView()
+        _tabBarView()
       ],
     ));
   }
@@ -136,14 +134,7 @@ _tabBarView()
   }
 
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Gallery Bulltom <<<<<<<<<<<<<<<<<<<<<<<<<<<< //
-  Widget nextButton(
-      {double height,
-      double width,
-      double radius,
-      String image,
-      text,
-      EdgeInsets margin,
-      onTap}) {
+  Widget nextButton({double height, double width, double radius, String image, text, EdgeInsets margin, onTap}) {
     return GestureDetector(
       onTap: onTap,
       child: Container(
@@ -151,17 +142,9 @@ _tabBarView()
         height: height,
         width: width,
         decoration: BoxDecoration(
-            boxShadow: [
-              BoxShadow(
-                  color: Color(AppColor.yellow).withOpacity(0.3),
-                  blurRadius: 3,
-                  offset: Offset(0, 5))
-            ],
+            boxShadow: [BoxShadow(color: Color(AppColor.yellow).withOpacity(0.3), blurRadius: 3, offset: Offset(0, 5))],
             borderRadius: BorderRadius.circular(radius),
-            gradient: LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                colors: const [Color(0xFFFA7F08), Color(0xFFF24405)])),
+            gradient: LinearGradient(begin: Alignment.topCenter, end: Alignment.bottomCenter, colors: const [Color(0xFFFA7F08), Color(0xFFF24405)])),
         child: Center(
             child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -225,7 +208,8 @@ _tabBarView()
 
   bool ismultipleEnable = false;
   List<AssetEntity> selectedAlbums = <AssetEntity>[].obs;
-  Widget grid({count, double height}) {
+
+  Widget grid({count}) {
     return Padding(
       padding: const EdgeInsets.only(top: 10, bottom: 80, left: 10, right: 10),
       child: GridView.builder(
@@ -259,8 +243,7 @@ _tabBarView()
                             // }
                             selectedFile = mediaList[i];
 
-                            print(
-                                " ==============++++++++++++++++++))))))))((((((((()))))))))  ${selectedFile = mediaList[i]}");
+                            print(" ==============++++++++++++++++++))))))))((((((((()))))))))  ${selectedFile = mediaList[i]}");
                             if (selectedAlbums.contains(mediaList[i])) {
                               selectedAlbums.remove(mediaList[i]);
                             } else {
