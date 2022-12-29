@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -6,7 +8,7 @@ import 'package:poster_maker/Helper/widget.dart';
 import 'package:poster_maker/page/editBottomNavBar/PosterEditingMenu.dart';
 
 class StoryImagePage extends StatefulWidget {
-  const StoryImagePage({Key key}) : super(key: key);
+  const StoryImagePage({Key? key}) : super(key: key);
 
   @override
   State<StoryImagePage> createState() => _StoryImagePageState();
@@ -28,7 +30,7 @@ class _StoryImagePageState extends State<StoryImagePage> {
     );
   }
 
-  appBar({BuildContext context, String name}) {
+  appBar({BuildContext? context, String? name}) {
     return Padding(
       padding: const EdgeInsets.only(top: 12, bottom: 12),
       child: Row(
@@ -36,7 +38,7 @@ class _StoryImagePageState extends State<StoryImagePage> {
         children: [
           GestureDetector(
             onTap: () {
-              Navigator.pop(context);
+              Navigator.pop(context!);
             },
             child: Container(
               margin: const EdgeInsets.only(left: 10, right: 10),
@@ -50,7 +52,7 @@ class _StoryImagePageState extends State<StoryImagePage> {
             width: 20,
           ),
           Text(
-            name,
+            name!,
             style:
                 GoogleFonts.fredoka(fontWeight: FontWeight.w500, fontSize: 20),
           ),

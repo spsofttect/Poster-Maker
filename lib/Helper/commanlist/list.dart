@@ -185,9 +185,9 @@ List posterImage = [
 ];
 
 class NewVideoAndStoryOrPostMix {
-  bool isVideo;
-  String url;
-  bool isLike;
+  bool? isVideo;
+  String? url;
+  bool? isLike;
   NewVideoAndStoryOrPostMix({
     this.isVideo,
     this.url,

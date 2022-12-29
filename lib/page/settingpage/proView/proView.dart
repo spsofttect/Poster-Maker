@@ -13,7 +13,7 @@ import 'package:poster_maker/page/SplashScreen/splash.dart';
 import 'package:poster_maker/page/bottomnavbar/appbar/Appbar.dart';
 
 class ProPage extends StatefulWidget {
-  const ProPage({Key key}) : super(key: key);
+  const ProPage({Key? key}) : super(key: key);
 
   @override
   State<ProPage> createState() => _ProPageState();
@@ -264,7 +264,7 @@ class _ProPageState extends State<ProPage> {
 
   // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Templates <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< //
   Widget templates(
-      {double height, double width, itemCount, listindex, boxfit}) {
+      {double? height, double? width, itemCount, listindex, boxfit}) {
     return Container(
         margin: const EdgeInsets.only(top: 15, bottom: 20),
         height: height,
@@ -346,7 +346,7 @@ class _ProPageState extends State<ProPage> {
   }
 
   Widget text(
-      {text, double fontSize, decoration, color, currentind, fontWeight}) {
+      {text, double ?fontSize, decoration, color, currentind, fontWeight}) {
     return Text(
       text,
       style: GoogleFonts.fredoka(

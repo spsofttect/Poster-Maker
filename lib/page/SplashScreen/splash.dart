@@ -12,7 +12,7 @@ import 'package:video_player/video_player.dart';
 import 'package:poster_maker/Helper/utlity.dart';
 
 class SplashScreen extends StatefulWidget {
-  const SplashScreen({Key key}) : super(key: key);
+  const SplashScreen({Key? key}) : super(key: key);
 
   @override
   State<SplashScreen> createState() => _SplashScreenState();
@@ -26,7 +26,7 @@ class _SplashScreenState extends State<SplashScreen> {
         VideoPlayerController.asset('${AssetPath.splash}s1.mp4')
           ..initialize().then((_) {
             // Ensure the first frame is shown after the video is initialized, even before the play button has been pressed.
-            _videoPlayerController.play();
+            _videoPlayerController!.play();
           });
     //   // DeviceOrientation
     SystemChrome.setPreferredOrientations(
@@ -47,7 +47,7 @@ class _SplashScreenState extends State<SplashScreen> {
     });
   }
 
-  VideoPlayerController _videoPlayerController;
+  VideoPlayerController? _videoPlayerController;
   bool startedPlaying = true;
   @override
   void dispose() {
@@ -78,7 +78,7 @@ class _SplashScreenState extends State<SplashScreen> {
               child: SizedBox(
                   height: Get.height,
                   width: Get.width,
-                  child: VideoPlayer(_videoPlayerController))),
+                  child: VideoPlayer(_videoPlayerController!))),
         ));
   }
 

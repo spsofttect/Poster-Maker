@@ -16,9 +16,9 @@ class LocalNotificationService {
 
     _notificationsPlugin.initialize(
       initializationSettings,
-      onSelectNotification: (String id) async {
+      onSelectNotification: (String? id) async {
         print("onSelectNotification");
-        if (id.isNotEmpty) {
+        if (id!.isNotEmpty) {
           print("Router Value1234 $id");
 
           // Navigator.of(context).push(
@@ -48,8 +48,8 @@ class LocalNotificationService {
 
       await _notificationsPlugin.show(
         id,
-        message.notification.title,
-        message.notification.body,
+        message.notification!.title,
+        message.notification!.body,
         notificationDetails,
         payload: message.data['_id'],
       );

@@ -10,7 +10,7 @@ import 'package:poster_maker/page/bottomnavbar/bottomnavbar.dart';
 import 'package:poster_maker/page/bottomnavbar/homepage/addBusiness/addBuisness.dart';
 
 class CetegoryNameScreen extends StatefulWidget {
-  const CetegoryNameScreen({Key key}) : super(key: key);
+  const CetegoryNameScreen({Key? key}) : super(key: key);
 
   @override
   State<CetegoryNameScreen> createState() => _CetegoryNameScreenState();
@@ -70,12 +70,12 @@ class _CetegoryNameScreenState extends State<CetegoryNameScreen> {
                   color: Color(AppColor.grey).withOpacity(0.5)),
               child: Row(children: [
                 Image.asset(
-                  AssetPath.ctegory + currentObj.image,
+                  AssetPath.ctegory + currentObj.image!,
                   height: 30,
                 ),
                 const SizedBox(width: 15),
                 Text(
-                  currentObj.name,
+                  currentObj.name!,
                   style: GoogleFonts.fredoka(
                       fontWeight: FontWeight.w400,
                       fontSize: 16,
@@ -95,8 +95,8 @@ class _CetegoryNameScreenState extends State<CetegoryNameScreen> {
 }
 
 class Category {
-  String image;
-  String name;
+  String? image;
+  String? name;
 
   Category({this.image, this.name});
 }

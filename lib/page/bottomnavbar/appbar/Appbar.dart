@@ -50,7 +50,7 @@ Widget homeAppbar({draweronTap, context}) => SizedBox(
                     Text(
                       'User Name',
                       style: GoogleFonts.fredoka(
-                        color: Theme.of(context).textTheme.headline1.color,
+                        color: Theme.of(context).textTheme.headline1!.color,
                       fontWeight: FontWeight.w500,
                         fontSize: 14,
                       ),
@@ -60,7 +60,7 @@ Widget homeAppbar({draweronTap, context}) => SizedBox(
                       style: GoogleFonts.fredoka(
                       fontWeight: FontWeight.w500,
                         fontSize: 12,
-                        color: Theme.of(context).textTheme.headline1.color,
+                        color: Theme.of(context).textTheme.headline1!.color,
                       ),
                     ),
                   ],
@@ -273,7 +273,7 @@ Widget settingPageAppbar({context, ontap}) {
       Text(
         'Setting',
         style: GoogleFonts.fredoka(
-          color: Theme.of(context).textTheme.headline1.color,
+          color: Theme.of(context).textTheme.headline1!.color,
         fontWeight: FontWeight.w500,
           fontSize: 20,
         ),
@@ -298,7 +298,7 @@ Widget settingPageAppbar({context, ontap}) {
 
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>CommanAppBar<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< //
 
-Widget commanAppbar({String pageName, color, ontap, textColor}) => Row(
+Widget commanAppbar({String? pageName, color, ontap, textColor}) => Row(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         GestureDetector(
@@ -316,7 +316,7 @@ Widget commanAppbar({String pageName, color, ontap, textColor}) => Row(
           width: 15,
         ),
         Text(
-          pageName,
+          pageName!,
           style: GoogleFonts.fredoka(
             fontWeight: FontWeight.w500, fontSize: 20, color: textColor),
         ),

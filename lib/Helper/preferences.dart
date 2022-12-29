@@ -1,7 +1,8 @@
+// ignore_for_file: unnecessary_null_comparison
+
 import 'package:shared_preferences/shared_preferences.dart';
 
 // ignore: unused_import
-
 
 var title = "Preferences";
 
@@ -16,7 +17,7 @@ class Preferences {
     return preferences;
   }
 
-  SharedPreferences _prefs;
+  late SharedPreferences _prefs;
 
   Future<SharedPreferences> get prefs async {
     if (_prefs != null) return _prefs;
@@ -25,24 +26,34 @@ class Preferences {
     return _prefs;
   }
 
-  Future<bool> saveString({String key, String value}) async {
+  Future<bool> saveString({String? key, String? value}) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    return prefs.setString(key, value);
+    return prefs.setString(key!, value!);
   }
 
-  Future<String> getString({String key}) async {
+  Future<bool> saveInt({String? key, int? value}) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    return prefs.getString(key);
+    return prefs.setInt(key!, value!);
   }
 
-  Future<bool> saveBool({String key, bool value}) async {
+  Future<int?> getInt({String? key}) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    return prefs.setBool(key, value);
+    return prefs.getInt(key!);
   }
 
-  Future<bool> getBool({String key, bool defValue}) async {
+  Future<String?> getString({String? key}) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    return prefs.getBool(key) ?? defValue;
+    return prefs.getString(key!);
+  }
+
+  Future<bool> saveBool({String? key, bool? value}) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    return prefs.setBool(key!, value!);
+  }
+
+  Future<bool> getBool({String? key, required bool defValue}) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    return prefs.getBool(key!) ?? defValue;
   }
 
   Future clearPref() async {

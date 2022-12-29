@@ -10,7 +10,7 @@ import 'package:poster_maker/Helper/widget.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class IntroScreen extends StatefulWidget {
-  const IntroScreen({Key key}) : super(key: key);
+  const IntroScreen({Key? key}) : super(key: key);
 
   @override
   State<IntroScreen> createState() => _IntroScreenState();

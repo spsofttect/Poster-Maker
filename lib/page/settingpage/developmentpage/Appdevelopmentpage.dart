@@ -10,7 +10,7 @@ import 'package:poster_maker/Helper/widget.dart';
 import 'package:poster_maker/page/bottomnavbar/appbar/Appbar.dart';
 
 class DevelopmentPage extends StatefulWidget {
-  const DevelopmentPage({Key key}) : super(key: key);
+  const DevelopmentPage({Key ?key}) : super(key: key);
 
   @override
   State<DevelopmentPage> createState() => _DevelopmentPageState();
@@ -27,7 +27,7 @@ class _DevelopmentPageState extends State<DevelopmentPage> {
 
   @override
   Widget build(BuildContext context) {
-    dynamic args = ModalRoute.of(context).settings.arguments;
+    dynamic args = ModalRoute.of(context)!.settings.arguments;
 
     // DeviceOrientation
     // SystemChrome.setPreferredOrientations(
@@ -65,16 +65,16 @@ class _DevelopmentPageState extends State<DevelopmentPage> {
                     children: (args == "App")
                         ? development
                             .map((e) =>
-                                (e.color) ? crossContainer(e) : Container())
+                                (e.color!) ? crossContainer(e) : Container())
                             .toList()
                         : (args == "Website")
                             ? webDevelopment
                                 .map((e) =>
-                                    (e.color) ? crossContainer(e) : Container())
+                                    (e.color!) ? crossContainer(e) : Container())
                                 .toList()
                             : graphicsDevelopment
                                 .map((e) =>
-                                    (e.color) ? crossContainer(e) : Container())
+                                    (e.color!) ? crossContainer(e) : Container())
                                 .toList(),
                   ),
                 ),
@@ -104,7 +104,7 @@ class _DevelopmentPageState extends State<DevelopmentPage> {
     );
   }
 
-  Container listView({String args}) {
+  Container listView({String ?args}) {
     return Container(
       margin: const EdgeInsets.only(left: 15, right: 15),
       child: Wrap(
@@ -206,7 +206,7 @@ class _DevelopmentPageState extends State<DevelopmentPage> {
   }
 
   Widget textfield(
-      {String hintText, double height, TextInputType keyboardtype}) {
+      {String? hintText, double? height, TextInputType? keyboardtype}) {
     return Container(
         margin: const EdgeInsets.only(left: 15, right: 15, top: 20),
         height: height,
@@ -245,8 +245,8 @@ class _DevelopmentPageState extends State<DevelopmentPage> {
 }
 
 class Development {
-  String name;
-  bool color;
+  String ?name;
+  bool ?color;
   Development({this.name, this.color});
 }
 

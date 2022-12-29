@@ -22,7 +22,7 @@ import 'package:poster_maker/page/notification/notification.dart';
 import 'package:poster_maker/page/settingpage/settingScreen.dart';
 
 class BottomNavBarScreen extends StatefulWidget {
-  const BottomNavBarScreen({Key key}) : super(key: key);
+  const BottomNavBarScreen({Key? key}) : super(key: key);
 
   @override
   State<BottomNavBarScreen> createState() => _BottomNavBarScreenState();
@@ -275,7 +275,7 @@ class _BottomNavBarScreenState extends State<BottomNavBarScreen> {
 
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> iconButton <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< //
   Widget iconButton(
-      {currentInd, selectedind, String iconImg, String iconName}) {
+      {currentInd, selectedind, String? iconImg, String ?iconName}) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [

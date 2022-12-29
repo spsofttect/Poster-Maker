@@ -10,7 +10,7 @@ import 'package:poster_maker/page/bottomnavbar/appbar/Appbar.dart';
 import 'package:poster_maker/page/bottomnavbar/bottomnavbar.dart';
 
 class CustomScreen extends StatefulWidget {
-  const CustomScreen({Key key}) : super(key: key);
+  const CustomScreen({Key? key}) : super(key: key);
 
   @override
   State<CustomScreen> createState() => _CustomScreenState();
@@ -41,7 +41,7 @@ class _CustomScreenState extends State<CustomScreen> {
         // mainAxisAlignment: MainAxisAlignment.start,
         children: [
           commanAppbar(
-              textColor: Theme.of(context).textTheme.headline1.color,
+              textColor: Theme.of(context).textTheme.headline1!.color,
               pageName: 'Create',
               ontap: () {
                 Get.offAll(BottomNavBarScreen());
@@ -69,7 +69,7 @@ class _CustomScreenState extends State<CustomScreen> {
     );
   }
 
-  Widget containt({double height, double width, colors, onTap, widget}) {
+  Widget containt({double? height, double? width, colors, onTap, widget}) {
     return GestureDetector(
       onTap: onTap,
       child: Container(
@@ -105,7 +105,7 @@ class _CustomScreenState extends State<CustomScreen> {
         style: GoogleFonts.fredoka(
           fontWeight: FontWeight.w400,
           fontSize: 12,
-          color: Theme.of(context).textTheme.headline1.color,
+          color: Theme.of(context).textTheme.headline1!.color,
         ),
       ),
     );
@@ -124,7 +124,7 @@ class _CustomScreenState extends State<CustomScreen> {
             style: GoogleFonts.fredoka(
               fontWeight: FontWeight.w400,
               fontSize: 20,
-              color: Theme.of(context).textTheme.headline1.color,
+              color: Theme.of(context).textTheme.headline1!.color,
             ),
           ),
         ],
@@ -667,21 +667,21 @@ class _CustomScreenState extends State<CustomScreen> {
   }
 }
 
-generalIcon({double size, String image, color}) {
+generalIcon({double ?size, String? image, color}) {
   return Container(
-    padding: EdgeInsets.all(size),
+    padding: EdgeInsets.all(size!),
     child: Center(
       child: Image.asset(
-        image,
+        image!,
         color: color,
       ),
     ),
   );
 }
 
-linkdinIcon({double size}) {
+linkdinIcon({double ?size}) {
   return Container(
-    padding: EdgeInsets.all(size),
+    padding: EdgeInsets.all(size!),
     child: Center(
       child: Image.asset(
         '${AssetPath.custom}linkedin.png',
@@ -691,9 +691,9 @@ linkdinIcon({double size}) {
   );
 }
 
-twitterIcon({double size}) {
+twitterIcon({double? size}) {
   return Container(
-    padding: EdgeInsets.all(size),
+    padding: EdgeInsets.all(size!),
     child: Center(
       child: Image.asset(
         '${AssetPath.custom}twitter.png',
@@ -703,9 +703,9 @@ twitterIcon({double size}) {
   );
 }
 
-facebookIcon({double size}) {
+facebookIcon({double ?size}) {
   return Container(
-    padding: EdgeInsets.all(size),
+    padding: EdgeInsets.all(size!),
     child: Center(
       child: Image.asset(
         '${AssetPath.custom}facebook.png',
@@ -715,9 +715,9 @@ facebookIcon({double size}) {
   );
 }
 
-instaIcon({double size}) {
+instaIcon({double ?size}) {
   return Container(
-    padding: EdgeInsets.all(size),
+    padding: EdgeInsets.all(size!),
     child: Center(
       child: Image.asset(
         '${AssetPath.custom}instagram.png',

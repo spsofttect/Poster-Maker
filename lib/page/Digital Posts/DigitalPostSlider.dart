@@ -16,7 +16,7 @@ import 'package:poster_maker/page/bottomnavbar/appbar/Appbar.dart';
 import 'package:poster_maker/page/bottomnavbar/homepage/addBusiness/addBuisness.dart';
 
 class DigitalPostSliderPage extends StatefulWidget {
-  const DigitalPostSliderPage({Key key}) : super(key: key);
+  const DigitalPostSliderPage({Key? key}) : super(key: key);
 
   @override
   State<DigitalPostSliderPage> createState() => _DigitalPostSliderPageState();
@@ -24,7 +24,7 @@ class DigitalPostSliderPage extends StatefulWidget {
 
 class _DigitalPostSliderPageState extends State<DigitalPostSliderPage>
     with SingleTickerProviderStateMixin {
-  TabController tabController;
+  TabController? tabController;
 
   @override
   void initState() {

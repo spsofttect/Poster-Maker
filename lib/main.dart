@@ -21,7 +21,7 @@ import 'Helper/route.dart';
 GetIt locator = GetIt.instance;
 Future<void> backgroundHandler(RemoteMessage message) async {
   print(message.data.toString());
-  print(message.notification.title);
+  print(message.notification!.title);
 }
 
 void main() async {
@@ -56,7 +56,7 @@ void main() async {
 }
 
 class MyApp extends StatelessWidget {
-  MyApp({Key key}) : super(key: key);
+  MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

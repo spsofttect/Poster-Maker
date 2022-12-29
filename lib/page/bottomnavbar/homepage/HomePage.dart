@@ -19,7 +19,7 @@ import '../../../Helper/commanwidget.dart';
 import '../appbar/Appbar.dart';
 
 class HomePage extends StatefulWidget {
-  HomePage({Key key}) : super(key: key);
+  HomePage({Key? key}) : super(key: key);
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -28,10 +28,10 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   // int _currentPage = 0;
   int posterIndex = 0;
-  CachedVideoPlayerController controller;
+  CachedVideoPlayerController? controller;
 
   // Timer _timer;
-  TabController _tabController;
+  TabController? _tabController;
   // PageController controller =
   //     PageController(viewportFraction: 0.8, keepPage: true, initialPage: 0);
   // PageController pagecontroll =
@@ -46,8 +46,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
       vsync: this,
       animationDuration: Duration(microseconds: 1),
     );
-    _tabController.addListener(() {
-      currentIndex.value = _tabController.index;
+    _tabController!.addListener(() {
+      currentIndex.value = _tabController!.index;
     });
     homePageController.addListener(() {
       if (homePageController.position.pixels > Get.height * 0.1) {
@@ -165,7 +165,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
           },
           child: ClipRRect(
               borderRadius: BorderRadius.all(Radius.circular(12)),
-              child: (item3[index].isVideo)
+              child: (item3[index].isVideo!)
                   ? DynamicVideoPlayer(
                       url: item3[index].url,
                       index: index,
@@ -173,12 +173,12 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   : Stack(
                       alignment: Alignment.topRight,
                       children: [
-                        Image.asset(item3[index].url),
+                        Image.asset(item3[index].url!),
                         InkWell(
                           onTap: () {
-                            item3[index].isLike = !item3[index].isLike;
+                            item3[index].isLike = !item3[index].isLike!;
                             setState(() {});
-                            if (item3[index].isLike) {
+                            if (item3[index].isLike!) {
                               favourit.add(item3[index]);
                             } else {
                               favourit.remove(item3[index]);
@@ -193,7 +193,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                 borderRadius: BorderRadius.circular(8)),
                             child: Icon(
                               Icons.favorite,
-                              color: (!item3[index].isLike)
+                              color: (!item3[index].isLike!)
                                   ? Color(AppColor.white)
                                   : Color(AppColor.yellow),
                             ),
@@ -232,7 +232,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
     // GridView.custom(
     //   shrinkWrap: true,
     //   padding: EdgeInsets.all(15),
-    //   // gridDelegate: SliverQuiltedGridDelegate(
+    //   // gridDelegate: (
     //   //   crossAxisCount: 2,
     //   //   mainAxisSpacing: 10,
     //   //   crossAxisSpacing: 10,
@@ -294,7 +294,6 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
     return StaggeredGridView.countBuilder(
       padding: EdgeInsets.only(bottom: Get.height * 0.09),
       crossAxisCount: 2,
-
       itemCount: item.length,
       physics: BouncingScrollPhysics(),
       itemBuilder: (context, index) => Padding(
@@ -381,7 +380,6 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
       padding: EdgeInsets.only(bottom: Get.height * 0.09),
       crossAxisCount: 2,
       itemCount: item2.length,
-
       physics: BouncingScrollPhysics(),
       itemBuilder: (context, index) => Padding(
         padding: const EdgeInsets.all(5.0),
@@ -465,7 +463,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
 
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>TabButton<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< //
 
-  Widget tabButton({Widget page, currentInd, selectedind, String textName}) {
+  Widget tabButton({Widget? page, currentInd, selectedind, String? textName}) {
     return Obx(
       () => Container(
         width: Get.width * 0.25,
@@ -474,7 +472,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             borderRadius: BorderRadius.circular(5), color: Colors.transparent),
         child: Center(
           child: Text(
-            textName,
+            textName!,
             style: GoogleFonts.fredoka(
               fontSize: Get.width * 0.022,
               color: currentIndex.value == currentInd

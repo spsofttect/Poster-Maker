@@ -15,14 +15,14 @@ class AuthClass {
 
   final storage = const FlutterSecureStorage();
 
-  Future<void> signOut({BuildContext context}) async {
+  Future<void> signOut({BuildContext? context}) async {
     try {
       // await _googleSignIn.signOut();
       await _auth.signOut();
       await storage.delete(key: "token");
     } catch (e) {
       final snackBar = SnackBar(content: Text(e.toString()));
-      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+      ScaffoldMessenger.of(context!).showSnackBar(snackBar);
     }
   }
 
@@ -34,7 +34,7 @@ class AuthClass {
         key: "usercredential", value: userCredential.toString());
   }
 
-  Future<String> getToken() async {
+  Future<String?> getToken() async {
     return await storage.read(key: "token");
   }
 

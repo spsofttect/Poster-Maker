@@ -10,7 +10,7 @@ import 'package:poster_maker/page/Digital%20Posts/DigitalPostSlider.dart';
 import 'package:poster_maker/page/bottomnavbar/appbar/Appbar.dart';
 
 class ViewAllCatagory extends StatelessWidget {
-  const ViewAllCatagory({Key key}) : super(key: key);
+  const ViewAllCatagory({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -73,12 +73,10 @@ class ViewAllCatagory extends StatelessWidget {
               //                 ],
               //               ),
               //             ),
-                         
               //           ],
               //         ));
               //   },
               // ),
-            
             ),
           )
         ]),

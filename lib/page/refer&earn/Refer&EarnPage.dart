@@ -12,7 +12,7 @@ import 'package:poster_maker/page/bottomnavbar/appbar/Appbar.dart';
 import 'package:poster_maker/page/bottomnavbar/bottomnavbar.dart';
 
 class Refer_EarnPage extends StatelessWidget {
-  Refer_EarnPage({Key key}) : super(key: key);
+  Refer_EarnPage({Key? key}) : super(key: key);
   TextEditingController field = TextEditingController();
   var fabIcon = false.obs;
   @override
@@ -433,7 +433,7 @@ class Refer_EarnPage extends StatelessWidget {
     );
   }
 
-  Widget rowContain({String work, String ind}) {
+  Widget rowContain({String ?work, String ?ind}) {
     return Row(
       children: [
         Container(
@@ -444,7 +444,7 @@ class Refer_EarnPage extends StatelessWidget {
               borderRadius: BorderRadius.circular(50),
               color: Color(AppColor.orange)),
           child: Center(
-            child: Text(ind,
+            child: Text(ind!,
                 style: GoogleFonts.fredoka(
                     fontWeight: FontWeight.w600,
                     fontSize: Get.height * 0.03,
@@ -456,7 +456,7 @@ class Refer_EarnPage extends StatelessWidget {
             height: 35,
             width: Get.width * 0.43,
             child: text(
-                text: work,
+                text: work!,
                 fontWeight: FontWeight.w400,
                 fontSize: Get.height * 0.018,
                 maxLines: 2))
@@ -470,7 +470,7 @@ class Refer_EarnPage extends StatelessWidget {
       margin,
       width,
       height,
-      double containtheight,
+      double?containtheight,
       itemCount,
       color}) {
     return Container(
@@ -530,9 +530,9 @@ class Refer_EarnPage extends StatelessWidget {
   }
 
   Widget text(
-      {String text, double fontSize, fontWeight, textAlign, maxLines, color}) {
+      {String? text, double ?fontSize, fontWeight, textAlign, maxLines, color}) {
     return Text(
-      text,
+      text!,
       style: GoogleFonts.fredoka(
           fontWeight: fontWeight, fontSize: fontSize, color: color),
       textAlign: textAlign,

@@ -14,7 +14,7 @@ import '../../../Helper/commanwidget.dart';
 
 
 class FavoriteScreen extends StatefulWidget {
-  const FavoriteScreen({Key key}) : super(key: key);
+  const FavoriteScreen({Key? key}) : super(key: key);
 
   @override
   State<FavoriteScreen> createState() => _FavoriteScreenState();
@@ -55,7 +55,7 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
               Get.offAll(BottomNavBarScreen());
             },
             pageName: 'Favorite',
-            textColor: Theme.of(context).textTheme.headline1.color,
+            textColor: Theme.of(context).textTheme.headline1!.color,
           ),
           SizedBox(
             height: 10,

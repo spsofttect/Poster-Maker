@@ -83,7 +83,7 @@ class NotificationService {
     await flutterLocalNotificationsPlugin.cancelAll();
   }
 
-  Future<dynamic> selectNotification(String payload) async {
+  Future<dynamic> selectNotification(String? payload) async {
     final BehaviorSubject<String> behaviorSubject = BehaviorSubject();
     if (payload != null && payload.isNotEmpty) {
       behaviorSubject.add(payload);

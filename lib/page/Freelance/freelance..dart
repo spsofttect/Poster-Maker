@@ -9,7 +9,7 @@ import 'package:poster_maker/Helper/utlity.dart';
 import '../bottomnavbar/appbar/Appbar.dart';
 
 class FreeLanceView extends StatefulWidget {
-  const FreeLanceView({Key key}) : super(key: key);
+  const FreeLanceView({Key ?key}) : super(key: key);
 
   @override
   State<FreeLanceView> createState() => _FreeLanceViewState();
@@ -17,7 +17,7 @@ class FreeLanceView extends StatefulWidget {
 
 class _FreeLanceViewState extends State<FreeLanceView>
     with SingleTickerProviderStateMixin {
-  TabController tabController;
+  TabController ?tabController;
 
   @override
   void initState() {
@@ -222,7 +222,7 @@ class _FreeLanceViewState extends State<FreeLanceView>
   }
 
   // tabBar Page(Grid View)
-  Widget container({count, double height}) {
+  Widget container({count, double? height}) {
     return GridView.builder(
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 4,

@@ -10,8 +10,8 @@ class AnalyticsService {
   FirebaseAnalyticsObserver getAnalyticsObserver() =>
       FirebaseAnalyticsObserver(analytics: analytics);
 
-  User _currentUser;
-  User get currentUser => _currentUser;
+  User? _currentUser;
+  User get currentUser => _currentUser!;
 
   // Future loginWithEmail({
   //   String? email,

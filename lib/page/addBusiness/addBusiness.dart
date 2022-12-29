@@ -9,7 +9,7 @@ import '../../Helper/utlity.dart';
 import '../../Helper/widget.dart';
 
 class AddBusiness extends StatefulWidget {
-  const AddBusiness({Key key}) : super(key: key);
+  const AddBusiness({Key ?key}) : super(key: key);
 
   @override
   State<AddBusiness> createState() => _AddBusinessState();
@@ -117,7 +117,7 @@ class _AddBusinessState extends State<AddBusiness> {
           style: GoogleFonts.fredoka(
           fontWeight: FontWeight.w500,
             fontSize: 20,
-            color: Theme.of(context).textTheme.headline1.color,
+            color: Theme.of(context).textTheme.headline1!.color,
           ),
         ),
       ],
@@ -164,7 +164,7 @@ class _AddBusinessState extends State<AddBusiness> {
               style: GoogleFonts.fredoka(
                 fontSize: 15,
               fontWeight: FontWeight.w500,
-                color: Theme.of(context).textTheme.headline1.color,
+                color: Theme.of(context).textTheme.headline1!.color,
               ),
               maxLength: maxLength,
               decoration: InputDecoration(
@@ -181,7 +181,7 @@ class _AddBusinessState extends State<AddBusiness> {
           Text("$val/$maxLength",
               style: GoogleFonts.fredoka(
               fontWeight: FontWeight.w500,
-                color: Theme.of(context).textTheme.headline1.color,
+                color: Theme.of(context).textTheme.headline1!.color,
               )),
           const SizedBox(width: 10),
         ],

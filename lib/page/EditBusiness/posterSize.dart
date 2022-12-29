@@ -8,7 +8,7 @@ import 'package:poster_maker/Helper/widget.dart';
 import 'package:poster_maker/page/editBottomNavBar/PosterEditingMenu.dart';
 
 class PosterSize extends StatelessWidget {
-  const PosterSize({Key key}) : super(key: key);
+  const PosterSize({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +19,7 @@ class PosterSize extends StatelessWidget {
     );
   }
 
-  appBar({BuildContext context, String name}) {
+  appBar({BuildContext? context, String? name}) {
     return Padding(
       padding: const EdgeInsets.only(top: 12, bottom: 12),
       child: Row(
@@ -27,7 +27,7 @@ class PosterSize extends StatelessWidget {
         children: [
           GestureDetector(
             onTap: () {
-              Navigator.pop(context);
+              Navigator.pop(context!);
             },
             child: Container(
               margin: const EdgeInsets.only(left: 10, right: 10),
@@ -41,7 +41,7 @@ class PosterSize extends StatelessWidget {
             width: 20,
           ),
           Text(
-            name,
+            name!,
             style:
                 GoogleFonts.fredoka(fontWeight: FontWeight.w500, fontSize: 20),
           ),

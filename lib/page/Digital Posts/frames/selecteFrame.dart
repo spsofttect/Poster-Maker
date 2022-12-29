@@ -16,12 +16,12 @@ import 'frame_01TOframe_05.dart';
 
 class SelecteFrames extends StatefulWidget {
   const SelecteFrames({
-    Key key,
+    Key? key,
     // this.pickerColor,
     this.onColorChanged,
   }) : super(key: key);
   // final Color pickerColor;
-  final ValueChanged<Color> onColorChanged;
+  final ValueChanged<Color>? onColorChanged;
 
   @override
   State<SelecteFrames> createState() => _SelecteFramesState();
@@ -562,12 +562,12 @@ class _SelecteFramesState extends State<SelecteFrames> {
 
 // Text
   text({
-    String text,
-    double fontSize,
+    String? text,
+    double? fontSize,
     textAlign,
   }) {
     return Text(
-      text,
+      text!,
       style: GoogleFonts.fredoka(fontSize: fontSize, color: pickerColor),
       textAlign: textAlign,
       overflow: TextOverflow.ellipsis,

@@ -8,7 +8,7 @@ import 'package:poster_maker/Helper/utlity.dart';
 import 'package:poster_maker/page/editBottomNavBar/addTextBottonNavBar.dart';
 
 class PosterEditingMenu extends StatefulWidget {
-  const PosterEditingMenu({Key key}) : super(key: key);
+  const PosterEditingMenu({Key? key}) : super(key: key);
 
   @override
   State<PosterEditingMenu> createState() => _PosterEditingMenuState();
@@ -203,7 +203,7 @@ class _PosterEditingMenuState extends State<PosterEditingMenu> {
                                                 : Colors.transparent),
                                         child: Center(
                                             child: Text(
-                                          currentObj.name,
+                                          currentObj.name!,
                                           style: GoogleFonts.fredoka(
                                               fontSize: 13,
                                               fontWeight: FontWeight.w500,
@@ -631,7 +631,7 @@ class _PosterEditingMenuState extends State<PosterEditingMenu> {
   }
 
   Widget iconButton(
-      {currentInd, selectedind, String iconImg, String iconName}) {
+      {currentInd, selectedind, String ?iconImg, String ?iconName}) {
     return GestureDetector(
         onTap: () {
           selectedIndex(selectedind);
@@ -655,7 +655,7 @@ class _PosterEditingMenuState extends State<PosterEditingMenu> {
               ),
             ),
             Text(
-              iconName,
+              iconName! ,
               style: GoogleFonts.fredoka(
                   fontSize: bottomIndex == currentInd ? 12 : 10,
                   fontWeight: bottomIndex == currentInd

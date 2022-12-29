@@ -17,7 +17,7 @@ import 'package:poster_maker/page/settingpage/proView/proView.dart';
 import 'developmentpage/Appdevelopmentpage.dart';
 
 class SettingPage extends StatefulWidget {
-  const SettingPage({Key key}) : super(key: key);
+  const SettingPage({Key? key}) : super(key: key);
 
   @override
   State<SettingPage> createState() => _SettingPageState();
@@ -318,7 +318,7 @@ class _SettingPageState extends State<SettingPage> {
             style: GoogleFonts.fredoka(
               fontWeight: FontWeight.w400,
               fontSize: 20,
-              color: Theme.of(context).textTheme.headline1.color,
+              color: Theme.of(context).textTheme.headline1!.color,
             ),
           ),
           SizedBox(height: 10),

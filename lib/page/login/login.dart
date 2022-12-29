@@ -27,7 +27,7 @@ TextEditingController otpbox = TextEditingController();
 AuthClass authClass = AuthClass();
 
 class LoginScreen extends StatefulWidget {
-  const LoginScreen({Key key}) : super(key: key);
+  const LoginScreen({Key? key}) : super(key: key);
 
   @override
   State<LoginScreen> createState() => _LoginScreenState();
@@ -43,8 +43,8 @@ class _LoginScreenState extends State<LoginScreen>
   AuthClass authClass = AuthClass();
   TextEditingController otpbox = TextEditingController();
   // Telephony telephony = Telephony.instance;
-  AnimationController storyAnimationController;
-  Timer _timer;
+  AnimationController? storyAnimationController;
+  Timer? _timer;
 
   void getPhoneNumber(String phoneNumber) async {
     PhoneNumber number = await PhoneNumber.getRegionInfoFromPhoneNumber(
@@ -63,7 +63,7 @@ class _LoginScreenState extends State<LoginScreen>
       vsync: this,
       duration: const Duration(milliseconds: 1000),
     );
-    storyAnimationController.repeat();
+    storyAnimationController!.repeat();
     // DeviceOrientation
     SystemChrome.setPreferredOrientations(
         [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
@@ -75,7 +75,7 @@ class _LoginScreenState extends State<LoginScreen>
       if (start == 0) {
         setState(() {
           timer.cancel();
-          _timer.cancel();
+          _timer!.cancel();
           // wait = false;
         });
       } else {
@@ -101,9 +101,9 @@ class _LoginScreenState extends State<LoginScreen>
 
   @override
   void dispose() {
-    _timer.cancel();
+    _timer!.cancel();
     startTimer;
-    storyAnimationController.dispose();
+    storyAnimationController!.dispose();
     super.dispose();
   }
 
@@ -393,7 +393,7 @@ class _LoginScreenState extends State<LoginScreen>
           alignment: Alignment.center,
           child: InternationalPhoneNumberInput(
             onInputChanged: (PhoneNumber number) {
-              yourCountryCode = number.phoneNumber;
+              yourCountryCode = number.phoneNumber!;
             },
             onInputValidated: (bool value) {
               print(value);
@@ -470,8 +470,8 @@ class _LoginScreenState extends State<LoginScreen>
               backgroundColor: Colors.transparent,
               elevation: 0,
               content: AnimatedBuilder(
-                animation: storyAnimationController,
-                builder: (BuildContext context, Widget child) {
+                animation: storyAnimationController!,
+                builder: (BuildContext ?context, Widget ?child) {
                   return Container(
                     padding: EdgeInsets.all(5),
                     height: Get.width * 0.25,

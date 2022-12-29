@@ -13,7 +13,7 @@ import 'package:poster_maker/page/refer&earn/Refer&EarnPage.dart';
 import '../../Helper/widget.dart';
 
 class CoinPageView extends StatefulWidget {
-  CoinPageView({Key key}) : super(key: key);
+  CoinPageView({Key? key}) : super(key: key);
 
   @override
   State<CoinPageView> createState() => _CoinPageViewState();
@@ -660,7 +660,7 @@ class _CoinPageViewState extends State<CoinPageView> {
 
   // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Templates <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< //
   Widget templates(
-      {double height, double width, itemCount, listindex, boxfit}) {
+      {double ?height, double?width, itemCount, listindex, boxfit}) {
     return Container(
       margin: const EdgeInsets.only(top: 15, bottom: 20),
       height: height,
@@ -718,7 +718,7 @@ class _CoinPageViewState extends State<CoinPageView> {
   }
 
   Widget text(
-      {text, double fontSize, decoration, color, currentind, fontWeight}) {
+      {text, double? fontSize, decoration, color, currentind, fontWeight}) {
     return Text(
       text,
       style: GoogleFonts.fredoka(

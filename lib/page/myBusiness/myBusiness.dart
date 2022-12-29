@@ -10,7 +10,7 @@ import '../../Helper/utlity.dart';
 import '../addBusiness/addBusiness.dart';
 
 class MyBusinessPage extends StatefulWidget {
-  const MyBusinessPage({Key key}) : super(key: key);
+  const MyBusinessPage({Key? key}) : super(key: key);
 
   @override
   State<MyBusinessPage> createState() => _MyBusinessPageState();
@@ -81,7 +81,7 @@ class _MyBusinessPageState extends State<MyBusinessPage> {
         Text(
           'My Business',
           style: GoogleFonts.fredoka(
-            color: Theme.of(context).textTheme.headline1.color,
+            color: Theme.of(context).textTheme.headline1!.color,
             fontWeight: FontWeight.w400,
             fontSize: 20,
           ),
@@ -139,7 +139,7 @@ class _MyBusinessPageState extends State<MyBusinessPage> {
               Text(
                 "Your Business Name",
                 style: GoogleFonts.fredoka(
-                  color: Theme.of(context).textTheme.headline1.color,
+                  color: Theme.of(context).textTheme.headline1!.color,
                   fontWeight: FontWeight.w400,
                   fontSize: 16,
                 ),
@@ -289,7 +289,7 @@ class _MyBusinessPageState extends State<MyBusinessPage> {
           Text(
             "Your Business Name",
             style: GoogleFonts.fredoka(
-              color: Theme.of(context).textTheme.headline1.color,
+              color: Theme.of(context).textTheme.headline1!.color,
               fontWeight: FontWeight.w400,
               fontSize: 16,
             ),

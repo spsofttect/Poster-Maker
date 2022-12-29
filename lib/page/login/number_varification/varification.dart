@@ -12,7 +12,7 @@ import 'package:poster_maker/page/bottomnavbar/bottomnavbar.dart';
 import 'package:poster_maker/page/login/login.dart';
 
 class VarificationScreen extends StatefulWidget {
-  const VarificationScreen({Key key}) : super(key: key);
+  const VarificationScreen({Key? key}) : super(key: key);
 
   @override
   State<VarificationScreen> createState() => _VarificationScreenState();

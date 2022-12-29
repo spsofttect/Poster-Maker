@@ -7,7 +7,7 @@ import 'package:poster_maker/Helper/utlity.dart';
 import 'package:poster_maker/Helper/widget.dart';
 
 class AddBusinessPage extends StatelessWidget {
-  AddBusinessPage({Key key}) : super(key: key);
+  AddBusinessPage({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,7 +49,7 @@ class AddBusinessPage extends StatelessWidget {
     ));
   }
 
-  Widget textfield({String hintText}) {
+  Widget textfield({String? hintText}) {
     return Container(
         margin: EdgeInsets.only(left: 30, right: 30, top: 25),
         height: 45,
@@ -93,7 +93,7 @@ class AddBusinessPage extends StatelessWidget {
 
 ////////////////////////////////////////<<<<<<<<<<BusinessList>>>>>>>>>>//////////////////////////////////////
 class BusinessList extends StatelessWidget {
-  const BusinessList({Key key}) : super(key: key);
+  const BusinessList({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

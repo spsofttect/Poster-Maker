@@ -9,7 +9,7 @@ import 'package:poster_maker/page/bottomnavbar/appbar/Appbar.dart';
 import 'package:poster_maker/page/bottomnavbar/bottomnavbar.dart';
 
 class FeedbackView extends StatelessWidget {
-  const FeedbackView({Key key}) : super(key: key);
+  const FeedbackView({Key ?key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +23,7 @@ class FeedbackView extends StatelessWidget {
                 ontap: () {
                   Get.offAll(BottomNavBarScreen());
                 },
-                textColor: Theme.of(context).textTheme.headline1.color,
+                textColor: Theme.of(context).textTheme.headline1!.color,
                 pageName: "Help & Feedback"),
             Image.asset(
               "${AssetPath.settingpage}feedback.png",
@@ -37,7 +37,7 @@ class FeedbackView extends StatelessWidget {
               style: GoogleFonts.fredoka(
                   fontWeight: FontWeight.w500,
                   fontSize: 20,
-                  color: Theme.of(context).textTheme.headline1.color),
+                  color: Theme.of(context).textTheme.headline1!.color),
             ),
             textfield(
                 hintText: 'Enter your Email-ID*',
@@ -68,7 +68,7 @@ class FeedbackView extends StatelessWidget {
   }
 
   Widget textfield(
-      {String hintText, double height, TextInputType keyboardtype}) {
+      {String? hintText, double ?height, TextInputType? keyboardtype}) {
     return Container(
         margin: const EdgeInsets.only(left: 15, right: 15, top: 20),
         height: height,

@@ -14,7 +14,7 @@ import 'package:poster_maker/page/bottomnavbar/bottomnavbar.dart';
 
 
 class PostScreen extends StatefulWidget {
-  const PostScreen({Key key}) : super(key: key);
+  const PostScreen({Key?key}) : super(key: key);
 
   @override
   State<PostScreen> createState() => _PostScreenState();

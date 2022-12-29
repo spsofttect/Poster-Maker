@@ -9,7 +9,7 @@ import 'package:poster_maker/Helper/utlity.dart';
 import 'package:poster_maker/page/bottomnavbar/bottomnavbar.dart';
 
 class CatagoryScreen extends StatefulWidget {
-  CatagoryScreen({Key key}) : super(key: key);
+  CatagoryScreen({Key? key}) : super(key: key);
 
   @override
   State<CatagoryScreen> createState() => _CatagoryScreenState();

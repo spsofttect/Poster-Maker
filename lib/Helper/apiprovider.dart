@@ -25,7 +25,7 @@ class ApiProvider {
         await Preferences.preferences.getString(key: PrefernceKey.loginToken);
     var headers = {"": ""};
     if (islogin == true /* || isGuestUser == true*/) {
-      headers = {"Authorization": token};
+      headers = {"Authorization": token!};
     }
     print("Headers -----> $headers");
     print("urlParse -----> $urlParse");
@@ -83,7 +83,7 @@ class ApiProvider {
         await Preferences.preferences.getString(key: PrefernceKey.loginToken);
     var headers = {"": ""};
     if (islogin == true /*|| isGuestUser == true*/) {
-      headers = {"Authorization": token};
+      headers = {"Authorization": token!};
     }
 
     print("Headers -----> $headers");
@@ -164,9 +164,9 @@ dynamic _response(response) {
 }
 
 // show tost message
-void showTostMessage({String message}) {
+void showTostMessage({String? message}) {
   Fluttertoast.showToast(
-      msg: message,
+      msg: message!,
       toastLength: Toast.LENGTH_SHORT,
       gravity: ToastGravity.BOTTOM,
       timeInSecForIosWeb: 2,

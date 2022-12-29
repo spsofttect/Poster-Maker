@@ -11,7 +11,7 @@ import 'package:poster_maker/page/Freelance/BankDetail/bankDetail.dart';
 import 'package:poster_maker/page/bottomnavbar/appbar/Appbar.dart';
 
 class DocumentPageView extends StatefulWidget {
-  const DocumentPageView({Key key}) : super(key: key);
+  const DocumentPageView({Key? key}) : super(key: key);
 
   @override
   State<DocumentPageView> createState() => _DocumentPageViewState();
@@ -67,11 +67,11 @@ class _DocumentPageViewState extends State<DocumentPageView> {
               height: isPanSelected.value ? 150 : 80,
               width: isPanSelected.value ? 200 : 100,
               decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: isPanSelected.value
-                      ? FileImage(pancard.value)
-                      : AssetImage('${AssetPath.refer}pan.png'),
-                ),
+                // image: DecorationImage(
+                //   image: isPanSelected.value
+                //       ? FileImage(pancard.value)
+                //       : AssetImage('${AssetPath.refer}pan.png'),
+                // ),
               ),
             )));
   }
@@ -87,11 +87,11 @@ class _DocumentPageViewState extends State<DocumentPageView> {
               height: isFrontSelected.value ? 150 : 80,
               width: isFrontSelected.value ? 200 : 100,
               decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: isFrontSelected.value
-                      ? FileImage(aadharFront.value)
-                      : AssetImage('${AssetPath.refer}front.png'),
-                ),
+                // image: DecorationImage(
+                //   image: isFrontSelected.value
+                //       ? FileImage(aadharFront.value)
+                //       : AssetImage('${AssetPath.refer}front.png'),
+                // ),
               ),
             )));
   }
@@ -107,11 +107,11 @@ class _DocumentPageViewState extends State<DocumentPageView> {
               height: isBackSelected.value ? 150 : 80,
               width: isBackSelected.value ? 200 : 100,
               decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: isBackSelected.value
-                      ? FileImage(aadharBack.value)
-                      : AssetImage('${AssetPath.refer}back.png'),
-                ),
+                // image: DecorationImage(
+                //   image: isBackSelected.value
+                //       ? FileImage(aadharBack.value)
+                //       : AssetImage('${AssetPath.refer}back.png'),
+                // ),
               ),
             )));
   }

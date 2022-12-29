@@ -11,11 +11,11 @@ import 'comman_function/commanFunction.dart';
 
 class CommanWidget {
   Widget nextButton(
-      {double height,
-      double width,
-      double radius,
+      {double? height,
+      double? width,
+      double? radius,
       text,
-      EdgeInsets margin,
+      EdgeInsets? margin,
       onTap}) {
     return GestureDetector(
       onTap: onTap,
@@ -24,7 +24,7 @@ class CommanWidget {
         height: height,
         width: width,
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(radius),
+            borderRadius: BorderRadius.circular(radius!),
             gradient: LinearGradient(
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
@@ -42,14 +42,14 @@ class CommanWidget {
 
 // >>>>>>>>>>>>>>>>>>>>>>>>> profile image picker<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< //
   Widget profileImagePicker({
-    double sizedBoxHeight,
-    double sizedBoxWidth,
-    double imageheigth,
-    double imagewidth,
-    double iconheigth,
-    double iconwidth,
-    double iconRadius,
-    double imageRadius,
+    required double sizedBoxHeight,
+    required double sizedBoxWidth,
+    required double imageheigth,
+    required double imagewidth,
+    required double iconheigth,
+    required double iconwidth,
+    required double iconRadius,
+    required double imageRadius,
   }) {
     return Obx(
       () => SizedBox(
@@ -73,11 +73,14 @@ class CommanWidget {
                           Color.fromARGB(172, 242, 68, 5),
                           Color.fromARGB(203, 250, 129, 8),
                         ]),
-                    image: DecorationImage(
-                        image: isImgaeSelected.value
-                            ? FileImage(image.value)
-                            : AssetImage('${AssetPath.homepage}profile.gif'),
-                        fit: BoxFit.cover),
+
+                    image: isImgaeSelected.value
+                        ? DecorationImage(
+                            image: FileImage(image.value), fit: BoxFit.cover)
+                        : DecorationImage(
+                            image:
+                                AssetImage('${AssetPath.homepage}profile.gif'),
+                            fit: BoxFit.cover),
                     borderRadius: BorderRadius.circular(imageRadius),
                     // color: Get.isDarkMode
                     //     ? Color(AppColor.grey)
@@ -112,7 +115,7 @@ class CommanWidget {
     );
   }
 
-  Widget Print({String text}) {
-    print('\x1B[33m$text\x1B[0m');
-  }
+  // Widget Print({String?text}) {
+  //   print('\x1B[33m$text\x1B[0m');
+  // }
 }

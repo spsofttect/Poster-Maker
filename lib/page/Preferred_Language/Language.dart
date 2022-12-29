@@ -10,7 +10,7 @@ import 'package:poster_maker/Helper/widget.dart';
 import 'package:poster_maker/page/bottomnavbar/homepage/addBusiness/addBuisness.dart';
 
 class LanguageScreen extends StatefulWidget {
-  const LanguageScreen({Key key}) : super(key: key);
+  const LanguageScreen({Key? key}) : super(key: key);
 
   @override
   State<LanguageScreen> createState() => _LanguageScreenState();

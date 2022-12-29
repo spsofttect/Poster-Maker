@@ -7,7 +7,7 @@ import 'package:poster_maker/Helper/utlity.dart';
 import 'package:poster_maker/page/bottomnavbar/appbar/Appbar.dart';
 
 class NotificationPageView extends StatefulWidget {
-  const NotificationPageView({Key key}) : super(key: key);
+  const NotificationPageView({Key?key}) : super(key: key);
 
   @override
   State<NotificationPageView> createState() => _NotificationPageViewState();
@@ -25,7 +25,7 @@ class _NotificationPageViewState extends State<NotificationPageView> {
         child: Column(
           children: [
             commanAppbar(
-                textColor: Theme.of(context).textTheme.headline1.color,
+                textColor: Theme.of(context).textTheme.headline1!.color,
                 pageName: "Notification",
                 ontap: () {
                   Get.back();
@@ -60,7 +60,7 @@ class _NotificationPageViewState extends State<NotificationPageView> {
                                       fontSize: 20,
                                       color: Theme.of(context)
                                           .textTheme
-                                          .headline1
+                                          .headline1!
                                           .color),
                                 ),
                                 SizedBox(height: 5),
@@ -73,7 +73,7 @@ class _NotificationPageViewState extends State<NotificationPageView> {
                                       fontSize: 14,
                                       color: Theme.of(context)
                                           .textTheme
-                                          .headline1
+                                          .headline1!
                                           .color),
                                 ),
                               ],

@@ -14,7 +14,7 @@ import 'package:screenshot/screenshot.dart';
 import 'package:share_plus/share_plus.dart';
 
 class SharePage extends StatefulWidget {
-  const SharePage({Key key}) : super(key: key);
+  const SharePage({Key ?key}) : super(key: key);
 
   @override
   State<SharePage> createState() => _SharePageState();
@@ -110,12 +110,12 @@ class _SharePageState extends State<SharePage> {
                   ontap: () async {
                     await screenshotController
                         .capture(delay: Duration(milliseconds: 10))
-                        .then((Uint8List image) async {
+                        .then((Uint8List? image) async {
                       final directory =
                           await getApplicationDocumentsDirectory();
                       final imagePath =
                           await File('${directory.path}/image.png').create();
-                      await imagePath.writeAsBytes(image);
+                      await imagePath.writeAsBytes(image!);
 
                       /// Share Plugin
                       await Share.shareFiles([imagePath.path]);

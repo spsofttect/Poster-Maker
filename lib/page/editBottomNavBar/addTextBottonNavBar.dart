@@ -8,7 +8,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:poster_maker/Helper/utlity.dart';
 
 class AddTextBottonNavBarView extends StatefulWidget {
-  const AddTextBottonNavBarView({Key key}) : super(key: key);
+  const AddTextBottonNavBarView({Key? key}) : super(key: key);
 
   @override
   State<AddTextBottonNavBarView> createState() =>
@@ -139,7 +139,7 @@ class _AddTextBottonNavBarViewState extends State<AddTextBottonNavBarView> {
                                 : Colors.transparent),
                         child: Center(
                             child: Text(
-                          currentObj.name,
+                          currentObj.name!,
                           style: GoogleFonts.fredoka(
                               fontSize: 13,
                               fontWeight: FontWeight.w500,
@@ -173,8 +173,8 @@ class _AddTextBottonNavBarViewState extends State<AddTextBottonNavBarView> {
 }
 
 class DecorationCategory {
-  String name;
-  int id;
+  String? name;
+  int? id;
   DecorationCategory({this.name, this.id});
 }
 

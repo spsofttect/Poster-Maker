@@ -9,7 +9,7 @@ import 'package:poster_maker/page/Freelance/BankDetail/bankdetailList.dart';
 import 'package:poster_maker/page/bottomnavbar/appbar/Appbar.dart';
 
 class BankDetails extends StatefulWidget {
-  const BankDetails({Key key}) : super(key: key);
+  const BankDetails({Key? key}) : super(key: key);
 
   @override
   State<BankDetails> createState() => _BankDetailsState();
@@ -71,7 +71,7 @@ class _BankDetailsState extends State<BankDetails> {
     );
   }
 
-  Widget textfield({String hintText}) {
+  Widget textfield({String ?hintText}) {
     return Container(
         margin: EdgeInsets.only(left: 30, right: 30, top: 25),
         height: 45,
