@@ -5,13 +5,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_windowmanager/flutter_windowmanager.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:poster_maker/Helper/commanwidget.dart';
 import 'package:poster_maker/Helper/utlity.dart';
 import 'package:poster_maker/page/bottomnavbar/appbar/Appbar.dart';
 import 'package:poster_maker/page/bottomnavbar/bottomnavbar.dart';
 
 class Refer_EarnPage extends StatelessWidget {
-  Refer_EarnPage({Key key}) : super(key: key);
+  Refer_EarnPage({Key? key}) : super(key: key);
   TextEditingController field = TextEditingController();
   var fabIcon = false.obs;
   @override
@@ -37,7 +38,7 @@ class Refer_EarnPage extends StatelessWidget {
                       axisDirection: AxisDirection.down,
                       color: Color(AppColor.orange),
                       child: ListView(
-                        physics: AlwaysScrollableScrollPhysics(),
+                        physics: BouncingScrollPhysics(),
                         children: [
                           pageTitle(),
                           howItWork(),
@@ -57,7 +58,7 @@ class Refer_EarnPage extends StatelessWidget {
                                         text: 'Invite Friend',
                                         fontSize: 18,
                                         color: Color(AppColor.orange),
-                                        fontFamily: AppFont.SemiBold),
+                                        fontWeight: FontWeight.w500),
                                   ],
                                 ),
                               )),
@@ -70,6 +71,7 @@ class Refer_EarnPage extends StatelessWidget {
                                       left: 15, right: 15, top: 20),
                                   child: Expanded(
                                     child: ListView.builder(
+                                        physics: BouncingScrollPhysics(),
                                         itemCount: 100,
                                         itemBuilder: (_, i) {
                                           return Padding(
@@ -113,16 +115,16 @@ class Refer_EarnPage extends StatelessWidget {
                                                         children: [
                                                           text(
                                                               text: 'User Name',
-                                                              fontFamily:
-                                                                  AppFont
-                                                                      .SemiBold,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w500,
                                                               fontSize: 20),
                                                           text(
                                                               text:
                                                                   'Enter User Email Id',
-                                                              fontFamily:
-                                                                  AppFont
-                                                                      .SemiBold,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w500,
                                                               fontSize: 12),
                                                         ],
                                                       )
@@ -214,7 +216,7 @@ class Refer_EarnPage extends StatelessWidget {
                           text(
                             text: 'CODE2022',
                             color: Color(AppColor.white),
-                            fontFamily: AppFont.Medium,
+                            fontWeight: FontWeight.w400,
                           ),
                           VerticalDivider(
                               endIndent: 10,
@@ -246,7 +248,7 @@ class Refer_EarnPage extends StatelessWidget {
                             text: 'INVITE YOUR FRIEND',
                             color: Color(AppColor.white),
                             fontSize: 12,
-                            fontFamily: AppFont.Medium),
+                            fontWeight: FontWeight.w400),
                       ),
                     ),
                   ),
@@ -264,7 +266,7 @@ class Refer_EarnPage extends StatelessWidget {
                 child: text(
                     color: Color(0xFFF9B500),
                     textAlign: TextAlign.center,
-                    fontFamily: AppFont.Medium,
+                    fontWeight: FontWeight.w400,
                     fontSize: Get.height * 0.018,
                     text:
                         'Invite Your Friends To Join Poster Maker And Get Instant 10 Coin For Each Friend That Joins Using Your Referral Code.'),
@@ -284,12 +286,12 @@ class Refer_EarnPage extends StatelessWidget {
             ListTile(
               title: text(
                   text: 'Total Reword',
-                  fontFamily: AppFont.Bold,
+                  fontWeight: FontWeight.w600,
                   fontSize: Get.height * 0.04,
                   color: Color(AppColor.grey).withOpacity(0.5)),
               subtitle: text(
                   text: 'Every 1 Coins Value Equal To 1 Rs.',
-                  fontFamily: AppFont.SemiBold,
+                  fontWeight: FontWeight.w500,
                   fontSize: Get.height * 0.02,
                   color: Color(AppColor.grey).withOpacity(0.5)),
             ),
@@ -313,7 +315,7 @@ class Refer_EarnPage extends StatelessWidget {
                         text: '100 Coin',
                         color: Colors.pink,
                         fontSize: 15,
-                        fontFamily: AppFont.SemiBold)
+                        fontWeight: FontWeight.w500)
                   ]),
             ),
             SizedBox(height: 5),
@@ -321,7 +323,7 @@ class Refer_EarnPage extends StatelessWidget {
                 text: 'Total Reword Point',
                 color: Color(AppColor.grey).withOpacity(0.5),
                 fontSize: Get.height * 0.02,
-                fontFamily: AppFont.SemiBold),
+                fontWeight: FontWeight.w500),
             SizedBox(height: 30),
             DottedBorder(
               dashPattern: [10, 3, 2, 3],
@@ -343,7 +345,7 @@ class Refer_EarnPage extends StatelessWidget {
                         text: 'Get Free Coins',
                         color: Color(AppColor.white),
                         fontSize: 12,
-                        fontFamily: AppFont.Medium),
+                        fontWeight: FontWeight.w400),
                   ),
                 ),
               ),
@@ -397,7 +399,7 @@ class Refer_EarnPage extends StatelessWidget {
                         ),
                         text(
                           text: 'How It Works',
-                          fontFamily: AppFont.Bold,
+                          fontWeight: FontWeight.w600,
                           fontSize: Get.height * 0.03,
                         ),
                       ],
@@ -431,7 +433,7 @@ class Refer_EarnPage extends StatelessWidget {
     );
   }
 
-  Widget rowContain({String work, String ind}) {
+  Widget rowContain({String ?work, String ?ind}) {
     return Row(
       children: [
         Container(
@@ -442,9 +444,9 @@ class Refer_EarnPage extends StatelessWidget {
               borderRadius: BorderRadius.circular(50),
               color: Color(AppColor.orange)),
           child: Center(
-            child: Text(ind,
-                style: TextStyle(
-                    fontFamily: AppFont.Bold,
+            child: Text(ind!,
+                style: GoogleFonts.fredoka(
+                    fontWeight: FontWeight.w600,
                     fontSize: Get.height * 0.03,
                     color: Color(AppColor.white))),
           ),
@@ -454,8 +456,8 @@ class Refer_EarnPage extends StatelessWidget {
             height: 35,
             width: Get.width * 0.43,
             child: text(
-                text: work,
-                fontFamily: AppFont.Medium,
+                text: work!,
+                fontWeight: FontWeight.w400,
                 fontSize: Get.height * 0.018,
                 maxLines: 2))
       ],
@@ -468,7 +470,7 @@ class Refer_EarnPage extends StatelessWidget {
       margin,
       width,
       height,
-      double containtheight,
+      double?containtheight,
       itemCount,
       color}) {
     return Container(
@@ -480,7 +482,7 @@ class Refer_EarnPage extends StatelessWidget {
       width: width,
       color: color,
       child: ListView.separated(
-        physics: const NeverScrollableScrollPhysics(),
+        physics: const BouncingScrollPhysics(),
         itemBuilder: (_, i) {
           return Container(
             height: containtheight,
@@ -505,7 +507,7 @@ class Refer_EarnPage extends StatelessWidget {
           children: [
             text(
               text: 'Refer A Friend',
-              fontFamily: AppFont.Bold,
+              fontWeight: FontWeight.w600,
               fontSize: Get.height * 0.042,
             ),
             Spacer(),
@@ -523,16 +525,16 @@ class Refer_EarnPage extends StatelessWidget {
         ),
         subtitle: text(
             text: 'You And Your Friend Both Will Get 10 Coins.',
-            fontFamily: AppFont.Medium,
+            fontWeight: FontWeight.w400,
             fontSize: Get.height * 0.02));
   }
 
   Widget text(
-      {String text, double fontSize, fontFamily, textAlign, maxLines, color}) {
+      {String? text, double ?fontSize, fontWeight, textAlign, maxLines, color}) {
     return Text(
-      text,
-      style:
-          TextStyle(fontFamily: fontFamily, fontSize: fontSize, color: color),
+      text!,
+      style: GoogleFonts.fredoka(
+          fontWeight: fontWeight, fontSize: fontSize, color: color),
       textAlign: textAlign,
       maxLines: maxLines,
     );

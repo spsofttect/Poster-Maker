@@ -1,4 +1,4 @@
-// ignore_for_file: avoid_unnecessary_containers, prefer_const_constructors, invalid_use_of_protected_member, library_private_types_in_public_api, file_names
+// ignore_for_file: avoid_unnecessary_containers, prefer_const_constructors, invalid_use_of_protected_member, library_private_types_in_public_api, file_names, unused_import
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bounce/flutter_bounce.dart';
@@ -8,12 +8,13 @@ import 'package:poster_maker/Helper/commanlist/list.dart';
 import 'package:poster_maker/Helper/utlity.dart';
 import 'package:poster_maker/page/bottomnavbar/appbar/Appbar.dart';
 import 'package:poster_maker/page/bottomnavbar/bottomnavbar.dart';
+import 'package:poster_maker/page/editBottomNavBar/PosterEditingMenu.dart';
 
 import '../../../Helper/commanwidget.dart';
-import '../../editBottomNavBar/EditBottomNavbar.dart';
+
 
 class FavoriteScreen extends StatefulWidget {
-  const FavoriteScreen({Key key}) : super(key: key);
+  const FavoriteScreen({Key? key}) : super(key: key);
 
   @override
   State<FavoriteScreen> createState() => _FavoriteScreenState();
@@ -54,7 +55,7 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
               Get.offAll(BottomNavBarScreen());
             },
             pageName: 'Favorite',
-            textColor: Theme.of(context).textTheme.headline1.color,
+            textColor: Theme.of(context).textTheme.headline1!.color,
           ),
           SizedBox(
             height: 10,
@@ -74,7 +75,7 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
                       child: Bounce(
                         duration: Duration(milliseconds: 200),
                         onPressed: () {
-                          Get.to(EditBottomNavBar());
+                          Get.to(PosterEditingMenu());
                         },
                         child: ClipRRect(
                             borderRadius: BorderRadius.all(Radius.circular(12)),
@@ -109,7 +110,7 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
                     ),
                     staggeredTileBuilder: (index) => const StaggeredTile.fit(1),
                   ),
-          )
+          ),
 
           // GridView.custom(
           //   padding: EdgeInsets.all(15),
@@ -173,6 +174,7 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
           //     childCount: favourit.length,
           //   ),
           // ),
+          SizedBox(height: Get.height * 0.09)
         ],
       ),
     );

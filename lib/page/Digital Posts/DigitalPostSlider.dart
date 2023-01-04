@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bounce/flutter_bounce.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:poster_maker/Helper/commanlist/list.dart';
 import 'package:poster_maker/Helper/utlity.dart';
 import 'package:poster_maker/Helper/widget.dart';
@@ -15,7 +16,7 @@ import 'package:poster_maker/page/bottomnavbar/appbar/Appbar.dart';
 import 'package:poster_maker/page/bottomnavbar/homepage/addBusiness/addBuisness.dart';
 
 class DigitalPostSliderPage extends StatefulWidget {
-  const DigitalPostSliderPage({Key key}) : super(key: key);
+  const DigitalPostSliderPage({Key? key}) : super(key: key);
 
   @override
   State<DigitalPostSliderPage> createState() => _DigitalPostSliderPageState();
@@ -63,7 +64,8 @@ class _DigitalPostSliderPageState extends State<DigitalPostSliderPage> with Sing
                 ),
                 Text(
                   'DigitalPoster',
-                  style: TextStyle(fontFamily: AppFont.Medium, fontSize: 20),
+                  style: GoogleFonts.fredoka(
+                      fontWeight: FontWeight.w400, fontSize: 20),
                 ),
                 Spacer(),
                 CommanWidget().nextButton(
@@ -255,7 +257,8 @@ class _DigitalPostSliderPageState extends State<DigitalPostSliderPage> with Sing
             child: Center(
               child: Text(
                 text,
-                style: TextStyle(color: color, fontFamily: AppFont.Medium),
+                style: GoogleFonts.fredoka(
+                    color: color,  fontWeight: FontWeight.w400,),
               ),
             ),
           ),

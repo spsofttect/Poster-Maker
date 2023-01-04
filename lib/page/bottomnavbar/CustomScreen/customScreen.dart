@@ -1,15 +1,16 @@
-// ignore_for_file: prefer_const_constructors, sized_box_for_whitespace, unused_import, file_names
+// ignore_for_file: prefer_const_constructors, sized_box_for_whitespace, unused_import, file_names, unnecessary_import
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:poster_maker/Helper/commanlist/list.dart';
 import 'package:poster_maker/Helper/utlity.dart';
 import 'package:poster_maker/page/bottomnavbar/appbar/Appbar.dart';
 import 'package:poster_maker/page/bottomnavbar/bottomnavbar.dart';
 
 class CustomScreen extends StatefulWidget {
-  const CustomScreen({Key key}) : super(key: key);
+  const CustomScreen({Key? key}) : super(key: key);
 
   @override
   State<CustomScreen> createState() => _CustomScreenState();
@@ -36,10 +37,11 @@ class _CustomScreenState extends State<CustomScreen> {
     //     [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
     return SafeArea(
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
+        // physics: BouncingScrollPhysics(),
+        // mainAxisAlignment: MainAxisAlignment.start,
         children: [
           commanAppbar(
-              textColor: Theme.of(context).textTheme.headline1.color,
+              textColor: Theme.of(context).textTheme.headline1!.color,
               pageName: 'Create',
               ontap: () {
                 Get.offAll(BottomNavBarScreen());
@@ -67,7 +69,7 @@ class _CustomScreenState extends State<CustomScreen> {
     );
   }
 
-  Widget containt({double height, double width, colors, onTap, widget}) {
+  Widget containt({double? height, double? width, colors, onTap, widget}) {
     return GestureDetector(
       onTap: onTap,
       child: Container(
@@ -79,9 +81,14 @@ class _CustomScreenState extends State<CustomScreen> {
           height: height,
           width: width,
           decoration: BoxDecoration(
-              boxShadow: [BoxShadow(blurRadius: 5, color: Colors.grey.withOpacity(0.3))],
+              boxShadow: [
+                BoxShadow(blurRadius: 5, color: Colors.grey.withOpacity(0.3))
+              ],
               borderRadius: BorderRadius.circular(10),
-              gradient: LinearGradient(begin: Alignment.topLeft, end: Alignment.bottomRight, colors: colors)),
+              gradient: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: colors)),
           child: widget,
         )),
       ),
@@ -95,10 +102,10 @@ class _CustomScreenState extends State<CustomScreen> {
       child: Text(
         text,
         textAlign: TextAlign.center,
-        style: TextStyle(
-          fontFamily: AppFont.Medium,
+        style: GoogleFonts.fredoka(
+          fontWeight: FontWeight.w400,
           fontSize: 12,
-          color: Theme.of(context).textTheme.headline1.color,
+          color: Theme.of(context).textTheme.headline1!.color,
         ),
       ),
     );
@@ -114,10 +121,10 @@ class _CustomScreenState extends State<CustomScreen> {
           ),
           Text(
             text,
-            style: TextStyle(
-              fontFamily: AppFont.Medium,
+            style: GoogleFonts.fredoka(
+              fontWeight: FontWeight.w400,
               fontSize: 20,
-              color: Theme.of(context).textTheme.headline1.color,
+              color: Theme.of(context).textTheme.headline1!.color,
             ),
           ),
         ],
@@ -316,9 +323,21 @@ class _CustomScreenState extends State<CustomScreen> {
     return Wrap(
       children: [
         title(text: 'Twitter', context: context),
-        containt(height: 60, width: 115, colors: [Color(0xFF1DA1F2), Color(0xFF1DA1F2)], widget: twitterIcon(size: 20)),
-        containt(height: 45, width: 90, colors: [Color(0xFF1DA1F2), Color(0xFF1DA1F2)], widget: twitterIcon(size: 15)),
-        containt(height: 80, width: 80, colors: [Color(0xFF1DA1F2), Color(0xFF1DA1F2)], widget: twitterIcon(size: 30)),
+        containt(
+            height: 60,
+            width: 115,
+            colors: [Color(0xFF1DA1F2), Color(0xFF1DA1F2)],
+            widget: twitterIcon(size: 20)),
+        containt(
+            height: 45,
+            width: 90,
+            colors: [Color(0xFF1DA1F2), Color(0xFF1DA1F2)],
+            widget: twitterIcon(size: 15)),
+        containt(
+            height: 80,
+            width: 80,
+            colors: [Color(0xFF1DA1F2), Color(0xFF1DA1F2)],
+            widget: twitterIcon(size: 30)),
         contentName(text: 'Twitter Post', context: context),
         contentName(text: 'Twitter Header', context: context),
         contentName(text: 'Twitter Profile', context: context),
@@ -458,7 +477,8 @@ class _CustomScreenState extends State<CustomScreen> {
               Color(AppColor.bgcolor),
               Color(AppColor.bgcolor),
             ],
-            widget: generalIcon(image: '${AssetPath.custom}PhotoCollage.png', size: 30)),
+            widget: generalIcon(
+                image: '${AssetPath.custom}PhotoCollage.png', size: 30)),
         containt(
             height: 70,
             width: 120,
@@ -466,7 +486,8 @@ class _CustomScreenState extends State<CustomScreen> {
               Color(AppColor.white),
               Color(AppColor.white),
             ],
-            widget: generalIcon(image: '${AssetPath.custom}youtube.png', size: 22)),
+            widget:
+                generalIcon(image: '${AssetPath.custom}youtube.png', size: 22)),
         contentName(text: 'Blog Graphics', context: context),
         contentName(text: 'Photo Collage', context: context),
         contentName(text: 'Youtube', context: context),
@@ -478,7 +499,10 @@ class _CustomScreenState extends State<CustomScreen> {
               Color(0xFFC6D1C6),
               Color(0xFFC6D1C6).withOpacity(0.5),
             ],
-            widget: generalIcon(image: '${AssetPath.custom}card.png', size: 20, color: Colors.black38)),
+            widget: generalIcon(
+                image: '${AssetPath.custom}card.png',
+                size: 20,
+                color: Colors.black38)),
         containt(
             height: 100,
             width: 90,
@@ -487,7 +511,10 @@ class _CustomScreenState extends State<CustomScreen> {
               Color(0xFFC6D1C6),
               Color(0xFFC6D1C6).withOpacity(0.5),
             ],
-            widget: generalIcon(image: '${AssetPath.custom}wings.png', size: 20, color: Colors.black38)),
+            widget: generalIcon(
+                image: '${AssetPath.custom}wings.png',
+                size: 20,
+                color: Colors.black38)),
         containt(
             height: 70,
             width: 100,
@@ -496,7 +523,10 @@ class _CustomScreenState extends State<CustomScreen> {
               Color(0xFFC6D1C6),
               Color(0xFFC6D1C6).withOpacity(0.5),
             ],
-            widget: generalIcon(image: '${AssetPath.custom}postcard.png', size: 22, color: Colors.black38)),
+            widget: generalIcon(
+                image: '${AssetPath.custom}postcard.png',
+                size: 22,
+                color: Colors.black38)),
         contentName(text: 'Business Card', context: context),
         contentName(text: 'Logo', context: context),
         contentName(text: 'Post Card', context: context),
@@ -508,7 +538,10 @@ class _CustomScreenState extends State<CustomScreen> {
               Color(0xFFC6D1C6),
               Color(0xFFC6D1C6).withOpacity(0.5),
             ],
-            widget: generalIcon(image: '${AssetPath.custom}pictures.png', size: 20, color: Colors.black38)),
+            widget: generalIcon(
+                image: '${AssetPath.custom}pictures.png',
+                size: 20,
+                color: Colors.black38)),
         containt(
             height: 70,
             width: 100,
@@ -517,7 +550,10 @@ class _CustomScreenState extends State<CustomScreen> {
               Color(0xFFC6D1C6),
               Color(0xFFC6D1C6).withOpacity(0.5),
             ],
-            widget: generalIcon(image: '${AssetPath.custom}certified.png', size: 22, color: Colors.black38)),
+            widget: generalIcon(
+                image: '${AssetPath.custom}certified.png',
+                size: 22,
+                color: Colors.black38)),
         containt(
             height: 60,
             width: 90,
@@ -526,7 +562,10 @@ class _CustomScreenState extends State<CustomScreen> {
               Color(0xFFC6D1C6),
               Color(0xFFC6D1C6).withOpacity(0.5),
             ],
-            widget: generalIcon(image: '${AssetPath.custom}gift-voucher.png', size: 22, color: Colors.black38)),
+            widget: generalIcon(
+                image: '${AssetPath.custom}gift-voucher.png',
+                size: 22,
+                color: Colors.black38)),
         contentName(text: 'Desktop', context: context),
         contentName(text: 'Certificate', context: context),
         contentName(text: 'Gift', context: context),
@@ -538,7 +577,10 @@ class _CustomScreenState extends State<CustomScreen> {
               Color(0xFFC6D1C6),
               Color(0xFFC6D1C6).withOpacity(0.5),
             ],
-            widget: generalIcon(image: '${AssetPath.custom}label.png', size: 20, color: Colors.black38)),
+            widget: generalIcon(
+                image: '${AssetPath.custom}label.png',
+                size: 20,
+                color: Colors.black38)),
         containt(
             height: 100,
             width: 80,
@@ -547,7 +589,10 @@ class _CustomScreenState extends State<CustomScreen> {
               Color(0xFFC6D1C6),
               Color(0xFFC6D1C6).withOpacity(0.5),
             ],
-            widget: generalIcon(image: '${AssetPath.custom}loudspeaker.png', size: 25, color: Colors.black38)),
+            widget: generalIcon(
+                image: '${AssetPath.custom}loudspeaker.png',
+                size: 25,
+                color: Colors.black38)),
         containt(
             height: 90,
             width: 90,
@@ -556,7 +601,10 @@ class _CustomScreenState extends State<CustomScreen> {
               Color(0xFFC6D1C6),
               Color(0xFFC6D1C6).withOpacity(0.5),
             ],
-            widget: generalIcon(image: '${AssetPath.custom}handbag.png', size: 27, color: Colors.black38)),
+            widget: generalIcon(
+                image: '${AssetPath.custom}handbag.png',
+                size: 27,
+                color: Colors.black38)),
         contentName(text: 'Label', context: context),
         contentName(text: 'Announcement', context: context),
         contentName(text: 'Icon', context: context),
@@ -568,7 +616,10 @@ class _CustomScreenState extends State<CustomScreen> {
               Color(0xFFC6D1C6),
               Color(0xFFC6D1C6).withOpacity(0.5),
             ],
-            widget: generalIcon(image: '${AssetPath.custom}presentation.png', size: 20, color: Colors.black38)),
+            widget: generalIcon(
+                image: '${AssetPath.custom}presentation.png',
+                size: 20,
+                color: Colors.black38)),
         containt(
             height: 120,
             width: 70,
@@ -577,7 +628,10 @@ class _CustomScreenState extends State<CustomScreen> {
               Color(0xFFC6D1C6),
               Color(0xFFC6D1C6).withOpacity(0.5),
             ],
-            widget: generalIcon(image: '${AssetPath.custom}wedding-planning.png', size: 22, color: Colors.black38)),
+            widget: generalIcon(
+                image: '${AssetPath.custom}wedding-planning.png',
+                size: 22,
+                color: Colors.black38)),
         containt(
             height: 60,
             width: 100,
@@ -586,7 +640,10 @@ class _CustomScreenState extends State<CustomScreen> {
               Color(0xFFC6D1C6),
               Color(0xFFC6D1C6).withOpacity(0.5),
             ],
-            widget: generalIcon(image: '${AssetPath.custom}presentation.png', size: 20, color: Colors.black38)),
+            widget: generalIcon(
+                image: '${AssetPath.custom}presentation.png',
+                size: 20,
+                color: Colors.black38)),
         contentName(text: 'presentation', context: context),
         contentName(text: 'Logo', context: context),
         contentName(text: 'presentation', context: context),
@@ -598,7 +655,10 @@ class _CustomScreenState extends State<CustomScreen> {
               Color(0xFFC6D1C6),
               Color(0xFFC6D1C6).withOpacity(0.5),
             ],
-            widget: generalIcon(image: '${AssetPath.custom}resume-cv.png', size: 25, color: Colors.black38)),
+            widget: generalIcon(
+                image: '${AssetPath.custom}resume-cv.png',
+                size: 25,
+                color: Colors.black38)),
         SizedBox(width: Get.width * 0.33),
         SizedBox(width: Get.width * 0.33),
         contentName(text: 'Resume', context: context),
@@ -607,21 +667,21 @@ class _CustomScreenState extends State<CustomScreen> {
   }
 }
 
-generalIcon({double size, String image, color}) {
+generalIcon({double ?size, String? image, color}) {
   return Container(
-    padding: EdgeInsets.all(size),
+    padding: EdgeInsets.all(size!),
     child: Center(
       child: Image.asset(
-        image,
+        image!,
         color: color,
       ),
     ),
   );
 }
 
-linkdinIcon({double size}) {
+linkdinIcon({double ?size}) {
   return Container(
-    padding: EdgeInsets.all(size),
+    padding: EdgeInsets.all(size!),
     child: Center(
       child: Image.asset(
         '${AssetPath.custom}linkedin.png',
@@ -631,9 +691,9 @@ linkdinIcon({double size}) {
   );
 }
 
-twitterIcon({double size}) {
+twitterIcon({double? size}) {
   return Container(
-    padding: EdgeInsets.all(size),
+    padding: EdgeInsets.all(size!),
     child: Center(
       child: Image.asset(
         '${AssetPath.custom}twitter.png',
@@ -643,9 +703,9 @@ twitterIcon({double size}) {
   );
 }
 
-facebookIcon({double size}) {
+facebookIcon({double ?size}) {
   return Container(
-    padding: EdgeInsets.all(size),
+    padding: EdgeInsets.all(size!),
     child: Center(
       child: Image.asset(
         '${AssetPath.custom}facebook.png',
@@ -655,9 +715,9 @@ facebookIcon({double size}) {
   );
 }
 
-instaIcon({double size}) {
+instaIcon({double ?size}) {
   return Container(
-    padding: EdgeInsets.all(size),
+    padding: EdgeInsets.all(size!),
     child: Center(
       child: Image.asset(
         '${AssetPath.custom}instagram.png',

@@ -7,7 +7,7 @@ import 'package:poster_maker/page/Freelance/freelance..dart';
 import 'package:poster_maker/page/bottomnavbar/appbar/Appbar.dart';
 
 class BankDetailList extends StatelessWidget {
-  const BankDetailList({Key key}) : super(key: key);
+  const BankDetailList({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,9 +21,10 @@ class BankDetailList extends StatelessWidget {
             }),
         Expanded(
             child: ListView(
+                 physics: BouncingScrollPhysics(),
           children: [
             ListView.builder(
-                physics: NeverScrollableScrollPhysics(),
+                physics: BouncingScrollPhysics(),
                 shrinkWrap: true,
                 itemCount: 10,
                 itemBuilder: (_, i) {

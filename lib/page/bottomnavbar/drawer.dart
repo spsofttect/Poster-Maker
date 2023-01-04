@@ -1,8 +1,9 @@
-// ignore_for_file: prefer_const_constructors, unused_import
+// ignore_for_file: prefer_const_constructors, unused_import, avoid_print
 
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:in_app_review/in_app_review.dart';
 import 'package:poster_maker/Helper/utlity.dart';
 import 'package:poster_maker/page/Digital%20Posts/DigitalPost.dart';
@@ -18,7 +19,7 @@ import '../myBusiness/myBusiness.dart';
 import '../save_share/share.dart';
 
 class DrawerPage extends StatefulWidget {
-  const DrawerPage({Key key}) : super(key: key);
+  const DrawerPage({Key?key}) : super(key: key);
 
   @override
   State<DrawerPage> createState() => _DrawerPageState();
@@ -73,8 +74,10 @@ class _DrawerPageState extends State<DrawerPage> {
             name: 'Setting'),
 
         drawarItem(image: '${AssetPath.create}tutor.png', name: 'Tutor'),
-        drawarItem(image: '${AssetPath.create}suggest.png', name: 'Suggest a Feature'),
-        drawarItem(name: '------------------------------------------------------'),
+        drawarItem(
+            image: '${AssetPath.create}suggest.png', name: 'Suggest a Feature'),
+        drawarItem(
+            name: '------------------------------------------------------'),
         drawarItem(image: '${AssetPath.create}about.png', name: 'About us'),
         drawarItem(image: '${AssetPath.create}contact.png', name: 'Contact us'),
         drawarItem(
@@ -83,15 +86,18 @@ class _DrawerPageState extends State<DrawerPage> {
             ontap: () {
               Get.to(FeedbackView());
             }),
-        drawarItem(image: '${AssetPath.create}policy.png', name: 'Privacy Policy'),
+        drawarItem(
+            image: '${AssetPath.create}policy.png', name: 'Privacy Policy'),
         drawarItem(image: '${AssetPath.create}follow.png', name: 'Follow us'),
-        drawarItem(name: '------------------------------------------------------'),
+        drawarItem(
+            name: '------------------------------------------------------'),
         drawarItem(
             image: '${AssetPath.create}rate.png',
             name: 'Rate us',
             ontap: () async {
               final InAppReview inAppReview = InAppReview.instance;
-              print("-------------------------${await inAppReview.isAvailable()}-----------------------------------");
+              print(
+                  "-------------------------${await inAppReview.isAvailable()}-----------------------------------");
               if (await inAppReview.isAvailable()) {
                 inAppReview.requestReview();
               }
@@ -105,20 +111,25 @@ class _DrawerPageState extends State<DrawerPage> {
             image: '${AssetPath.create}share.png',
             name: 'Share App',
             ontap: () {
-              Share.share('https://play.google.com/store/apps/details?id=com.spsofttech.digitalposter');
+              Share.share(
+                  'https://play.google.com/store/apps/details?id=com.spsofttech.digitalposter');
             }),
         Container(
           margin: EdgeInsets.fromLTRB(40, 20, 40, 20),
           height: 50,
           width: double.infinity,
           decoration: BoxDecoration(
-            gradient: LinearGradient(begin: Alignment.topCenter, end: Alignment.bottomCenter, colors: const [Color(0xFFFA7F08), Color(0xFFF24405)]),
+            gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: const [Color(0xFFFA7F08), Color(0xFFF24405)]),
             borderRadius: BorderRadius.circular(10),
           ),
           alignment: Alignment.center,
           child: Text(
             "Log Out",
-            style: TextStyle(fontFamily: AppFont.Medium, fontSize: 18),
+            style:
+                GoogleFonts.fredoka(fontWeight: FontWeight.w500, fontSize: 18),
           ),
         ),
       ],
@@ -135,8 +146,12 @@ class _DrawerPageState extends State<DrawerPage> {
             height: 40,
             margin: EdgeInsets.only(top: 15),
             decoration: BoxDecoration(
-                color: (image == null) ? Color(AppColor.grey).withOpacity(0) : Color(AppColor.grey).withOpacity(0.15),
-                borderRadius: BorderRadius.only(topLeft: Radius.circular(20), bottomLeft: Radius.circular(20))),
+                color: (image == null)
+                    ? Color(AppColor.grey).withOpacity(0)
+                    : Color(AppColor.grey).withOpacity(0.15),
+                borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(20),
+                    bottomLeft: Radius.circular(20))),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
@@ -153,21 +168,21 @@ class _DrawerPageState extends State<DrawerPage> {
                           width: double.infinity,
                           child: Text(
                             name,
-                            style: TextStyle(
-                              fontFamily: AppFont.Medium,
+                            style: GoogleFonts.fredoka(
+                              fontWeight: FontWeight.w500,
                               fontSize: Get.height * 0.02,
                               color: Color(AppColor.orange),
                               letterSpacing: 4,
-                              overflow: TextOverflow.fade,
                             ),
+                            overflow: TextOverflow.fade,
                             maxLines: 1,
                           ),
                         ),
                       )
                     : Text(
                         name,
-                        style: TextStyle(
-                          fontFamily: AppFont.Medium,
+                        style: GoogleFonts.fredoka(
+                          fontWeight: FontWeight.w500,
                           fontSize: Get.height * 0.02,
                           color: Color(AppColor.white),
                         ),
@@ -197,7 +212,10 @@ class _DrawerPageState extends State<DrawerPage> {
         SizedBox(width: 20),
         Text(
           "Menu",
-          style: TextStyle(fontFamily: AppFont.Bold, fontSize: Get.height * 0.03, color: Color(AppColor.orange)),
+          style: GoogleFonts.fredoka(
+              fontWeight: FontWeight.w600,
+              fontSize: Get.height * 0.03,
+              color: Color(AppColor.orange)),
         )
       ],
     );

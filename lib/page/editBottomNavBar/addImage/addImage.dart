@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:photo_manager/photo_manager.dart';
 import 'package:poster_maker/Helper/commanwidget.dart';
 import 'package:poster_maker/Helper/utlity.dart';
@@ -10,7 +11,7 @@ import 'package:poster_maker/page/editBottomNavBar/addImage/addImageController.d
 // import 'package:video_player/video_player.dart';
 
 class AddImagePage extends StatefulWidget {
-  const AddImagePage({Key key}) : super(key: key);
+  const AddImagePage({Key? key}) : super(key: key);
 
   @override
   State<AddImagePage> createState() => _AddImagePageState();
@@ -26,11 +27,11 @@ class _AddImagePageState extends State<AddImagePage> with TickerProviderStateMix
     super.initState();
   }
 
-  // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>open_camera<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+  // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> open_camera <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< //
   List<AssetPathEntity> albumlist = [];
   List<AssetEntity> mediaList = [];
-  AssetEntity selectedFile;
-  AssetPathEntity selectedModel;
+  AssetEntity? selectedFile;
+  AssetPathEntity? selectedModel;
   getImagesPath() async {
     final PermissionState _ps = await PhotoManager.requestPermissionExtend();
     print("check auth ${_ps.isAuth}");
@@ -45,8 +46,8 @@ class _AddImagePageState extends State<AddImagePage> with TickerProviderStateMix
         mediaList = entities;
         selectedModel = albumlist.first;
         selectedFile = mediaList.first;
-        // selectedAlbums.clear();
-        // selectedAlbums.add(selectedFile);
+        selectedAlbums.clear();
+        selectedAlbums.add(selectedFile!);
       });
     } else {}
     // printFile(selectedFile);
@@ -84,13 +85,14 @@ class _AddImagePageState extends State<AddImagePage> with TickerProviderStateMix
         _tab(),
         DropdownButtonHideUnderline(
             child: DropdownButton<String>(
+          menuMaxHeight: 500.0,
           borderRadius: BorderRadius.circular(20),
           elevation: 0,
           isExpanded: true,
           icon: Icon(Icons.keyboard_arrow_down_sharp, size: 30),
           items: getItems(),
-          value: selectedModel.name,
-          onChanged: (String d) {
+          value: selectedModel!.name.toString(),
+          onChanged: (String? d) {
             setState(() {
               albumlist.forEach(((element) {
                 if (element.name == d) {
@@ -101,22 +103,24 @@ class _AddImagePageState extends State<AddImagePage> with TickerProviderStateMix
             });
           },
         )),
-        _tabBarView()
+        // _tabBarView()
       ],
     ));
   }
 
-  List getItems() {
+   getItems() {
     return albumlist
-            .map((e) => DropdownMenuItem(
-                  child: Text(
-                    e.name,
-                    style: TextStyle(color: Color(AppColor.grey), fontSize: 20),
-                  ),
-                  value: e.name,
-                ))
-            .toList() ??
-        [];
+        .map((e) => DropdownMenuItem(
+              alignment: Alignment.centerLeft,
+              child: Text(
+                e.name!,
+                maxLines: 1,
+                style: GoogleFonts.fredoka(
+                    color: Color(AppColor.white), fontSize: 20),
+              ),
+              value: e.name,
+            ))
+        .toList();
   }
 
   selectmedia(AssetPathEntity d) async {
@@ -126,9 +130,9 @@ class _AddImagePageState extends State<AddImagePage> with TickerProviderStateMix
     );
     setState(() {
       mediaList = entities;
-      selectedFile = mediaList.first;
+      selectedFile = mediaList[0];
       selectedAlbums.clear();
-      selectedAlbums.add(selectedFile);
+      selectedAlbums.add(selectedFile!);
       // if (state == AppState.picked) imagecroper();
     });
   }
@@ -142,21 +146,29 @@ class _AddImagePageState extends State<AddImagePage> with TickerProviderStateMix
         height: height,
         width: width,
         decoration: BoxDecoration(
-            boxShadow: [BoxShadow(color: Color(AppColor.yellow).withOpacity(0.3), blurRadius: 3, offset: Offset(0, 5))],
-            borderRadius: BorderRadius.circular(radius),
-            gradient: LinearGradient(begin: Alignment.topCenter, end: Alignment.bottomCenter, colors: const [Color(0xFFFA7F08), Color(0xFFF24405)])),
+            boxShadow: [
+              BoxShadow(
+                  color: Color(AppColor.yellow).withOpacity(0.3),
+                  blurRadius: 3,
+                  offset: Offset(0, 5))
+            ],
+            borderRadius: BorderRadius.circular(radius!),
+            gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: [Color(AppColor.orange), Color(AppColor.yellow)])),
         child: Center(
             child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image.asset(
-              AssetPath.editBottomNavBar + image,
+              AssetPath.editBottomNavBar + image!,
               height: 30,
             ),
             SizedBox(width: 20),
             Text(text,
-                style: TextStyle(
-                  fontFamily: AppFont.Medium,
+                style: GoogleFonts.fredoka(
+                  fontWeight: FontWeight.w400,
                   fontSize: 18,
                   color: Color(AppColor.white),
                 )),
@@ -167,7 +179,7 @@ class _AddImagePageState extends State<AddImagePage> with TickerProviderStateMix
   }
 
 // TabBarView
-  TabController _tabController;
+  TabController? _tabController;
   Widget _tab() {
     // ignore: prefer_const_literals_to_create_immutables
     return TabBar(
@@ -180,15 +192,18 @@ class _AddImagePageState extends State<AddImagePage> with TickerProviderStateMix
         tabs: [
           Text(
             'Image',
-            style: TextStyle(fontFamily: AppFont.SemiBold, fontSize: 18),
+            style:
+                GoogleFonts.fredoka(fontWeight: FontWeight.w400, fontSize: 18),
           ),
           Text(
             'PixaBay',
-            style: TextStyle(fontFamily: AppFont.SemiBold, fontSize: 18),
+            style:
+                GoogleFonts.fredoka(fontWeight: FontWeight.w400, fontSize: 18),
           ),
           Text(
             'Unsplash',
-            style: TextStyle(fontFamily: AppFont.SemiBold, fontSize: 18),
+            style:
+                GoogleFonts.fredoka(fontWeight: FontWeight.w400, fontSize: 18),
           ),
         ]);
   }
@@ -197,19 +212,18 @@ class _AddImagePageState extends State<AddImagePage> with TickerProviderStateMix
     return TabBarView(
       controller: _tabController,
       children: [
-        grid(count: mediaList.length),
+        grid(count: mediaList.length, height: 100),
         Center(
           child: Text("second"),
         ),
-        gridView()
+        // gridView(itemCount: mediaList.length, )
       ],
     );
   }
 
   bool ismultipleEnable = false;
   List<AssetEntity> selectedAlbums = <AssetEntity>[].obs;
-
-  Widget grid({count}) {
+  Widget grid({count, double? height}) {
     return Padding(
       padding: const EdgeInsets.only(top: 10, bottom: 80, left: 10, right: 10),
       child: GridView.builder(
@@ -217,7 +231,7 @@ class _AddImagePageState extends State<AddImagePage> with TickerProviderStateMix
             crossAxisCount: 4,
             mainAxisSpacing: 10,
             crossAxisSpacing: 10,
-            // mainAxisExtent: height,
+            mainAxisExtent: height,
           ),
           itemCount: count,
           itemBuilder: (_, i) {
@@ -229,18 +243,18 @@ class _AddImagePageState extends State<AddImagePage> with TickerProviderStateMix
                     if (snapshot.hasData) {
                       // bool isSelected = false;
                       return GestureDetector(
-                        // onLongPress: () {
-                        //   setState(() {
-                        //     ismultipleEnable = true;
-                        //   });
-                        // },
+                        onLongPress: () {
+                          setState(() {
+                            ismultipleEnable = true;
+                          });
+                        },
                         onTap: () {
                           setState(() {
-                            // if (!ismultipleEnable) {
-                            //   selectedAlbums.clear();
-                            //   print(
-                            //       "  =========>>>>>>>>>>>>>>>>>>    $selectedAlbums");
-                            // }
+                            if (!ismultipleEnable) {
+                              selectedAlbums.clear();
+                              print(
+                                  "  =========>>>>>>>>>>>>>>>>>>    $selectedAlbums");
+                            }
                             selectedFile = mediaList[i];
 
                             print(" ==============++++++++++++++++++))))))))((((((((()))))))))  ${selectedFile = mediaList[i]}");
@@ -256,7 +270,7 @@ class _AddImagePageState extends State<AddImagePage> with TickerProviderStateMix
                               borderRadius: BorderRadius.circular(10),
                               image: DecorationImage(
                                   image: MemoryImage(
-                                    snapshot.data,
+                                    snapshot.data!,
                                   ),
                                   fit: BoxFit.cover)),
                         ),
@@ -267,6 +281,7 @@ class _AddImagePageState extends State<AddImagePage> with TickerProviderStateMix
                       color: Colors.transparent,
                     );
                   }
+                  return Container();
                 });
           }),
     );

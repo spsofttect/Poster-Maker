@@ -6,6 +6,7 @@ import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:flutter_bounce/flutter_bounce.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:poster_maker/Helper/utlity.dart';
 import 'package:poster_maker/page/bottomnavbar/appbar/Appbar.dart';
@@ -13,7 +14,7 @@ import 'package:screenshot/screenshot.dart';
 import 'package:share_plus/share_plus.dart';
 
 class SharePage extends StatefulWidget {
-  const SharePage({Key key}) : super(key: key);
+  const SharePage({Key ?key}) : super(key: key);
 
   @override
   State<SharePage> createState() => _SharePageState();
@@ -70,7 +71,8 @@ class _SharePageState extends State<SharePage> {
   Widget text({text, fontsize, color}) {
     return Text(
       text,
-      style: TextStyle(fontSize: fontsize, fontFamily: AppFont.Medium, color: color),
+      style: GoogleFonts.fredoka(
+          fontSize: fontsize, fontWeight: FontWeight.w500, color: color),
     );
   }
 
@@ -106,10 +108,14 @@ class _SharePageState extends State<SharePage> {
               sociallmages(
                   imageName: "share.png",
                   ontap: () async {
-                    await screenshotController.capture(delay: Duration(milliseconds: 10)).then((Uint8List image) async {
-                      final directory = await getApplicationDocumentsDirectory();
-                      final imagePath = await File('${directory.path}/image.png').create();
-                      await imagePath.writeAsBytes(image);
+                    await screenshotController
+                        .capture(delay: Duration(milliseconds: 10))
+                        .then((Uint8List? image) async {
+                      final directory =
+                          await getApplicationDocumentsDirectory();
+                      final imagePath =
+                          await File('${directory.path}/image.png').create();
+                      await imagePath.writeAsBytes(image!);
 
                       /// Share Plugin
                       await Share.shareFiles([imagePath.path]);

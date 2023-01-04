@@ -2,13 +2,14 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:poster_maker/Helper/utlity.dart';
 import 'package:poster_maker/Helper/widget.dart';
 import 'package:poster_maker/page/Freelance/BankDetail/bankdetailList.dart';
 import 'package:poster_maker/page/bottomnavbar/appbar/Appbar.dart';
 
 class BankDetails extends StatefulWidget {
-  const BankDetails({Key key}) : super(key: key);
+  const BankDetails({Key? key}) : super(key: key);
 
   @override
   State<BankDetails> createState() => _BankDetailsState();
@@ -27,6 +28,7 @@ class _BankDetailsState extends State<BankDetails> {
               pageName: 'Bank Details'),
           Expanded(
               child: ListView(
+            physics: BouncingScrollPhysics(),
             children: [
               title(text: 'Add Bank Account'),
               textfield(hintText: 'EMPLOYEE NAME(AS PER BANK DETAILS)'),
@@ -61,14 +63,15 @@ class _BankDetailsState extends State<BankDetails> {
           Text(
             text,
             textAlign: TextAlign.start,
-            style: TextStyle(fontFamily: AppFont.Medium, fontSize: 18),
+            style:
+                GoogleFonts.fredoka(fontWeight: FontWeight.w500, fontSize: 18),
           ),
         ],
       ),
     );
   }
 
-  Widget textfield({String hintText}) {
+  Widget textfield({String ?hintText}) {
     return Container(
         margin: EdgeInsets.only(left: 30, right: 30, top: 25),
         height: 45,
@@ -79,22 +82,22 @@ class _BankDetailsState extends State<BankDetails> {
         ),
         child: TextField(
           cursorColor: Color(AppColor.orange),
-          style: TextStyle(
+          style: GoogleFonts.fredoka(
               // color:
               // Get.isDarkMode ? Color(AppColor.grey) : Color(AppColor.white),
               fontSize: 15,
-              fontFamily: AppFont.SemiBold),
+               fontWeight: FontWeight.w400,),
           decoration: InputDecoration(
             contentPadding:
                 EdgeInsets.only(top: 10, bottom: 10, left: 20, right: 20),
             border: InputBorder.none,
             hintText: hintText,
-            hintStyle: TextStyle(
+            hintStyle: GoogleFonts.fredoka(
                 // color: Get.isDarkMode
                 // ? Color(AppColor.grey)
                 // : Color(AppColor.white),
                 fontSize: 15,
-                fontFamily: AppFont.SemiBold),
+                fontWeight: FontWeight.w400,),
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(6),
               borderSide: BorderSide(color: Colors.transparent),

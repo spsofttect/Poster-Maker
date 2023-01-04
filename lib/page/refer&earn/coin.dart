@@ -3,6 +3,7 @@
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:poster_maker/Helper/commanlist/list.dart';
 import 'package:poster_maker/Helper/utlity.dart';
 import 'package:poster_maker/page/bottomnavbar/appbar/Appbar.dart';
@@ -12,7 +13,7 @@ import 'package:poster_maker/page/refer&earn/Refer&EarnPage.dart';
 import '../../Helper/widget.dart';
 
 class CoinPageView extends StatefulWidget {
-  CoinPageView({Key key}) : super(key: key);
+  CoinPageView({Key? key}) : super(key: key);
 
   @override
   State<CoinPageView> createState() => _CoinPageViewState();
@@ -134,9 +135,9 @@ class _CoinPageViewState extends State<CoinPageView> {
                 children: [
                   Text(
                     "Reword Coin",
-                    style: TextStyle(
+                    style: GoogleFonts.fredoka(
                         color: Color(AppColor.white),
-                        fontFamily: AppFont.Medium),
+                        fontWeight: FontWeight.w400,),
                   ),
                   SizedBox(height: 10),
                   DottedBorder(
@@ -155,10 +156,10 @@ class _CoinPageViewState extends State<CoinPageView> {
                           Image.asset("${AssetPath.refer}coin.png", height: 20),
                           SizedBox(width: 10),
                           Text('100 Coin',
-                              style: TextStyle(
+                              style: GoogleFonts.fredoka(
                                   color: Color(AppColor.white),
                                   fontSize: 14,
-                                  fontFamily: AppFont.Medium)),
+                                  fontWeight: FontWeight.w400,)),
                         ],
                       ),
                     ),
@@ -186,9 +187,9 @@ class _CoinPageViewState extends State<CoinPageView> {
                   child: Center(
                       child: Text(
                     "Refer & Earn",
-                    style: TextStyle(
+                    style: GoogleFonts.fredoka(
                         color: Color(AppColor.white),
-                        fontFamily: AppFont.Medium),
+                        fontWeight: FontWeight.w400,),
                   )),
                 ),
               ),
@@ -203,8 +204,8 @@ class _CoinPageViewState extends State<CoinPageView> {
                 child: Center(
                     child: Text(
                   "Get Free Coin",
-                  style: TextStyle(
-                      color: Color(AppColor.white), fontFamily: AppFont.Medium),
+                  style: GoogleFonts.fredoka(
+                      color: Color(AppColor.white), fontWeight: FontWeight.w400,),
                 )),
               ),
             ],
@@ -216,7 +217,7 @@ class _CoinPageViewState extends State<CoinPageView> {
 
   Widget gridView({itemCount, arr, item}) {
     return GridView.builder(
-      physics: NeverScrollableScrollPhysics(),
+      physics: BouncingScrollPhysics(),
       shrinkWrap: true,
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 3,
@@ -292,8 +293,8 @@ class _CoinPageViewState extends State<CoinPageView> {
         alignment: Alignment.center,
         child: Text(
           name,
-          style: TextStyle(
-              color: Color(AppColor.white), fontFamily: AppFont.Medium),
+          style: GoogleFonts.fredoka(
+              color: Color(AppColor.white), fontWeight: FontWeight.w400,),
         ),
       ),
     );
@@ -303,6 +304,7 @@ class _CoinPageViewState extends State<CoinPageView> {
     return Expanded(
       child: (val == 0)
           ? ListView(
+              physics: BouncingScrollPhysics(),
               children: [
                 msg(msg: 'Unlock 2000+ Templates'),
                 msg(msg: 'Unlock 2000+ Stickers'),
@@ -324,7 +326,8 @@ class _CoinPageViewState extends State<CoinPageView> {
                 Text(
                   'Choose Your plan',
                   textAlign: TextAlign.center,
-                  style: TextStyle(fontSize: 25, fontFamily: AppFont.Medium),
+                  style: GoogleFonts.fredoka(
+                      fontSize: 25, fontWeight: FontWeight.w400,),
                 ),
                 SizedBox(height: 20),
                 Row(
@@ -360,23 +363,23 @@ class _CoinPageViewState extends State<CoinPageView> {
                                     text(
                                         text: '3 Day Free',
                                         currentind: 0,
-                                        fontFamily: AppFont.Bold,
+                                        fontWeight: FontWeight.w600,
                                         fontSize: 15.0),
                                     text(
                                         text: 'Trial',
                                         currentind: 0,
-                                        fontFamily: AppFont.Bold,
+                                        fontWeight: FontWeight.w600,
                                         fontSize: 15.0),
                                     SizedBox(height: 10),
                                     text(
                                         text: 'then ₹250.00/per',
-                                        fontFamily: AppFont.Regular,
+                                     fontWeight: FontWeight.w400,
                                         fontSize: 11.0,
                                         currentind: 0),
                                     text(
                                       text: 'Mounth',
                                       currentind: 0,
-                                      fontFamily: AppFont.Regular,
+                                   fontWeight: FontWeight.w400,
                                       fontSize: 11.0,
                                     ),
                                     SizedBox(height: 10)
@@ -414,22 +417,23 @@ class _CoinPageViewState extends State<CoinPageView> {
                                         text: 'Start Today',
                                         currentind: 1,
                                         fontSize: 16,
-                                        fontFamily: AppFont.SemiBold),
+                                            fontWeight: FontWeight.w500),
                                     text(
                                         text: '3 Month',
                                         currentind: 1,
                                         fontSize: 16,
-                                        fontFamily: AppFont.SemiBold),
+                                            fontWeight: FontWeight.w500),
                                     text(
                                         text: '₹ 750.00',
                                         currentind: 1,
                                         fontSize: 14,
-                                        fontFamily: AppFont.SemiBold),
+                                            fontWeight: FontWeight.w500),
                                     text(
                                         text: 'Per Month',
                                         currentind: 1,
                                         fontSize: 12,
-                                        fontFamily: AppFont.Regular),
+                                            fontWeight: FontWeight.w400,
+                                    ),
                                     SizedBox(height: 10)
                                   ]),
                             ),
@@ -469,22 +473,22 @@ class _CoinPageViewState extends State<CoinPageView> {
                                           text: 'Start Today',
                                           currentind: 2,
                                           fontSize: 15,
-                                          fontFamily: AppFont.SemiBold),
+                                              fontWeight: FontWeight.w500),
                                       text(
                                           text: 'Forever',
                                           currentind: 2,
                                           fontSize: 16,
-                                          fontFamily: AppFont.SemiBold),
+                                              fontWeight: FontWeight.w500),
                                       text(
                                           text: '₹ 820.00',
                                           currentind: 2,
                                           fontSize: 12,
-                                          fontFamily: AppFont.SemiBold),
+                                              fontWeight: FontWeight.w500),
                                       text(
                                           text: '₹ 3000.00',
                                           currentind: 2,
                                           fontSize: 12,
-                                          fontFamily: AppFont.SemiBold,
+                                              fontWeight: FontWeight.w500,
                                           decoration:
                                               TextDecoration.lineThrough),
                                       SizedBox(height: 10)
@@ -512,6 +516,7 @@ class _CoinPageViewState extends State<CoinPageView> {
               ],
             )
           : ListView(
+              physics: BouncingScrollPhysics(),
               children: [
                 posterBuySendCoin(
                     coin: "20", date: "20-07-2022", isSendcoin: true),
@@ -565,19 +570,19 @@ class _CoinPageViewState extends State<CoinPageView> {
                 children: [
                   Text(
                     isSendcoin ? "Poster Send Coin" : "Buy Coin",
-                    style: TextStyle(
+                    style: GoogleFonts.fredoka(
                         color: isSendcoin
                             ? Color(AppColor.orange)
                             : Color(AppColor.white),
-                        fontFamily: AppFont.Medium,
+                        fontWeight: FontWeight.w400,
                         fontSize: 15),
                   ),
                   Text(
                     "10 min ago",
-                    style: TextStyle(
+                    style: GoogleFonts.fredoka(
                         color: Color(
                             isSendcoin ? AppColor.orange : AppColor.white),
-                        fontFamily: AppFont.Medium,
+                        fontWeight: FontWeight.w400,
                         fontSize: 9),
                   ),
                 ],
@@ -586,18 +591,18 @@ class _CoinPageViewState extends State<CoinPageView> {
               Column(children: [
                 Text(
                   "$coin Coin",
-                  style: TextStyle(
+                  style: GoogleFonts.fredoka(
                       color:
                           Color(isSendcoin ? AppColor.orange : AppColor.white),
-                      fontFamily: AppFont.Medium,
+                      fontWeight: FontWeight.w400,
                       fontSize: 15),
                 ),
                 Text(
                   date,
-                  style: TextStyle(
+                  style: GoogleFonts.fredoka(
                       color:
                           Color(isSendcoin ? AppColor.orange : AppColor.white),
-                      fontFamily: AppFont.Medium,
+                      fontWeight: FontWeight.w400,
                       fontSize: 9),
                 ),
               ]),
@@ -643,9 +648,9 @@ class _CoinPageViewState extends State<CoinPageView> {
           const SizedBox(width: 20),
           Text(
             msg,
-            style: TextStyle(
+            style: GoogleFonts.fredoka(
                 fontSize: 14,
-                fontFamily: AppFont.Medium,
+                fontWeight: FontWeight.w400,
                 color: Color(AppColor.grey)),
           )
         ],
@@ -655,12 +660,13 @@ class _CoinPageViewState extends State<CoinPageView> {
 
   // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Templates <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< //
   Widget templates(
-      {double height, double width, itemCount, listindex, boxfit}) {
+      {double ?height, double?width, itemCount, listindex, boxfit}) {
     return Container(
       margin: const EdgeInsets.only(top: 15, bottom: 20),
       height: height,
       width: double.infinity,
       child: ListView.builder(
+        physics: BouncingScrollPhysics(),
         scrollDirection: Axis.horizontal,
         itemCount: itemCount,
         itemBuilder: (context, index) {
@@ -696,9 +702,9 @@ class _CoinPageViewState extends State<CoinPageView> {
                     child: Center(
                         child: Text(
                       '2000 + Templates',
-                      style: TextStyle(
+                      style: GoogleFonts.fredoka(
                           color: Color(AppColor.bgcolor),
-                          fontFamily: AppFont.Medium,
+                          fontWeight: FontWeight.w400,
                           fontSize: 13),
                     )),
                   ),
@@ -712,11 +718,11 @@ class _CoinPageViewState extends State<CoinPageView> {
   }
 
   Widget text(
-      {text, double fontSize, decoration, color, currentind, fontFamily}) {
+      {text, double? fontSize, decoration, color, currentind, fontWeight}) {
     return Text(
       text,
-      style: TextStyle(
-          fontFamily: fontFamily,
+      style: GoogleFonts.fredoka(
+          fontWeight: fontWeight,
           fontSize: fontSize,
           decoration: decoration,
           color: currentIndex == currentind

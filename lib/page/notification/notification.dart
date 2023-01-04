@@ -1,13 +1,13 @@
 // ignore_for_file: prefer_const_constructors, unused_import
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:poster_maker/Helper/utlity.dart';
 import 'package:poster_maker/page/bottomnavbar/appbar/Appbar.dart';
 
 class NotificationPageView extends StatefulWidget {
-  const NotificationPageView({Key key}) : super(key: key);
+  const NotificationPageView({Key?key}) : super(key: key);
 
   @override
   State<NotificationPageView> createState() => _NotificationPageViewState();
@@ -25,14 +25,14 @@ class _NotificationPageViewState extends State<NotificationPageView> {
         child: Column(
           children: [
             commanAppbar(
-                textColor: Theme.of(context).textTheme.headline1.color,
+                textColor: Theme.of(context).textTheme.headline1!.color,
                 pageName: "Notification",
                 ontap: () {
                   Get.back();
                 }),
             Expanded(
               child: ListView.separated(
-                physics: const BouncingScrollPhysics(),
+                physics: BouncingScrollPhysics(),
                 shrinkWrap: true,
                 itemBuilder: (_, i) {
                   return Column(
@@ -55,14 +55,26 @@ class _NotificationPageViewState extends State<NotificationPageView> {
                                 Text(
                                   'Lorem Ipsum',
                                   textAlign: TextAlign.start,
-                                  style: TextStyle(fontFamily: AppFont.Medium, fontSize: 20, color: Theme.of(context).textTheme.headline1.color),
+                                  style: GoogleFonts.fredoka(
+                                      fontWeight: FontWeight.w400,
+                                      fontSize: 20,
+                                      color: Theme.of(context)
+                                          .textTheme
+                                          .headline1!
+                                          .color),
                                 ),
                                 SizedBox(height: 5),
                                 Text(
                                   'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
                                   textAlign: TextAlign.start,
                                   maxLines: 2,
-                                  style: TextStyle(fontFamily: AppFont.Medium, fontSize: 14, color: Theme.of(context).textTheme.headline1.color),
+                                  style: GoogleFonts.fredoka(
+                                      fontWeight: FontWeight.w400,
+                                      fontSize: 14,
+                                      color: Theme.of(context)
+                                          .textTheme
+                                          .headline1!
+                                          .color),
                                 ),
                               ],
                             ),
@@ -74,7 +86,8 @@ class _NotificationPageViewState extends State<NotificationPageView> {
                         alignment: Alignment.centerRight,
                         child: Text(
                           '22/01/2022  2:30PM',
-                          style: TextStyle(fontFamily: AppFont.Medium, fontSize: 14, color: Theme.of(context).textTheme.headline1.color),
+                          style: GoogleFonts.fredoka(
+                              fontWeight: FontWeight.w400, fontSize: 14),
                         ),
                       )
                     ],

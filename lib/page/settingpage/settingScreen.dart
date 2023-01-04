@@ -1,22 +1,23 @@
 // ignore_for_file: prefer_const_constructors, curly_braces_in_flow_control_structures, non_constant_identifier_names, avoid_print, unused_import, file_names
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 import 'package:flutter_windowmanager/flutter_windowmanager.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:poster_maker/Helper/app_theme.dart';
 import 'package:poster_maker/Helper/utlity.dart';
 import 'package:poster_maker/Helper/widget.dart';
 import 'package:poster_maker/page/bottomnavbar/appbar/Appbar.dart';
 import 'package:poster_maker/page/bottomnavbar/bottomnavbar.dart';
+import 'package:poster_maker/page/login/login.dart';
 
 import 'package:poster_maker/page/settingpage/proView/proView.dart';
 
 import 'developmentpage/Appdevelopmentpage.dart';
 
 class SettingPage extends StatefulWidget {
-  const SettingPage({Key key}) : super(key: key);
+  const SettingPage({Key? key}) : super(key: key);
 
   @override
   State<SettingPage> createState() => _SettingPageState();
@@ -49,7 +50,7 @@ class _SettingPageState extends State<SettingPage> {
               ),
               Expanded(
                   child: ListView(
-                physics: const BouncingScrollPhysics(),
+                physics: BouncingScrollPhysics(),
                 children: [
                   userDetail(),
                   optionBtn(text: 'My Business'),
@@ -59,7 +60,7 @@ class _SettingPageState extends State<SettingPage> {
                       item: Switch(
                         onChanged: (value) {
                           setState(() {
-                            isdarkMode.value = value;
+                            isdarkMode = value;
                             if (Get.isDarkMode)
                               Get.changeThemeMode(ThemeMode.light);
                             else
@@ -161,8 +162,17 @@ class _SettingPageState extends State<SettingPage> {
                       SizedBox(height: 10),
                       RichText(
                           text: TextSpan(children: [
-                        TextSpan(text: 'change to win free ', style: TextStyle(color: Color(AppColor.grey), fontSize: 15, fontFamily: AppFont.Medium)),
-                        TextSpan(text: 'VIP', style: TextStyle(color: Colors.red, fontFamily: AppFont.Medium)),
+                        TextSpan(
+                            text: 'change to win free ',
+                            style: GoogleFonts.fredoka(
+                                color: Color(AppColor.grey),
+                                fontSize: 15,
+                                fontWeight: FontWeight.w400)),
+                        TextSpan(
+                            text: 'VIP',
+                            style: GoogleFonts.fredoka(
+                                color: Colors.red,
+                                fontWeight: FontWeight.w400)),
                       ])),
                       SizedBox(height: 20),
                       socialMedia(
@@ -187,7 +197,19 @@ class _SettingPageState extends State<SettingPage> {
                           divider: SizedBox()),
                     ],
                   )),
-                  CommanWidget().nextButton(height: 45, radius: 10, text: 'Sign Out', margin: EdgeInsets.only(left: 50, right: 50, top: 10, bottom: 20))
+                  CommanWidget().nextButton(
+                      onTap: () async {
+                        await authClass.signOut();
+                        Get.back();
+                        Get.back();
+                        currentpage = 0;
+                        await Get.offAllNamed("/loginScreen");
+                      },
+                      height: 45,
+                      radius: 10,
+                      text: 'Sign Out',
+                      margin: EdgeInsets.only(
+                          left: 50, right: 50, top: 10, bottom: 20))
                 ],
               ))
             ]),
@@ -217,7 +239,10 @@ class _SettingPageState extends State<SettingPage> {
                 SizedBox(width: 15),
                 Text(
                   subTitle,
-                  style: TextStyle(color: Color(AppColor.grey), fontFamily: AppFont.Medium, fontSize: 14),
+                  style: GoogleFonts.fredoka(
+                      color: Color(AppColor.grey),
+                      fontWeight: FontWeight.w400,
+                      fontSize: 14),
                   textAlign: TextAlign.start,
                 ),
               ],
@@ -245,7 +270,10 @@ class _SettingPageState extends State<SettingPage> {
   Widget title({title}) {
     return Text(
       title,
-      style: TextStyle(color: Color(AppColor.grey), fontFamily: AppFont.SemiBold, fontSize: 18),
+      style: GoogleFonts.fredoka(
+          color: Color(AppColor.grey),
+          fontWeight: FontWeight.w400,
+          fontSize: 18),
     );
   }
 
@@ -260,7 +288,10 @@ class _SettingPageState extends State<SettingPage> {
             margin: EdgeInsets.only(top: 8, bottom: 8),
             child: Text(
               subTitle,
-              style: TextStyle(color: Color(AppColor.grey), fontFamily: AppFont.Medium, fontSize: 14),
+              style: GoogleFonts.fredoka(
+                  color: Color(AppColor.grey),
+                  fontWeight: FontWeight.w400,
+                  fontSize: 14),
               textAlign: TextAlign.start,
             ),
           ),
@@ -284,10 +315,10 @@ class _SettingPageState extends State<SettingPage> {
         children: [
           Text(
             'User Name',
-            style: TextStyle(
-              fontFamily: AppFont.Medium,
+            style: GoogleFonts.fredoka(
+              fontWeight: FontWeight.w400,
               fontSize: 20,
-              color: Theme.of(context).textTheme.headline1.color,
+              color: Theme.of(context).textTheme.headline1!.color,
             ),
           ),
           SizedBox(height: 10),
@@ -296,11 +327,17 @@ class _SettingPageState extends State<SettingPage> {
             width: 150,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15),
-                gradient: LinearGradient(begin: Alignment.topCenter, end: Alignment.bottomCenter, colors: const [Color(0xFFFA7F08), Color(0xFFF24405)])),
+                gradient: LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    colors: [Color(AppColor.orange), Color(AppColor.yellow)])),
             child: Center(
                 child: Text(
               'SUBSCRIBE PLAN',
-              style: TextStyle(fontFamily: AppFont.Medium, fontSize: 13, color: Color(AppColor.white)),
+              style: GoogleFonts.fredoka(
+                  fontWeight: FontWeight.w400,
+                  fontSize: 13,
+                  color: Color(AppColor.white)),
             )),
           ),
         ],
@@ -339,15 +376,20 @@ class _SettingPageState extends State<SettingPage> {
         width: double.infinity,
         decoration: BoxDecoration(borderRadius: BorderRadius.circular(15), border: Border.all(color: Color(AppColor.grey), width: 1.5)),
         child: Center(
-            child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-          Text(
-            text,
-            style: TextStyle(color: Color(AppColor.grey), fontFamily: AppFont.SemiBold, fontSize: 18),
-          ),
-          Container(
-            child: item,
-          )
-        ])),
+            child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+              Text(
+                text,
+                style: GoogleFonts.fredoka(
+                    color: Color(AppColor.grey),
+                    fontWeight: FontWeight.w400,
+                    fontSize: 18),
+              ),
+              Container(
+                child: item,
+              )
+            ])),
       ),
     );
   }

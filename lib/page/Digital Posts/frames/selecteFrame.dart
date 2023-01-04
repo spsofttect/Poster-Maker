@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, non_constant_identifier_names, file_names, prefer_final_fields, unused_import, prefer_const_literals_to_create_immutables, duplicate_ignore
+// ignore_for_file: prefer_const_constructors, non_constant_identifier_names, file_names, prefer_final_fields, unused_import, prefer_const_literals_to_create_immutables, duplicate_ignore, avoid_print
 
 import 'dart:ffi';
 
@@ -7,22 +7,21 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bounce/flutter_bounce.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:poster_maker/Helper/app_theme.dart';
 import 'package:poster_maker/Helper/utlity.dart';
 import 'package:poster_maker/page/bottomnavbar/appbar/Appbar.dart';
 
 import 'frame_01TOframe_05.dart';
 
-
-
 class SelecteFrames extends StatefulWidget {
   const SelecteFrames({
-    Key key,
+    Key? key,
     // this.pickerColor,
     this.onColorChanged,
   }) : super(key: key);
   // final Color pickerColor;
-  final ValueChanged<Color> onColorChanged;
+  final ValueChanged<Color>? onColorChanged;
 
   @override
   State<SelecteFrames> createState() => _SelecteFramesState();
@@ -80,6 +79,7 @@ class _SelecteFramesState extends State<SelecteFrames> {
           SizedBox(height: Get.height * 0.02),
           Expanded(
               child: ListView(
+            physics: BouncingScrollPhysics(),
             children: [
               logoAndColorBTN(context),
               Row(
@@ -101,6 +101,7 @@ class _SelecteFramesState extends State<SelecteFrames> {
       height: Get.height * 0.1,
       width: double.infinity,
       child: ListView.builder(
+        physics: BouncingScrollPhysics(),
         scrollDirection: Axis.horizontal,
         itemCount: Frame.length,
         itemBuilder: ((context, index) {
@@ -158,7 +159,7 @@ class _SelecteFramesState extends State<SelecteFrames> {
         child: Center(
           child: Text(
             'Email',
-            style: TextStyle(fontFamily: AppFont.SemiBold),
+            style: GoogleFonts.fredoka( fontWeight: FontWeight.w500,),
           ),
         ));
   }
@@ -179,8 +180,8 @@ class _SelecteFramesState extends State<SelecteFrames> {
               SizedBox(height: Get.height * 0.005),
               Text(
                 "Logo",
-                style: TextStyle(
-                    fontFamily: AppFont.Regular, fontSize: Get.height * 0.02),
+                style: GoogleFonts.fredoka(
+                     fontWeight: FontWeight.w400, fontSize: Get.height * 0.02),
               )
             ],
           ),
@@ -233,8 +234,8 @@ class _SelecteFramesState extends State<SelecteFrames> {
               SizedBox(height: Get.height * 0.01),
               Text(
                 "Text Color",
-                style: TextStyle(
-                    fontFamily: AppFont.Regular, fontSize: Get.height * 0.02),
+                style: GoogleFonts.fredoka(
+                     fontWeight: FontWeight.w400, fontSize: Get.height * 0.02),
               )
             ],
           ),
@@ -242,11 +243,6 @@ class _SelecteFramesState extends State<SelecteFrames> {
       ],
     );
   }
-
-
-
-
-
 
 //Frame_06
   Widget Frame_06(double hW) {
@@ -566,13 +562,13 @@ class _SelecteFramesState extends State<SelecteFrames> {
 
 // Text
   text({
-    String text,
-    double fontSize,
+    String? text,
+    double? fontSize,
     textAlign,
   }) {
     return Text(
-      text,
-      style: TextStyle(fontSize: fontSize, color: pickerColor),
+      text!,
+      style: GoogleFonts.fredoka(fontSize: fontSize, color: pickerColor),
       textAlign: textAlign,
       overflow: TextOverflow.ellipsis,
     );

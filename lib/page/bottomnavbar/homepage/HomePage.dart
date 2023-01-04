@@ -10,6 +10,7 @@ import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
 import 'package:flutter_bounce/flutter_bounce.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:poster_maker/Helper/commanlist/list.dart';
 import 'package:poster_maker/Helper/utlity.dart';
 import 'package:poster_maker/page/bottomnavbar/homepage/home_page_controller.dart';
@@ -20,7 +21,7 @@ import '../../../Helper/commanwidget.dart';
 import '../appbar/Appbar.dart';
 
 class HomePage extends StatefulWidget {
-  HomePage({Key key}) : super(key: key);
+  HomePage({Key? key}) : super(key: key);
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -49,8 +50,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
       vsync: this,
       animationDuration: Duration(microseconds: 1),
     );
-    _tabController.addListener(() {
-      currentIndex.value = _tabController.index;
+    _tabController!.addListener(() {
+      currentIndex.value = _tabController!.index;
     });
   }
 
@@ -101,7 +102,9 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               centerTitle: false,
               toolbarHeight: Get.height * 0.08,
               bottom: PreferredSize(
-                  preferredSize: Size.fromHeight(Get.height * 0.02), child: homeAppbar(draweronTap: _handleMenuButtonPressed, context: context)),
+                  preferredSize: Size.fromHeight(Get.height * 0.02),
+                  child: homeAppbar(
+                      draweronTap: _handleMenuButtonPressed, context: context)),
             ),
             SliverList(
               delegate: SliverChildListDelegate(
@@ -116,7 +119,10 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                         height: 10,
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
-                          children: posterImage.map((e) => indicator(index: posterImage.indexOf(e))).toList(),
+                          children: posterImage
+                              .map((e) =>
+                                  indicator(index: posterImage.indexOf(e)))
+                              .toList(),
                         ),
                       ),
                     ],
@@ -133,12 +139,15 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             ),
           ];
         },
-        body: TabBarView(controller: _tabController, physics: BouncingScrollPhysics(), children: [
-          New(),
-          Banner(),
-          Post(),
-          Story(),
-        ]),
+        body: TabBarView(
+            controller: _tabController,
+            physics: BouncingScrollPhysics(),
+            children: [
+              New(),
+              Banner(),
+              Post(),
+              Story(),
+            ]),
       ),
     );
   }
@@ -454,7 +463,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
     // GridView.custom(
     //   padding: EdgeInsets.all(15),
     //   shrinkWrap: true,
-    //   physics: const NeverScrollableScrollPhysics(),
+    //   physics: const BouncingScrollPhysics(),
     //   // gridDelegate: SliverQuiltedGridDelegate(
     //   //   crossAxisCount: 2,
     //   //   mainAxisSpacing: 16,
@@ -495,7 +504,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
     //     width: Get.width,
     //     // color: Color(AppColor.orange).withOpacity(0.1),
     //     child: GridView.builder(
-    //       physics: NeverScrollableScrollPhysics(),
+    //       physics: BouncingScrollPhysics(),
     //       itemCount: 25,
     //       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
     //           crossAxisCount: 2,
@@ -615,7 +624,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
     // GridView.custom(
     //   padding: EdgeInsets.all(15),
     //   shrinkWrap: true,
-    //   physics: const NeverScrollableScrollPhysics(),
+    //   physics: const BouncingScrollPhysics(),
     //   // gridDelegate: SliverQuiltedGridDelegate(
     //   //   crossAxisCount: 2,
     //   //   mainAxisSpacing: 10,
@@ -658,7 +667,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
     //     width: Get.width,
     //     // color: Color(AppColor.orange).withOpacity(0.1),
     //     child: GridView.builder(
-    //       physics: NeverScrollableScrollPhysics(),
+    //       physics: BouncingScrollPhysics(),
     //       itemCount: 25,
     //       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
     //           crossAxisCount: 2,
@@ -679,24 +688,23 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
 
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>TabButton<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< //
 
-  Widget tabButton({
-    Widget page,
-    currentInd,
-    selectedind,
-    String textName,
-  }) {
+  Widget tabButton({Widget? page, currentInd, selectedind, String? textName}) {
     return Obx(
       () => Container(
         width: Get.width * 0.25,
         // padding: EdgeInsets.only(left: 15, right: 15, bottom: 5, top: 3),
-        decoration: BoxDecoration(borderRadius: BorderRadius.circular(5), color: Colors.transparent),
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(5), color: Colors.transparent),
         child: Center(
           child: Text(
-            textName,
-            style: TextStyle(
-                fontSize: Get.width * 0.022,
-                color: currentIndex.value == currentInd ? Color(AppColor.white) : Color(0xFFC3A1B5),
-                fontFamily: AppFont.SemiBold),
+            textName!,
+            style: GoogleFonts.fredoka(
+              fontSize: Get.width * 0.022,
+              color: currentIndex.value == currentInd
+                  ? Color(AppColor.white)
+                  : Color(0xFFC3A1B5),
+              fontWeight: FontWeight.w600,
+            ),
           ),
         ),
       ),
@@ -709,7 +717,9 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
       padding: const EdgeInsets.symmetric(horizontal: 2),
       child: CircleAvatar(
         radius: (index != posterIndex) ? 3 : 4,
-        backgroundColor: (index != posterIndex) ? Color(AppColor.grey) : Color(AppColor.orange),
+        backgroundColor: (index != posterIndex)
+            ? Color(AppColor.grey)
+            : Color(AppColor.orange),
       ),
     );
 
@@ -798,13 +808,20 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
           },
         ),
         indicatorWeight: 1,
-        labelColor: Colors.white,
+        labelColor: Color(AppColor.white),
         unselectedLabelColor: Theme.of(context).cardColor,
-        labelStyle: TextStyle(fontSize: Get.width * 0.03, fontFamily: AppFont.SemiBold),
-        indicatorPadding: EdgeInsets.only(top: 5, bottom: 5, right: 10, left: 10),
+        labelStyle: GoogleFonts.fredoka(
+          fontSize: Get.width * 0.03,
+          fontWeight: FontWeight.w600,
+        ),
+        indicatorPadding:
+            EdgeInsets.only(top: 5, bottom: 5, right: 10, left: 10),
         indicator: BoxDecoration(
           borderRadius: BorderRadius.circular(8), //
-          gradient: LinearGradient(begin: Alignment.topCenter, end: Alignment.bottomCenter, colors: const [Color(0xFFFA7F08), Color(0xFFF24405)]),
+          gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [Color(AppColor.orange), Color(AppColor.yellow)]),
         ),
         // indicatorColor: Colors.white,
         controller: _tabController,
@@ -824,23 +841,6 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
           Tab(
             text: "STORY",
           ),
-          // Tab(
-          //   child: tab(
-          //     item:
-          //         tabButton(currentInd: 1, textName: 'BANNER', selectedind: 1),
-          //   ),
-          // ),
-          // // text: 'Banner',
-          // Tab(
-          //   child: tab(
-          //     item: tabButton(currentInd: 2, textName: 'POST', selectedind: 2),
-          //   ),
-          // ),
-          // Tab(
-          //   child: tab(
-          //     item: tabButton(currentInd: 3, textName: 'STORY', selectedind: 3),
-          //   ),
-          // ),
         ]);
   }
 

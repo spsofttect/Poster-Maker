@@ -1,14 +1,15 @@
+// ignore_for_file: unused_import, file_names
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../Helper/utlity.dart';
 import '../../Helper/widget.dart';
 
 class AddBusiness extends StatefulWidget {
-  const AddBusiness({Key key}) : super(key: key);
+  const AddBusiness({Key ?key}) : super(key: key);
 
   @override
   State<AddBusiness> createState() => _AddBusinessState();
@@ -78,7 +79,7 @@ class _AddBusinessState extends State<AddBusiness> {
                       alignment: Alignment.center,
                       child: Text(
                         "Add",
-                        style: TextStyle(fontFamily: AppFont.Medium, fontSize: 20, color: Color(AppColor.white)),
+                        style: GoogleFonts.fredoka(fontWeight: FontWeight.w500, fontSize: 20, color: Color(AppColor.white)),
                       ),
                     ),
                   ],
@@ -113,10 +114,10 @@ class _AddBusinessState extends State<AddBusiness> {
         ),
         Text(
           'Add Business',
-          style: TextStyle(
-            fontFamily: AppFont.Medium,
+          style: GoogleFonts.fredoka(
+          fontWeight: FontWeight.w500,
             fontSize: 20,
-            color: Theme.of(context).textTheme.headline1.color,
+            color: Theme.of(context).textTheme.headline1!.color,
           ),
         ),
       ],
@@ -139,7 +140,9 @@ class _AddBusinessState extends State<AddBusiness> {
     return Container(
       height: 60,
       width: Get.width * 0.9,
-      decoration: BoxDecoration(borderRadius: BorderRadius.circular(15), border: Border.all(color: Color(AppColor.orange))),
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(15),
+          border: Border.all(color: Color(AppColor.orange))),
       child: Row(
         children: [
           const SizedBox(
@@ -158,24 +161,27 @@ class _AddBusinessState extends State<AddBusiness> {
               keyboardType: keyboardType,
               controller: controller,
               onChanged: onChanged,
-              style: TextStyle(
+              style: GoogleFonts.fredoka(
                 fontSize: 15,
-                fontFamily: AppFont.Regular,
-                color: Theme.of(context).textTheme.headline1.color,
+              fontWeight: FontWeight.w500,
+                color: Theme.of(context).textTheme.headline1!.color,
               ),
               maxLength: maxLength,
               decoration: InputDecoration(
                 border: InputBorder.none,
                 counterText: '',
                 hintText: hintText,
-                hintStyle: TextStyle(fontSize: 15, fontFamily: AppFont.SemiBold),
+                hintStyle: GoogleFonts.fredoka(
+                  fontSize: 15,
+                fontWeight: FontWeight.w500,
+                ),
               ),
             ),
           ),
           Text("$val/$maxLength",
-              style: TextStyle(
-                fontFamily: AppFont.Regular,
-                color: Theme.of(context).textTheme.headline1.color,
+              style: GoogleFonts.fredoka(
+              fontWeight: FontWeight.w500,
+                color: Theme.of(context).textTheme.headline1!.color,
               )),
           const SizedBox(width: 10),
         ],

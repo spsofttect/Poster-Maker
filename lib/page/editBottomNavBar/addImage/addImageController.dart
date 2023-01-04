@@ -18,14 +18,11 @@ class AddImageController extends GetxController {
 
   void getPhoto() {
     ApiProvider apiProvider = ApiProvider();
-
     apiProvider.getApiCall(ApiUrl.photo).then((value) {
       var photoList = json.decode(value.body);
       print(photoList);
-
       var responsedata = photoList['download_url'];
       photoList = Photo.getData(responsedata);
-
       print(photoList.length);
     });
   }

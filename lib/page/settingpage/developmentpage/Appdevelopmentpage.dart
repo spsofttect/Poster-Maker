@@ -4,12 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_windowmanager/flutter_windowmanager.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:poster_maker/Helper/utlity.dart';
 import 'package:poster_maker/Helper/widget.dart';
 import 'package:poster_maker/page/bottomnavbar/appbar/Appbar.dart';
 
 class DevelopmentPage extends StatefulWidget {
-  const DevelopmentPage({Key key}) : super(key: key);
+  const DevelopmentPage({Key ?key}) : super(key: key);
 
   @override
   State<DevelopmentPage> createState() => _DevelopmentPageState();
@@ -26,12 +27,11 @@ class _DevelopmentPageState extends State<DevelopmentPage> {
 
   @override
   Widget build(BuildContext context) {
-    dynamic args = ModalRoute.of(context).settings.arguments;
+    dynamic args = ModalRoute.of(context)!.settings.arguments;
 
     // DeviceOrientation
     // SystemChrome.setPreferredOrientations(
     //     [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
-
     // Do not capture Screenshot and video
     FlutterWindowManager.addFlags(FlutterWindowManager.FLAG_SECURE);
     // Do not capture Screenshot and video
@@ -46,8 +46,11 @@ class _DevelopmentPageState extends State<DevelopmentPage> {
                 Get.back();
               },
             ),
-           Expanded(child: ListView(children: [
-             title(title: 'We also design:'),
+            Expanded(
+                child: ListView(
+              physics: const BouncingScrollPhysics(),
+              children: [
+                title(title: 'We also design:'),
                 listView(args: args),
                 Container(
                   margin: const EdgeInsets.all(15),
@@ -62,16 +65,16 @@ class _DevelopmentPageState extends State<DevelopmentPage> {
                     children: (args == "App")
                         ? development
                             .map((e) =>
-                                (e.color) ? crossContainer(e) : Container())
+                                (e.color!) ? crossContainer(e) : Container())
                             .toList()
                         : (args == "Website")
                             ? webDevelopment
                                 .map((e) =>
-                                    (e.color) ? crossContainer(e) : Container())
+                                    (e.color!) ? crossContainer(e) : Container())
                                 .toList()
                             : graphicsDevelopment
                                 .map((e) =>
-                                    (e.color) ? crossContainer(e) : Container())
+                                    (e.color!) ? crossContainer(e) : Container())
                                 .toList(),
                   ),
                 ),
@@ -93,14 +96,15 @@ class _DevelopmentPageState extends State<DevelopmentPage> {
                     height: 45,
                     width: Get.width,
                     margin: const EdgeInsets.all(15))
-           ],))
+              ],
+            ))
           ],
         ),
       ),
     );
   }
 
-  Container listView({String args}) {
+  Container listView({String ?args}) {
     return Container(
       margin: const EdgeInsets.only(left: 15, right: 15),
       child: Wrap(
@@ -122,9 +126,9 @@ class _DevelopmentPageState extends State<DevelopmentPage> {
       padding: const EdgeInsets.all(20.0),
       child: Text(
         title,
-        style: TextStyle(
+        style: GoogleFonts.fredoka(
             color: Color(AppColor.white),
-            fontFamily: AppFont.SemiBold,
+            fontWeight: FontWeight.w400,
             fontSize: 18),
       ),
     );
@@ -149,9 +153,9 @@ class _DevelopmentPageState extends State<DevelopmentPage> {
             borderRadius: BorderRadius.circular(5)),
         child: Text(
           e.name,
-          style: TextStyle(
+          style: GoogleFonts.fredoka(
               color: e.color ? Color(AppColor.white) : Color(AppColor.grey),
-              fontFamily: AppFont.Medium,
+              fontWeight: FontWeight.w400,
               fontSize: 14),
         ),
       ),
@@ -175,9 +179,9 @@ class _DevelopmentPageState extends State<DevelopmentPage> {
         children: [
           Text(
             e.name,
-            style: TextStyle(
+            style: GoogleFonts.fredoka(
                 color: e.color ? Color(AppColor.white) : Color(AppColor.grey),
-                fontFamily: AppFont.Medium,
+                fontWeight: FontWeight.w400,
                 fontSize: 14),
           ),
           const SizedBox(
@@ -202,7 +206,7 @@ class _DevelopmentPageState extends State<DevelopmentPage> {
   }
 
   Widget textfield(
-      {String hintText, double height, TextInputType keyboardtype}) {
+      {String? hintText, double? height, TextInputType? keyboardtype}) {
     return Container(
         margin: const EdgeInsets.only(left: 15, right: 15, top: 20),
         height: height,
@@ -215,17 +219,18 @@ class _DevelopmentPageState extends State<DevelopmentPage> {
           keyboardType: keyboardtype,
           maxLines: (height == 120) ? 6 : 1,
           cursorColor: Color(AppColor.orange),
-          style: TextStyle(
+          style: GoogleFonts.fredoka(
               // color:
               // Get.isDarkMode ? Color(AppColor.grey) : Color(AppColor.white),
               fontSize: 15,
-              fontFamily: AppFont.SemiBold),
+              fontWeight: FontWeight.w400,),
           decoration: InputDecoration(
             contentPadding:
                 const EdgeInsets.only(top: 10, bottom: 10, left: 20, right: 20),
             border: InputBorder.none,
             hintText: hintText,
-            hintStyle: TextStyle(fontSize: 15, fontFamily: AppFont.SemiBold),
+            hintStyle:
+                GoogleFonts.fredoka(fontSize: 15,fontWeight: FontWeight.w400,),
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(6),
               borderSide: const BorderSide(color: Colors.transparent),
@@ -240,8 +245,8 @@ class _DevelopmentPageState extends State<DevelopmentPage> {
 }
 
 class Development {
-  String name;
-  bool color;
+  String ?name;
+  bool ?color;
   Development({this.name, this.color});
 }
 

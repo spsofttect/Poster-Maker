@@ -18,7 +18,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.10.0 <3.0.0"
+  sdk: ">=2.18.4 <3.0.0"
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -42,14 +42,14 @@ dependencies:
   intl_phone_number_input: ^0.7.0+2
   otp_text_field: ^1.1.3
   dropdown_button2: ^1.6.1
-  image_picker: ^0.8.5+3
+  image_picker: ^0.8.6
   provider: ^6.0.3
-  photo_manager: ^2.0.1
+  photo_manager: ^2.5.1+1
   flutter_windowmanager: ^0.2.0
   flutter_switch: ^0.3.2
   http:
   fluttertoast: ^8.0.9
-  dotted_border: ^2.0.0+2
+  dotted_border: ^2.0.0+3
   flutter_advanced_drawer: ^1.3.2
   path_provider:
   share_plus:
@@ -61,14 +61,21 @@ dependencies:
   video_player: ^2.4.5
   flutter_colorpicker:
   cached_video_player: ^2.0.3
+  platform_device_id: ^1.0.1
+  firebase_core: ^2.4.0
+  firebase_auth: ^4.1.5
+  firebase_messaging: ^14.1.3
+  firebase_crashlytics: ^3.0.6
+  firebase_analytics: ^10.0.7
+  flutter_secure_storage: ^6.1.0
+  flutterfire_cli: ^0.2.7
+  get_it: ^7.2.0
+  flutter_local_notifications: ^9.7.0
+  rxdart: ^0.27.5
   in_app_review: ^2.0.6
   shimmer: ^2.0.0
   cached_network_image: ^3.2.3
-
-
-
-
-
+  auto_size_text: ^3.0.0
 
 
 
@@ -96,9 +103,9 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/image/  
-    - assets/poster/  
-    - assets/ctegory/  
+    - assets/image/
+    - assets/poster/
+    - assets/ctegory/
     - assets/image/splashscreen/
     - assets/image/intro/
     - assets/image/login/
@@ -111,8 +118,9 @@ flutter:
     - assets/image/refer_earn/
     - assets/image/custom/
     - assets/image/create/
+    - assets/image/appbar/
     - assets/frame/
-    
+
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
@@ -130,19 +138,6 @@ flutter:
     - family: Freeh521
       fonts:
         - asset: assets/font/Freeh521.TTF
-    - family: Bold
-      fonts:
-        - asset: assets/font/Fredoka-Bold.ttf
-    - family: Regular
-      fonts:
-        - asset: assets/font/Fredoka-Regular.ttf
-    - family: SemiBold
-      fonts:
-        - asset: assets/font/Fredoka-SemiBold.ttf
-    - family: Medium
-      fonts:
-        - asset: assets/font/Fredoka-Medium.ttf
-   
   # fonts:
   #   - family: Schyler
   #     fonts:

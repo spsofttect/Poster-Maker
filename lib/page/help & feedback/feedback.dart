@@ -2,13 +2,14 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:poster_maker/Helper/utlity.dart';
 import 'package:poster_maker/Helper/widget.dart';
 import 'package:poster_maker/page/bottomnavbar/appbar/Appbar.dart';
 import 'package:poster_maker/page/bottomnavbar/bottomnavbar.dart';
 
 class FeedbackView extends StatelessWidget {
-  const FeedbackView({Key key}) : super(key: key);
+  const FeedbackView({Key ?key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +23,7 @@ class FeedbackView extends StatelessWidget {
                 ontap: () {
                   Get.offAll(BottomNavBarScreen());
                 },
-                textColor: Theme.of(context).textTheme.headline1.color,
+                textColor: Theme.of(context).textTheme.headline1!.color,
                 pageName: "Help & Feedback"),
             Image.asset(
               "${AssetPath.settingpage}feedback.png",
@@ -33,23 +34,41 @@ class FeedbackView extends StatelessWidget {
             ),
             Text(
               "Help & Feedback",
-              style: TextStyle(fontFamily: AppFont.Medium, fontSize: 20, color: Theme.of(context).textTheme.headline1.color),
+              style: GoogleFonts.fredoka(
+                  fontWeight: FontWeight.w500,
+                  fontSize: 20,
+                  color: Theme.of(context).textTheme.headline1!.color),
             ),
-            textfield(hintText: 'Enter your Email-ID*', height: 45, keyboardtype: TextInputType.emailAddress),
-            textfield(hintText: 'Enter your Mobile*', height: 45, keyboardtype: TextInputType.number),
-            textfield(hintText: 'Enter your Text', height: 120, keyboardtype: TextInputType.text),
+            textfield(
+                hintText: 'Enter your Email-ID*',
+                height: 45,
+                keyboardtype: TextInputType.emailAddress),
+            textfield(
+                hintText: 'Enter your Mobile*',
+                height: 45,
+                keyboardtype: TextInputType.number),
+            textfield(
+                hintText: 'Enter your Text',
+                height: 120,
+                keyboardtype: TextInputType.text),
             SizedBox(
               height: 10,
             ),
             CommanWidget().nextButton(
-                text: 'Send', radius: 10.0, height: 45, width: Get.width, margin: const EdgeInsets.only(top: 15, bottom: 15, left: 50, right: 50))
+                text: 'Send',
+                radius: 10.0,
+                height: 45,
+                width: Get.width,
+                margin: const EdgeInsets.only(
+                    top: 15, bottom: 15, left: 50, right: 50))
           ],
         ),
       ),
     );
   }
 
-  Widget textfield({String hintText, double height, TextInputType keyboardtype}) {
+  Widget textfield(
+      {String? hintText, double ?height, TextInputType? keyboardtype}) {
     return Container(
         margin: const EdgeInsets.only(left: 15, right: 15, top: 20),
         height: height,
@@ -62,16 +81,18 @@ class FeedbackView extends StatelessWidget {
           keyboardType: keyboardtype,
           maxLines: (height == 120) ? 6 : 1,
           cursorColor: Color(AppColor.orange),
-          style: TextStyle(
+          style: GoogleFonts.fredoka(
               // color:
               // Get.isDarkMode ? Color(AppColor.grey) : Color(AppColor.white),
               fontSize: 15,
-              fontFamily: AppFont.SemiBold),
+              fontWeight: FontWeight.w500),
           decoration: InputDecoration(
-            contentPadding: const EdgeInsets.only(top: 10, bottom: 10, left: 20, right: 20),
+            contentPadding:
+                const EdgeInsets.only(top: 10, bottom: 10, left: 20, right: 20),
             border: InputBorder.none,
             hintText: hintText,
-            hintStyle: TextStyle(fontSize: 15, fontFamily: AppFont.SemiBold),
+            hintStyle:
+                GoogleFonts.fredoka(fontSize: 15, fontWeight: FontWeight.w500),
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(6),
               borderSide: const BorderSide(color: Colors.transparent),

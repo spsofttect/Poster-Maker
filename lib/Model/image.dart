@@ -1,10 +1,10 @@
 class Photo {
-  String id;
-  String author;
-  int width;
-  int height;
-  String url;
-  String downloadUrl;
+  String?id;
+  String? author;
+  int? width;
+  int ?height;
+  String ?url;
+  String ?downloadUrl;
 
   Photo(
       {this.id,

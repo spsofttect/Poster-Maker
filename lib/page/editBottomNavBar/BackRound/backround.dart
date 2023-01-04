@@ -1,13 +1,15 @@
-// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
+// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, missing_required_param, unused_import
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bounce/flutter_bounce.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:poster_maker/Helper/commanwidget.dart';
 import 'package:poster_maker/Helper/utlity.dart';
 
 class BackRoundPage extends StatefulWidget {
-  const BackRoundPage({Key key}) : super(key: key);
+  const BackRoundPage({Key? key}) : super(key: key);
 
   @override
   State<BackRoundPage> createState() => _BackRoundPageState();
@@ -15,7 +17,7 @@ class BackRoundPage extends StatefulWidget {
 
 class _BackRoundPageState extends State<BackRoundPage>
     with SingleTickerProviderStateMixin {
-  TabController _tabController;
+  TabController? _tabController;
   int tabIndex = 0;
 
   @override
@@ -35,15 +37,11 @@ class _BackRoundPageState extends State<BackRoundPage>
 
   @override
   Widget build(BuildContext context) {
-
-
-
-      _tabController.addListener(() {
+    _tabController?.addListener(() {
       // if (_tabController.indexIsChanging) {
-        setState(() {
-          tabIndex = _tabController.index;
-        });
-      
+      setState(() {
+        tabIndex = _tabController!.index;
+      });
     });
 
     return SafeArea(
@@ -79,30 +77,14 @@ class _BackRoundPageState extends State<BackRoundPage>
 
   Widget gridView() {
     return Expanded(
-      child: GridView.custom(
-        padding: EdgeInsets.all(15),
-        shrinkWrap: true,
-        physics: const AlwaysScrollableScrollPhysics(),
-        // gridDelegate: SliverQuiltedGridDelegate(
-        //   crossAxisCount: 4,
-        //   mainAxisSpacing: 10,
-        //   crossAxisSpacing: 10,
-        //   repeatPattern: QuiltedGridRepeatPattern.inverted,
-        //   pattern: const [
-        //     QuiltedGridTile(1, 1),
-        //     QuiltedGridTile(1, 1),
-
-        //     // QuiltedGridTile(2, 1),
-        //     // QuiltedGridTile(1, 2),
-        //     // QuiltedGridTile(1, 1),
-        //     // QuiltedGridTile(1, 1),
-        //     // QuiltedGridTile(1, 2),
-        //   ],
-        // ),
-        childrenDelegate: SliverChildBuilderDelegate(
-          (context, index) {
-            // var currentObj = item2[index];
-            return Container(
+      child: StaggeredGridView.countBuilder(
+      crossAxisCount: 2,
+      padding: EdgeInsets.only(bottom: Get.height * 0.1),
+      itemCount: 99,
+      physics: BouncingScrollPhysics(),
+      itemBuilder: (context, index) => Padding(
+        padding: const EdgeInsets.all(5.0),
+        child:Container(
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
                   // boxShadow: [
@@ -116,11 +98,10 @@ class _BackRoundPageState extends State<BackRoundPage>
                   //     image: AssetImage(currentObj), fit: BoxFit.fill),
                   // borderRadius: BorderRadius.circular(15),
                   color: Color(AppColor.grey).withOpacity(0.2)),
-            );
-          },
-          childCount: 99,
-        ),
+            )
       ),
+      staggeredTileBuilder: (index) => const StaggeredTile.fit(1),
+    )
     );
   }
 
@@ -144,7 +125,7 @@ class _BackRoundPageState extends State<BackRoundPage>
   }
 
   Widget tabButton(
-      {currentInd, selectedind, String textName, EdgeInsets margin}) {
+      {currentInd, selectedind, String? textName, EdgeInsets? margin}) {
     return Column(
       children: [
         GestureDetector(
@@ -162,13 +143,14 @@ class _BackRoundPageState extends State<BackRoundPage>
                     : Color(AppColor.orange).withOpacity(0.2)),
             child: Center(
               child: Text(
-                textName,
-                style: TextStyle(
-                    fontSize: 12,
-                    color: currentIndex == currentInd
-                        ? Color(AppColor.white)
-                        : Color(AppColor.shadow),
-                    fontFamily: AppFont.Medium),
+                textName!,
+                style: GoogleFonts.fredoka(
+                  fontSize: 12,
+                  color: currentIndex == currentInd
+                      ? Color(AppColor.white)
+                      : Color(AppColor.shadow),
+                  fontWeight: FontWeight.w400,
+                ),
               ),
             ),
           ),
@@ -183,6 +165,7 @@ class _BackRoundPageState extends State<BackRoundPage>
         height: 40,
         width: double.infinity,
         child: ListView.builder(
+            physics: BouncingScrollPhysics(),
             scrollDirection: Axis.horizontal,
             itemCount: backroundName.length,
             itemBuilder: (context, index) {
@@ -220,25 +203,26 @@ class _BackRoundPageState extends State<BackRoundPage>
   Widget tabContainer({index}) {
     return Text(
       backroundName[index],
-      style: TextStyle(
-          fontSize: Get.height * 0.015, fontFamily: AppFont.Medium,),
+      style: GoogleFonts.fredoka(
+        fontSize: Get.height * 0.015,
+        fontWeight: FontWeight.w400,
+      ),
     );
   }
 
   Widget grid() {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 5),
-      child: GridView.builder(
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 4, mainAxisSpacing: 8, crossAxisSpacing: 8),
-          itemCount: 99,
-          itemBuilder: (_, i) {
-            return Container(
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  color: Color(AppColor.grey).withOpacity(0.2)),
-            );
-          }),
-    );
+    return GridView.builder(
+        padding: EdgeInsets.all(8),
+        physics: BouncingScrollPhysics(),
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 4, mainAxisSpacing: 8, crossAxisSpacing: 8),
+        itemCount: 99,
+        itemBuilder: (_, i) {
+          return Container(
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                color: Color(AppColor.grey).withOpacity(0.2)),
+          );
+        });
   }
 }
