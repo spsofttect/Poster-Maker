@@ -17,8 +17,7 @@ class AddImagePage extends StatefulWidget {
   State<AddImagePage> createState() => _AddImagePageState();
 }
 
-class _AddImagePageState extends State<AddImagePage>
-    with TickerProviderStateMixin {
+class _AddImagePageState extends State<AddImagePage> with TickerProviderStateMixin {
   AddImageController _addImageController = Get.put(AddImageController());
 
   @override
@@ -41,8 +40,7 @@ class _AddImagePageState extends State<AddImagePage>
         type: RequestType.image,
       );
 
-      final List<AssetEntity> entities =
-          await paths[0].getAssetListPaged(page: 0, size: 50);
+      final List<AssetEntity> entities = await paths.first.getAssetListPaged(page: 0, size: 50);
       setState(() {
         albumlist = paths;
         mediaList = entities;
@@ -140,14 +138,7 @@ class _AddImagePageState extends State<AddImagePage>
   }
 
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Gallery Bulltom <<<<<<<<<<<<<<<<<<<<<<<<<<<< //
-  Widget nextButton(
-      {double? height,
-      double? width,
-      double? radius,
-      String? image,
-      text,
-      EdgeInsets? margin,
-      onTap}) {
+  Widget nextButton({double height, double width, double radius, String image, text, EdgeInsets margin, onTap}) {
     return GestureDetector(
       onTap: onTap,
       child: Container(
@@ -266,8 +257,7 @@ class _AddImagePageState extends State<AddImagePage>
                             }
                             selectedFile = mediaList[i];
 
-                            print(
-                                " ==============++++++++++++++++++))))))))((((((((()))))))))  ${selectedFile = mediaList[i]}");
+                            print(" ==============++++++++++++++++++))))))))((((((((()))))))))  ${selectedFile = mediaList[i]}");
                             if (selectedAlbums.contains(mediaList[i])) {
                               selectedAlbums.remove(mediaList[i]);
                             } else {

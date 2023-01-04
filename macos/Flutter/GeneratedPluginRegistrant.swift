@@ -15,8 +15,6 @@ import flutter_secure_storage_macos
 import in_app_review
 import path_provider_macos
 import photo_manager
-import platform_device_id
-import platform_device_id_macos
 import share_plus_macos
 import shared_preferences_macos
 import sqflite

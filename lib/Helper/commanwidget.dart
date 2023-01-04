@@ -9,6 +9,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:poster_maker/Helper/commanlist/list.dart';
 import 'package:poster_maker/Helper/utlity.dart';
+import 'package:shimmer/shimmer.dart';
 
 TextEditingController phoneController = TextEditingController();
 
@@ -224,6 +225,17 @@ icon({icon, color}) {
   );
 }
 
+Widget shimmerImage({double ratio, BuildContext context}) {
+  return Shimmer.fromColors(
+      baseColor: Theme.of(context).splashColor,
+      highlightColor: (Get.isDarkMode) ? Colors.white54 : Colors.grey.shade300,
+      child: AspectRatio(
+          aspectRatio: ratio,
+          child: Container(
+            color: Colors.red,
+          )));
+}
+
 class DynamicVideoPlayer extends StatefulWidget {
   DynamicVideoPlayer({Key? key, this.url, this.index}) : super(key: key);
   String? url;
@@ -287,12 +299,12 @@ class _DynamicVideoPlayerState extends State<DynamicVideoPlayer> {
                   alignment: Alignment.topRight,
                   child: InkWell(
                     onTap: () {
-                      item3[widget.index!].isLike =
-                          !item3[widget.index!].isLike!;
-                      if (item3[widget.index!].isLike!) {
-                        favourit.add(item3[widget.index!]);
+                      homePageNewData[widget.index].isLike = !homePageNewData[widget.index].isLike;
+
+                      if (homePageNewData[widget.index].isLike) {
+                        favourit.add(homePageNewData[widget.index]);
                       } else {
-                        favourit.remove(item3[widget.index!]);
+                        favourit.remove(homePageNewData[widget.index]);
                       }
                       setState(() {});
                     },
@@ -305,15 +317,6 @@ class _DynamicVideoPlayerState extends State<DynamicVideoPlayer> {
                           borderRadius: BorderRadius.circular(8)),
                       child: Icon(
                         Icons.favorite,
-                        color: (!item3[widget.index!].isLike!)
-                            ? Colors.white
-                            : Colors.red,
+                        color: (!homePageNewData[widget.index].isLike) ? Colors.white : Colors.red,
                       ),
                     ),
-                  ),
-                ),
-              ],
-            ))
-        : const SizedBox();
-  }
-}

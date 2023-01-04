@@ -15,14 +15,11 @@ class AppTheme {
   }
 
   static final light = ThemeData.light().copyWith(
-    drawerTheme: DrawerThemeData(
-        backgroundColor:
-            isdarkMode ? Color(AppColor.bgcolor) : Color(AppColor.white)),
+    drawerTheme: DrawerThemeData(backgroundColor: isdarkMode.value ? Color(AppColor.bgcolor) : Color(AppColor.white)),
     brightness: Brightness.light,
     scaffoldBackgroundColor: Color.fromARGB(255, 235, 235, 235),
     // textSelectionColor: Color(AppColor.bgcolor),
-    bottomSheetTheme:
-        BottomSheetThemeData(backgroundColor: Color(AppColor.bgcolor)),
+    bottomSheetTheme: BottomSheetThemeData(backgroundColor: Color(AppColor.bgcolor)),
     iconTheme: IconThemeData(color: Color(AppColor.bgcolor)),
     backgroundColor: Color(AppColor.bgcolor),
     appBarTheme: AppBarTheme(backgroundColor: Color(AppColor.bgcolor)),
@@ -31,15 +28,16 @@ class AppTheme {
       headline2: GoogleFonts.fredoka(color: Color(AppColor.bgcolor)),
     ),
 //animation text label color
+    splashColor: const Color(0xffF0F0F3),
     cardColor: Color(AppColor.bgcolor),
 
     dialogTheme: DialogTheme(backgroundColor: Color(AppColor.bgcolor)),
     primaryColorLight: Color(AppColor.bgcolor),
-    bottomNavigationBarTheme: BottomNavigationBarThemeData(
-        backgroundColor: Color(AppColor.bgcolor),
-        selectedItemColor: Color(AppColor.yellow)),
+    bottomNavigationBarTheme: BottomNavigationBarThemeData(backgroundColor: Color(AppColor.bgcolor), selectedItemColor: Color(AppColor.yellow)),
   );
   static final dark = ThemeData.dark().copyWith(
+      drawerTheme: DrawerThemeData(backgroundColor: isdarkMode.value ? Color(AppColor.bgcolor) : Color(AppColor.white)),
+      bottomSheetTheme: BottomSheetThemeData(backgroundColor: Color(AppColor.bgcolor)),
       drawerTheme: DrawerThemeData(
           backgroundColor:
               isdarkMode ? Color(AppColor.bgcolor) : Color(AppColor.white)),
@@ -59,11 +57,10 @@ class AppTheme {
       ),
       //animation text label color
       cardColor: Colors.white60,
+      splashColor: const Color(0xff2C2F33),
 
       // accentColor: Colors.white60,
-      bottomNavigationBarTheme: BottomNavigationBarThemeData(
-          backgroundColor: Color(AppColor.bgcolor),
-          selectedItemColor: Color(AppColor.yellow)));
+      bottomNavigationBarTheme: BottomNavigationBarThemeData(backgroundColor: Color(AppColor.bgcolor), selectedItemColor: Color(AppColor.yellow)));
 }
 
 // class AppTheme {

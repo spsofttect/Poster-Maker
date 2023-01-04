@@ -73,6 +73,7 @@ dependencies:
   flutter_local_notifications: ^9.7.0
   rxdart: ^0.27.5
   in_app_review: ^2.0.6
+  shimmer: ^2.0.0
   cached_network_image: ^3.2.3
   auto_size_text: ^3.0.0
 
