@@ -10,11 +10,13 @@ import 'package:poster_maker/page/login/login.dart';
 import 'package:poster_maker/page/login/number_varification/varification.dart';
 import 'package:poster_maker/page/settingpage/settingScreen.dart';
 
+import '../page/bottomnavbar/homepage/HomePage.dart';
+
 class RouterForApp {
   static final route = [
     GetPage(
       name: '/splashView',
-      page: () => SplashScreen(),
+      page: () => HomePage(),
     ),
     GetPage(
       name: '/introScreen',

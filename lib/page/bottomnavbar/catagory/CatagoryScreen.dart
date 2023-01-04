@@ -43,17 +43,12 @@ class _CatagoryScreenState extends State<CatagoryScreen> {
               //instagram post
               title(title: 'Instagram Post', context: context),
               customListView(
-                  listindex: item2,
-                  itemCount: item2.length,
-                  boxfit: BoxFit.fitHeight,
-                  height: 160,
-                  width: 120,
-                  scrollDirection: Axis.horizontal),
+                  listindex: item2, itemCount: item2.length, boxfit: BoxFit.fitHeight, height: 160, width: 120, scrollDirection: Axis.horizontal),
               // Youtube Banner
               title(title: 'Youtube Banner', context: context),
               customListView(
-                  listindex: item.reversed.toList(),
-                  itemCount: item.length,
+                  listindex: homePageNewData.reversed.toList(),
+                  itemCount: homePageNewData.length,
                   boxfit: BoxFit.cover,
                   height: 120,
                   width: 200,
@@ -61,8 +56,8 @@ class _CatagoryScreenState extends State<CatagoryScreen> {
               // Festival
               title(title: 'Festival', context: context),
               customListView(
-                  listindex: item,
-                  itemCount: item.length,
+                  listindex: homePageNewData,
+                  itemCount: homePageNewData.length,
                   boxfit: BoxFit.cover,
                   height: 120,
                   width: 120,
@@ -104,9 +99,7 @@ class _CatagoryScreenState extends State<CatagoryScreen> {
           Container(
             height: 35,
             width: Get.width * 0.7,
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(8),
-                color: Color(AppColor.white)),
+            decoration: BoxDecoration(borderRadius: BorderRadius.circular(8), color: Color(AppColor.white)),
           ),
           Text(
             'Cancel',
