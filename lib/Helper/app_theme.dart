@@ -15,7 +15,7 @@ class AppTheme {
   }
 
   static final light = ThemeData.light().copyWith(
-    drawerTheme: DrawerThemeData(backgroundColor: isdarkMode.value ? Color(AppColor.bgcolor) : Color(AppColor.white)),
+    drawerTheme: DrawerThemeData(backgroundColor: isdarkMode ? Color(AppColor.bgcolor) : Color(AppColor.white)),
     brightness: Brightness.light,
     scaffoldBackgroundColor: Color.fromARGB(255, 235, 235, 235),
     // textSelectionColor: Color(AppColor.bgcolor),
@@ -36,13 +36,13 @@ class AppTheme {
     bottomNavigationBarTheme: BottomNavigationBarThemeData(backgroundColor: Color(AppColor.bgcolor), selectedItemColor: Color(AppColor.yellow)),
   );
   static final dark = ThemeData.dark().copyWith(
-      drawerTheme: DrawerThemeData(backgroundColor: isdarkMode.value ? Color(AppColor.bgcolor) : Color(AppColor.white)),
+      drawerTheme: DrawerThemeData(backgroundColor: isdarkMode ? Color(AppColor.bgcolor) : Color(AppColor.white)),
       bottomSheetTheme: BottomSheetThemeData(backgroundColor: Color(AppColor.bgcolor)),
-      drawerTheme: DrawerThemeData(
-          backgroundColor:
-              isdarkMode ? Color(AppColor.bgcolor) : Color(AppColor.white)),
-      bottomSheetTheme:
-          BottomSheetThemeData(backgroundColor: Color(AppColor.bgcolor)),
+      // drawerTheme: DrawerThemeData(
+      //     backgroundColor:
+      //         isdarkMode ? Color(AppColor.bgcolor) : Color(AppColor.white)),
+      // bottomSheetTheme:
+      //     BottomSheetThemeData(backgroundColor: Color(AppColor.bgcolor)),
       scaffoldBackgroundColor: Color(AppColor.bgcolor),
       // textSelectionColor: Color(AppColor.white),
       brightness: Brightness.dark,

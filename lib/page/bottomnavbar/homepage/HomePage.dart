@@ -29,12 +29,12 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   int posterIndex = 0;
-  TabController _tabController;
-  Future<List> allHomePageNewData;
-  Future<List> allHomePageBannerData;
-  Future<List> allHomePagePostData;
-  Future<List> allHomePageStoryData;
-  Future<List> allHomePageSBannerList;
+  late TabController _tabController;
+  late Future<List> allHomePageNewData;
+  late Future<List> allHomePageBannerData;
+  late Future<List> allHomePagePostData;
+  late Future<List> allHomePageStoryData;
+  late Future<List> allHomePageSBannerList;
 
   @override
   void initState() {
@@ -50,8 +50,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
       vsync: this,
       animationDuration: Duration(microseconds: 1),
     );
-    _tabController!.addListener(() {
-      currentIndex.value = _tabController!.index;
+    _tabController.addListener(() {
+      currentIndex.value = _tabController.index;
     });
   }
 
@@ -102,9 +102,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               centerTitle: false,
               toolbarHeight: Get.height * 0.08,
               bottom: PreferredSize(
-                  preferredSize: Size.fromHeight(Get.height * 0.02),
-                  child: homeAppbar(
-                      draweronTap: _handleMenuButtonPressed, context: context)),
+                  preferredSize: Size.fromHeight(Get.height * 0.02), child: homeAppbar(draweronTap: _handleMenuButtonPressed, context: context)),
             ),
             SliverList(
               delegate: SliverChildListDelegate(
@@ -119,10 +117,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                         height: 10,
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
-                          children: posterImage
-                              .map((e) =>
-                                  indicator(index: posterImage.indexOf(e)))
-                              .toList(),
+                          children: posterImage.map((e) => indicator(index: posterImage.indexOf(e))).toList(),
                         ),
                       ),
                     ],
@@ -139,15 +134,12 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             ),
           ];
         },
-        body: TabBarView(
-            controller: _tabController,
-            physics: BouncingScrollPhysics(),
-            children: [
-              New(),
-              Banner(),
-              Post(),
-              Story(),
-            ]),
+        body: TabBarView(controller: _tabController, physics: BouncingScrollPhysics(), children: [
+          New(),
+          Banner(),
+          Post(),
+          Story(),
+        ]),
       ),
     );
   }
@@ -169,7 +161,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               child: Bounce(
                 duration: Duration(milliseconds: 200),
                 onPressed: () {
-                  Get.to()
+                  // Get.to()
                   Get.to(EditBottomNavBar());
                 },
                 child: Card(
@@ -205,9 +197,9 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                           Image.network(myNewData[index]['image']),
                           InkWell(
                             onTap: () {
-                              homePageNewData[index].isLike = !homePageNewData[index].isLike;
+                              homePageNewData[index].isLike = !homePageNewData[index].isLike!;
                               setState(() {});
-                              if (homePageNewData[index].isLike) {
+                              if (homePageNewData[index].isLike!) {
                                 favourit.add(homePageNewData[index]);
                               } else {
                                 favourit.remove(homePageNewData[index]);
@@ -220,7 +212,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                               decoration: BoxDecoration(color: Colors.black54, borderRadius: BorderRadius.circular(8)),
                               child: Icon(
                                 Icons.favorite,
-                                color: (!homePageNewData[index].isLike) ? Colors.white : Colors.red,
+                                color: (!homePageNewData[index].isLike!) ? Colors.white : Colors.red,
                               ),
                             ),
                           ),
@@ -304,9 +296,9 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                           ),
                           InkWell(
                             onTap: () {
-                              homePageNewData[index].isLike = !homePageNewData[index].isLike;
+                              homePageNewData[index].isLike = !homePageNewData[index].isLike!;
                               setState(() {});
-                              if (homePageNewData[index].isLike) {
+                              if (homePageNewData[index].isLike!) {
                                 favourit.add(homePageNewData[index]);
                               } else {
                                 favourit.remove(homePageNewData[index]);
@@ -319,7 +311,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                               decoration: BoxDecoration(color: Colors.black54, borderRadius: BorderRadius.circular(8)),
                               child: Icon(
                                 Icons.favorite,
-                                color: (!homePageNewData[index].isLike) ? Colors.white : Colors.red,
+                                color: (!homePageNewData[index].isLike!) ? Colors.white : Colors.red,
                               ),
                             ),
                           ),
@@ -404,9 +396,9 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                           Image.network(myPostData[index]['image']),
                           InkWell(
                             onTap: () {
-                              homePageNewData[index].isLike = !homePageNewData[index].isLike;
+                              homePageNewData[index].isLike = !homePageNewData[index].isLike!;
                               setState(() {});
-                              if (homePageNewData[index].isLike) {
+                              if (homePageNewData[index].isLike!) {
                                 favourit.add(homePageNewData[index]);
                               } else {
                                 favourit.remove(homePageNewData[index]);
@@ -419,7 +411,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                               decoration: BoxDecoration(color: Colors.black54, borderRadius: BorderRadius.circular(8)),
                               child: Icon(
                                 Icons.favorite,
-                                color: (!homePageNewData[index].isLike) ? Colors.white : Colors.red,
+                                color: (!homePageNewData[index].isLike!) ? Colors.white : Colors.red,
                               ),
                             ),
                           ),
@@ -440,7 +432,6 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               itemCount: 10,
               physics: BouncingScrollPhysics(),
               itemBuilder: (context, index) {
-                Random r;
                 return Padding(
                   padding: const EdgeInsets.all(5.0),
                   child: ClipRRect(
@@ -566,9 +557,9 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                           ),
                           InkWell(
                             onTap: () {
-                              homePageNewData[index].isLike = !homePageNewData[index].isLike;
+                              homePageNewData[index].isLike = !homePageNewData[index].isLike!;
                               setState(() {});
-                              if (homePageNewData[index].isLike) {
+                              if (homePageNewData[index].isLike!) {
                                 favourit.add(homePageNewData[index]);
                               } else {
                                 favourit.remove(homePageNewData[index]);
@@ -581,7 +572,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                               decoration: BoxDecoration(color: Colors.black54, borderRadius: BorderRadius.circular(8)),
                               child: Icon(
                                 Icons.favorite,
-                                color: (!homePageNewData[index].isLike) ? Colors.white : Colors.red,
+                                color: (!homePageNewData[index].isLike!) ? Colors.white : Colors.red,
                               ),
                             ),
                           ),
@@ -693,16 +684,13 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
       () => Container(
         width: Get.width * 0.25,
         // padding: EdgeInsets.only(left: 15, right: 15, bottom: 5, top: 3),
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(5), color: Colors.transparent),
+        decoration: BoxDecoration(borderRadius: BorderRadius.circular(5), color: Colors.transparent),
         child: Center(
           child: Text(
             textName!,
             style: GoogleFonts.fredoka(
               fontSize: Get.width * 0.022,
-              color: currentIndex.value == currentInd
-                  ? Color(AppColor.white)
-                  : Color(0xFFC3A1B5),
+              color: currentIndex.value == currentInd ? Color(AppColor.white) : Color(0xFFC3A1B5),
               fontWeight: FontWeight.w600,
             ),
           ),
@@ -717,9 +705,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
       padding: const EdgeInsets.symmetric(horizontal: 2),
       child: CircleAvatar(
         radius: (index != posterIndex) ? 3 : 4,
-        backgroundColor: (index != posterIndex)
-            ? Color(AppColor.grey)
-            : Color(AppColor.orange),
+        backgroundColor: (index != posterIndex) ? Color(AppColor.grey) : Color(AppColor.orange),
       ),
     );
 
@@ -814,14 +800,10 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
           fontSize: Get.width * 0.03,
           fontWeight: FontWeight.w600,
         ),
-        indicatorPadding:
-            EdgeInsets.only(top: 5, bottom: 5, right: 10, left: 10),
+        indicatorPadding: EdgeInsets.only(top: 5, bottom: 5, right: 10, left: 10),
         indicator: BoxDecoration(
           borderRadius: BorderRadius.circular(8), //
-          gradient: LinearGradient(
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-              colors: [Color(AppColor.orange), Color(AppColor.yellow)]),
+          gradient: LinearGradient(begin: Alignment.topCenter, end: Alignment.bottomCenter, colors: [Color(AppColor.orange), Color(AppColor.yellow)]),
         ),
         // indicatorColor: Colors.white,
         controller: _tabController,

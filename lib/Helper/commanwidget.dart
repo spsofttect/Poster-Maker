@@ -73,15 +73,10 @@ Widget selectedItem({ontap, color, tabName}) {
         Center(
             child: Text(
           tabName,
-          style: GoogleFonts.fredoka(
-              color: color ? Color(AppColor.orange) : Color(AppColor.white),
-              fontWeight: FontWeight.w400,
-              fontSize: 15),
+          style: GoogleFonts.fredoka(color: color ? Color(AppColor.orange) : Color(AppColor.white), fontWeight: FontWeight.w400, fontSize: 15),
         )),
         SizedBox(height: 5),
-        Divider(
-            thickness: 3,
-            color: color ? Color(AppColor.orange) : Colors.transparent)
+        Divider(thickness: 3, color: color ? Color(AppColor.orange) : Colors.transparent)
       ]),
     ),
   );
@@ -95,8 +90,7 @@ Widget gridView({itemCount, arr, item}) {
     physics: BouncingScrollPhysics(),
     itemBuilder: (context, index) => Container(
       decoration: BoxDecoration(
-          image: DecorationImage(
-              image: NetworkImage(arr[index]), fit: BoxFit.cover),
+          image: DecorationImage(image: NetworkImage(arr[index]), fit: BoxFit.cover),
           borderRadius: BorderRadius.circular(10),
           color: Color(AppColor.grey).withOpacity(0.2)),
     ),
@@ -121,7 +115,7 @@ Widget fastDownArrow() {
 }
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>> category ListView <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< //
 
-Widget customListView({double height, double width, itemCount, listindex, boxfit, onTap, scrollDirection, indexColor}) {
+Widget customListView({double? height, double? width, itemCount, listindex, boxfit, onTap, scrollDirection, indexColor}) {
   return Container(
       margin: EdgeInsets.only(top: 15),
       height: height,
@@ -135,23 +129,19 @@ Widget customListView({double height, double width, itemCount, listindex, boxfit
             return GestureDetector(
               onTap: onTap,
               child: Container(
-                margin: EdgeInsets.only(
-                    left: index == 0 ? 15 : 5,
-                    right: index == itemCount - 1 ? 15 : 5),
+                margin: EdgeInsets.only(left: index == 0 ? 15 : 5, right: index == itemCount - 1 ? 15 : 5),
                 padding: EdgeInsets.only(top: 7, left: 7, right: 7),
                 width: width,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15),
-                  border: Border.all(
-                      width: 2, color: Color(AppColor.orange).withOpacity(0.5)),
+                  border: Border.all(width: 2, color: Color(AppColor.orange).withOpacity(0.5)),
                 ),
                 child: Column(
                   children: [
                     Container(
                       height: height! - 40,
                       decoration: BoxDecoration(
-                          image: DecorationImage(
-                              image: AssetImage(currentObj), fit: boxfit),
+                          image: DecorationImage(image: AssetImage(currentObj), fit: boxfit),
                           borderRadius: BorderRadius.circular(15),
                           color: Color(AppColor.grey)),
                     ),
@@ -164,8 +154,7 @@ Widget customListView({double height, double width, itemCount, listindex, boxfit
                         child: Center(
                             child: Text(
                           "Index $index",
-                          style: GoogleFonts.fredoka(
-                              fontSize: 20, color: indexColor),
+                          style: GoogleFonts.fredoka(fontSize: 20, color: indexColor),
                         ))),
                   ],
                 ),
@@ -225,7 +214,7 @@ icon({icon, color}) {
   );
 }
 
-Widget shimmerImage({double ratio, BuildContext context}) {
+Widget shimmerImage({required double ratio, required BuildContext context}) {
   return Shimmer.fromColors(
       baseColor: Theme.of(context).splashColor,
       highlightColor: (Get.isDarkMode) ? Colors.white54 : Colors.grey.shade300,
@@ -262,61 +251,49 @@ class _DynamicVideoPlayerState extends State<DynamicVideoPlayer> {
     return controller!.value.isInitialized
         ? AspectRatio(
             aspectRatio: controller!.value.aspectRatio,
-            child: Stack(
-              alignment: Alignment.bottomRight,
-              children: [
-                CachedVideoPlayer(controller!),
-                GestureDetector(
-                    onTap: () {
-                      (controller!.value.isPlaying)
-                          ? controller!.pause()
-                          : controller!.play();
-                      setState(() {});
-                    },
-                    child: Container(
-                        height: 40,
-                        width: 40,
-                        decoration: BoxDecoration(
-                            gradient: LinearGradient(
-                                begin: Alignment.topCenter,
-                                end: Alignment.bottomCenter,
-                                colors: [
-                                  Color(AppColor.orange),
-                                  Color(AppColor.yellow)
-                                ]),
-                            color: Color(AppColor.orange),
-                            borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(20),
-                                topRight: Radius.circular(20),
-                                bottomLeft: Radius.circular(20))),
-                        child: Icon(
-                          (!controller!.value.isPlaying)
-                              ? Icons.play_arrow
-                              : Icons.pause,
-                          color: Colors.white,
-                        ))),
-                Align(
+            child: Stack(alignment: Alignment.bottomRight, children: [
+              CachedVideoPlayer(controller!),
+              GestureDetector(
+                  onTap: () {
+                    (controller!.value.isPlaying) ? controller!.pause() : controller!.play();
+                    setState(() {});
+                  },
+                  child: Container(
+                      height: 40,
+                      width: 40,
+                      decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                              begin: Alignment.topCenter, end: Alignment.bottomCenter, colors: [Color(AppColor.orange), Color(AppColor.yellow)]),
+                          color: Color(AppColor.orange),
+                          borderRadius: BorderRadius.only(topLeft: Radius.circular(20), topRight: Radius.circular(20), bottomLeft: Radius.circular(20))),
+                      child: Icon(
+                        (!controller!.value.isPlaying) ? Icons.play_arrow : Icons.pause,
+                        color: Colors.white,
+                      ))),
+              Align(
                   alignment: Alignment.topRight,
                   child: InkWell(
-                    onTap: () {
-                      homePageNewData[widget.index].isLike = !homePageNewData[widget.index].isLike;
-
-                      if (homePageNewData[widget.index].isLike) {
-                        favourit.add(homePageNewData[widget.index]);
-                      } else {
-                        favourit.remove(homePageNewData[widget.index]);
-                      }
-                      setState(() {});
-                    },
-                    child: Container(
-                      margin: EdgeInsets.all(5),
-                      height: 30,
-                      width: 30,
-                      decoration: BoxDecoration(
-                          color: Colors.black54,
-                          borderRadius: BorderRadius.circular(8)),
-                      child: Icon(
-                        Icons.favorite,
-                        color: (!homePageNewData[widget.index].isLike) ? Colors.white : Colors.red,
-                      ),
-                    ),
+                      onTap: () {
+                        // homePageNewData[widget.index].isLike = !homePageNewData[widget.index].isLike;
+                        //
+                        // if (homePageNewData[widget.index].isLike) {
+                        //   favourit.add(homePageNewData[widget.index]);
+                        // } else {
+                        //   favourit.remove(homePageNewData[widget.index]);
+                        // }
+                        // setState(() {});
+                      },
+                      child: Container(
+                        margin: EdgeInsets.all(5),
+                        height: 30,
+                        width: 30,
+                        decoration: BoxDecoration(color: Colors.black54, borderRadius: BorderRadius.circular(8)),
+                        child: Icon(
+                          Icons.favorite,
+                          color: (!homePageNewData[widget.index!].isLike!) ? Colors.white : Colors.red,
+                        ),
+                      )))
+            ]))
+        : const SizedBox();
+  }
+}
