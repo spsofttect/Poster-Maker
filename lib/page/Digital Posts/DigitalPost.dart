@@ -8,7 +8,7 @@ import 'package:poster_maker/page/Digital%20Posts/viewAllCategory.dart';
 import 'package:poster_maker/page/bottomnavbar/appbar/Appbar.dart';
 
 class DigitalPost extends StatelessWidget {
-  const DigitalPost({Key key}) : super(key: key);
+  const DigitalPost({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +17,7 @@ class DigitalPost extends StatelessWidget {
         child: Column(children: [
           commanAppbar(
               pageName: "Digital Posts",
-              textColor: Theme.of(context).textTheme.headline1.color,
+              textColor: Theme.of(context).textTheme.headline1!.color,
               ontap: () {
                 Get.back();
               }),
@@ -34,7 +34,7 @@ class DigitalPost extends StatelessWidget {
                   height: 160,
                   width: 120,
                   scrollDirection: Axis.horizontal,
-                  indexColor: Theme.of(context).textTheme.headline1.color,
+                  indexColor: Theme.of(context).textTheme.headline1!.color,
                 ),
                 // Youtube Banner
                 title(title: 'Youtube Banner', context: context),
@@ -45,7 +45,7 @@ class DigitalPost extends StatelessWidget {
                   height: 120,
                   width: 200,
                   scrollDirection: Axis.horizontal,
-                  indexColor: Theme.of(context).textTheme.headline1.color,
+                  indexColor: Theme.of(context).textTheme.headline1!.color,
                 ),
                 // Festival
                 title(
@@ -62,7 +62,7 @@ class DigitalPost extends StatelessWidget {
                   height: 120,
                   width: 120,
                   scrollDirection: Axis.horizontal,
-                  indexColor: Theme.of(context).textTheme.headline1.color,
+                  indexColor: Theme.of(context).textTheme.headline1!.color,
                 ),
                 // FaceBook Post
                 title(title: 'FaceBook Post', context: context),
@@ -73,7 +73,7 @@ class DigitalPost extends StatelessWidget {
                   height: 180,
                   width: 130,
                   scrollDirection: Axis.horizontal,
-                  indexColor: Theme.of(context).textTheme.headline1.color,
+                  indexColor: Theme.of(context).textTheme.headline1!.color,
                 ),
               ],
             ),

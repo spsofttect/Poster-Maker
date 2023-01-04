@@ -2,10 +2,6 @@
 
 mixin AppFont {
   static String freeh = "Freeh521";
-  static String Bold = "Bold";
-  static String Regular = "Regular";
-  static String Medium = "Medium";
-  static String SemiBold = "SemiBold";
 }
 mixin AppColor {
   static int bgcolor = 0xFF07030D;
@@ -15,7 +11,7 @@ mixin AppColor {
   static int grey = 0xFF707070;
   static int black = 0xFF000000;
   static int shadow = 0xFFC3A1B5;
-  static int red = 0xFFF24405;
+  // static int red = 0xFFF24405;
 }
 mixin AssetPath {
   static String intro = "assets/image/intro/";
@@ -31,6 +27,7 @@ mixin AssetPath {
   static String create = 'assets/image/create/';
   static String poster = 'assets/poster/';
   static String custom = 'assets/image/custom/';
+  static String appbar = 'assets/image/appbar/';
   static String ctegory = 'assets/ctegory/';
   static String frame = 'assets/frame/';
 }

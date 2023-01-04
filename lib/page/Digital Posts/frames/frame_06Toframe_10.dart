@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, camel_case_types
+// ignore_for_file: prefer_const_constructors, camel_case_types, unused_import, file_names
 
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';

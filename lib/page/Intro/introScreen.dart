@@ -2,16 +2,15 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_windowmanager/flutter_windowmanager.dart';
-
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:poster_maker/Helper/preferences.dart';
 import 'package:poster_maker/Helper/utlity.dart';
 import 'package:poster_maker/Helper/widget.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class IntroScreen extends StatefulWidget {
-  const IntroScreen({Key key}) : super(key: key);
+  const IntroScreen({Key? key}) : super(key: key);
 
   @override
   State<IntroScreen> createState() => _IntroScreenState();
@@ -25,7 +24,6 @@ class _IntroScreenState extends State<IntroScreen> {
         [DeviceOrientation.portraitDown, DeviceOrientation.portraitUp]);
     // Do not capture Screenshot and video
     // Do not capture Screenshot and video
-    FlutterWindowManager.addFlags(FlutterWindowManager.FLAG_SECURE);
     // Do not capture Screenshot and video
     return Scaffold(
       body: Container(
@@ -72,8 +70,8 @@ class _IntroScreenState extends State<IntroScreen> {
                   child: Center(
                     child: Text(
                       'Skip',
-                      style: TextStyle(
-                        fontFamily: AppFont.Regular,
+                      style: GoogleFonts.fredoka(
+                        fontWeight: FontWeight.w400,
                         // color: Get.isDarkMode
                         //     ? Color(AppColor.grey)
                         //     : Color(AppColor.white),
@@ -112,8 +110,8 @@ class _IntroScreenState extends State<IntroScreen> {
         width: 330,
         child: Text(
           subtitel,
-          style: TextStyle(
-            fontFamily: AppFont.Regular,
+          style: GoogleFonts.fredoka(
+            fontWeight: FontWeight.w400,
             fontSize: 15,
             // color:
             //     Get.isDarkMode ? Color(AppColor.grey) : Color(AppColor.white),

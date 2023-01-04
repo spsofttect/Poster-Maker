@@ -1,12 +1,13 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, file_names, camel_case_types
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:poster_maker/Helper/commanwidget.dart';
 import 'package:poster_maker/Helper/utlity.dart';
 
 class Frame_01 extends StatelessWidget {
-  const Frame_01({Key key}) : super(key: key);
+  const Frame_01({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -54,7 +55,7 @@ class Frame_01 extends StatelessWidget {
                     width: Get.width * 0.2,
                     child: Text(
                       'gd546954@gmail.com',
-                      style: TextStyle(
+                      style: GoogleFonts.fredoka(
                           // fontFamily: AppFont.Regular,
                           fontSize: Get.width * 0.02),
                       overflow: TextOverflow.ellipsis,
@@ -84,7 +85,7 @@ class Frame_01 extends StatelessWidget {
                 SizedBox(width: Get.width * 0.005),
                 Text(
                   '8866091904',
-                  style: TextStyle(
+                  style: GoogleFonts.fredoka(
                       // fontFamily: AppFont.Regular,
                       fontSize: Get.width * 0.02),
                   overflow: TextOverflow.ellipsis,
@@ -106,7 +107,7 @@ class Frame_01 extends StatelessWidget {
                   width: Get.width * 0.2,
                   child: Text(
                     '8866091904',
-                    style: TextStyle(
+                    style: GoogleFonts.fredoka(
                         // fontFamily: AppFont.Regular,
                         fontSize: Get.width * 0.02),
                     overflow: TextOverflow.ellipsis,
@@ -131,7 +132,7 @@ class Frame_01 extends StatelessWidget {
           const SizedBox(width: 5),
           Text(
             '3 Bhramaniya para Santkabir Road rajkot',
-            style: TextStyle(fontSize: Get.height * 0.013),
+            style: GoogleFonts.fredoka(fontSize: Get.height * 0.013),
           )
         ],
       )
@@ -139,10 +140,8 @@ class Frame_01 extends StatelessWidget {
   }
 }
 
-
-
 class Frame_02 extends StatelessWidget {
-  const Frame_02({Key key}) : super(key: key);
+  const Frame_02({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -297,13 +296,12 @@ class Frame_02 extends StatelessWidget {
           ),
         )
       ],
-    ); 
+    );
   }
 }
 
-
 class Frame_03 extends StatelessWidget {
-  const Frame_03({Key key}) : super(key: key);
+  const Frame_03({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -421,9 +419,8 @@ class Frame_03 extends StatelessWidget {
   }
 }
 
-
 class Frame_04 extends StatelessWidget {
-  const Frame_04({Key key}) : super(key: key);
+  const Frame_04({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -525,10 +522,8 @@ class Frame_04 extends StatelessWidget {
   }
 }
 
-
-
 class Frame_05 extends StatelessWidget {
-  const Frame_05({Key key}) : super(key: key);
+  const Frame_05({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

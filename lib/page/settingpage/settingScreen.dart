@@ -1,22 +1,23 @@
 // ignore_for_file: prefer_const_constructors, curly_braces_in_flow_control_structures, non_constant_identifier_names, avoid_print, unused_import, file_names
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 import 'package:flutter_windowmanager/flutter_windowmanager.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:poster_maker/Helper/app_theme.dart';
 import 'package:poster_maker/Helper/utlity.dart';
 import 'package:poster_maker/Helper/widget.dart';
 import 'package:poster_maker/page/bottomnavbar/appbar/Appbar.dart';
 import 'package:poster_maker/page/bottomnavbar/bottomnavbar.dart';
+import 'package:poster_maker/page/login/login.dart';
 
 import 'package:poster_maker/page/settingpage/proView/proView.dart';
 
 import 'developmentpage/Appdevelopmentpage.dart';
 
 class SettingPage extends StatefulWidget {
-  const SettingPage({Key key}) : super(key: key);
+  const SettingPage({Key? key}) : super(key: key);
 
   @override
   State<SettingPage> createState() => _SettingPageState();
@@ -24,6 +25,7 @@ class SettingPage extends StatefulWidget {
 
 class _SettingPageState extends State<SettingPage> {
   bool status = false;
+
   @override
   Widget build(BuildContext context) {
     // DeviceOrientation
@@ -48,7 +50,7 @@ class _SettingPageState extends State<SettingPage> {
               ),
               Expanded(
                   child: ListView(
-                       physics: BouncingScrollPhysics(),
+                physics: BouncingScrollPhysics(),
                 children: [
                   userDetail(),
                   optionBtn(text: 'My Business'),
@@ -58,7 +60,7 @@ class _SettingPageState extends State<SettingPage> {
                       item: Switch(
                         onChanged: (value) {
                           setState(() {
-                            isdarkMode.value = value;
+                            isdarkMode = value;
                             if (Get.isDarkMode)
                               Get.changeThemeMode(ThemeMode.light);
                             else
@@ -84,11 +86,9 @@ class _SettingPageState extends State<SettingPage> {
                         },
                         value: status,
                         activeColor: Color(AppColor.orange),
-                        activeTrackColor:
-                            Color(AppColor.yellow).withOpacity(0.3),
+                        activeTrackColor: Color(AppColor.yellow).withOpacity(0.3),
                         inactiveThumbColor: Color(AppColor.orange),
-                        inactiveTrackColor:
-                            Color(AppColor.yellow).withOpacity(0.3),
+                        inactiveTrackColor: Color(AppColor.yellow).withOpacity(0.3),
                       )),
                   optionBtn(text: 'Save Path'),
                   optionBtn(
@@ -99,8 +99,7 @@ class _SettingPageState extends State<SettingPage> {
                       activeColor: Color(AppColor.orange),
                       activeTrackColor: Color(AppColor.yellow).withOpacity(0.3),
                       inactiveThumbColor: Color(AppColor.orange),
-                      inactiveTrackColor:
-                          Color(AppColor.yellow).withOpacity(0.3),
+                      inactiveTrackColor: Color(AppColor.yellow).withOpacity(0.3),
                     ),
                   ),
                   SizedBox(height: 20),
@@ -116,15 +115,13 @@ class _SettingPageState extends State<SettingPage> {
                             Get.to(DevelopmentPage(), arguments: "App");
                           },
                           subTitle: 'App Development',
-                          divider: Divider(
-                              thickness: 1, color: Color(AppColor.grey))),
+                          divider: Divider(thickness: 1, color: Color(AppColor.grey))),
                       subTitle(
                           ontap: () {
                             Get.to(DevelopmentPage(), arguments: "Website");
                           },
                           subTitle: 'Website Development',
-                          divider: Divider(
-                              thickness: 1, color: Color(AppColor.grey))),
+                          divider: Divider(thickness: 1, color: Color(AppColor.grey))),
                       subTitle(
                           ontap: () {
                             Get.to(DevelopmentPage(), arguments: "Graphics");
@@ -135,25 +132,14 @@ class _SettingPageState extends State<SettingPage> {
                   )),
                   // How to Use
                   Box(
-                    item: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          title(title: 'How to Use'),
-                          SizedBox(height: 10),
-                          subTitle(
-                              subTitle: 'How to Use',
-                              divider: Divider(
-                                  thickness: 1, color: Color(AppColor.grey))),
-                          subTitle(
-                              subTitle: 'User Guide',
-                              divider: Divider(
-                                  thickness: 1, color: Color(AppColor.grey))),
-                          subTitle(
-                              subTitle: 'Tutorial',
-                              divider: Divider(
-                                  thickness: 1, color: Color(AppColor.grey))),
-                          subTitle(subTitle: 'Tutorial', divider: SizedBox()),
-                        ]),
+                    item: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                      title(title: 'How to Use'),
+                      SizedBox(height: 10),
+                      subTitle(subTitle: 'How to Use', divider: Divider(thickness: 1, color: Color(AppColor.grey))),
+                      subTitle(subTitle: 'User Guide', divider: Divider(thickness: 1, color: Color(AppColor.grey))),
+                      subTitle(subTitle: 'Tutorial', divider: Divider(thickness: 1, color: Color(AppColor.grey))),
+                      subTitle(subTitle: 'Tutorial', divider: SizedBox()),
+                    ]),
                   ),
                   Box(
                       item: Column(
@@ -161,24 +147,11 @@ class _SettingPageState extends State<SettingPage> {
                     children: [
                       title(title: 'About Us'),
                       SizedBox(height: 10),
-                      subTitle(
-                          subTitle: 'Share App',
-                          divider: Divider(
-                              thickness: 1, color: Color(AppColor.grey))),
-                      subTitle(
-                          subTitle: 'Rate Us',
-                          divider: Divider(
-                              thickness: 1, color: Color(AppColor.grey))),
-                      subTitle(
-                          subTitle: 'Contact Us',
-                          divider: Divider(
-                              thickness: 1, color: Color(AppColor.grey))),
-                      subTitle(
-                          subTitle: 'Privacy Policy',
-                          divider: Divider(
-                              thickness: 1, color: Color(AppColor.grey))),
-                      subTitle(
-                          subTitle: 'Trems and Services', divider: SizedBox()),
+                      subTitle(subTitle: 'Share App', divider: Divider(thickness: 1, color: Color(AppColor.grey))),
+                      subTitle(subTitle: 'Rate Us', divider: Divider(thickness: 1, color: Color(AppColor.grey))),
+                      subTitle(subTitle: 'Contact Us', divider: Divider(thickness: 1, color: Color(AppColor.grey))),
+                      subTitle(subTitle: 'Privacy Policy', divider: Divider(thickness: 1, color: Color(AppColor.grey))),
+                      subTitle(subTitle: 'Trems and Services', divider: SizedBox()),
                     ],
                   )),
                   Box(
@@ -191,14 +164,15 @@ class _SettingPageState extends State<SettingPage> {
                           text: TextSpan(children: [
                         TextSpan(
                             text: 'change to win free ',
-                            style: TextStyle(
+                            style: GoogleFonts.fredoka(
                                 color: Color(AppColor.grey),
                                 fontSize: 15,
-                                fontFamily: AppFont.Medium)),
+                                fontWeight: FontWeight.w400)),
                         TextSpan(
                             text: 'VIP',
-                            style: TextStyle(
-                                color: Colors.red, fontFamily: AppFont.Medium)),
+                            style: GoogleFonts.fredoka(
+                                color: Colors.red,
+                                fontWeight: FontWeight.w400)),
                       ])),
                       SizedBox(height: 20),
                       socialMedia(
@@ -210,8 +184,7 @@ class _SettingPageState extends State<SettingPage> {
                             color: Color(AppColor.grey),
                           )),
                       socialMedia(
-                          networkImage:
-                              'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/2048px-Instagram_icon.png',
+                          networkImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/2048px-Instagram_icon.png',
                           subTitle: 'Instagram',
                           divider: Divider(
                             thickness: 1,
@@ -225,6 +198,13 @@ class _SettingPageState extends State<SettingPage> {
                     ],
                   )),
                   CommanWidget().nextButton(
+                      onTap: () async {
+                        await authClass.signOut();
+                        Get.back();
+                        Get.back();
+                        currentpage = 0;
+                        await Get.offAllNamed("/loginScreen");
+                      },
                       height: 45,
                       radius: 10,
                       text: 'Sign Out',
@@ -236,6 +216,7 @@ class _SettingPageState extends State<SettingPage> {
       ),
     );
   }
+
   // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>SocialMedia<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< //
 
   Widget socialMedia({divider, networkImage, subTitle, ontap}) {
@@ -251,17 +232,16 @@ class _SettingPageState extends State<SettingPage> {
                   height: 30,
                   width: 30,
                   decoration: BoxDecoration(
-                      image: DecorationImage(
-                          image: NetworkImage(networkImage), fit: BoxFit.fill),
+                      image: DecorationImage(image: NetworkImage(networkImage), fit: BoxFit.fill),
                       borderRadius: BorderRadius.circular(5),
                       color: Color(AppColor.grey)),
                 ),
                 SizedBox(width: 15),
                 Text(
                   subTitle,
-                  style: TextStyle(
+                  style: GoogleFonts.fredoka(
                       color: Color(AppColor.grey),
-                      fontFamily: AppFont.Medium,
+                      fontWeight: FontWeight.w400,
                       fontSize: 14),
                   textAlign: TextAlign.start,
                 ),
@@ -282,9 +262,7 @@ class _SettingPageState extends State<SettingPage> {
         margin: EdgeInsets.only(top: 20, right: 25, left: 25, bottom: 25),
         padding: EdgeInsets.only(left: 15, right: 15, top: 15, bottom: 10),
         width: double.infinity,
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(15),
-            border: Border.all(color: Color(AppColor.grey), width: 1.5)),
+        decoration: BoxDecoration(borderRadius: BorderRadius.circular(15), border: Border.all(color: Color(AppColor.grey), width: 1.5)),
         child: item);
   }
 
@@ -292,9 +270,9 @@ class _SettingPageState extends State<SettingPage> {
   Widget title({title}) {
     return Text(
       title,
-      style: TextStyle(
+      style: GoogleFonts.fredoka(
           color: Color(AppColor.grey),
-          fontFamily: AppFont.SemiBold,
+          fontWeight: FontWeight.w400,
           fontSize: 18),
     );
   }
@@ -310,9 +288,9 @@ class _SettingPageState extends State<SettingPage> {
             margin: EdgeInsets.only(top: 8, bottom: 8),
             child: Text(
               subTitle,
-              style: TextStyle(
+              style: GoogleFonts.fredoka(
                   color: Color(AppColor.grey),
-                  fontFamily: AppFont.Medium,
+                  fontWeight: FontWeight.w400,
                   fontSize: 14),
               textAlign: TextAlign.start,
             ),
@@ -330,16 +308,17 @@ class _SettingPageState extends State<SettingPage> {
         margin: EdgeInsets.only(left: 30),
         height: 80,
         width: 80,
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(50),
-            color: Color(AppColor.grey)),
+        decoration: BoxDecoration(borderRadius: BorderRadius.circular(50), color: Color(AppColor.grey)),
       ),
       SizedBox(width: 20),
       Column(
         children: [
           Text(
             'User Name',
-            style: TextStyle(fontFamily: AppFont.Medium, fontSize: 20,color: Theme.of(context).textTheme.headline1.color,
+            style: GoogleFonts.fredoka(
+              fontWeight: FontWeight.w400,
+              fontSize: 20,
+              color: Theme.of(context).textTheme.headline1!.color,
             ),
           ),
           SizedBox(height: 10),
@@ -351,12 +330,12 @@ class _SettingPageState extends State<SettingPage> {
                 gradient: LinearGradient(
                     begin: Alignment.topCenter,
                     end: Alignment.bottomCenter,
-                    colors:  [Color(AppColor.orange), Color(AppColor.red)])),
+                    colors: [Color(AppColor.orange), Color(AppColor.yellow)])),
             child: Center(
                 child: Text(
               'SUBSCRIBE PLAN',
-              style: TextStyle(
-                  fontFamily: AppFont.Medium,
+              style: GoogleFonts.fredoka(
+                  fontWeight: FontWeight.w400,
                   fontSize: 13,
                   color: Color(AppColor.white)),
             )),
@@ -395,18 +374,16 @@ class _SettingPageState extends State<SettingPage> {
         padding: const EdgeInsets.only(left: 15, right: 15),
         height: 50,
         width: double.infinity,
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(15),
-            border: Border.all(color: Color(AppColor.grey), width: 1.5)),
+        decoration: BoxDecoration(borderRadius: BorderRadius.circular(15), border: Border.all(color: Color(AppColor.grey), width: 1.5)),
         child: Center(
             child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
               Text(
                 text,
-                style: TextStyle(
+                style: GoogleFonts.fredoka(
                     color: Color(AppColor.grey),
-                    fontFamily: AppFont.SemiBold,
+                    fontWeight: FontWeight.w400,
                     fontSize: 18),
               ),
               Container(

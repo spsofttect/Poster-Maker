@@ -1,3 +1,5 @@
+// ignore_for_file: unused_import
+
 import 'dart:async';
 
 import 'package:flutter/material.dart';
@@ -5,11 +7,12 @@ import 'package:flutter/services.dart';
 import 'package:flutter_windowmanager/flutter_windowmanager.dart';
 import 'package:get/get.dart';
 import 'package:poster_maker/Helper/preferences.dart';
+import 'package:poster_maker/page/bottomnavbar/bottomnavbar.dart';
 import 'package:video_player/video_player.dart';
 import 'package:poster_maker/Helper/utlity.dart';
 
 class SplashScreen extends StatefulWidget {
-  const SplashScreen({Key key}) : super(key: key);
+  const SplashScreen({Key? key}) : super(key: key);
 
   @override
   State<SplashScreen> createState() => _SplashScreenState();
@@ -23,7 +26,7 @@ class _SplashScreenState extends State<SplashScreen> {
         VideoPlayerController.asset('${AssetPath.splash}s1.mp4')
           ..initialize().then((_) {
             // Ensure the first frame is shown after the video is initialized, even before the play button has been pressed.
-            _videoPlayerController.play();
+            _videoPlayerController!.play();
           });
     //   // DeviceOrientation
     SystemChrome.setPreferredOrientations(
@@ -32,8 +35,8 @@ class _SplashScreenState extends State<SplashScreen> {
     Timer(const Duration(seconds: 5), () async {
       var isIntroduction = await Preferences.preferences.getBool(
           key: PrefernceKey.isIntroductionScreenLoaded, defValue: false);
-
-      if (isIntroduction == true) {
+      // Get.to(BottomNavBarScreen());
+      if (!isIntroduction) {
         // introduction screen appears ,go to home if true else login
 
         Get.offNamed('/loginScreen');
@@ -44,7 +47,7 @@ class _SplashScreenState extends State<SplashScreen> {
     });
   }
 
-  VideoPlayerController _videoPlayerController;
+  VideoPlayerController? _videoPlayerController;
   bool startedPlaying = true;
   @override
   void dispose() {
@@ -67,7 +70,6 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
         backgroundColor: Color(AppColor.bgcolor),
         body: Center(
@@ -76,7 +78,7 @@ class _SplashScreenState extends State<SplashScreen> {
               child: SizedBox(
                   height: Get.height,
                   width: Get.width,
-                  child: VideoPlayer(_videoPlayerController))),
+                  child: VideoPlayer(_videoPlayerController!))),
         ));
   }
 
@@ -87,7 +89,6 @@ class _SplashScreenState extends State<SplashScreen> {
     } else {
       await FlutterWindowManager.clearFlags(FlutterWindowManager.FLAG_SECURE);
     }
-
     setState(() {
       _isSecureScreen = !_isSecureScreen;
     });

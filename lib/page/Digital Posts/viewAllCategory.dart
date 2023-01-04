@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, file_names
+// ignore_for_file: prefer_const_constructors, file_names, unused_import
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bounce/flutter_bounce.dart';
@@ -10,7 +10,7 @@ import 'package:poster_maker/page/Digital%20Posts/DigitalPostSlider.dart';
 import 'package:poster_maker/page/bottomnavbar/appbar/Appbar.dart';
 
 class ViewAllCatagory extends StatelessWidget {
-  const ViewAllCatagory({Key key}) : super(key: key);
+  const ViewAllCatagory({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -73,12 +73,10 @@ class ViewAllCatagory extends StatelessWidget {
               //                 ],
               //               ),
               //             ),
-                         
               //           ],
               //         ));
               //   },
               // ),
-            
             ),
           )
         ]),

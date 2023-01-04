@@ -1,15 +1,19 @@
-// ignore_for_file: prefer_const_constructors, unused_local_variable
+// ignore_for_file: prefer_const_constructors, unused_local_variable, unused_import, missing_required_param, must_be_immutable
 
 import 'package:cached_video_player/cached_video_player.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
+import 'package:flutter_bounce/flutter_bounce.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:poster_maker/Helper/commanlist/list.dart';
 import 'package:poster_maker/Helper/utlity.dart';
 
+TextEditingController phoneController = TextEditingController();
+
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>editAppBar<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< //
-editAppBar({BuildContext context, String name}) {
+editAppBar({BuildContext? context, String? name}) {
   return
       // ignore: prefer_const_literals_to_create_immutables
       Padding(
@@ -19,7 +23,7 @@ editAppBar({BuildContext context, String name}) {
       children: [
         GestureDetector(
           onTap: () {
-            Navigator.pop(context);
+            Navigator.pop(context!);
           },
           child: Container(
             margin: EdgeInsets.only(left: 10, right: 10),
@@ -33,8 +37,8 @@ editAppBar({BuildContext context, String name}) {
           width: 20,
         ),
         Text(
-          name,
-          style: TextStyle(fontFamily: AppFont.Medium, fontSize: 20),
+          name!,
+          style: GoogleFonts.fredoka(fontWeight: FontWeight.w500, fontSize: 20),
         ),
       ],
     ),
@@ -68,9 +72,9 @@ Widget selectedItem({ontap, color, tabName}) {
         Center(
             child: Text(
           tabName,
-          style: TextStyle(
+          style: GoogleFonts.fredoka(
               color: color ? Color(AppColor.orange) : Color(AppColor.white),
-              fontFamily: AppFont.Medium,
+              fontWeight: FontWeight.w400,
               fontSize: 15),
         )),
         SizedBox(height: 5),
@@ -83,33 +87,19 @@ Widget selectedItem({ontap, color, tabName}) {
 }
 
 Widget gridView({itemCount, arr, item}) {
-  return GridView.custom(
-    padding: EdgeInsets.all(15),
-    shrinkWrap: true,
+  return StaggeredGridView.countBuilder(
+    crossAxisCount: 2,
+    padding: EdgeInsets.only(bottom: Get.height * 0.1),
+    itemCount: 99,
     physics: BouncingScrollPhysics(),
-
-    // gridDelegate: SliverQuiltedGridDelegate(
-    //   crossAxisCount: 4,
-    //   mainAxisSpacing: 10,
-    //   crossAxisSpacing: 10,
-    //   repeatPattern: QuiltedGridRepeatPattern.inverted,
-    //   pattern: const [
-    //     QuiltedGridTile(1, 1),
-    //     QuiltedGridTile(1, 1),
-    //   ],
-    // ),
-    childrenDelegate: SliverChildBuilderDelegate(
-      (context, index) {
-        return Container(
-          decoration: BoxDecoration(
-              image: DecorationImage(
-                  image: NetworkImage(arr[index]), fit: BoxFit.cover),
-              borderRadius: BorderRadius.circular(10),
-              color: Color(AppColor.grey).withOpacity(0.2)),
-        );
-      },
-      childCount: 99,
+    itemBuilder: (context, index) => Container(
+      decoration: BoxDecoration(
+          image: DecorationImage(
+              image: NetworkImage(arr[index]), fit: BoxFit.cover),
+          borderRadius: BorderRadius.circular(10),
+          color: Color(AppColor.grey).withOpacity(0.2)),
     ),
+    staggeredTileBuilder: (index) => const StaggeredTile.fit(1),
   );
 }
 
@@ -157,7 +147,7 @@ Widget customListView({double height, double width, itemCount, listindex, boxfit
                 child: Column(
                   children: [
                     Container(
-                      height: height - 40,
+                      height: height! - 40,
                       decoration: BoxDecoration(
                           image: DecorationImage(
                               image: AssetImage(currentObj), fit: boxfit),
@@ -173,7 +163,8 @@ Widget customListView({double height, double width, itemCount, listindex, boxfit
                         child: Center(
                             child: Text(
                           "Index $index",
-                          style: TextStyle(fontSize: 20, color: indexColor),
+                          style: GoogleFonts.fredoka(
+                              fontSize: 20, color: indexColor),
                         ))),
                   ],
                 ),
@@ -191,20 +182,20 @@ Widget title({title, onTap, context}) {
       children: [
         Text(
           title,
-          style: TextStyle(
-            fontFamily: AppFont.SemiBold,
+          style: GoogleFonts.fredoka(
+            fontWeight: FontWeight.w400,
             fontSize: 18,
-            color: Theme.of(context).textTheme.headline1.color,
+            color: Theme.of(context).textTheme.headline1!.color,
           ),
         ),
         GestureDetector(
           onTap: onTap,
           child: Text(
             'View all',
-            style: TextStyle(
-              fontFamily: AppFont.Medium,
+            style: GoogleFonts.fredoka(
+              fontWeight: FontWeight.w500,
               fontSize: 15,
-              color: Theme.of(context).textTheme.headline1.color,
+              color: Theme.of(context).textTheme.headline1!.color,
             ),
           ),
         ),
@@ -214,10 +205,10 @@ Widget title({title, onTap, context}) {
 }
 
 // Text frame page
-text({String text, double fontSize, color, maxLine, textAlign}) {
+text({String? text, double? fontSize, color, maxLine, textAlign}) {
   return Text(
-    text,
-    style: TextStyle(fontSize: fontSize, color: color),
+    text!,
+    style: GoogleFonts.fredoka(fontSize: fontSize, color: color),
     textAlign: textAlign,
     overflow: TextOverflow.ellipsis,
     maxLines: maxLine,
@@ -234,40 +225,40 @@ icon({icon, color}) {
 }
 
 class DynamicVideoPlayer extends StatefulWidget {
-  DynamicVideoPlayer({Key key, this.url, this.index}) : super(key: key);
-  String url;
-  int index;
+  DynamicVideoPlayer({Key? key, this.url, this.index}) : super(key: key);
+  String? url;
+  int? index;
   @override
   State<DynamicVideoPlayer> createState() => _DynamicVideoPlayerState();
 }
 
 class _DynamicVideoPlayerState extends State<DynamicVideoPlayer> {
-  CachedVideoPlayerController controller;
+  CachedVideoPlayerController? controller;
 
   @override
   void initState() {
     super.initState();
-    controller = CachedVideoPlayerController.network(widget.url);
-    controller.initialize().then((value) {
-      controller.setLooping(true);
+    controller = CachedVideoPlayerController.network(widget.url!);
+    controller!.initialize().then((value) {
+      controller!.setLooping(true);
       setState(() {});
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    return controller.value.isInitialized
+    return controller!.value.isInitialized
         ? AspectRatio(
-            aspectRatio: controller.value.aspectRatio,
+            aspectRatio: controller!.value.aspectRatio,
             child: Stack(
               alignment: Alignment.bottomRight,
               children: [
-                CachedVideoPlayer(controller),
+                CachedVideoPlayer(controller!),
                 GestureDetector(
                     onTap: () {
-                      (controller.value.isPlaying)
-                          ? controller.pause()
-                          : controller.play();
+                      (controller!.value.isPlaying)
+                          ? controller!.pause()
+                          : controller!.play();
                       setState(() {});
                     },
                     child: Container(
@@ -277,9 +268,9 @@ class _DynamicVideoPlayerState extends State<DynamicVideoPlayer> {
                             gradient: LinearGradient(
                                 begin: Alignment.topCenter,
                                 end: Alignment.bottomCenter,
-                                colors:  [
+                                colors: [
                                   Color(AppColor.orange),
-                                  Color(AppColor.red)
+                                  Color(AppColor.yellow)
                                 ]),
                             color: Color(AppColor.orange),
                             borderRadius: BorderRadius.only(
@@ -287,7 +278,7 @@ class _DynamicVideoPlayerState extends State<DynamicVideoPlayer> {
                                 topRight: Radius.circular(20),
                                 bottomLeft: Radius.circular(20))),
                         child: Icon(
-                          (!controller.value.isPlaying)
+                          (!controller!.value.isPlaying)
                               ? Icons.play_arrow
                               : Icons.pause,
                           color: Colors.white,
@@ -296,11 +287,12 @@ class _DynamicVideoPlayerState extends State<DynamicVideoPlayer> {
                   alignment: Alignment.topRight,
                   child: InkWell(
                     onTap: () {
-                      item3[widget.index].isLike = !item3[widget.index].isLike;
-                      if (item3[widget.index].isLike) {
-                        favourit.add(item3[widget.index]);
+                      item3[widget.index!].isLike =
+                          !item3[widget.index!].isLike!;
+                      if (item3[widget.index!].isLike!) {
+                        favourit.add(item3[widget.index!]);
                       } else {
-                        favourit.remove(item3[widget.index]);
+                        favourit.remove(item3[widget.index!]);
                       }
                       setState(() {});
                     },
@@ -313,7 +305,7 @@ class _DynamicVideoPlayerState extends State<DynamicVideoPlayer> {
                           borderRadius: BorderRadius.circular(8)),
                       child: Icon(
                         Icons.favorite,
-                        color: (!item3[widget.index].isLike)
+                        color: (!item3[widget.index!].isLike!)
                             ? Colors.white
                             : Colors.red,
                       ),

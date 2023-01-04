@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bounce/flutter_bounce.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:poster_maker/Helper/commanlist/list.dart';
 import 'package:poster_maker/Helper/utlity.dart';
 import 'package:poster_maker/Helper/widget.dart';
@@ -15,7 +16,7 @@ import 'package:poster_maker/page/bottomnavbar/appbar/Appbar.dart';
 import 'package:poster_maker/page/bottomnavbar/homepage/addBusiness/addBuisness.dart';
 
 class DigitalPostSliderPage extends StatefulWidget {
-  const DigitalPostSliderPage({Key key}) : super(key: key);
+  const DigitalPostSliderPage({Key? key}) : super(key: key);
 
   @override
   State<DigitalPostSliderPage> createState() => _DigitalPostSliderPageState();
@@ -23,7 +24,7 @@ class DigitalPostSliderPage extends StatefulWidget {
 
 class _DigitalPostSliderPageState extends State<DigitalPostSliderPage>
     with SingleTickerProviderStateMixin {
-  TabController tabController;
+  TabController? tabController;
 
   @override
   void initState() {
@@ -64,7 +65,8 @@ class _DigitalPostSliderPageState extends State<DigitalPostSliderPage>
                 ),
                 Text(
                   'DigitalPoster',
-                  style: TextStyle(fontFamily: AppFont.Medium, fontSize: 20),
+                  style: GoogleFonts.fredoka(
+                      fontWeight: FontWeight.w400, fontSize: 20),
                 ),
                 Spacer(),
                 CommanWidget().nextButton(
@@ -138,71 +140,71 @@ class _DigitalPostSliderPageState extends State<DigitalPostSliderPage>
   Widget storygridView() {
     return Expanded(
       child: SingleChildScrollView(
-        // child: AlignedGridView.count(
-        //   padding: EdgeInsets.all(15),
-        //   shrinkWrap: true,
-        //   physics: const BouncingScrollPhysics(),
-        //   crossAxisCount: 4,
-        //   mainAxisSpacing: 10,
-        //   crossAxisSpacing: 10,
-        //   itemCount: item2.length,
-        //   itemBuilder: (context, index) {
-        //     var currentObj = item2[index];
-        //     return Bounce(
-        //         duration: Duration(milliseconds: 200),
-        //         onPressed: () {
-        //           setState(() {
-        //             storyIndex = index;
-        //           });
-          
-        //         },
-        //         child: Container(
-        //           height: 100,
-        //           decoration: BoxDecoration(
-        //               image: DecorationImage(
-        //                   image: AssetImage(currentObj), fit: BoxFit.fill),
-        //               borderRadius: BorderRadius.circular(15),
-        //               color: Color(AppColor.grey)),
-        //         ));
-        //   },
-        // ),
-      
-      ),
+          // child: AlignedGridView.count(
+          //   padding: EdgeInsets.all(15),
+          //   shrinkWrap: true,
+          //   physics: const BouncingScrollPhysics(),
+          //   crossAxisCount: 4,
+          //   mainAxisSpacing: 10,
+          //   crossAxisSpacing: 10,
+          //   itemCount: item2.length,
+          //   itemBuilder: (context, index) {
+          //     var currentObj = item2[index];
+          //     return Bounce(
+          //         duration: Duration(milliseconds: 200),
+          //         onPressed: () {
+          //           setState(() {
+          //             storyIndex = index;
+          //           });
+
+          //         },
+          //         child: Container(
+          //           height: 100,
+          //           decoration: BoxDecoration(
+          //               image: DecorationImage(
+          //                   image: AssetImage(currentObj), fit: BoxFit.fill),
+          //               borderRadius: BorderRadius.circular(15),
+          //               color: Color(AppColor.grey)),
+          //         ));
+          //   },
+          // ),
+
+          ),
     );
   }
 
   Widget postergridView() {
     return Expanded(
       child: SingleChildScrollView(
-        // child: AlignedGridView.count(
-        //   padding: EdgeInsets.all(15),
-        //   shrinkWrap: true,
-        //   physics: const BouncingScrollPhysics(),
-        //   crossAxisCount: 4,
-        //   mainAxisSpacing: 10,
-        //   crossAxisSpacing: 10,
-        //   itemCount: posterImage.length,
-        //   itemBuilder: (context, index) {
-        //     var currentObj = posterImage[index];
-        //     return Bounce(
-        //         duration: Duration(milliseconds: 200),
-        //         onPressed: () {
-        //           setState(() {
-        //             posterIndex = index;
-        //           });
-        //         },
-        //         child: Container(
-        //           height: 100,
-        //           decoration: BoxDecoration(
-        //               image: DecorationImage(
-        //                   image: AssetImage(currentObj), fit: BoxFit.fill),
-        //               borderRadius: BorderRadius.circular(15),
-        //               color: Color(AppColor.grey)),
-        //         ));
-        //   },
-        // ),
-     
-      ),
+          // child: AlignedGridView.count(
+          //   padding: EdgeInsets.all(15),
+          //   shrinkWrap: true,
+          //   physics: const BouncingScrollPhysics(),
+          //   crossAxisCount: 4,
+          //   mainAxisSpacing: 10,
+          //   crossAxisSpacing: 10,
+          //   itemCount: posterImage.length,
+          //   itemBuilder: (context, index) {
+          //     var currentObj = posterImage[index];
+          //     return Bounce(
+          //         duration: Duration(milliseconds: 200),
+          //         onPressed: () {
+          //           setState(() {
+          //             posterIndex = index;
+          //           });
+          //         },
+          //         child: Container(
+          //           height: 100,
+          //           decoration: BoxDecoration(
+          //               image: DecorationImage(
+          //                   image: AssetImage(currentObj), fit: BoxFit.fill),
+          //               borderRadius: BorderRadius.circular(15),
+          //               color: Color(AppColor.grey)),
+          //         ));
+          //   },
+          // ),
+
+          ),
     );
   }
 
@@ -268,7 +270,8 @@ class _DigitalPostSliderPageState extends State<DigitalPostSliderPage>
             child: Center(
               child: Text(
                 text,
-                style: TextStyle(color: color, fontFamily: AppFont.Medium),
+                style: GoogleFonts.fredoka(
+                    color: color,  fontWeight: FontWeight.w400,),
               ),
             ),
           ),

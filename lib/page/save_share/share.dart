@@ -6,6 +6,7 @@ import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:flutter_bounce/flutter_bounce.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:poster_maker/Helper/utlity.dart';
 import 'package:poster_maker/page/bottomnavbar/appbar/Appbar.dart';
@@ -13,7 +14,7 @@ import 'package:screenshot/screenshot.dart';
 import 'package:share_plus/share_plus.dart';
 
 class SharePage extends StatefulWidget {
-  const SharePage({Key key}) : super(key: key);
+  const SharePage({Key ?key}) : super(key: key);
 
   @override
   State<SharePage> createState() => _SharePageState();
@@ -27,22 +28,28 @@ class _SharePageState extends State<SharePage> {
     return Scaffold(
       body: SafeArea(
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             commanAppbar(
                 pageName: "Save & Share",
                 ontap: () {
                   Get.back();
                 }),
-            sharePost(
-              height: Get.height * 0.45,
-              width: Get.width * 0.6,
-              borderColor: Color(AppColor.grey),
-            ),
-            text(
-                text: "E:/Application/poster_banner_Logo/xd",
-                fontsize: Get.height * 0.02),
-            bottomContainer(),
+            Expanded(
+                child: SingleChildScrollView(
+              physics: BouncingScrollPhysics(),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  sharePost(
+                    height: Get.height * 0.45,
+                    width: Get.width * 0.6,
+                    borderColor: Color(AppColor.grey),
+                  ),
+                  text(text: "E:/Application/poster_banner_Logo/xd", fontsize: Get.height * 0.02),
+                  bottomContainer(),
+                ],
+              ),
+            )),
           ],
         ),
       ),
@@ -56,9 +63,7 @@ class _SharePageState extends State<SharePage> {
         margin: const EdgeInsets.only(top: 10, bottom: 15),
         height: height,
         width: width,
-        decoration: BoxDecoration(
-            border: Border.all(color: borderColor),
-            borderRadius: BorderRadius.circular(15)),
+        decoration: BoxDecoration(border: Border.all(color: borderColor), borderRadius: BorderRadius.circular(15)),
       ),
     );
   }
@@ -66,8 +71,8 @@ class _SharePageState extends State<SharePage> {
   Widget text({text, fontsize, color}) {
     return Text(
       text,
-      style: TextStyle(
-          fontSize: fontsize, fontFamily: AppFont.Medium, color: color),
+      style: GoogleFonts.fredoka(
+          fontSize: fontsize, fontWeight: FontWeight.w500, color: color),
     );
   }
 
@@ -88,11 +93,9 @@ class _SharePageState extends State<SharePage> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              borderContainer(
-                  height: Get.height * 0.005, width: Get.width * 0.35),
+              borderContainer(height: Get.height * 0.005, width: Get.width * 0.35),
               text(text: "Share", fontsize: Get.height * 0.02),
-              borderContainer(
-                  height: Get.height * 0.005, width: Get.width * 0.35),
+              borderContainer(height: Get.height * 0.005, width: Get.width * 0.35),
             ],
           ),
           Row(
@@ -107,17 +110,16 @@ class _SharePageState extends State<SharePage> {
                   ontap: () async {
                     await screenshotController
                         .capture(delay: Duration(milliseconds: 10))
-                        .then((Uint8List image) async {
-                           final directory =
+                        .then((Uint8List? image) async {
+                      final directory =
                           await getApplicationDocumentsDirectory();
                       final imagePath =
                           await File('${directory.path}/image.png').create();
-                      await imagePath.writeAsBytes(image);
+                      await imagePath.writeAsBytes(image!);
 
                       /// Share Plugin
                       await Share.shareFiles([imagePath.path]);
-                        });
-                   
+                    });
                   }),
             ],
           ),
@@ -137,8 +139,7 @@ class _SharePageState extends State<SharePage> {
   Widget sociallmages({imageName, ontap}) => Bounce(
         duration: const Duration(milliseconds: 200),
         onPressed: ontap,
-        child: Image.asset(AssetPath.custom + imageName,
-            color: Color(AppColor.grey), height: Get.height * 0.04),
+        child: Image.asset(AssetPath.custom + imageName, color: Color(AppColor.grey), height: Get.height * 0.04),
       );
 
   Widget borderContainer({height, width}) {

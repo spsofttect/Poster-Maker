@@ -1,4 +1,3 @@
-import 'package:cached_video_player/cached_video_player.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
 import 'package:get/get_rx/src/rx_types/rx_types.dart';
@@ -186,9 +185,9 @@ List posterImage = [
 ];
 
 class NewVideoAndStoryOrPostMix {
-  bool isVideo;
-  String url;
-  bool isLike;
+  bool? isVideo;
+  String? url;
+  bool? isLike;
   NewVideoAndStoryOrPostMix({
     this.isVideo,
     this.url,
@@ -204,24 +203,24 @@ List<NewVideoAndStoryOrPostMix> item3 = [
   NewVideoAndStoryOrPostMix(isVideo: false, url: '${AssetPath.poster}1 (7).jpg', isLike: false),
   NewVideoAndStoryOrPostMix(isVideo: true, url: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4", isLike: false),
   NewVideoAndStoryOrPostMix(isVideo: false, url: '${AssetPath.poster}1 (7).png', isLike: false),
+  NewVideoAndStoryOrPostMix(isVideo: true, url: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4", isLike: false),
   NewVideoAndStoryOrPostMix(isVideo: false, url: '${AssetPath.poster}1 (8).jpg', isLike: false),
   NewVideoAndStoryOrPostMix(isVideo: true, url: "https://flutter.github.io/assets-for-api-docs/assets/videos/butterfly.mp4", isLike: false),
   NewVideoAndStoryOrPostMix(isVideo: false, url: '${AssetPath.poster}1 (4).jpg', isLike: false),
   NewVideoAndStoryOrPostMix(isVideo: false, url: '${AssetPath.poster}1 (6).jpg', isLike: false),
   NewVideoAndStoryOrPostMix(isVideo: true, url: "flutter.github.io/assets-for-api-docs/assets/videos/bee.mp4", isLike: false),
   NewVideoAndStoryOrPostMix(isVideo: false, url: '${AssetPath.poster}1 (6).png', isLike: false),
+  NewVideoAndStoryOrPostMix(isVideo: true, url: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4", isLike: false),
   NewVideoAndStoryOrPostMix(isVideo: false, url: '${AssetPath.poster}1 (7).jpg', isLike: false),
   NewVideoAndStoryOrPostMix(isVideo: true, url: "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4", isLike: false),
   NewVideoAndStoryOrPostMix(isVideo: false, url: '${AssetPath.poster}1 (7).png', isLike: false),
+  NewVideoAndStoryOrPostMix(isVideo: true, url: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4", isLike: false),
   NewVideoAndStoryOrPostMix(isVideo: false, url: '${AssetPath.poster}1 (8).jpg', isLike: false),
   NewVideoAndStoryOrPostMix(isVideo: true, url: "https://www.w3schools.com/html/mov_bbb.mp4", isLike: false),
   NewVideoAndStoryOrPostMix(isVideo: false, url: '${AssetPath.poster}1 (4).jpg', isLike: false),
+  NewVideoAndStoryOrPostMix(isVideo: true, url: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4", isLike: false),
   NewVideoAndStoryOrPostMix(isVideo: false, url: '${AssetPath.poster}1 (6).png', isLike: false),
-  // NewVideoAndStoryOrPostMix(isVideo: true, url: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4", isLike: false),
-  // NewVideoAndStoryOrPostMix(isVideo: true, url: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4", isLike: false),
-  // NewVideoAndStoryOrPostMix(isVideo: true, url: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4", isLike: false),
-  // NewVideoAndStoryOrPostMix(isVideo: true, url: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4", isLike: false),
-  // NewVideoAndStoryOrPostMix(isVideo: true, url: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4", isLike: false),
+  NewVideoAndStoryOrPostMix(isVideo: true, url: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4", isLike: false),
 ];
 
 final AdvancedDrawerController advancedDrawerController = AdvancedDrawerController();

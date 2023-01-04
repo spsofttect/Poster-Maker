@@ -11,7 +11,6 @@
 #endif
 
 #import "AssetEntity.h"
-#import "MD5Utils.h"
 #import "NSString+PM_COMMON.h"
 #import "PHAsset+PM_COMMON.h"
 #import "PHAssetCollection+PM_COMMON.h"
@@ -26,6 +25,7 @@
 #import "PMImageUtil.h"
 #import "PMLogUtils.h"
 #import "PMManager.h"
+#import "PMMD5Utils.h"
 #import "PMProgressHandlerProtocol.h"
 #import "PMRequestTypeUtils.h"
 #import "PMResultHandler.h"

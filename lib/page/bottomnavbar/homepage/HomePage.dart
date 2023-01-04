@@ -9,16 +9,17 @@ import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
 import 'package:flutter_bounce/flutter_bounce.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:poster_maker/Helper/commanlist/list.dart';
 import 'package:poster_maker/Helper/utlity.dart';
-import 'package:poster_maker/page/editBottomNavBar/EditBottomNavbar.dart';
+import 'package:poster_maker/page/EditBusiness/posterSize.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../../../Helper/commanwidget.dart';
 import '../appbar/Appbar.dart';
 
 class HomePage extends StatefulWidget {
-  HomePage({Key key}) : super(key: key);
+  HomePage({Key? key}) : super(key: key);
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -27,10 +28,10 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   // int _currentPage = 0;
   int posterIndex = 0;
-  CachedVideoPlayerController controller;
+  CachedVideoPlayerController? controller;
 
   // Timer _timer;
-  TabController _tabController;
+  TabController? _tabController;
   // PageController controller =
   //     PageController(viewportFraction: 0.8, keepPage: true, initialPage: 0);
   // PageController pagecontroll =
@@ -45,8 +46,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
       vsync: this,
       animationDuration: Duration(microseconds: 1),
     );
-    _tabController.addListener(() {
-      currentIndex.value = _tabController.index;
+    _tabController!.addListener(() {
+      currentIndex.value = _tabController!.index;
     });
     homePageController.addListener(() {
       if (homePageController.position.pixels > Get.height * 0.1) {
@@ -98,7 +99,9 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               centerTitle: false,
               toolbarHeight: Get.height * 0.08,
               bottom: PreferredSize(
-                  preferredSize: Size.fromHeight(Get.height * 0.02), child: homeAppbar(draweronTap: _handleMenuButtonPressed, context: context)),
+                  preferredSize: Size.fromHeight(Get.height * 0.02),
+                  child: homeAppbar(
+                      draweronTap: _handleMenuButtonPressed, context: context)),
             ),
             SliverList(
               delegate: SliverChildListDelegate(
@@ -113,7 +116,10 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                         height: 10,
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
-                          children: posterImage.map((e) => indicator(index: posterImage.indexOf(e))).toList(),
+                          children: posterImage
+                              .map((e) =>
+                                  indicator(index: posterImage.indexOf(e)))
+                              .toList(),
                         ),
                       ),
                     ],
@@ -130,12 +136,15 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             ),
           ];
         },
-        body: TabBarView(controller: _tabController, physics: BouncingScrollPhysics(), children: [
-          New(),
-          Banner(),
-          Post(),
-          Story(),
-        ]),
+        body: TabBarView(
+            controller: _tabController,
+            physics: BouncingScrollPhysics(),
+            children: [
+              New(),
+              Banner(),
+              Post(),
+              Story(),
+            ]),
       ),
     );
   }
@@ -143,7 +152,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>NewpageView<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< //
   Widget New() {
     return StaggeredGridView.countBuilder(
-      padding: EdgeInsets.only(bottom:Get.height*0.09),
+      padding: EdgeInsets.only(bottom: Get.height * 0.09),
       crossAxisCount: 2,
       itemCount: item3.length,
       physics: BouncingScrollPhysics(),
@@ -152,11 +161,11 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
         child: Bounce(
           duration: Duration(milliseconds: 200),
           onPressed: () {
-            Get.to(EditBottomNavBar());
+            Get.to(PosterSize());
           },
           child: ClipRRect(
               borderRadius: BorderRadius.all(Radius.circular(12)),
-              child: (item3[index].isVideo)
+              child: (item3[index].isVideo!)
                   ? DynamicVideoPlayer(
                       url: item3[index].url,
                       index: index,
@@ -164,12 +173,12 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   : Stack(
                       alignment: Alignment.topRight,
                       children: [
-                        Image.asset(item3[index].url),
+                        Image.asset(item3[index].url!),
                         InkWell(
                           onTap: () {
-                            item3[index].isLike = !item3[index].isLike;
+                            item3[index].isLike = !item3[index].isLike!;
                             setState(() {});
-                            if (item3[index].isLike) {
+                            if (item3[index].isLike!) {
                               favourit.add(item3[index]);
                             } else {
                               favourit.remove(item3[index]);
@@ -179,10 +188,14 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                             margin: EdgeInsets.all(5),
                             height: 30,
                             width: 30,
-                            decoration: BoxDecoration(color: Colors.black54, borderRadius: BorderRadius.circular(8)),
+                            decoration: BoxDecoration(
+                                color: Color(AppColor.black),
+                                borderRadius: BorderRadius.circular(8)),
                             child: Icon(
                               Icons.favorite,
-                              color: (!item3[index].isLike) ? Colors.white : Colors.red,
+                              color: (!item3[index].isLike!)
+                                  ? Color(AppColor.white)
+                                  : Color(AppColor.yellow),
                             ),
                           ),
                         ),
@@ -198,6 +211,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   Widget Banner() {
     return StaggeredGridView.countBuilder(
       crossAxisCount: 2,
+      padding: EdgeInsets.only(bottom: Get.height * 0.1),
       itemCount: banner.length,
       physics: BouncingScrollPhysics(),
       itemBuilder: (context, index) => Padding(
@@ -205,9 +219,11 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
         child: Bounce(
           duration: Duration(milliseconds: 200),
           onPressed: () {
-            Get.to(EditBottomNavBar());
+            Get.to(PosterSize());
           },
-          child: ClipRRect(borderRadius: BorderRadius.all(Radius.circular(12)), child: Image.asset(banner[index])),
+          child: ClipRRect(
+              borderRadius: BorderRadius.all(Radius.circular(12)),
+              child: Image.asset(banner[index])),
         ),
       ),
       staggeredTileBuilder: (index) => const StaggeredTile.fit(1),
@@ -216,7 +232,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
     // GridView.custom(
     //   shrinkWrap: true,
     //   padding: EdgeInsets.all(15),
-    //   // gridDelegate: SliverQuiltedGridDelegate(
+    //   // gridDelegate: (
     //   //   crossAxisCount: 2,
     //   //   mainAxisSpacing: 10,
     //   //   crossAxisSpacing: 10,
@@ -276,7 +292,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Postview<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< //
   Widget Post() {
     return StaggeredGridView.countBuilder(
-         padding: EdgeInsets.only(bottom: Get.height * 0.09),
+      padding: EdgeInsets.only(bottom: Get.height * 0.09),
       crossAxisCount: 2,
       itemCount: item.length,
       physics: BouncingScrollPhysics(),
@@ -285,9 +301,11 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
         child: Bounce(
           duration: Duration(milliseconds: 200),
           onPressed: () {
-            Get.to(EditBottomNavBar());
+            Get.to(PosterSize());
           },
-          child: ClipRRect(borderRadius: BorderRadius.all(Radius.circular(12)), child: Image.asset(item[index])),
+          child: ClipRRect(
+              borderRadius: BorderRadius.all(Radius.circular(12)),
+              child: Image.asset(item[index])),
         ),
       ),
       staggeredTileBuilder: (index) => const StaggeredTile.fit(1),
@@ -359,7 +377,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>StoryView<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< //
   Widget Story() {
     return StaggeredGridView.countBuilder(
-         padding: EdgeInsets.only(bottom: Get.height * 0.09),
+      padding: EdgeInsets.only(bottom: Get.height * 0.09),
       crossAxisCount: 2,
       itemCount: item2.length,
       physics: BouncingScrollPhysics(),
@@ -368,9 +386,11 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
         child: Bounce(
           duration: Duration(milliseconds: 200),
           onPressed: () {
-            Get.to(EditBottomNavBar());
+            Get.to(PosterSize());
           },
-          child: ClipRRect(borderRadius: BorderRadius.all(Radius.circular(12)), child: Image.asset(item2[index])),
+          child: ClipRRect(
+              borderRadius: BorderRadius.all(Radius.circular(12)),
+              child: Image.asset(item2[index])),
         ),
       ),
       staggeredTileBuilder: (index) => const StaggeredTile.fit(1),
@@ -443,24 +463,23 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
 
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>TabButton<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< //
 
-  Widget tabButton({
-    Widget page,
-    currentInd,
-    selectedind,
-    String textName,
-  }) {
+  Widget tabButton({Widget? page, currentInd, selectedind, String? textName}) {
     return Obx(
       () => Container(
         width: Get.width * 0.25,
         // padding: EdgeInsets.only(left: 15, right: 15, bottom: 5, top: 3),
-        decoration: BoxDecoration(borderRadius: BorderRadius.circular(5), color: Colors.transparent),
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(5), color: Colors.transparent),
         child: Center(
           child: Text(
-            textName,
-            style: TextStyle(
-                fontSize: Get.width * 0.022,
-                color: currentIndex.value == currentInd ? Color(AppColor.white) : Color(0xFFC3A1B5),
-                fontFamily: AppFont.SemiBold),
+            textName!,
+            style: GoogleFonts.fredoka(
+              fontSize: Get.width * 0.022,
+              color: currentIndex.value == currentInd
+                  ? Color(AppColor.white)
+                  : Color(0xFFC3A1B5),
+              fontWeight: FontWeight.w600,
+            ),
           ),
         ),
       ),
@@ -473,7 +492,9 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
       padding: const EdgeInsets.symmetric(horizontal: 2),
       child: CircleAvatar(
         radius: (index != posterIndex) ? 3 : 4,
-        backgroundColor: (index != posterIndex) ? Color(AppColor.grey) : Color(AppColor.orange),
+        backgroundColor: (index != posterIndex)
+            ? Color(AppColor.grey)
+            : Color(AppColor.orange),
       ),
     );
 
@@ -505,9 +526,12 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               posterIndex = i;
             });
           }),
-      itemBuilder: (BuildContext context, int itemIndex, int pageViewIndex) => Container(
+      itemBuilder: (BuildContext context, int itemIndex, int pageViewIndex) =>
+          Container(
         margin: EdgeInsets.only(left: 10, right: 10),
-        decoration: BoxDecoration(image: DecorationImage(image: AssetImage(posterImage[itemIndex]), fit: BoxFit.fill)),
+        decoration: BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage(posterImage[itemIndex]), fit: BoxFit.fill)),
       ),
     );
   }
@@ -521,13 +545,20 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
           },
         ),
         indicatorWeight: 1,
-        labelColor: Colors.white,
+        labelColor: Color(AppColor.white),
         unselectedLabelColor: Theme.of(context).cardColor,
-        labelStyle: TextStyle(fontSize: Get.width * 0.03, fontFamily: AppFont.SemiBold),
-        indicatorPadding: EdgeInsets.only(top: 5, bottom: 5, right: 10, left: 10),
+        labelStyle: GoogleFonts.fredoka(
+          fontSize: Get.width * 0.03,
+          fontWeight: FontWeight.w600,
+        ),
+        indicatorPadding:
+            EdgeInsets.only(top: 5, bottom: 5, right: 10, left: 10),
         indicator: BoxDecoration(
           borderRadius: BorderRadius.circular(8), //
-          gradient: LinearGradient(begin: Alignment.topCenter, end: Alignment.bottomCenter, colors:  [Color(AppColor.orange), Color(AppColor.red)]),
+          gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [Color(AppColor.orange), Color(AppColor.yellow)]),
         ),
         // indicatorColor: Colors.white,
         controller: _tabController,
@@ -547,23 +578,6 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
           Tab(
             text: "STORY",
           ),
-          // Tab(
-          //   child: tab(
-          //     item:
-          //         tabButton(currentInd: 1, textName: 'BANNER', selectedind: 1),
-          //   ),
-          // ),
-          // // text: 'Banner',
-          // Tab(
-          //   child: tab(
-          //     item: tabButton(currentInd: 2, textName: 'POST', selectedind: 2),
-          //   ),
-          // ),
-          // Tab(
-          //   child: tab(
-          //     item: tabButton(currentInd: 3, textName: 'STORY', selectedind: 3),
-          //   ),
-          // ),
         ]);
   }
 

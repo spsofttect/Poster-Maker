@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:photo_manager/photo_manager.dart';
 import 'package:poster_maker/Helper/commanwidget.dart';
 import 'package:poster_maker/Helper/utlity.dart';
@@ -10,7 +11,7 @@ import 'package:poster_maker/page/editBottomNavBar/addImage/addImageController.d
 // import 'package:video_player/video_player.dart';
 
 class AddImagePage extends StatefulWidget {
-  const AddImagePage({Key key}) : super(key: key);
+  const AddImagePage({Key? key}) : super(key: key);
 
   @override
   State<AddImagePage> createState() => _AddImagePageState();
@@ -30,8 +31,8 @@ class _AddImagePageState extends State<AddImagePage>
   // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> open_camera <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< //
   List<AssetPathEntity> albumlist = [];
   List<AssetEntity> mediaList = [];
-  AssetEntity selectedFile;
-  AssetPathEntity selectedModel;
+  AssetEntity? selectedFile;
+  AssetPathEntity? selectedModel;
   getImagesPath() async {
     final PermissionState _ps = await PhotoManager.requestPermissionExtend();
     print("check auth ${_ps.isAuth}");
@@ -48,7 +49,7 @@ class _AddImagePageState extends State<AddImagePage>
         selectedModel = albumlist.first;
         selectedFile = mediaList.first;
         selectedAlbums.clear();
-        selectedAlbums.add(selectedFile);
+        selectedAlbums.add(selectedFile!);
       });
     } else {}
     // printFile(selectedFile);
@@ -92,8 +93,8 @@ class _AddImagePageState extends State<AddImagePage>
           isExpanded: true,
           icon: Icon(Icons.keyboard_arrow_down_sharp, size: 30),
           items: getItems(),
-          value: selectedModel.name,
-          onChanged: (String d) {
+          value: selectedModel!.name.toString(),
+          onChanged: (String? d) {
             setState(() {
               albumlist.forEach(((element) {
                 if (element.name == d) {
@@ -109,20 +110,19 @@ class _AddImagePageState extends State<AddImagePage>
     ));
   }
 
-  List getItems() {
+   getItems() {
     return albumlist
-            .map((e) => DropdownMenuItem(
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    e.name,
-                    maxLines: 1,
-                    style:
-                        TextStyle(color: Color(AppColor.white), fontSize: 20),
-                  ),
-                  value: e.name,
-                ))
-            .toList() ??
-        [];
+        .map((e) => DropdownMenuItem(
+              alignment: Alignment.centerLeft,
+              child: Text(
+                e.name!,
+                maxLines: 1,
+                style: GoogleFonts.fredoka(
+                    color: Color(AppColor.white), fontSize: 20),
+              ),
+              value: e.name,
+            ))
+        .toList();
   }
 
   selectmedia(AssetPathEntity d) async {
@@ -134,19 +134,19 @@ class _AddImagePageState extends State<AddImagePage>
       mediaList = entities;
       selectedFile = mediaList[0];
       selectedAlbums.clear();
-      selectedAlbums.add(selectedFile);
+      selectedAlbums.add(selectedFile!);
       // if (state == AppState.picked) imagecroper();
     });
   }
 
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Gallery Bulltom <<<<<<<<<<<<<<<<<<<<<<<<<<<< //
   Widget nextButton(
-      {double height,
-      double width,
-      double radius,
-      String image,
+      {double? height,
+      double? width,
+      double? radius,
+      String? image,
       text,
-      EdgeInsets margin,
+      EdgeInsets? margin,
       onTap}) {
     return GestureDetector(
       onTap: onTap,
@@ -161,23 +161,23 @@ class _AddImagePageState extends State<AddImagePage>
                   blurRadius: 3,
                   offset: Offset(0, 5))
             ],
-            borderRadius: BorderRadius.circular(radius),
+            borderRadius: BorderRadius.circular(radius!),
             gradient: LinearGradient(
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
-                colors:  [Color(AppColor.orange), Color(AppColor.red)])),
+                colors: [Color(AppColor.orange), Color(AppColor.yellow)])),
         child: Center(
             child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image.asset(
-              AssetPath.editBottomNavBar + image,
+              AssetPath.editBottomNavBar + image!,
               height: 30,
             ),
             SizedBox(width: 20),
             Text(text,
-                style: TextStyle(
-                  fontFamily: AppFont.Medium,
+                style: GoogleFonts.fredoka(
+                  fontWeight: FontWeight.w400,
                   fontSize: 18,
                   color: Color(AppColor.white),
                 )),
@@ -188,7 +188,7 @@ class _AddImagePageState extends State<AddImagePage>
   }
 
 // TabBarView
-  TabController _tabController;
+  TabController? _tabController;
   Widget _tab() {
     // ignore: prefer_const_literals_to_create_immutables
     return TabBar(
@@ -201,15 +201,18 @@ class _AddImagePageState extends State<AddImagePage>
         tabs: [
           Text(
             'Image',
-            style: TextStyle(fontFamily: AppFont.SemiBold, fontSize: 18),
+            style:
+                GoogleFonts.fredoka(fontWeight: FontWeight.w400, fontSize: 18),
           ),
           Text(
             'PixaBay',
-            style: TextStyle(fontFamily: AppFont.SemiBold, fontSize: 18),
+            style:
+                GoogleFonts.fredoka(fontWeight: FontWeight.w400, fontSize: 18),
           ),
           Text(
             'Unsplash',
-            style: TextStyle(fontFamily: AppFont.SemiBold, fontSize: 18),
+            style:
+                GoogleFonts.fredoka(fontWeight: FontWeight.w400, fontSize: 18),
           ),
         ]);
   }
@@ -229,7 +232,7 @@ class _AddImagePageState extends State<AddImagePage>
 
   bool ismultipleEnable = false;
   List<AssetEntity> selectedAlbums = <AssetEntity>[].obs;
-  Widget grid({count, double height}) {
+  Widget grid({count, double? height}) {
     return Padding(
       padding: const EdgeInsets.only(top: 10, bottom: 80, left: 10, right: 10),
       child: GridView.builder(
@@ -277,7 +280,7 @@ class _AddImagePageState extends State<AddImagePage>
                               borderRadius: BorderRadius.circular(10),
                               image: DecorationImage(
                                   image: MemoryImage(
-                                    snapshot.data,
+                                    snapshot.data!,
                                   ),
                                   fit: BoxFit.cover)),
                         ),
@@ -288,6 +291,7 @@ class _AddImagePageState extends State<AddImagePage>
                       color: Colors.transparent,
                     );
                   }
+                  return Container();
                 });
           }),
     );

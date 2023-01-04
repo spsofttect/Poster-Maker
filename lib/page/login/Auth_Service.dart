@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_function_declarations_over_variables
+// ignore_for_file: prefer_function_declarations_over_variables, file_names, avoid_print
 
 import 'dart:async';
 
@@ -7,58 +7,22 @@ import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get/get.dart';
 import 'package:poster_maker/Helper/apiprovider.dart';
-
-String yourCountryCode = "";
-int currentpage = 0;
-RxInt start = 60.obs;
-String buttonName = "Resend";
-String verificationIdFinal = "";
-String smsCode = "";
-bool otpVisibility = false;
-String initialCountry = 'IN';
-AuthClass authClass = AuthClass();
-TextEditingController otpbox = TextEditingController();
-AnimationController storyAnimationController;
-TextEditingController phoneController = TextEditingController();
-Timer _timer;
-
-startTimer() {
-  const onsec = Duration(seconds: 1);
-  _timer = Timer.periodic(onsec, (timer) {
-    if (start.value == 0) {
-      _timer.cancel();
-      // wait = false;
-
-    } else {
-      if (start > 0) {
-        start.value--;
-      }
-    }
-  });
-}
-
-setData(verificationId) {
-  verificationIdFinal = verificationId;
-  startTimer();
-}
-
-selectedIndex(index) {
-  currentpage = index;
-}
+import 'package:poster_maker/page/bottomnavbar/bottomnavbar.dart';
+import 'package:poster_maker/page/login/login.dart';
 
 class AuthClass {
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
   final storage = const FlutterSecureStorage();
 
-  Future<void> signOut({BuildContext context}) async {
+  Future<void> signOut({BuildContext? context}) async {
     try {
       // await _googleSignIn.signOut();
       await _auth.signOut();
       await storage.delete(key: "token");
     } catch (e) {
       final snackBar = SnackBar(content: Text(e.toString()));
-      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+      ScaffoldMessenger.of(context!).showSnackBar(snackBar);
     }
   }
 
@@ -70,7 +34,7 @@ class AuthClass {
         key: "usercredential", value: userCredential.toString());
   }
 
-  Future<String> getToken() async {
+  Future<String?> getToken() async {
     return await storage.read(key: "token");
   }
 
@@ -83,7 +47,7 @@ class AuthClass {
     PhoneVerificationFailed verificationFailed =
         (FirebaseAuthException exception) {
       Get.back();
-      showTostMessage(message: "FirebaseAuthException" + exception.toString());
+      showTostMessage(message: "FirebaseAuthException$exception");
     };
     PhoneCodeSent codeSent = (String verificationID, [forceResnedingtoken]) {
       showTostMessage(message: "Verification Code sent on the phone number");
@@ -120,7 +84,7 @@ class AuthClass {
           await _auth.signInWithCredential(credential);
       storeTokenAndData(userCredential);
       // loginApiCall();
-      Get.offAll(BottomNavigationBarItem());
+      Get.offAll(const BottomNavBarScreen());
       showTostMessage(message: "logged In");
     } catch (e) {
       Get.back();

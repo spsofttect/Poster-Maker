@@ -1,15 +1,16 @@
-// ignore_for_file: prefer_const_constructors, unused_import, file_names
+// ignore_for_file: prefer_const_constructors, unused_import, file_names, unnecessary_import
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:poster_maker/Helper/utlity.dart';
 import 'package:poster_maker/page/bottomnavbar/appbar/Appbar.dart';
 import 'package:poster_maker/page/bottomnavbar/bottomnavbar.dart';
 import 'package:poster_maker/page/bottomnavbar/homepage/addBusiness/addBuisness.dart';
 
 class CetegoryNameScreen extends StatefulWidget {
-  const CetegoryNameScreen({Key key}) : super(key: key);
+  const CetegoryNameScreen({Key? key}) : super(key: key);
 
   @override
   State<CetegoryNameScreen> createState() => _CetegoryNameScreenState();
@@ -54,7 +55,7 @@ class _CetegoryNameScreenState extends State<CetegoryNameScreen> {
     return SizedBox(
       height: Get.height * 0.8,
       child: ListView.builder(
-          physics:  BouncingScrollPhysics(),
+          physics: BouncingScrollPhysics(),
           itemCount: ctegory.length,
           itemBuilder: (cotext, index) {
             var currentObj = ctegory[index];
@@ -69,14 +70,14 @@ class _CetegoryNameScreenState extends State<CetegoryNameScreen> {
                   color: Color(AppColor.grey).withOpacity(0.5)),
               child: Row(children: [
                 Image.asset(
-                  AssetPath.ctegory + currentObj.image,
+                  AssetPath.ctegory + currentObj.image!,
                   height: 30,
                 ),
                 const SizedBox(width: 15),
                 Text(
-                  currentObj.name,
-                  style: TextStyle(
-                      fontFamily: AppFont.Medium,
+                  currentObj.name!,
+                  style: GoogleFonts.fredoka(
+                      fontWeight: FontWeight.w400,
                       fontSize: 16,
                       color: Color(AppColor.bgcolor)),
                 ),
@@ -94,8 +95,8 @@ class _CetegoryNameScreenState extends State<CetegoryNameScreen> {
 }
 
 class Category {
-  String image;
-  String name;
+  String? image;
+  String? name;
 
   Category({this.image, this.name});
 }

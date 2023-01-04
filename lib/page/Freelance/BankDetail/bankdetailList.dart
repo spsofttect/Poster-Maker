@@ -7,7 +7,7 @@ import 'package:poster_maker/page/Freelance/freelance..dart';
 import 'package:poster_maker/page/bottomnavbar/appbar/Appbar.dart';
 
 class BankDetailList extends StatelessWidget {
-  const BankDetailList({Key key}) : super(key: key);
+  const BankDetailList({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
