@@ -21,8 +21,7 @@ class DigitalPostSliderPage extends StatefulWidget {
   State<DigitalPostSliderPage> createState() => _DigitalPostSliderPageState();
 }
 
-class _DigitalPostSliderPageState extends State<DigitalPostSliderPage>
-    with SingleTickerProviderStateMixin {
+class _DigitalPostSliderPageState extends State<DigitalPostSliderPage> with SingleTickerProviderStateMixin {
   TabController tabController;
 
   @override
@@ -80,8 +79,7 @@ class _DigitalPostSliderPageState extends State<DigitalPostSliderPage>
             ),
             CarouselSlider.builder(
               itemCount: 3,
-              itemBuilder:
-                  (BuildContext context, int itemIndex, int pageViewIndex) {
+              itemBuilder: (BuildContext context, int itemIndex, int pageViewIndex) {
                 return Container(
                   // margin: EdgeInsets.only(left: 10, right: 10),
                   // height: 100,
@@ -100,7 +98,7 @@ class _DigitalPostSliderPageState extends State<DigitalPostSliderPage>
                                         posterImage[posterIndex],
                                       )
                                     : AssetImage(
-                                        item[videoIndex],
+                                        newShimmer[videoIndex],
                                       )
                             : AssetImage(''),
                         fit: BoxFit.fill,
@@ -123,12 +121,7 @@ class _DigitalPostSliderPageState extends State<DigitalPostSliderPage>
             SizedBox(height: 20),
             selecteLanguage(),
             SizedBox(height: 10),
-            if (currentIndex == 0)
-              storygridView()
-            else if (currentIndex == 1)
-              postergridView()
-            else if (currentIndex == 2)
-              storygridView()
+            if (currentIndex == 0) storygridView() else if (currentIndex == 1) postergridView() else if (currentIndex == 2) storygridView()
           ],
         ),
       ),
@@ -138,71 +131,71 @@ class _DigitalPostSliderPageState extends State<DigitalPostSliderPage>
   Widget storygridView() {
     return Expanded(
       child: SingleChildScrollView(
-        // child: AlignedGridView.count(
-        //   padding: EdgeInsets.all(15),
-        //   shrinkWrap: true,
-        //   physics: const NeverScrollableScrollPhysics(),
-        //   crossAxisCount: 4,
-        //   mainAxisSpacing: 10,
-        //   crossAxisSpacing: 10,
-        //   itemCount: item2.length,
-        //   itemBuilder: (context, index) {
-        //     var currentObj = item2[index];
-        //     return Bounce(
-        //         duration: Duration(milliseconds: 200),
-        //         onPressed: () {
-        //           setState(() {
-        //             storyIndex = index;
-        //           });
-          
-        //         },
-        //         child: Container(
-        //           height: 100,
-        //           decoration: BoxDecoration(
-        //               image: DecorationImage(
-        //                   image: AssetImage(currentObj), fit: BoxFit.fill),
-        //               borderRadius: BorderRadius.circular(15),
-        //               color: Color(AppColor.grey)),
-        //         ));
-        //   },
-        // ),
-      
-      ),
+          // child: AlignedGridView.count(
+          //   padding: EdgeInsets.all(15),
+          //   shrinkWrap: true,
+          //   physics: const NeverScrollableScrollPhysics(),
+          //   crossAxisCount: 4,
+          //   mainAxisSpacing: 10,
+          //   crossAxisSpacing: 10,
+          //   itemCount: item2.length,
+          //   itemBuilder: (context, index) {
+          //     var currentObj = item2[index];
+          //     return Bounce(
+          //         duration: Duration(milliseconds: 200),
+          //         onPressed: () {
+          //           setState(() {
+          //             storyIndex = index;
+          //           });
+
+          //         },
+          //         child: Container(
+          //           height: 100,
+          //           decoration: BoxDecoration(
+          //               image: DecorationImage(
+          //                   image: AssetImage(currentObj), fit: BoxFit.fill),
+          //               borderRadius: BorderRadius.circular(15),
+          //               color: Color(AppColor.grey)),
+          //         ));
+          //   },
+          // ),
+
+          ),
     );
   }
 
   Widget postergridView() {
     return Expanded(
       child: SingleChildScrollView(
-        // child: AlignedGridView.count(
-        //   padding: EdgeInsets.all(15),
-        //   shrinkWrap: true,
-        //   physics: const NeverScrollableScrollPhysics(),
-        //   crossAxisCount: 4,
-        //   mainAxisSpacing: 10,
-        //   crossAxisSpacing: 10,
-        //   itemCount: posterImage.length,
-        //   itemBuilder: (context, index) {
-        //     var currentObj = posterImage[index];
-        //     return Bounce(
-        //         duration: Duration(milliseconds: 200),
-        //         onPressed: () {
-        //           setState(() {
-        //             posterIndex = index;
-        //           });
-        //         },
-        //         child: Container(
-        //           height: 100,
-        //           decoration: BoxDecoration(
-        //               image: DecorationImage(
-        //                   image: AssetImage(currentObj), fit: BoxFit.fill),
-        //               borderRadius: BorderRadius.circular(15),
-        //               color: Color(AppColor.grey)),
-        //         ));
-        //   },
-        // ),
-     
-      ),
+          // child: AlignedGridView.count(
+          //   padding: EdgeInsets.all(15),
+          //   shrinkWrap: true,
+          //   physics: const NeverScrollableScrollPhysics(),
+          //   crossAxisCount: 4,
+          //   mainAxisSpacing: 10,
+          //   crossAxisSpacing: 10,
+          //   itemCount: posterImage.length,
+          //   itemBuilder: (context, index) {
+          //     var currentObj = posterImage[index];
+          //     return Bounce(
+          //         duration: Duration(milliseconds: 200),
+          //         onPressed: () {
+          //           setState(() {
+          //             posterIndex = index;
+          //           });
+          //         },
+          //         child: Container(
+          //           height: 100,
+          //           decoration: BoxDecoration(
+          //               image: DecorationImage(
+          //                   image: AssetImage(currentObj), fit: BoxFit.fill),
+          //               borderRadius: BorderRadius.circular(15),
+          //               color: Color(AppColor.grey)),
+          //         ));
+          //   },
+          // ),
+
+          ),
     );
   }
 
@@ -213,8 +206,7 @@ class _DigitalPostSliderPageState extends State<DigitalPostSliderPage>
       children: [
         languageButton(
             text: 'English',
-            color:
-                currentind == 0 ? Color(AppColor.orange) : Color(AppColor.grey),
+            color: currentind == 0 ? Color(AppColor.orange) : Color(AppColor.grey),
             onTap: () {
               setState(() {
                 selectedIndex(0);
@@ -222,8 +214,7 @@ class _DigitalPostSliderPageState extends State<DigitalPostSliderPage>
             }),
         languageButton(
             text: 'हिंदी',
-            color:
-                currentind == 1 ? Color(AppColor.orange) : Color(AppColor.grey),
+            color: currentind == 1 ? Color(AppColor.orange) : Color(AppColor.grey),
             onTap: () {
               setState(() {
                 selectedIndex(1);
@@ -231,8 +222,7 @@ class _DigitalPostSliderPageState extends State<DigitalPostSliderPage>
             }),
         languageButton(
             text: 'मराठी',
-            color:
-                currentind == 2 ? Color(AppColor.orange) : Color(AppColor.grey),
+            color: currentind == 2 ? Color(AppColor.orange) : Color(AppColor.grey),
             onTap: () {
               setState(() {
                 selectedIndex(2);
@@ -240,8 +230,7 @@ class _DigitalPostSliderPageState extends State<DigitalPostSliderPage>
             }),
         languageButton(
             text: 'ગુજરાતી',
-            color:
-                currentind == 3 ? Color(AppColor.orange) : Color(AppColor.grey),
+            color: currentind == 3 ? Color(AppColor.orange) : Color(AppColor.grey),
             onTap: () {
               setState(() {
                 selectedIndex(3);
@@ -262,9 +251,7 @@ class _DigitalPostSliderPageState extends State<DigitalPostSliderPage>
             height: Get.height * 0.04,
             width: Get.height * 0.1,
             decoration: BoxDecoration(
-                color: Color(AppColor.white).withOpacity(0.1),
-                borderRadius: BorderRadius.circular(10),
-                border: Border.all(width: 1.5, color: color)),
+                color: Color(AppColor.white).withOpacity(0.1), borderRadius: BorderRadius.circular(10), border: Border.all(width: 1.5, color: color)),
             child: Center(
               child: Text(
                 text,

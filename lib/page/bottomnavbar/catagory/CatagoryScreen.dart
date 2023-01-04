@@ -46,15 +46,16 @@ class _CatagoryScreenState extends State<CatagoryScreen> {
               // Youtube Banner
               title(title: 'Youtube Banner', context: context),
               customListView(
-                  listindex: item.reversed.toList(),
-                  itemCount: item.length,
+                  listindex: newShimmer.reversed.toList(),
+                  itemCount: newShimmer.length,
                   boxfit: BoxFit.cover,
                   height: 120,
                   width: 200,
                   scrollDirection: Axis.horizontal),
               // Festival
               title(title: 'Festival', context: context),
-              customListView(listindex: item, itemCount: item.length, boxfit: BoxFit.cover, height: 120, width: 120, scrollDirection: Axis.horizontal),
+              customListView(
+                  listindex: newShimmer, itemCount: newShimmer.length, boxfit: BoxFit.cover, height: 120, width: 120, scrollDirection: Axis.horizontal),
               // FaceBook Post
               title(title: 'FaceBook Post', context: context),
               customListView(

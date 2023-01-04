@@ -38,8 +38,8 @@ class DigitalPost extends StatelessWidget {
                 // Youtube Banner
                 title(title: 'Youtube Banner', context: context),
                 customListView(
-                  listindex: item.reversed.toList(),
-                  itemCount: item.length,
+                  listindex: newShimmer.reversed.toList(),
+                  itemCount: newShimmer.length,
                   boxfit: BoxFit.cover,
                   height: 120,
                   width: 200,
@@ -55,8 +55,8 @@ class DigitalPost extends StatelessWidget {
                     }),
                 customListView(
                   onTap: () {},
-                  listindex: item,
-                  itemCount: item.length,
+                  listindex: newShimmer,
+                  itemCount: newShimmer.length,
                   boxfit: BoxFit.cover,
                   height: 120,
                   width: 120,
